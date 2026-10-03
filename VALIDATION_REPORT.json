@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "dataset_id": "legacy_internet_ict_qa_506",
+  "checked_on": "2026-10-03",
+  "checks": [
+    "506 unique query IDs",
+    "all answerable rows retain answers, required facts, and evidence; unanswerable row retains absence evidence",
+    "354/75/77 split matches frozen assignment",
+    "source/family/connected-component isolation",
+    "14 source IDs resolved",
+    "human_reviewed=false preserved",
+    "CC-BY-4.0 license and source attribution metadata agree across records and manifest",
+    "original source PDFs and media are not included",
+    "manifest and SHA256SUMS hashes valid"
+  ],
+  "limitations": [
+    "This is a post-annotation legacy split, not a prospective blind holdout.",
+    "Prior system exposure was not audited.",
+    "Only one unanswerable item is present.",
+    "Original report PDFs and visual media are not included; end-to-end retrieval requires users to obtain source documents separately.",
+    "Independent human review is not claimed."
+  ],
+  "human_reviewed": false,
+  "dataset_license": "CC-BY-4.0",
+  "open_license_asserted": true
+}

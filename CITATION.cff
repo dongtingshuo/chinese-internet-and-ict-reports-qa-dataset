@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite this dataset and the original source reports listed in sources.json."
+title: "Legacy Internet and ICT Report QA Dataset / 互联网与信息通信报告问答数据集"
+version: "1.0.0"
+date-released: "2026-10-03"
+type: dataset
+license: CC-BY-4.0
+authors:
+  - name: "Project maintainers"
+keywords:
+  - Internet
+  - information and communications technology
+  - document question answering
+  - evidence retrieval
+abstract: "A 506-record source-grounded Chinese QA dataset with a family-disjoint legacy split and record-level evidence locators. Independent human review is not claimed."

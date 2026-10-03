@@ -1,0 +1,161 @@
+{
+  "$id": "legacy_main_domain_gold_candidate_record_v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "answerability": {
+      "enum": [
+        "answerable",
+        "unanswerable"
+      ]
+    },
+    "gold_answer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "gold_candidate": {
+      "const": true
+    },
+    "gold_evidence_sets": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "gold_quality": {
+      "required": [
+        "source_support_status",
+        "human_reviewed",
+        "heldout_gold_accessed"
+      ],
+      "type": "object"
+    },
+    "lineage": {
+      "required": [
+        "original_candidate_row_sha256",
+        "corrected_candidate_row_sha256"
+      ],
+      "type": "object"
+    },
+    "publication_rights": {
+      "required": [
+        "status",
+        "dataset_license",
+        "rights_assessment_is_legal_opinion"
+      ],
+      "properties": {
+        "dataset_license": {
+          "const": "CC-BY-4.0",
+          "description": "License for the packaged dataset records and annotations; does not license external source reports or media."
+        },
+        "license_url": {
+          "const": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "source_attribution_required": {
+          "const": true
+        }
+      },
+      "type": "object"
+    },
+    "query_id": {
+      "pattern": "^M3-TR-CAND-[0-9]{4}$",
+      "type": "string"
+    },
+    "question": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "required_facts": {
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "legacy_main_domain_gold_candidate_record_v1"
+    },
+    "source_refs": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "split": {
+      "type": "string",
+      "enum": [
+        "TRAIN",
+        "DEV",
+        "TEST"
+      ],
+      "description": "Frozen legacy dataset split; assigned by document family and connected component after annotation."
+    },
+    "historical_candidate_split": {
+      "type": "object",
+      "properties": {
+        "formal_split_status": {
+          "type": "string"
+        },
+        "historical_split_candidate": {
+          "type": "string"
+        },
+        "historical_split_status": {
+          "type": "string"
+        },
+        "release_split": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "split_proposal_path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "formal_split_status",
+        "historical_split_candidate",
+        "historical_split_status",
+        "release_split",
+        "split_proposal_path"
+      ],
+      "description": "Historical pre-freeze split metadata retained for provenance; use split for the released legacy assignment."
+    },
+    "legacy_split_component_id": {
+      "type": "string",
+      "description": "Connected component identifier used to keep cross-document dependencies within one split."
+    },
+    "legacy_family_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "All source document families linked to this query for group-isolation checks."
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Stable source identifiers for all supporting documents."
+    },
+    "split_assignment_version": {
+      "type": "string",
+      "const": "legacy_dataset_split_v1",
+      "description": "Version of the frozen legacy split assignment."
+    }
+  },
+  "required": [
+    "schema_version",
+    "query_id",
+    "gold_candidate",
+    "question",
+    "answerability",
+    "gold_answer",
+    "required_facts",
+    "gold_evidence_sets",
+    "source_refs",
+    "gold_quality",
+    "publication_rights",
+    "split",
+    "lineage",
+    "historical_candidate_split",
+    "legacy_split_component_id",
+    "legacy_family_ids",
+    "source_ids",
+    "split_assignment_version"
+  ],
+  "title": "Legacy Internet and ICT Report QA Dataset v1.0.0",
+  "type": "object"
+}

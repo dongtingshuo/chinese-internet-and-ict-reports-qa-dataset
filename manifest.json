@@ -1,0 +1,144 @@
+{
+  "dataset_id": "legacy_internet_ict_qa_506",
+  "dataset_name": "Legacy Internet and ICT Report QA Dataset / 互联网与信息通信报告问答数据集",
+  "version": "1.0.0",
+  "created_on": "2026-10-03",
+  "package_status": "complete_standalone_open_dataset_package",
+  "record_count": 506,
+  "source_count": 14,
+  "split_counts": {
+    "TRAIN": 354,
+    "TEST": 77,
+    "DEV": 75
+  },
+  "connected_component_counts": {
+    "TRAIN": 9,
+    "DEV": 2,
+    "TEST": 2
+  },
+  "family_counts": {
+    "TRAIN": 10,
+    "DEV": 2,
+    "TEST": 2
+  },
+  "source_counts": {
+    "TRAIN": 10,
+    "DEV": 2,
+    "TEST": 2
+  },
+  "answerability_counts": {
+    "answerable": 505,
+    "unanswerable": 1
+  },
+  "source_support_status_counts": {
+    "source_supported_candidate": 401,
+    "source_verified_after_locator_repair": 55,
+    "source_checked_in_followup_resolution": 2,
+    "historical_source_verified_gold": 40,
+    "source_verified_after_content_correction": 8
+  },
+  "gold_candidate_count": 506,
+  "unresolved_semantic_review_count": 0,
+  "human_reviewed": false,
+  "pre_annotation_split": false,
+  "prospective_blind_holdout_claim": false,
+  "prior_system_exposure_audit": "not_performed",
+  "m3_formal_train_query_count": 0,
+  "legacy_train_query_count": 354,
+  "included_in_m3_formal_experiments": false,
+  "included_in_m4_experiments": false,
+  "source_pdfs_or_media_included": false,
+  "dataset_license": "CC-BY-4.0",
+  "open_license_asserted": true,
+  "input_provenance": {
+    "source_candidate_records_sha256": "025c2e1dc36c83e341d36f1b7b8dde169829179ec307ee44e2342e34b0d7bff3",
+    "source_catalog_sha256": "daaca4168c33470b0277218f6fe6247074375425ebdd412f36002ee8ca08a12a",
+    "frozen_legacy_split_manifest_sha256": "fc26d3e09aa68252fd7c7a8f47311f88899480b294a592893270fb1260281bcf",
+    "frozen_legacy_split_assignments_sha256": "de9e5a5bd86916ee5c58396fd5e0c13ca6a511ed068fca2cba8285f2e74a361a"
+  },
+  "split_manifest_reference": "legacy_dataset_split_v1/legacy_dataset_split_manifest_v1.json",
+  "dataset_license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_attribution_required": true,
+  "package_files": [
+    {
+      "path": "ATTRIBUTION.md",
+      "bytes": 588,
+      "sha256": "d073b5cac9bb646fdb62a16b7558ec23018c816dad1ebbde3b16cfc94075abc6"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 626,
+      "sha256": "3c52cbfa0b0c63a1f457b5e05cdb2ecc7ae897c11063d99ffabed2a3c62fbcfb"
+    },
+    {
+      "path": "CITATION.md",
+      "bytes": 436,
+      "sha256": "920186b3d164247a72109b100255ecd21d106e7d2bef258deb1ba1cc107bd811"
+    },
+    {
+      "path": "DATA_CARD.md",
+      "bytes": 2336,
+      "sha256": "dd7b52f3280f0dbb5e1b7da9bd6e564a5a474b68c3522b4e2457bf20595b0142"
+    },
+    {
+      "path": "DATA_STATEMENT.md",
+      "bytes": 2007,
+      "sha256": "25e2ef080dc5388c01d2dbc614a73c8a31c5be73f91d115f4da6dbd577af785a"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 609,
+      "sha256": "6baec11c169c628a1f6cbdf37323d50e2674bdce91f33f4b5f3aded2cc0f53bf"
+    },
+    {
+      "path": "LICENSE_STATUS.md",
+      "bytes": 786,
+      "sha256": "094a0597cadaa0dfc51d0d54f9dfde7a68c31fceae45d53dc20d2dca35ad9e3e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6760,
+      "sha256": "2c119831d9cba100f9c7934917b112402dc32774fd4c244120c32c2a7879074a"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "bytes": 6159,
+      "sha256": "dc4836cf45bda1502655b21bc679cbbd67a5b61c70bc3062b257719c7cc9cbe1"
+    },
+    {
+      "path": "SPLIT_POLICY.md",
+      "bytes": 618,
+      "sha256": "1a2edbd5fa2882df2687de1abe002663169975cc9ef5df22b6020348302d3b6e"
+    },
+    {
+      "path": "VALIDATION_REPORT.json",
+      "bytes": 1093,
+      "sha256": "0880bffd8d804896493d3af1bcb1d2c1458c1f1cd5f6c911049476e715139e4d"
+    },
+    {
+      "path": "records.jsonl",
+      "bytes": 3602878,
+      "sha256": "7d4d3028b06c7926515607ecb9ad596984a74feccc91a0cea5fac2dc23fc6a6a"
+    },
+    {
+      "path": "schema.json",
+      "bytes": 4051,
+      "sha256": "8ac96285c0c80757854fa8db299ec3e10610c520ca982816ce09c7440b337f10"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 25063,
+      "sha256": "f36cda6fe7c0ddf9c1206520e70e108153baa1dc5d0088407755ed25b7a1f6d7"
+    },
+    {
+      "path": "split_assignments.jsonl",
+      "bytes": 207156,
+      "sha256": "fe3ef765e94f142bcf4c40d4d1011b1c1cd42520b99ab7361421636b6add670e"
+    },
+    {
+      "path": "validate_package.py",
+      "bytes": 6118,
+      "sha256": "cc1146110ac53dadea245d02a39ac4515d0bd45854c928089ea8f4bd455112de"
+    }
+  ]
+}
