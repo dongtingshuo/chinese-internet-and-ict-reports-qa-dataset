@@ -156,6 +156,6 @@
     "source_ids",
     "split_assignment_version"
   ],
-  "title": "Legacy Internet and ICT Report QA Dataset v1.0.0",
+  "title": "Chinese Internet and ICT Reports QA Dataset v1.0.0",
   "type": "object"
 }

@@ -2,7 +2,7 @@
 
 Please cite the dataset as follows:
 
-Legacy Internet and ICT Report QA Dataset. Version 1.0.0. 2026. Project dataset package.
+Chinese Internet and ICT Reports QA Dataset. Version 1.0.0. 2026. Project dataset package.
 
 Also cite the original reports listed by source ID in the records. Full references and official URLs are in sources.json and ATTRIBUTION.md.
 

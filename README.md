@@ -1,4 +1,4 @@
-# Legacy Internet and ICT Report QA Dataset / 互联网与信息通信报告问答数据集
+# Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集
 
 [简体中文](README.zh-CN.md) · English
 

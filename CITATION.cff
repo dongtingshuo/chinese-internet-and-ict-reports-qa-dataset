@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Please cite this dataset and the original source reports listed in sources.json."
-title: "Legacy Internet and ICT Report QA Dataset / 互联网与信息通信报告问答数据集"
+title: "Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集"
 version: "1.0.0"
 date-released: "2026-10-03"
 type: dataset

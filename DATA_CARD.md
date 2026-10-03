@@ -2,7 +2,7 @@
 
 ## Identity
 
-- Dataset: Legacy Internet and ICT Report QA Dataset
+- Dataset: Chinese Internet and ICT Reports QA Dataset
 - Version: 1.0.0
 - Domain: Internet and information-communications reports
 - Records: 506
