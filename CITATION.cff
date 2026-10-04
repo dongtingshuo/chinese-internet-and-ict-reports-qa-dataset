@@ -2,11 +2,15 @@ cff-version: 1.2.0
 message: "Please cite this dataset and the original source reports listed in sources.json."
 title: "Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集"
 version: "1.0.0"
+url: "https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset"
+repository-code: "https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset"
 date-released: "2026-10-03"
 type: dataset
 license: CC-BY-4.0
 authors:
-  - name: "Project maintainers"
+  - family-names: Dong
+    given-names: TingShuo
+    website: "https://github.com/dongtingshuo"
 keywords:
   - Internet
   - information and communications technology

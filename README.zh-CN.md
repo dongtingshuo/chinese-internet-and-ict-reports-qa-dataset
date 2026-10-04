@@ -84,7 +84,7 @@ python3 validate_package.py
 - [`LICENSE_STATUS.md`](LICENSE_STATUS.md)：许可与再分发状态。
 - [`CITATION.md`](CITATION.md)、[`CITATION.cff`](CITATION.cff)：引用信息。
 - [`manifest.json`](manifest.json)、[`SHA256SUMS`](SHA256SUMS)：数据包元数据与完整性校验。
-- [`VALIDATION_REPORT.json`](VALIDATION_REPORT.json)：记录了许可元数据更新后尚未重新运行校验。
+- [`VALIDATION_REPORT.json`](VALIDATION_REPORT.json)：最近一次数据包校验记录；校验器于 2026-10-04 通过。
 - [`validate_package.py`](validate_package.py)：结构和完整性校验器。
 
 ## 许可与来源署名

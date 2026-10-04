@@ -84,7 +84,7 @@ Records from the same document family and connected component stay in one split:
 - [`LICENSE_STATUS.md`](LICENSE_STATUS.md): license and redistribution status.
 - [`CITATION.md`](CITATION.md) and [`CITATION.cff`](CITATION.cff): citation information.
 - [`manifest.json`](manifest.json) and [`SHA256SUMS`](SHA256SUMS): package metadata and integrity checks.
-- [`VALIDATION_REPORT.json`](VALIDATION_REPORT.json): records that validation has not been rerun after the license metadata update.
+- [`VALIDATION_REPORT.json`](VALIDATION_REPORT.json): the latest package validation report; the packaged validator last passed on 2026-10-04.
 - [`validate_package.py`](validate_package.py): structural and integrity validator.
 
 ## License and attribution

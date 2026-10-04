@@ -5,6 +5,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+def package_files():
+    return (p for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.relative_to(ROOT).parts)
 EXPECTED = {'TRAIN': 354, 'DEV': 75, 'TEST': 77}
 def jsonl(path):
     return [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]
@@ -87,10 +89,9 @@ if sums.exists():
         require(p.is_file(), f'SHA256SUMS missing file: {rel}')
         require(sha(p)==digest, f'SHA256SUMS mismatch: {rel}')
         seen.add(rel)
-    expected_files={p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*') if p.is_file() and p.name!='SHA256SUMS'}
+    expected_files={p.relative_to(ROOT).as_posix() for p in package_files() if p.name!='SHA256SUMS'}
     require(seen==expected_files, 'SHA256SUMS file coverage mismatch')
 
-for p in ROOT.rglob('*'):
-    if p.is_file():
-        require(p.suffix.lower() not in {'.pdf','.png','.jpg','.jpeg','.webp'}, f'source media must not be bundled: {p.name}')
+for p in package_files():
+    require(p.suffix.lower() not in {'.pdf','.png','.jpg','.jpeg','.webp'}, f'source media must not be bundled: {p.name}')
 print('PASS: 506 records; frozen 354/75/77 split; group/family/source isolation; provenance; CC BY 4.0 attribution metadata; hashes')
