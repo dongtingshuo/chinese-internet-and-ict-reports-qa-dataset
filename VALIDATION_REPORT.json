@@ -19,7 +19,7 @@
   },
   "legacy_prefix_hashes_preserved": true,
   "report_family_split_isolation": "passed",
-  "source_and_page_locators": "all added rows point to a valid physical source-PDF page",
+  "source_and_page_locators": "all added rows point to a valid physical source-PDF page; five WDR2019 rows map printed page 37 to PDF page 49",
   "source_rights_metadata": "CC BY 3.0 IGO, notice page, attribution, adaptation notice, translation identity and third-party limits recorded per added source",
   "human_reviewed": false,
   "independent_human_double_annotation": "not_performed",
@@ -30,6 +30,7 @@
     "legacy_split_assignments_prefix": "passed",
     "record_fields_and_schema_versions": "passed",
     "source_ids_and_page_bounds": "passed",
+    "printed_page_pdf_page_mapping": "passed",
     "record_level_license_and_attribution": "passed",
     "source_report_family_and_evidence_group_split_isolation": "passed",
     "viewer_split_counts_and_row_parity": "passed",
@@ -54,6 +55,7 @@
   "notes": [
     "AI-assisted source and evidence verification; independent human review is not claimed.",
     "The existing one-item unanswerable set is retained; no new no-answer items were added.",
+    "Five WDR2019 evidence locators were corrected from printed page 37 to physical PDF page 49.",
     "No model-performance results are included."
   ]
 }

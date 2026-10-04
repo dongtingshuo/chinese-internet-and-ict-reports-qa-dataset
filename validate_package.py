@@ -91,6 +91,16 @@ require(all(r.get('query_id', '').startswith('IICR-V11-') for r in new_records),
 require([r['query_id'] for r in new_records] == [f'IICR-V11-{n:04d}' for n in range(1, NEW_RECORDS + 1)], 'new record IDs must be contiguous and stable')
 require(len({r['question'] for r in new_records}) == NEW_RECORDS, 'new questions contain duplicates')
 
+# The 2019 report's printed page 37 is physical PDF page 49.
+for qid in ('IICR-V11-0079', 'IICR-V11-0080', 'IICR-V11-0081', 'IICR-V11-0082', 'IICR-V11-0083'):
+    row = next(r for r in new_records if r['query_id'] == qid)
+    locator = row['gold_evidence_sets'][0]['sources'][0]
+    require(row.get('source_ids') == ['WB2019-WORK'], f'printed-page correction source mismatch: {qid}')
+    require(locator.get('pdf_page') == 49 and locator.get('printed_page') == 37, f'printed/PDF page mapping mismatch: {qid}')
+    expected_element = 'wb2019-work-p0049-narrative'
+    require(locator.get('element_id') == expected_element, f'printed-page correction element mismatch: {qid}')
+    require(row['gold_quality']['required_facts_review'][0].get('cited_element_ids') == [expected_element], f'printed-page review locator mismatch: {qid}')
+
 assign_by_id = {a['query_id']: a for a in assignments}
 require(len(assign_by_id) == TOTAL_RECORDS and set(record_ids) == set(assign_by_id), 'records and assignments IDs differ')
 record_counts = Counter(r.get('split') for r in records)
