@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "dataset_id": "legacy_internet_ict_qa_506",
-  "checked_on": "2026-10-03",
+  "checked_on": "2026-10-04",
   "checks": [
     "506 unique query IDs",
     "all answerable rows retain answers, required facts, and evidence; unanswerable row retains absence evidence",
