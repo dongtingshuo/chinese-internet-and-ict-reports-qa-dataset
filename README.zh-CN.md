@@ -7,7 +7,7 @@ language:
 task_categories:
 - question-answering
 size_categories:
-- 1K<n<10K
+- n<1K
 configs:
 - config_name: default
   data_files:
