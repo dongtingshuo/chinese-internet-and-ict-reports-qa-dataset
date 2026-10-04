@@ -1,47 +1,68 @@
+---
+license: other
+license_name: Mixed record-level licensing (legacy CC BY 4.0; v1.1.0 additions CC BY 3.0 IGO)
+license_link: https://huggingface.co/datasets/TingshuoDong/chinese-internet-and-ict-reports-qa-dataset/blob/main/LICENSES.md
+language:
+- zh
+task_categories:
+- question-answering
+size_categories:
+- 1K<n<10K
+configs:
+- config_name: default
+  data_files:
+  - split: train
+    path: data/train.jsonl
+  - split: validation
+    path: data/validation.jsonl
+  - split: test
+    path: data/test.jsonl
+---
+
 # Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集
 
 [简体中文](README.zh-CN.md) · English
 
-Version 1.0.0 · 2026-10-03
+Version 1.1.0 · 2026-10-05
 
 ## Overview
 
-This package contains 506 Chinese question-answer records based on 14 public reports about Internet and information-communications topics. Researchers can use it to study evidence-grounded document retrieval and question answering, including evidence localization, multi-fact answers, cross-document questions, numerical reasoning, and questions that depend on table, chart, or visual content.
+This release contains 773 Chinese QA records from 22 public Internet and information-communications reports. It preserves the original 506 v1.0.0 records, IDs, and split assignments, and adds 267 AI-assisted, source-checked questions from eight licensed reports published by the World Bank, International Labour Organization, and Asian Development Bank.
 
-The records are split by document family and connected component. The package also includes answerability and required-fact annotations, source and page locators, source metadata, a JSON Schema, checksums, and a self-contained validator. It contains no source PDFs, page images, screenshots, extracted page text, or long source passages.
+Each record includes answerability, a concise answer, required facts, source and page locators, report metadata, and record-level reuse terms. New questions use narrative text only. No source PDFs, images, screenshots, extracted page text, or long source passages are bundled.
 
 ## Dataset at a glance
 
-- Records: 506 (505 answerable; 1 unanswerable)
+- Records: 773 (772 answerable; 1 unanswerable)
+- Sources: 22 reports, including 8 additions from 3 institutions
+- Split: TRAIN 537 · DEV 119 · TEST 117
 - Language: Chinese
-- Sources: 14 reports in 13 connected components
-- Split: TRAIN 354 · DEV 75 · TEST 77
-- Visual/table/chart-related records: 30
-- Data format: JSON Lines (`records.jsonl`), one JSON record per line
+- Data format: JSON Lines (`records.jsonl`), one record per line
+- New v1.1.0 records: 267, all answerable and text-based
+- Historical table/chart/visual-related records: 30, retained from v1.0.0
 
 ## Intended use and limitations
 
-Use this dataset to prototype or evaluate evidence-grounded document retrieval and QA workflows. It is not a representative sample of the full Internet/ICT domain, and it should not be used alone to claim model performance. The split was created after annotation, not as a prospective blind holdout; prior system exposure was not audited. TEST contains the only unanswerable record, too few to estimate no-answer performance reliably. The package does not include visual source files.
+Use the data to prototype source-grounded document retrieval and question answering. It is a purposive collection, not a representative sample of the full Internet/ICT domain. The split was assigned after annotation; it is not a prospective blind holdout, and prior system exposure has not been audited. The sole unanswerable example is a retained v1.0.0 item, so the package cannot support reliable no-answer performance estimates. No model-performance results are included.
+
+The added records paraphrase material from official Chinese summaries, editions, or translations. `sources.json` records the institution, English and Chinese titles, language and translation status, official links, SHA-256 of the exact source PDF used, license, rights-notice location, required attribution, and third-party-content limits for every added report.
 
 ## Quick start
-
-Python 3 is required for the example and validator. Reading the JSONL file does not require third-party Python packages.
 
 ```python
 import json
 from pathlib import Path
 
-records_path = Path("records.jsonl")
 records = [
     json.loads(line)
-    for line in records_path.read_text(encoding="utf-8").splitlines()
+    for line in Path("records.jsonl").read_text(encoding="utf-8").splitlines()
     if line.strip()
 ]
-train_records = [record for record in records if record["split"] == "TRAIN"]
-print(f"records={len(records)}, train={len(train_records)}")
+train = [record for record in records if record["split"] == "TRAIN"]
+print(f"records={len(records)}, train={len(train)}")
 ```
 
-Run the package validator from this directory:
+Run the package checks with Python 3:
 
 ```bash
 python3 validate_package.py
@@ -49,54 +70,43 @@ python3 validate_package.py
 
 ## Record format
 
-Each line in `records.jsonl` contains one record. The full machine-readable definition is in [`schema.json`](schema.json).
+See [`schema.json`](schema.json) for the v1.0 and v1.1 record schemas. New records use `schema_version: iicr_report_qa_v1_1`, stable IDs `IICR-V11-####`, an answerability label, required-fact statements, and a page-level evidence locator. Physical PDF pages are one-based. `printed_page` is `null` when it was not separately verified.
 
-| Field | Meaning |
-|---|---|
-| `query_id` | Stable record identifier. |
-| `question` | Chinese question. |
-| `answerability`, `gold_answer` | Whether the question is answerable and its annotated answer. |
-| `required_facts` | Atomic facts needed to support an answer, with numeric fields when applicable. |
-| `gold_evidence_sets` | Alternative sufficient evidence sets, with source, page, element, and supported-fact locators. |
-| `split` | Frozen `TRAIN`, `DEV`, or `TEST` assignment. |
-| `domain_id`, `document_id`, `family_id`, `connected_group_id` | Domain, document, report-family, and evidence-group metadata. |
-| `source_ids`, `source`, `source_refs` | Source identifiers, provenance records, and the source attribution to retain when citing a record. |
-| `gold_candidate`, `gold_quality` | Candidate-set and source-review records. `gold_candidate: true` does not mean independent human adjudication. |
-| `publication_rights` | Dataset license and record-level attribution metadata. |
+The Hugging Face Viewer rows in `data/` include a `record_json` field containing the complete canonical record. Rebuild those files with `python3 build_hf_splits.py`.
 
-## Annotation and review provenance
+## Review and split provenance
 
-All 506 rows are marked as Gold candidates. Their recorded source-support statuses are: 401 source-supported candidates, 55 verified after locator repair, 8 after content correction, 40 retaining an earlier source-verified status, and 2 with later source follow-up resolutions. The records show AI-assisted source checking; the package does not claim independent human review. After the recorded locator repairs, source follow-ups, and content corrections, the review ledger has no unresolved semantic-review items. That status is not independent human certification.
+The 506 legacy records and their existing assignment rows are preserved byte-for-byte at the start of the v1.1 files. The 267 additions are marked `human_reviewed: false`; their page-level source checks were AI-assisted. Independent human review or double annotation is not claimed. The additions are grouped by report family, with each added report assigned to a single split.
 
-## Split and leakage controls
+| Split | v1.0.0 retained | v1.1.0 additions | Total |
+|---|---:|---:|---:|
+| TRAIN | 354 | 183 | 537 |
+| DEV | 75 | 44 | 119 |
+| TEST | 77 | 40 | 117 |
 
-Records from the same document family and connected component stay in one split: TRAIN 354, DEV 75, and TEST 77. The split was assigned after the questions and Gold-candidate annotations existed. See [`SPLIT_POLICY.md`](SPLIT_POLICY.md) for the protocol and [`split_assignments.jsonl`](split_assignments.jsonl) for the ID-level audit.
+All records from the same known report family and connected evidence group stay in one split. The split was assigned after question annotation and is not a blind test. See [`SPLIT_POLICY.md`](SPLIT_POLICY.md) and [`split_assignments.jsonl`](split_assignments.jsonl).
 
 ## Files
 
-- [`records.jsonl`](records.jsonl): QA records and evidence locators.
-- [`split_assignments.jsonl`](split_assignments.jsonl): query-ID-only split and grouping audit.
-- [`sources.json`](sources.json): source titles, official links, notice summaries, and hashes.
-- [`schema.json`](schema.json): JSON Schema for the records.
-- [`DATA_CARD.md`](DATA_CARD.md) and [`DATA_STATEMENT.md`](DATA_STATEMENT.md): scope, construction, provenance, and limitations.
-- [`ATTRIBUTION.md`](ATTRIBUTION.md): source attribution index.
-- [`LICENSE`](LICENSE): CC BY 4.0 license for the packaged dataset records and annotations.
-- [`LICENSE_STATUS.md`](LICENSE_STATUS.md): license and redistribution status.
-- [`CITATION.md`](CITATION.md) and [`CITATION.cff`](CITATION.cff): citation information.
-- [`manifest.json`](manifest.json) and [`SHA256SUMS`](SHA256SUMS): package metadata and integrity checks.
-- [`VALIDATION_REPORT.json`](VALIDATION_REPORT.json): the latest package validation report; the packaged validator last passed on 2026-10-04.
-- [`validate_package.py`](validate_package.py): structural and integrity validator.
+- [`records.jsonl`](records.jsonl): canonical QA records.
+- [`split_assignments.jsonl`](split_assignments.jsonl): ID-level split and grouping audit.
+- [`sources.json`](sources.json): legacy sources and detailed metadata for all eight additions.
+- [`data/`](data/): Hugging Face Viewer JSONL splits, generated from `records.jsonl`.
+- [`schema.json`](schema.json): JSON Schema for both versions.
+- [`DATA_CARD.md`](DATA_CARD.md) and [`DATA_STATEMENT.md`](DATA_STATEMENT.md): scope, construction, review, and limitations.
+- [`ATTRIBUTION.md`](ATTRIBUTION.md): source references and required notices.
+- [`LICENSES.md`](LICENSES.md): record-level license scope and obligations.
+- [`LICENSE`](LICENSE): mixed-license scope notice; legacy CC BY 4.0 text is retained in [`LICENSE-CC-BY-4.0.txt`](LICENSE-CC-BY-4.0.txt).
+- [`manifest.json`](manifest.json) and [`SHA256SUMS`](SHA256SUMS): package metadata and checksums.
+- [`VALIDATION_REPORT.json`](VALIDATION_REPORT.json): latest release-gate summary.
+- [`validate_package.py`](validate_package.py): structural, rights-metadata, split, and integrity checks.
 
 ## License and attribution
 
-The question-answer records, annotations, evidence locators, and dataset metadata in this package are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). You may share and adapt them, including commercially, with appropriate attribution, a link to the license, and an indication of changes. Cite the dataset and the original reports identified for each record in `source_ids`; see [`ATTRIBUTION.md`](ATTRIBUTION.md) and [`sources.json`](sources.json).
+This package has **mixed record-level licensing**, not one blanket license. The 506 retained v1.0.0 records remain under CC BY 4.0. The 267 new `IICR-V11-` records are adaptations of the specific reports named in each record and are released under CC BY 3.0 IGO, subject to the original institution's attribution and adaptation notice. Each record's `publication_rights` and `source_refs` identify its applicable terms. HF metadata uses `license: other` because neither license applies uniformly to every row.
 
-The original reports, PDFs, images, and other source media are not included and are outside this dataset-package license. See [`LICENSE`](LICENSE), [`LICENSE_STATUS.md`](LICENSE_STATUS.md), and each record's `publication_rights` field for the license scope and attribution details.
+For new records, cite the dataset and the listed report, link the CC BY 3.0 IGO license, indicate that the QA is an AI-assisted paraphrase/adaptation, and include the institution-specific disclaimer shown in `ATTRIBUTION.md` and the record. The ADB sources also state that their English text is the only official version. Do not reuse third-party figures, tables, photographs, logos, or other material based on the report's license alone. Original reports and media are not included and are outside the package license.
 
 ## Citation
 
-Cite this dataset and the original reports identified in the records. See [`CITATION.cff`](CITATION.cff), [`CITATION.md`](CITATION.md), and [`ATTRIBUTION.md`](ATTRIBUTION.md).
-
-## Help and maintenance
-
-For schema or validation issues, open an issue in the GitHub repository that hosts this package. Include the affected `query_id` or file path, and do not attach source PDFs or other source files. The project team maintains this package.
+Cite this release and the original reports identified by `source_ids`. See [`CITATION.cff`](CITATION.cff), [`CITATION.md`](CITATION.md), and [`ATTRIBUTION.md`](ATTRIBUTION.md).

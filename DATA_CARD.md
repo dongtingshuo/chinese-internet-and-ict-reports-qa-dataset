@@ -3,33 +3,39 @@
 ## Identity
 
 - Dataset: Chinese Internet and ICT Reports QA Dataset
-- Version: 1.0.0
-- Domain: Internet and information-communications reports
-- Records: 506
-- Sources: 14 public reports
-- Split: TRAIN 354 / DEV 75 / TEST 77
-- Dataset license: CC BY 4.0
+- Version: 1.1.0 (2026-10-05)
+- Records: 773; 267 added in this release
+- Sources: 22 reports, including 8 new licensed sources from World Bank, ILO, and ADB
+- Language: Chinese
+- Splits: TRAIN 537 / DEV 119 / TEST 117
+- License: mixed record-level terms; see `LICENSES.md`
 - Independent human review: not claimed
 
 ## Intended use
 
-Use the dataset to study source-grounded document retrieval and question answering. It covers evidence localization, multi-fact answers, cross-document questions, numerical reasoning, and questions that depend on visual, table, or chart content. This legacy set is separate from the frozen CFQA data used in the current M3/M4 formal research track.
+Research and prototyping for source-grounded document retrieval and question answering, evidence localization, multi-fact answering, numerical retrieval, and report-based QA. No model-performance result is included.
 
-## Construction and annotations
+## Construction and annotation
 
-The source reports came from their publishers' public pages. Based on those documents, the project annotated questions, answers, answerability labels, required facts, evidence locators, task and modality labels, and source and family metadata. The package contains no source PDFs, images, screenshots, full-page text, or long verbatim passages.
+The 506 v1.0.0 records and split assignments are preserved without edits. The 267 new rows use eight public institutional reports for which the source records show a CC BY 3.0 IGO adaptation permission, the relevant rights notice, attribution, source hash, and third-party-content limits. The added records are concise paraphrases of narrative facts with one-based physical PDF page locators. They contain no copied source passages, PDFs, page images, screenshots, charts, or other media.
 
-All records are marked as Gold candidates. Each row's source-support status describes the type and extent of source checking or correction. It does not mean that every row received human adjudication. The package records AI-assisted source and evidence checking; it does not claim independent human review.
+New annotations were drafted and page-checked with AI assistance. Every added row is marked `human_reviewed: false`; independent human double annotation or adjudication is not claimed. No new no-answer, cross-document, table, or chart items were forced into the release. All additions are answerable and text-only.
 
 ## Split
 
-Records from the same document family or connected evidence component stay in one split: TRAIN 354, DEV 75, and TEST 77. The split was assigned after the questions and Gold-candidate annotations existed, so it is not a prospective or preregistered holdout. Prior system exposure was not audited. TEST contains the only unanswerable item, too few to estimate no-answer performance reliably.
+The original assignments remain TRAIN 354 / DEV 75 / TEST 77. Additions are TRAIN 183 / DEV 44 / TEST 40. A report family and its evidence group are kept in one split. The split was assigned after questions were created; it is not a prospective blind holdout, and prior system exposure was not audited. TEST has one no-answer item, retained from v1.0.0.
 
-## Known limitations
+## Licensing and attribution
 
-- The data are a purposive historical collection, not a representative sample of the full Internet/ICT domain.
-- There is one unanswerable item.
-- There are 30 table/chart/visual-related items; the visual media are not included.
-- Some locators depend on parser element IDs. Page numbers and source hashes are provided for traceability.
-- The package contains no model-performance results.
-- The original reports and visual media are not included; the dataset license applies to the packaged records and annotations, not to those external source files.
+The package is not governed by one license across all rows. Legacy v1.0.0 records remain CC BY 4.0. Each `IICR-V11-` row is an adaptation of the report named in its `source_refs` and is published under CC BY 3.0 IGO with the report's attribution and adaptation notice. The ADB Chinese sources additionally identify the English original as the only official version. Use each row's `publication_rights`, `sources.json`, and `ATTRIBUTION.md`. `LICENSE` and `LICENSES.md` explain the scope; Hugging Face metadata says `license: other` to avoid implying uniform licensing.
+
+The source PDF and hash identify the exact source artifact used; they do not grant rights to redistribute that PDF. No third-party material is reproduced. The package does not include original source PDFs, figures, photos, or extracts.
+
+## Limitations
+
+- Purposive historical collection; not representative of all ICT reports.
+- Annotation is not independently human-adjudicated.
+- Only one unanswerable question exists, in the legacy TEST split.
+- New v1.1 questions are text-based; visual records are legacy-only and source media are absent.
+- No formal privacy audit or prior-system-exposure audit is claimed.
+- No model-performance results are reported.

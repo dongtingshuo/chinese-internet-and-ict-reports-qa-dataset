@@ -1,161 +1,515 @@
 {
-  "$id": "legacy_main_domain_gold_candidate_record_v1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "properties": {
-    "answerability": {
-      "enum": [
-        "answerable",
-        "unanswerable"
-      ]
+  "$id": "iicr_dataset_record_v1_1",
+  "title": "Chinese Internet and ICT Reports QA Dataset v1.1.0",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/legacy_v1_0"
     },
-    "gold_answer": {
-      "minLength": 1,
-      "type": "string"
-    },
-    "gold_candidate": {
-      "const": true
-    },
-    "gold_evidence_sets": {
-      "minItems": 1,
-      "type": "array"
-    },
-    "gold_quality": {
-      "required": [
-        "source_support_status",
-        "human_reviewed",
-        "heldout_gold_accessed"
-      ],
-      "type": "object"
-    },
-    "lineage": {
-      "required": [
-        "original_candidate_row_sha256",
-        "corrected_candidate_row_sha256"
-      ],
-      "type": "object"
-    },
-    "publication_rights": {
-      "required": [
-        "status",
-        "dataset_license",
-        "rights_assessment_is_legal_opinion"
-      ],
+    {
+      "$ref": "#/$defs/iicr_report_qa_v1_1"
+    }
+  ],
+  "$defs": {
+    "legacy_v1_0": {
       "properties": {
-        "dataset_license": {
-          "const": "CC-BY-4.0",
-          "description": "License for the packaged dataset records and annotations; does not license external source reports or media."
-        },
-        "license_url": {
-          "const": "https://creativecommons.org/licenses/by/4.0/"
-        },
-        "source_attribution_required": {
-          "const": true
-        }
-      },
-      "type": "object"
-    },
-    "query_id": {
-      "pattern": "^M3-TR-CAND-[0-9]{4}$",
-      "type": "string"
-    },
-    "question": {
-      "minLength": 1,
-      "type": "string"
-    },
-    "required_facts": {
-      "type": "array"
-    },
-    "schema_version": {
-      "const": "legacy_main_domain_gold_candidate_record_v1"
-    },
-    "source_refs": {
-      "minItems": 1,
-      "type": "array"
-    },
-    "split": {
-      "type": "string",
-      "enum": [
-        "TRAIN",
-        "DEV",
-        "TEST"
-      ],
-      "description": "Frozen legacy dataset split; assigned by document family and connected component after annotation."
-    },
-    "historical_candidate_split": {
-      "type": "object",
-      "properties": {
-        "formal_split_status": {
-          "type": "string"
-        },
-        "historical_split_candidate": {
-          "type": "string"
-        },
-        "historical_split_status": {
-          "type": "string"
-        },
-        "release_split": {
-          "type": [
-            "string",
-            "null"
+        "answerability": {
+          "enum": [
+            "answerable",
+            "unanswerable"
           ]
         },
-        "split_proposal_path": {
+        "gold_answer": {
+          "minLength": 1,
           "type": "string"
+        },
+        "gold_candidate": {
+          "const": true
+        },
+        "gold_evidence_sets": {
+          "minItems": 1,
+          "type": "array"
+        },
+        "gold_quality": {
+          "required": [
+            "source_support_status",
+            "human_reviewed",
+            "heldout_gold_accessed"
+          ],
+          "type": "object"
+        },
+        "lineage": {
+          "required": [
+            "original_candidate_row_sha256",
+            "corrected_candidate_row_sha256"
+          ],
+          "type": "object"
+        },
+        "publication_rights": {
+          "required": [
+            "status",
+            "dataset_license",
+            "rights_assessment_is_legal_opinion"
+          ],
+          "properties": {
+            "dataset_license": {
+              "const": "CC-BY-4.0",
+              "description": "License for the packaged dataset records and annotations; does not license external source reports or media."
+            },
+            "license_url": {
+              "const": "https://creativecommons.org/licenses/by/4.0/"
+            },
+            "source_attribution_required": {
+              "const": true
+            }
+          },
+          "type": "object"
+        },
+        "query_id": {
+          "pattern": "^M3-TR-CAND-[0-9]{4}$",
+          "type": "string"
+        },
+        "question": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "required_facts": {
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "legacy_main_domain_gold_candidate_record_v1"
+        },
+        "source_refs": {
+          "minItems": 1,
+          "type": "array"
+        },
+        "split": {
+          "type": "string",
+          "enum": [
+            "TRAIN",
+            "DEV",
+            "TEST"
+          ],
+          "description": "Frozen legacy dataset split; assigned by document family and connected component after annotation."
+        },
+        "historical_candidate_split": {
+          "type": "object",
+          "properties": {
+            "formal_split_status": {
+              "type": "string"
+            },
+            "historical_split_candidate": {
+              "type": "string"
+            },
+            "historical_split_status": {
+              "type": "string"
+            },
+            "release_split": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "split_proposal_path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "formal_split_status",
+            "historical_split_candidate",
+            "historical_split_status",
+            "release_split",
+            "split_proposal_path"
+          ],
+          "description": "Historical pre-freeze split metadata retained for provenance; use split for the released legacy assignment."
+        },
+        "legacy_split_component_id": {
+          "type": "string",
+          "description": "Connected component identifier used to keep cross-document dependencies within one split."
+        },
+        "legacy_family_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "All source document families linked to this query for group-isolation checks."
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Stable source identifiers for all supporting documents."
+        },
+        "split_assignment_version": {
+          "type": "string",
+          "const": "legacy_dataset_split_v1",
+          "description": "Version of the frozen legacy split assignment."
         }
       },
       "required": [
-        "formal_split_status",
-        "historical_split_candidate",
-        "historical_split_status",
-        "release_split",
-        "split_proposal_path"
+        "schema_version",
+        "query_id",
+        "gold_candidate",
+        "question",
+        "answerability",
+        "gold_answer",
+        "required_facts",
+        "gold_evidence_sets",
+        "source_refs",
+        "gold_quality",
+        "publication_rights",
+        "split",
+        "lineage",
+        "historical_candidate_split",
+        "legacy_split_component_id",
+        "legacy_family_ids",
+        "source_ids",
+        "split_assignment_version"
       ],
-      "description": "Historical pre-freeze split metadata retained for provenance; use split for the released legacy assignment."
+      "title": "Legacy v1.0.0 record schema",
+      "type": "object"
     },
-    "legacy_split_component_id": {
-      "type": "string",
-      "description": "Connected component identifier used to keep cross-document dependencies within one split."
-    },
-    "legacy_family_ids": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "All source document families linked to this query for group-isolation checks."
-    },
-    "source_ids": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "Stable source identifiers for all supporting documents."
-    },
-    "split_assignment_version": {
-      "type": "string",
-      "const": "legacy_dataset_split_v1",
-      "description": "Version of the frozen legacy split assignment."
+    "iicr_report_qa_v1_1": {
+      "$id": "iicr_report_qa_v1_1",
+      "title": "IICR report QA record v1.1",
+      "type": "object",
+      "required": [
+        "schema_version",
+        "annotation_version",
+        "query_id",
+        "gold_candidate",
+        "question",
+        "answerability",
+        "gold_answer",
+        "required_facts",
+        "gold_evidence_sets",
+        "gold_quality",
+        "publication_rights",
+        "source_ids",
+        "source",
+        "source_refs",
+        "domain_id",
+        "document_id",
+        "document_scope",
+        "family_id",
+        "connected_group_id",
+        "split",
+        "split_assignment_version",
+        "task_type",
+        "modality_tags",
+        "human_reviewed"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "iicr_report_qa_v1_1"
+        },
+        "annotation_version": {
+          "const": "iicr-ai-assisted-candidate-v1.1"
+        },
+        "query_id": {
+          "type": "string",
+          "pattern": "^IICR-V11-[0-9]{4}$"
+        },
+        "gold_candidate": {
+          "const": true
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "answerability": {
+          "enum": [
+            "answerable",
+            "unanswerable"
+          ]
+        },
+        "gold_answer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_facts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "fact_id",
+              "statement"
+            ],
+            "properties": {
+              "fact_id": {
+                "type": "string"
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "gold_evidence_sets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "evidence_set_id",
+              "equivalent_group_id",
+              "page_reference_scheme",
+              "required_fact_ids",
+              "sources"
+            ],
+            "properties": {
+              "evidence_set_id": {
+                "type": "string"
+              },
+              "equivalent_group_id": {
+                "type": "string"
+              },
+              "page_reference_scheme": {
+                "const": "1-based original PDF page"
+              },
+              "required_fact_ids": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sources": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "source_id",
+                    "element_id",
+                    "locator_type",
+                    "pdf_page",
+                    "printed_page",
+                    "supports_fact_ids"
+                  ],
+                  "properties": {
+                    "source_id": {
+                      "type": "string"
+                    },
+                    "element_id": {
+                      "type": "string"
+                    },
+                    "locator_type": {
+                      "type": "string"
+                    },
+                    "pdf_page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "printed_page": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "supports_fact_ids": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "gold_quality": {
+          "type": "object",
+          "required": [
+            "source_support_status",
+            "human_reviewed",
+            "independent_human_double_annotation",
+            "heldout_gold_accessed",
+            "source_review_provenance",
+            "required_facts_review"
+          ],
+          "properties": {
+            "source_support_status": {
+              "const": "source_verified_candidate"
+            },
+            "human_reviewed": {
+              "const": false
+            },
+            "independent_human_double_annotation": {
+              "const": "not_performed"
+            },
+            "heldout_gold_accessed": {
+              "const": false
+            },
+            "source_review_provenance": {
+              "type": "object"
+            },
+            "required_facts_review": {
+              "type": "array",
+              "minItems": 1
+            }
+          }
+        },
+        "publication_rights": {
+          "type": "object",
+          "required": [
+            "dataset_license",
+            "license_url",
+            "status",
+            "source_attribution_required",
+            "required_source_attributions",
+            "required_adaptation_disclaimer",
+            "modification_notice",
+            "third_party_content_reused",
+            "source_excerpt_included",
+            "source_media_included",
+            "source_pdf_included"
+          ],
+          "properties": {
+            "dataset_license": {
+              "const": "CC-BY-3.0-IGO"
+            },
+            "license_url": {
+              "const": "https://creativecommons.org/licenses/by/3.0/igo/"
+            },
+            "status": {
+              "const": "licensed_under_CC_BY_3_0_IGO"
+            },
+            "source_attribution_required": {
+              "const": true
+            },
+            "required_source_attributions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "required_adaptation_disclaimer": {
+              "type": "string",
+              "minLength": 1
+            },
+            "modification_notice": {
+              "type": "string",
+              "minLength": 1
+            },
+            "third_party_content_reused": {
+              "const": false
+            },
+            "source_excerpt_included": {
+              "const": false
+            },
+            "source_media_included": {
+              "const": false
+            },
+            "source_pdf_included": {
+              "const": false
+            }
+          }
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "object"
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "source_id",
+              "official_pdf_url",
+              "source_pdf_sha256",
+              "license_id",
+              "license_url",
+              "rights_notice_location",
+              "required_source_attribution_short_form",
+              "source_pdf_included"
+            ],
+            "properties": {
+              "source_id": {
+                "type": "string"
+              },
+              "official_pdf_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "source_pdf_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "license_id": {
+                "const": "CC-BY-3.0-IGO"
+              },
+              "license_url": {
+                "const": "https://creativecommons.org/licenses/by/3.0/igo/"
+              },
+              "rights_notice_location": {
+                "type": "object"
+              },
+              "required_source_attribution_short_form": {
+                "type": "string"
+              },
+              "source_pdf_included": {
+                "const": false
+              }
+            }
+          }
+        },
+        "domain_id": {
+          "const": "INTERNET_ICT"
+        },
+        "document_id": {
+          "type": "string"
+        },
+        "document_scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "family_id": {
+          "type": "string"
+        },
+        "connected_group_id": {
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "TRAIN",
+            "DEV",
+            "TEST"
+          ]
+        },
+        "split_assignment_version": {
+          "const": "dataset_split_v1_1"
+        },
+        "task_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "modality_tags": {
+          "type": "array",
+          "contains": {
+            "const": "text"
+          }
+        },
+        "human_reviewed": {
+          "const": false
+        }
+      }
     }
-  },
-  "required": [
-    "schema_version",
-    "query_id",
-    "gold_candidate",
-    "question",
-    "answerability",
-    "gold_answer",
-    "required_facts",
-    "gold_evidence_sets",
-    "source_refs",
-    "gold_quality",
-    "publication_rights",
-    "split",
-    "lineage",
-    "historical_candidate_split",
-    "legacy_split_component_id",
-    "legacy_family_ids",
-    "source_ids",
-    "split_assignment_version"
-  ],
-  "title": "Chinese Internet and ICT Reports QA Dataset v1.0.0",
-  "type": "object"
+  }
 }

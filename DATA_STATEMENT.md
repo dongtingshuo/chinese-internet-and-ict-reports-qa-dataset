@@ -2,20 +2,20 @@
 
 ## Source and population
 
-The dataset contains 506 Chinese-language question and answer records based on 14 public reports about Internet and information-communications topics. The reports cover industry statistics, digital infrastructure, AI, cloud, and related policy or research themes. This is a purposive historical collection, not a representative sample of all reports or of the wider domain.
+Version 1.1.0 contains 773 Chinese QA records based on 22 public reports on Internet and information-communications topics. It retains the original 506 CAICT-based rows and adds 267 questions from eight World Bank, International Labour Organization, and Asian Development Bank reports. This is a purposive collection, not a representative sample of reports or of the wider domain.
 
 ## Collection and annotation
 
-The project created questions, answers, required facts, answerability labels, source locators, and task and modality labels as research annotations. Source and evidence checking used AI assistance for locator repair, source follow-up, and source-grounded content corrections. Each row retains its source-support status. Independent human double annotation or adjudication is not claimed.
+The new questions, answers, required-fact summaries, and evidence locators were drafted and checked with AI assistance against the cited official Chinese PDF pages. They are paraphrases, not source excerpts. New rows are marked `human_reviewed: false`; independent human review and double annotation are not claimed. The source catalog records each report's publisher, bilingual title, language and translation status, official source file and page count, SHA-256, rights notice, license, attribution, and third-party limitations.
 
 ## Content and privacy
 
-The package excludes original source PDFs, images, screenshots, extracted page text, and long source passages. Records contain questions, answers, concise required-fact summaries, source, page, and element locators, source identifiers, and hashes. The sources are listed in sources.json and ATTRIBUTION.md. No formal privacy audit is claimed. The corpus was built from public institutional reports, not personal user data.
+The package excludes original PDFs, images, screenshots, extracted page text, long quotations, logos, and third-party visuals. It contains QA text, concise fact summaries, source IDs, page-level locators, and license metadata. No formal privacy audit is claimed. Sources are public institutional publications; personal user data was not collected for this release.
 
 ## Split and evaluation
 
-The family and connected-component split was assigned after candidate questions and answer annotations existed. It is frozen for reproducibility, but it is not a prospective blind test. Prior system exposure was not audited. The single unanswerable record is in TEST.
+The v1.0.0 assignments are unchanged. New report families are each confined to a single split. The full split is TRAIN 537 / DEV 119 / TEST 117. Assignment happened after questions existed, so it is not a prospective blind test. Prior system exposure was not audited. The single unanswerable record is retained from v1.0.0 and remains in TEST.
 
 ## License and attribution
 
-The packaged question-answer records, annotations, evidence locators, and dataset metadata are licensed under CC BY 4.0. Each record retains source identifiers and attribution details; cite this dataset and the source reports identified in `sources.json` and `ATTRIBUTION.md`. The original reports, PDFs, images, and other source media are not included and are outside this dataset-package license.
+Licensing is record-level. Legacy v1.0.0 records retain CC BY 4.0. New rows use CC BY 3.0 IGO for adaptations of the specific licensed reports cited in their metadata. Preserve source attribution, link the applicable license, indicate that the QAs are adaptations, include the required institution-specific disclaimer, and do not imply endorsement. ADB sources additionally state that English is the only official text. Original reports and third-party media are not included and remain outside the dataset package license. Details are in `LICENSES.md`, `ATTRIBUTION.md`, `sources.json`, and each record's `publication_rights`.

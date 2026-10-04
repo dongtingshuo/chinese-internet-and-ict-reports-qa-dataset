@@ -1,26 +1,59 @@
 {
-  "status": "PASS",
-  "dataset_id": "legacy_internet_ict_qa_506",
-  "checked_on": "2026-10-04",
-  "checks": [
-    "506 unique query IDs",
-    "all answerable rows retain answers, required facts, and evidence; unanswerable row retains absence evidence",
-    "354/75/77 split matches frozen assignment",
-    "source/family/connected-component isolation",
-    "14 source IDs resolved",
-    "human_reviewed=false preserved",
-    "CC-BY-4.0 license and source attribution metadata agree across records and manifest",
-    "original source PDFs and media are not included",
-    "manifest and SHA256SUMS hashes valid"
-  ],
-  "limitations": [
-    "This is a post-annotation legacy split, not a prospective blind holdout.",
-    "Prior system exposure was not audited.",
-    "Only one unanswerable item is present.",
-    "Original report PDFs and visual media are not included; end-to-end retrieval requires users to obtain source documents separately.",
-    "Independent human review is not claimed."
-  ],
+  "dataset_version": "1.1.0",
+  "validation_status": "passed",
+  "record_count": 773,
+  "legacy_record_count": 506,
+  "added_record_count": 267,
+  "source_count": 22,
+  "added_source_count": 8,
+  "added_publisher_count": 3,
+  "split_counts": {
+    "TRAIN": 537,
+    "TEST": 117,
+    "DEV": 119
+  },
+  "added_split_counts": {
+    "TRAIN": 183,
+    "DEV": 44,
+    "TEST": 40
+  },
+  "legacy_prefix_hashes_preserved": true,
+  "report_family_split_isolation": "passed",
+  "source_and_page_locators": "all added rows point to a valid physical source-PDF page",
+  "source_rights_metadata": "CC BY 3.0 IGO, notice page, attribution, adaptation notice, translation identity and third-party limits recorded per added source",
   "human_reviewed": false,
-  "dataset_license": "CC-BY-4.0",
-  "open_license_asserted": true
+  "independent_human_double_annotation": "not_performed",
+  "hugging_face_viewer_files": "generated from canonical records; checked for row, split and record_json parity",
+  "source_pdfs_or_media_included": false,
+  "checks": {
+    "legacy_records_prefix": "passed",
+    "legacy_split_assignments_prefix": "passed",
+    "record_fields_and_schema_versions": "passed",
+    "source_ids_and_page_bounds": "passed",
+    "record_level_license_and_attribution": "passed",
+    "source_report_family_and_evidence_group_split_isolation": "passed",
+    "viewer_split_counts_and_row_parity": "passed",
+    "package_file_hashes_and_SHA256SUMS": "passed",
+    "original_source_media_exclusion": "passed"
+  },
+  "new_sources_by_id": {
+    "WB2014-RURAL": 28,
+    "WB2016-DIGITAL": 30,
+    "WB2019-WORK": 42,
+    "WB2025-DIGITAL": 52,
+    "ILO2020-PLATFORM": 41,
+    "ILO2021-PLATFORM": 40,
+    "ADB2018-CITIES": 20,
+    "ADB2023-YOUTH": 14
+  },
+  "new_publishers": [
+    "Asian Development Bank",
+    "International Labour Organization",
+    "World Bank"
+  ],
+  "notes": [
+    "AI-assisted source and evidence verification; independent human review is not claimed.",
+    "The existing one-item unanswerable set is retained; no new no-answer items were added.",
+    "No model-performance results are included."
+  ]
 }
