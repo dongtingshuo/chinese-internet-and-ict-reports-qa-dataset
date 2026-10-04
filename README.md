@@ -1,6 +1,6 @@
 ---
 license: other
-license_name: Mixed record-level licensing (legacy CC BY 4.0; v1.1.0 additions CC BY 3.0 IGO)
+license_name: mixed-record-level-licensing
 license_link: https://huggingface.co/datasets/TingshuoDong/chinese-internet-and-ict-reports-qa-dataset/blob/main/LICENSES.md
 language:
 - zh

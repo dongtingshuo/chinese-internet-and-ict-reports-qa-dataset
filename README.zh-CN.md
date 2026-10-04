@@ -1,6 +1,6 @@
 ---
 license: other
-license_name: 混合的记录级许可（旧版记录 CC BY 4.0；v1.1.0 新增记录 CC BY 3.0 IGO）
+license_name: mixed-record-level-licensing
 license_link: https://huggingface.co/datasets/TingshuoDong/chinese-internet-and-ict-reports-qa-dataset/blob/main/LICENSES.md
 language:
 - zh
