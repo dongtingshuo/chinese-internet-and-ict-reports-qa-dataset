@@ -3,39 +3,39 @@
 ## Identity
 
 - Dataset: Chinese Internet and ICT Reports QA Dataset
-- Version: 1.1.0 (2026-10-05)
-- Records: 773; 267 added in this release
-- Sources: 22 reports, including 8 new licensed sources from World Bank, ILO, and ADB
+- Version: 1.2.0 (2026-10-06)
+- Records: 833; 60 added in this release
+- Sources: 25 public institutional reports
 - Language: Chinese
-- Splits: TRAIN 537 / DEV 119 / TEST 117
+- Splits: TRAIN 579 / DEV 128 / TEST 126
+- Question types added: 20 unanswerable, 20 cross-document, 20 table/figure
 - License: mixed record-level terms; see `LICENSES.md`
 - Independent human review: not claimed
 
 ## Intended use
 
-Research and prototyping for source-grounded document retrieval and question answering, evidence localization, multi-fact answering, numerical retrieval, and report-based QA. No model-performance result is included.
+Research and prototyping for source-grounded document retrieval and question answering, no-answer detection, cross-document synthesis, table/figure reasoning, evidence localization, and split-safe evaluation. No model-performance results are included.
 
 ## Construction and annotation
 
-The 506 v1.0.0 records and split assignments are preserved without edits. The 267 new rows use eight public institutional reports for which the source records show a CC BY 3.0 IGO adaptation permission, the relevant rights notice, attribution, source hash, and third-party-content limits. The added records are concise paraphrases of narrative facts with one-based physical PDF page locators. They contain no copied source passages, PDFs, page images, screenshots, charts, or other media.
+The 506 v1.0.0 and 267 v1.1.0 records, IDs, and split assignments are preserved. The 60 v1.2.0 additions reuse eligible licensed reports and add three source records: an ILO Chinese executive summary (CC BY 4.0), a Chinese UNESCO IITE/Shanghai Open University toolkit (CC BY-SA 3.0 IGO), and an ILO Chinese translation (CC BY 3.0 IGO). Each source has an official link, exact source PDF SHA-256, page count, license notice location, attribution, adaptation/translation notice, and third-party content limits in `sources.json`.
 
-New annotations were drafted and page-checked with AI assistance. Every added row is marked `human_reviewed: false`; independent human double annotation or adjudication is not claimed. No new no-answer, cross-document, table, or chart items were forced into the release. All additions are answerable and text-only.
+The additions comprise 20 no-answer candidates with search scope and near-miss evidence, 20 cross-document questions supported by at least two sources, and 20 table/figure questions with physical PDF page locators and an explicit visual dependency. All were drafted and checked with AI assistance. Every new row is marked `human_reviewed: false`; independent human double annotation or adjudication is not claimed. The package contains no source PDFs, source page images, screenshots, extracted page text, copied long passages, or source media.
 
 ## Split
 
-The original assignments remain TRAIN 354 / DEV 75 / TEST 77. Additions are TRAIN 183 / DEV 44 / TEST 40. A report family and its evidence group are kept in one split. The split was assigned after questions were created; it is not a prospective blind holdout, and prior system exposure was not audited. TEST has one no-answer item, retained from v1.0.0.
+The v1.0.0 and v1.1.0 rows and assignments remain byte-identical. Additions are TRAIN 42 / DEV 9 / TEST 9, with each new task type allocated TRAIN 14 / DEV 3 / TEST 3. Sources, report families, and connected evidence groups are kept within one split. Assignment happened after questions were created; it is not a prospective blind holdout, and prior system exposure was not audited.
 
 ## Licensing and attribution
 
-The package is not governed by one license across all rows. Legacy v1.0.0 records remain CC BY 4.0. Each `IICR-V11-` row is an adaptation of the report named in its `source_refs` and is published under CC BY 3.0 IGO with the report's attribution and adaptation notice. The ADB Chinese sources additionally identify the English original as the only official version. Use each row's `publication_rights`, `sources.json`, and `ATTRIBUTION.md`. `LICENSE` and `LICENSES.md` explain the scope; Hugging Face metadata says `license: other` to avoid implying uniform licensing.
+The package is not governed by one license across all rows. Totals by record-level license are 513 CC BY 4.0, 317 CC BY 3.0 IGO, and 3 CC BY-SA 3.0 IGO. The three ShareAlike adaptations are individually released under CC BY-SA 3.0 IGO. Each row's `publication_rights`, `source_refs`, and `sources.json` entry identify the applicable source terms. Retain the source citation, license link, adaptation notice, translation notice where applicable, and any institution-specific disclaimer. Hugging Face metadata uses `license: other` to reflect the mixed scope.
 
-The source PDF and hash identify the exact source artifact used; they do not grant rights to redistribute that PDF. No third-party material is reproduced. The package does not include original source PDFs, figures, photos, or extracts.
+Original reports and third-party media remain outside the package license. The UNESCO source contains third-party imagery; only toolkit-authored scoring tables were used as evidence and no table contents or images are reproduced.
 
 ## Limitations
 
-- Purposive historical collection; not representative of all ICT reports.
-- Annotation is not independently human-adjudicated.
-- Only one unanswerable question exists, in the legacy TEST split.
-- New v1.1 questions are text-based; visual records are legacy-only and source media are absent.
-- No formal privacy audit or prior-system-exposure audit is claimed.
-- No model-performance results are reported.
+- Purposive collection; not representative of all Internet and ICT reports.
+- New candidates have not received independent human adjudication.
+- No-answer labels reflect the recorded report and page scope, not all possible external information.
+- Post-annotation split; no prospective blind holdout or prior-system-exposure audit is claimed.
+- No formal privacy audit or model-performance evaluation is included.

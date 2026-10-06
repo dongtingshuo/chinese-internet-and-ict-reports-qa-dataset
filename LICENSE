@@ -1,10 +1,9 @@
-License notice for v1.1.0
+Mixed record-level license notice for v1.2.0
 
-This package contains records with separate license terms. There is no blanket license for every record.
+No single license applies to every record in this package. The canonical license, attribution, adaptation, translation, and source-specific obligations are carried by each row's `publication_rights` and `source_refs`, and documented in LICENSES.md and ATTRIBUTION.md.
 
-- The 506 retained v1.0.0 records remain under CC BY 4.0. The license text is in LICENSE-CC-BY-4.0.txt.
-- New records whose IDs begin `IICR-V11-` are adaptations of source reports identified in each row. They are licensed under CC BY 3.0 IGO, subject to the per-record attribution and institution-specific adaptation notice in `publication_rights` and `source_refs`.
-- CC BY 3.0 IGO legal code: https://creativecommons.org/licenses/by/3.0/igo/
-- Original source reports and third-party materials are not included and are not licensed by this notice.
+- The 506 retained v1.0.0 records and seven v1.2.0 ILO executive-summary adaptations use CC BY 4.0. The license text is in LICENSE-CC-BY-4.0.txt.
+- The 267 v1.1.0 records and 50 v1.2.0 adaptations use CC BY 3.0 IGO, subject to each source's attribution and disclaimer requirements.
+- Three v1.2.0 UNESCO toolkit adaptations use CC BY-SA 3.0 IGO at the record level, with attribution and source-specific notices.
 
-See LICENSES.md, ATTRIBUTION.md, and sources.json before redistributing or adapting a record.
+Original reports, third-party material, and source PDFs are not included and are outside these record licenses. The source hashes are provenance metadata, not permission to redistribute source files.
