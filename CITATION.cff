@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-message: "Please cite this dataset release and the source reports listed in sources.json. The release has mixed record-level licenses; see LICENSES.md."
+message: "Please cite this dataset release and all source reports listed in sources.json. Record-level licenses are mixed; see LICENSES.md."
 title: "Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集"
-version: "1.1.0"
+version: "1.2.0"
 url: "https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset"
 repository-code: "https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset"
-date-released: "2026-10-05"
+date-released: "2026-10-06"
 type: dataset
 authors:
   - family-names: Dong
@@ -15,4 +15,5 @@ keywords:
   - information and communications technology
   - document question answering
   - evidence retrieval
-abstract: "A 773-record source-grounded Chinese QA dataset. Version 1.1.0 preserves the 506-record legacy release and adds 267 AI-assisted, page-checked adaptations from eight CC BY 3.0 IGO reports. Record-level terms are mixed; independent human review is not claimed."
+  - cross-document question answering
+abstract: "An 833-record source-grounded Chinese QA dataset. Version 1.2.0 preserves 773 earlier records and adds 60 AI-assisted candidates across unanswerable, cross-document, and visual question types. Record-level terms are mixed; independent human review is not claimed."

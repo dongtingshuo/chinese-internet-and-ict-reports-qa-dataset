@@ -19,94 +19,82 @@ configs:
     path: data/test.jsonl
 ---
 
-# 中国互联网与信息通信报告问答数据集 / Chinese Internet and ICT Reports QA Dataset
+# 中国互联网与信息通信报告问答数据集
 
 简体中文 · [English](README.md)
 
-版本 1.1.0 · 2026-10-05
+版本 1.2.0 · 2026-10-06
 
-## 数据集简介
+## 项目简介
 
-本版本包含基于 22 份公开互联网与信息通信报告整理的 773 条中文问答记录。原 v1.0.0 的 506 条记录、ID 和切分保持不变；新增 267 条经 AI 辅助逐页核查的题目，来自世界银行、国际劳工组织和亚洲开发银行发布的 8 份许可明确的报告。
+本版本包含基于 25 份公开互联网与信息通信报告构建的 833 条中文问答记录。v1.0.0 的 506 条和 v1.1.0 的 267 条记录、ID 与切分均保留；v1.2.0 新增 60 条 AI 辅助核查候选记录：无答案题、跨文档题、表格或图表题各 20 条。新增来源登记了国际劳工组织、UNESCO IITE 与上海开放大学的三份报告；本版本也使用了 v1.1.0 已登记且适用的报告。
 
-每条记录包含可回答性、答案、必要事实、来源和页码定位、报告元数据及记录级许可信息。新增题目只依据报告正文，不包含源 PDF、图片、截图、整页解析文本或长段原文。
+每条记录包含必要事实摘要、证据定位、可回答性、来源引用和记录级许可信息。物理 PDF 页码与印刷页码分别记录。所有 v1.2.0 新记录均标记 `human_reviewed: false`。数据包不含原报告 PDF、抽取页文本、截图、图片或长段原文。
 
-## 数据概况
+## 数据概览
 
-- 记录数：773 条（可回答 772 条；无答案 1 条）
-- 来源：22 份报告，其中新增 8 份，来自 3 家出版机构
-- 切分：TRAIN 537 · DEV 119 · TEST 117
+- 记录数：833 条（可回答 812 条；无答案 21 条）
+- 来源：25 份报告
+- 切分：TRAIN 579 · DEV 128 · TEST 126
+- v1.2.0 新增：60 条（无答案、跨文档、表格/图表各 20 条）
 - 语言：中文
-- 数据格式：JSON Lines（`records.jsonl`），每行一条记录
-- v1.1.0 新增：267 条，均可回答且基于文本
-- 表格、图表或视觉相关题目：30 条，均为原 v1.0.0 保留记录
+- 规范数据：`records.jsonl`，每行一条 JSON 记录
+- Hugging Face Viewer 文件：`data/train.jsonl`、`data/validation.jsonl`、`data/test.jsonl`
+- 许可：记录级混合许可，不存在覆盖整个数据包的单一许可
 
 ## 用途与局限
 
-数据可用于原型验证有来源依据的文档检索与问答流程。它是目的性收集的数据，不代表整个互联网与信息通信领域。切分是在问题标注后确定的，不是前瞻式盲测；此前的系统接触情况尚未审计。唯一的无答案题来自保留的 v1.0.0 数据，无法据此可靠估计拒答表现。数据包不含模型性能结果。
+可用于原文档检索、跨文档问答、证据定位、可回答性判断以及表格/图表推理的原型评估。该数据集按目标抽样，不代表全部互联网与 ICT 报告。切分在标注后分配，不是前瞻性盲测；此前系统接触情况没有审计。数据包没有模型性能结果，也不声称经过独立人工复核。
 
-新增题目依据官方中文概要、版本或译本进行改写。`sources.json` 为每份新增报告记录发布机构、中英文标题、文本语言和译本身份、官方链接、所用源 PDF 的 SHA-256、许可、权利声明页、署名要求和第三方内容限制。
+20 条 v1.2.0 无答案题均记录核查范围、近似证据及其不足之处，但仍是候选标注，不应视作经过独立裁定的金标准。跨文档题要求至少两份报告共同支持答案。表格/图表题标出对应视觉材料和物理 PDF 页；原图表不会打包。
 
-## 快速开始
+## 快速使用
 
 ```python
 import json
 from pathlib import Path
 
-records = [
-    json.loads(line)
-    for line in Path("records.jsonl").read_text(encoding="utf-8").splitlines()
-    if line.strip()
-]
+records = [json.loads(line) for line in Path("records.jsonl").read_text(encoding="utf-8").splitlines() if line]
 train = [record for record in records if record["split"] == "TRAIN"]
-print(f"记录数={len(records)}，训练集={len(train)}")
+print(f"records={len(records)}, train={len(train)}")
 ```
 
-使用 Python 3 运行数据包校验：
+运行数据包校验：
 
 ```bash
 python3 validate_package.py
 ```
 
-## 记录格式
+从规范记录重建 Hugging Face Viewer 文件：
 
-[`schema.json`](schema.json) 包含 v1.0 和 v1.1 两种记录结构。新增记录使用 `schema_version: iicr_report_qa_v1_1`、`IICR-V11-####` ID、可回答性标签、必要事实摘要和逐页证据定位。PDF 页码从 1 开始；未单独核实印刷页码时，`printed_page` 为 `null`。
+```bash
+python3 build_hf_splits.py
+```
 
-Hugging Face Viewer 的 `data/` 文件含有 `record_json` 字段，可还原完整记录。可运行 `python3 build_hf_splits.py` 从规范数据重建 Viewer 文件。
+## 记录结构
+
+[`schema.json`](schema.json) 定义了历史记录、v1.1 与 v1.2 的 JSON Schema。v1.2 记录使用 `schema_version: iicr_report_qa_v1_2` 和 `IICR-V12-####` ID。Schema 要求无答案题提供检索范围和近似证据，跨文档题至少有两个来源，表格/图表题提供视觉依赖和页码定位。v1.2 的 `publication_rights` 为使用到的每个来源记录许可与义务。
+
+Hugging Face Viewer 每行保留完整 `record_json`，并提供题型、来源 ID、适用记录许可和模态标签等可检索字段。PDF 物理页码从 1 开始；经单独核实的印刷页码另行记录。
 
 ## 核查与切分
 
-原有 506 条记录及其切分文件前缀按字节保持不变。新增 267 条均标记为 `human_reviewed: false`；逐页来源核查由 AI 辅助完成，不声称独立人工复核或双人标注。新增数据按报告家族分组，每份新增报告只进入一个切分。
+v1.0.0 和 v1.1.0 的记录及切分前缀按字节保持不变。60 条 v1.2.0 新增记录按报告家族和证据连通组分配，同一来源、家族或连通组不跨切分。三类新增题型各自分配为 TRAIN 14 条、DEV 3 条、TEST 3 条。
 
-| 切分 | 保留的 v1.0.0 | v1.1.0 新增 | 合计 |
-|---|---:|---:|---:|
-| TRAIN | 354 | 183 | 537 |
-| DEV | 75 | 44 | 119 |
-| TEST | 77 | 40 | 117 |
+| 切分 | v1.0.0 保留 | v1.1.0 新增 | v1.2.0 新增 | 合计 |
+|---|---:|---:|---:|---:|
+| TRAIN | 354 | 183 | 42 | 579 |
+| DEV | 75 | 44 | 9 | 128 |
+| TEST | 77 | 40 | 9 | 126 |
 
-同一已知报告家族和证据连通组中的记录不会跨切分。题目标注完成后才进行切分，因此这不是盲测。详见 [`SPLIT_POLICY.md`](SPLIT_POLICY.md) 和 [`split_assignments.jsonl`](split_assignments.jsonl)。
+新增记录经过 AI 辅助核查，不声称独立人工复核或双人标注。切分在题目构造后分配，且未审计此前系统接触情况，因此 TEST 不能描述为前瞻性盲测。详情见 [`SPLIT_POLICY.md`](SPLIT_POLICY.md) 和 [`split_assignments.jsonl`](split_assignments.jsonl)。
 
-## 文件说明
+## 记录级许可与署名
 
-- [`records.jsonl`](records.jsonl)：规范问答记录。
-- [`split_assignments.jsonl`](split_assignments.jsonl)：逐条 ID 切分和分组审计。
-- [`sources.json`](sources.json)：原有来源及 8 份新增报告的完整元数据。
-- [`data/`](data/)：由 `records.jsonl` 生成的 Hugging Face Viewer 切分文件。
-- [`schema.json`](schema.json)：两种版本的 JSON Schema。
-- [`DATA_CARD.md`](DATA_CARD.md)、[`DATA_STATEMENT.md`](DATA_STATEMENT.md)：范围、构建、核查和局限。
-- [`ATTRIBUTION.md`](ATTRIBUTION.md)：来源引用和必须保留的声明。
-- [`LICENSES.md`](LICENSES.md)：记录级许可范围和义务。
-- [`LICENSE`](LICENSE)：混合许可范围说明；原 CC BY 4.0 文本保存在 [`LICENSE-CC-BY-4.0.txt`](LICENSE-CC-BY-4.0.txt)。
-- [`manifest.json`](manifest.json)、[`SHA256SUMS`](SHA256SUMS)：数据包元数据和校验和。
-- [`VALIDATION_REPORT.json`](VALIDATION_REPORT.json)：最近一次发布门槛检查摘要。
-- [`validate_package.py`](validate_package.py)：结构、许可元数据、切分和完整性校验。
+本数据包采用**记录级混合许可**，没有统一覆盖所有记录的许可。保留的 v1.0.0 记录和 v1.2.0 中 7 条 ILO 中文执行摘要改编记录采用 CC BY 4.0；v1.1.0 与 v1.2.0 中 50 条改编记录采用 CC BY 3.0 IGO；3 条 UNESCO 工具包改编记录采用 CC BY-SA 3.0 IGO，并在记录级继续采用相同条款。每条记录的适用许可、来源署名、改编/翻译说明和第三方内容限制均写在记录、`sources.json`、[`LICENSES.md`](LICENSES.md) 与 [`ATTRIBUTION.md`](ATTRIBUTION.md) 中。Hugging Face 元数据使用 `license: other`，避免暗示所有记录采用同一许可。
 
-## 许可与来源署名
-
-本数据包**采用混合的记录级许可**，没有一项许可统一适用于全部记录。保留的 506 条 v1.0.0 记录继续采用 CC BY 4.0；新增 `IICR-V11-` 记录是对各记录所列报告的改编，采用 CC BY 3.0 IGO，并遵守原机构的署名和改编声明要求。每条记录的 `publication_rights` 和 `source_refs` 均标明适用条款。由于不存在适用于全体记录的单一许可，Hugging Face 卡片使用 `license: other`。
-
-再发布新增记录时，请引用数据集及对应报告，提供 CC BY 3.0 IGO 许可链接，说明问答是 AI 辅助改写/改编，并附上 `ATTRIBUTION.md` 和记录中列明的机构免责声明。ADB 来源还明确说明英文文本是唯一官方版本。不能仅凭报告许可复用第三方图表、表格、照片、标识或其他材料。原始报告和媒体不在数据包内，也不受本数据包许可覆盖。
+再次分发记录时，请保留对应来源引用，链接适用许可，说明做过改编，并保留来源特定声明。报告的许可不自动覆盖报告中的第三方内容。原始报告和媒体未纳入数据包，也不受此数据包许可覆盖。
 
 ## 引用
 
-请引用本版本及每条记录 `source_ids` 对应的原始报告。格式见 [`CITATION.cff`](CITATION.cff)、[`CITATION.md`](CITATION.md) 和 [`ATTRIBUTION.md`](ATTRIBUTION.md)。
+请引用数据集版本以及记录 `source_ids` 对应的原始报告。格式见 [`CITATION.cff`](CITATION.cff)、[`CITATION.md`](CITATION.md) 和 [`ATTRIBUTION.md`](ATTRIBUTION.md)。

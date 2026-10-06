@@ -1,25 +1,29 @@
 # License status
 
-## Dataset rows
+## Dataset records
 
-The v1.1.0 package uses mixed record-level terms:
+The v1.2.0 package contains mixed record-level terms and no blanket license:
 
-- The original 506 v1.0.0 records, IDs, and split assignments are preserved unchanged and remain licensed under CC BY 4.0 as stated in the original release.
-- The 267 new records (`IICR-V11-0001` through `IICR-V11-0267`) are concise AI-assisted paraphrases/adaptations of eight reports explicitly marked CC BY 3.0 IGO. Each row carries the applicable report citation, license link, modification notice, and institution-specific adaptation disclaimer.
+- 506 retained v1.0.0 records: CC BY 4.0.
+- 267 v1.1.0 adaptations: CC BY 3.0 IGO.
+- Seven v1.2.0 adaptations of the ILO Chinese executive summary: CC BY 4.0.
+- Fifty other v1.2.0 adaptations: CC BY 3.0 IGO.
+- Three v1.2.0 UNESCO toolkit adaptations: CC BY-SA 3.0 IGO, retained under the same terms.
 
-There is no blanket license applying uniformly to `records.jsonl`; use the per-record `publication_rights` and `source_refs`. Hugging Face metadata therefore identifies the repository license as `other` and explains the mixed terms.
+Every v1.2.0 row records its `record_license`, license link, source attributions, adaptation/translation notices, and per-source limitations. Cross-document rows identify obligations for each cited report. No legal opinion is claimed.
 
 ## Source rights evidence
 
-`sources.json` records the official source file URL, SHA-256, language and translation identity, rights-holder, license URL, rights notice location, required attribution, adaptation and translation notices, and third-party restrictions for every new report. The World Bank, ILO, and ADB rights pages permit adaptations under CC BY 3.0 IGO subject to attribution and stated conditions. These records are not legal opinions.
+`sources.json` records source institution, bilingual title, language and translation status, official publication/PDF URLs, exact PDF SHA-256 and page count, rights notice location, license, required attribution, adaptation/translation notices, and third-party limits. The v1.2.0 source set includes ILO CC BY 4.0 and CC BY 3.0 IGO material, plus a UNESCO/SOU CC BY-SA 3.0 IGO toolkit. The source registry distinguishes official Chinese editions/summaries from Chinese translations prepared outside the dataset.
 
-ADB's Chinese publications state that English is the only official version. The ILO Chinese PDFs state that the translations are not official ILO translations. The World Bank WDR 2019 catalog identifies the Chinese report as Final, while its PDF cover bears “会议版本”; both facts are retained in the source record.
+The UNESCO PDF includes third-party visual content. Only the toolkit-authored scoring tables were used as evidence locators; no table content or image is reproduced in the package. A source PDF hash identifies the checked artifact but does not grant permission to redistribute that file.
 
 ## Exclusions
 
-The package contains no original source PDF, source page image, screenshot, long quote, chart, table, logo, or third-party media. The source hash is for provenance, not a permission to redistribute the source file. No reuse claim is made for third-party items inside the reports.
+No source PDF, source page image, screenshot, extracted page text, long quotation, logo, table content, chart, or third-party media is included. Original reports remain subject to their own terms and are not covered by this package's record licenses.
 
 ## License links
 
-- Legacy rows: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-- New rows: [CC BY 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
+- [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [CC BY 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
+- [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/)

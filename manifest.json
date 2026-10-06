@@ -1,42 +1,76 @@
 {
   "dataset_id": "chinese_internet_ict_reports_qa",
   "dataset_name": "Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集",
-  "version": "1.1.0",
-  "created_on": "2026-10-05",
+  "version": "1.2.0",
+  "created_on": "2026-10-06",
   "package_status": "complete_record_level_mixed_license_dataset_package",
-  "record_count": 773,
+  "record_count": 833,
   "legacy_record_count": 506,
   "v1_1_record_count": 267,
-  "source_count": 22,
+  "v1_2_record_count": 60,
+  "source_count": 25,
   "v1_1_source_count": 8,
+  "v1_2_new_source_count": 3,
   "split_counts": {
-    "TRAIN": 537,
-    "TEST": 117,
-    "DEV": 119
+    "TRAIN": 579,
+    "TEST": 126,
+    "DEV": 128
+  },
+  "v1_0_split_counts": {
+    "TRAIN": 354,
+    "TEST": 77,
+    "DEV": 75
   },
   "v1_1_split_counts": {
     "TRAIN": 183,
     "DEV": 44,
     "TEST": 40
   },
+  "v1_2_split_counts": {
+    "TRAIN": 42,
+    "DEV": 9,
+    "TEST": 9
+  },
+  "v1_2_question_type_counts": {
+    "unanswerable_absence": 20,
+    "cross_document_synthesis": 20,
+    "table_chart_reasoning": 20
+  },
+  "v1_2_question_type_split_counts": {
+    "cross_document_synthesis": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    },
+    "table_chart_reasoning": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    },
+    "unanswerable_absence": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    }
+  },
   "connected_component_counts": {
-    "TRAIN": 14,
-    "DEV": 4,
-    "TEST": 3
+    "TRAIN": 22,
+    "TEST": 6,
+    "DEV": 8
   },
   "family_counts": {
-    "TRAIN": 15,
-    "DEV": 4,
-    "TEST": 3
+    "TRAIN": 20,
+    "TEST": 5,
+    "DEV": 6
   },
   "source_counts": {
-    "TRAIN": 15,
-    "DEV": 4,
-    "TEST": 3
+    "TRAIN": 16,
+    "TEST": 4,
+    "DEV": 5
   },
   "answerability_counts": {
-    "answerable": 772,
-    "unanswerable": 1
+    "answerable": 812,
+    "unanswerable": 21
   },
   "source_support_status_counts": {
     "source_supported_candidate": 401,
@@ -44,12 +78,13 @@
     "source_checked_in_followup_resolution": 2,
     "historical_source_verified_gold": 40,
     "source_verified_after_content_correction": 8,
-    "source_verified_candidate": 267
+    "source_verified_candidate": 307,
+    "source_checked_unanswerable_candidate": 20
   },
-  "gold_candidate_count": 773,
+  "gold_candidate_count": 833,
   "human_reviewed": false,
-  "v1_1_independent_human_review": "not_performed",
-  "v1_1_source_checking": "AI-assisted page-level source and evidence verification",
+  "v1_2_independent_human_review": "not_performed",
+  "v1_2_source_checking": "AI-assisted page-level evidence, absence-scope, cross-document, and visual locator verification",
   "pre_annotation_split": false,
   "prospective_blind_holdout_claim": false,
   "prior_system_exposure_audit": "not_performed",
@@ -62,6 +97,16 @@
   "dataset_license": "mixed_record_level",
   "open_license_asserted": true,
   "source_attribution_required": true,
+  "record_license_counts": {
+    "CC-BY-4.0": 513,
+    "CC-BY-3.0-IGO": 317,
+    "CC-BY-SA-3.0-IGO": 3
+  },
+  "v1_2_record_license_counts": {
+    "CC-BY-4.0": 7,
+    "CC-BY-3.0-IGO": 50,
+    "CC-BY-SA-3.0-IGO": 3
+  },
   "license_components": [
     {
       "license": "CC-BY-4.0",
@@ -75,12 +120,36 @@
       "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
       "record_id_prefix": "IICR-V11-",
       "record_count": 267,
-      "scope": "new adaptations; retain report-specific attribution and institution disclaimer"
+      "scope": "v1.1.0 report adaptations"
+    },
+    {
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "record_id_prefix": "IICR-V12-",
+      "record_count": 7,
+      "scope": "ILO Chinese executive-summary adaptations"
+    },
+    {
+      "license": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+      "record_id_prefix": "IICR-V12-",
+      "record_count": 50,
+      "scope": "v1.2.0 adaptations of CC BY 3.0 IGO reports"
+    },
+    {
+      "license": "CC-BY-SA-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+      "record_id_prefix": "IICR-V12-",
+      "record_count": 3,
+      "scope": "v1.2.0 UNESCO toolkit adaptations; same ShareAlike terms apply"
     }
   ],
   "v1_0_records_and_splits_unchanged": true,
+  "v1_1_records_and_splits_unchanged": true,
   "v1_0_records_sha256": "7d4d3028b06c7926515607ecb9ad596984a74feccc91a0cea5fac2dc23fc6a6a",
   "v1_0_split_assignments_sha256": "fe3ef765e94f142bcf4c40d4d1011b1c1cd42520b99ab7361421636b6add670e",
+  "v1_1_records_sha256": "f00ffbb66a5af9ac097c626717979ce055154d75b58d27aa4a4ea4267e2f21f4",
+  "v1_1_split_assignments_sha256": "72d91d55dc53f97edbbce9e8512cc6b2eae8a3ba7fe25dc630cee8c390e024f3",
   "v1_1_source_record_counts": {
     "WB2014-RURAL": 28,
     "WB2016-DIGITAL": 30,
@@ -96,45 +165,72 @@
     "International Labour Organization",
     "World Bank"
   ],
-  "input_provenance": {
-    "source_candidate_records_sha256": "025c2e1dc36c83e341d36f1b7b8dde169829179ec307ee44e2342e34b0d7bff3",
-    "source_catalog_sha256": "daaca4168c33470b0277218f6fe6247074375425ebdd412f36002ee8ca08a12a",
-    "frozen_legacy_split_manifest_sha256": "fc26d3e09aa68252fd7c7a8f47311f88899480b294a592893270fb1260281bcf",
-    "frozen_legacy_split_assignments_sha256": "de9e5a5bd86916ee5c58396fd5e0c13ca6a511ed068fca2cba8285f2e74a361a"
+  "v1_2_source_record_counts": {
+    "ILO2026-LIFELONG-SKILLS": 7,
+    "ILO2020-PLATFORM": 16,
+    "WB2014-RURAL": 6,
+    "WB2025-DIGITAL": 19,
+    "ADB2023-YOUTH": 5,
+    "WB2016-DIGITAL": 4,
+    "ILO2021-PLATFORM": 8,
+    "ILO2021-EMPLOYMENT-RELATIONSHIP": 4,
+    "WB2019-WORK": 8,
+    "UNESCO2023-DIGITAL-CITIZENSHIP": 3
   },
+  "v1_2_source_ids": [
+    "ADB2023-YOUTH",
+    "ILO2020-PLATFORM",
+    "ILO2021-EMPLOYMENT-RELATIONSHIP",
+    "ILO2021-PLATFORM",
+    "ILO2026-LIFELONG-SKILLS",
+    "UNESCO2023-DIGITAL-CITIZENSHIP",
+    "WB2014-RURAL",
+    "WB2016-DIGITAL",
+    "WB2019-WORK",
+    "WB2025-DIGITAL"
+  ],
+  "v1_2_new_source_ids": [
+    "ILO2021-EMPLOYMENT-RELATIONSHIP",
+    "ILO2026-LIFELONG-SKILLS",
+    "UNESCO2023-DIGITAL-CITIZENSHIP"
+  ],
+  "v1_2_new_source_publishers": [
+    "International Labour Organization",
+    "UNESCO Institute for Information Technologies in Education and Shanghai Open University"
+  ],
   "split_manifest_reference": "legacy_dataset_split_v1/legacy_dataset_split_manifest_v1.json",
   "dataset_license_url": null,
   "license_notice": "See LICENSE and LICENSES.md; no single license applies to all records.",
   "package_files": [
     {
       "path": "ATTRIBUTION.md",
-      "bytes": 4262,
-      "sha256": "bed6a7225d8f73f7479c49cc56209f49b7d9f391806b7126d858afd8e9fb37bd"
+      "bytes": 2741,
+      "sha256": "45e4a84cc2c5e6a9f7f0d6699130b89a85c6dfa47e9f094a428cd0434e0d68c4"
     },
     {
       "path": "CITATION.cff",
-      "bytes": 1016,
-      "sha256": "66f6d92eaa87e13bb8dc1c992c1b6407bfec10a0aa7452e2d2fccc4241ab2f64"
+      "bytes": 1047,
+      "sha256": "8afe1723466babbd9ec58a1df549501d6591ab2cab9a04fccfe465d73470febe"
     },
     {
       "path": "CITATION.md",
-      "bytes": 632,
-      "sha256": "9f240d45d56580970cef16e53da170d374a81720ea91a2d9e9704386cae77a45"
+      "bytes": 654,
+      "sha256": "6923bfffa47d0c0ca9951c905c8a01e91925191a9acd4f0a3f7cbded3b7a228e"
     },
     {
       "path": "DATA_CARD.md",
-      "bytes": 3091,
-      "sha256": "651c20f7b1fc13f47ffbd7e838756bc265515b352f64e5165b2c730767385af7"
+      "bytes": 3447,
+      "sha256": "68286f6878ba35c2c1f7cb8cda702da5f74f64f840af8eded8d28929d1e37245"
     },
     {
       "path": "DATA_STATEMENT.md",
-      "bytes": 2404,
-      "sha256": "367187a5c5925e90318c6d16dfb2460ba4b7cd8db0daa0f9773a006ee7e44f9f"
+      "bytes": 2615,
+      "sha256": "06118ab78db9ff7fea85be4b891c752debb59cc5ab421daaad708925d4d7b00e"
     },
     {
       "path": "LICENSE",
-      "bytes": 778,
-      "sha256": "672d60a1d7b3832d129c6e69fe49fbfed3f031df1d2811e061e23b569814a792"
+      "bytes": 928,
+      "sha256": "218323e57a0ed8666d5d840c392c1d1b29f37aecb23ff4a6c131823cfe77db81"
     },
     {
       "path": "LICENSE-CC-BY-4.0.txt",
@@ -143,78 +239,88 @@
     },
     {
       "path": "LICENSES.md",
-      "bytes": 1516,
-      "sha256": "7736d6b4e5e8177388ce8d14e0a0793fdbb8f768bc165784a1ae4b17429cab96"
+      "bytes": 2427,
+      "sha256": "1bcd6211806f2fa4f265ad9cabd2ffd8de1ad5cf64a7732adfe1fe6c1d180558"
     },
     {
       "path": "LICENSE_STATUS.md",
-      "bytes": 2013,
-      "sha256": "3c56a539f1165e3e82268577692f2cb70c7f1b697a89c5979b628e14bdaad0f4"
+      "bytes": 1969,
+      "sha256": "8010aebed7081f615abde0bd0bf412c09d9ab7eaff33ef49c6c897e4d7ffaf38"
     },
     {
       "path": "README.md",
-      "bytes": 6666,
-      "sha256": "a23caf82f6f3d8fd2cf23c8cb9420179d1a8b70e10f6cf2d34c2cdcd7b80e9b9"
+      "bytes": 6277,
+      "sha256": "39ce0057bd086d59a3d39d09b83f16c7bfd8dcf57c82db3c5cd6cde99fb45cb0"
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 6148,
-      "sha256": "3367a2bc0445f3da2daaed75c431ae112b031e590fbc204d5cee0722047ed156"
+      "bytes": 5491,
+      "sha256": "4801bd706c912c5534862cf263839aa32a5ebba15f184926b46d4a8e805e498e"
     },
     {
       "path": "SPLIT_POLICY.md",
-      "bytes": 969,
-      "sha256": "401a67de76da1dd557b417ceec5d902b06273de11b1ba8ebe1ad8858377ea1df"
+      "bytes": 1230,
+      "sha256": "ae5554f987de3b6a526d7fe68cfc5930f83dd2296e9ce928b9f9114eb9a9a4f6"
     },
     {
       "path": "VALIDATION_REPORT.json",
-      "bytes": 2246,
-      "sha256": "f0ecfc1edc4ef68fd697eb98a266f344d91ec6e4a564be04ebb7c464fae12e42"
+      "bytes": 1937,
+      "sha256": "f5c68cce3a02635a756d641251694bad0749029740b86f547b6b18953e71a0d0"
     },
     {
       "path": "build_hf_splits.py",
-      "bytes": 1516,
-      "sha256": "32e9f2789390d18b34b7b5e3b05b0c5f385feb3ce6d47e15b661741d27c73e3f"
+      "bytes": 1709,
+      "sha256": "851575bd0e15c744288241e7dc7af6ab226b83bff92450f8936ad9821d77ec61"
+    },
+    {
+      "path": "build_release_metadata.py",
+      "bytes": 9160,
+      "sha256": "a92c6b9c82d0c6e16b6a07d7dfbb350cc2e999223a7dc3e331385164b51fa75c"
+    },
+    {
+      "path": "build_v1_2_records.py",
+      "bytes": 64650,
+      "sha256": "4b5b7c0919cc9c799f3326a689784f456e0fa7ad46f0e14a6d871d6a678ca5c3"
     },
     {
       "path": "data/test.jsonl",
-      "bytes": 895312,
-      "sha256": "e04eaeef078b39f486beccf0f391509eb71ba0640e4b8203e01d115feba5ebb1"
+      "bytes": 998814,
+      "sha256": "7979db40be24af4c2f2f3d26862c53493bf5ff651923e6efa2119dcb817581a3"
     },
     {
       "path": "data/train.jsonl",
-      "bytes": 4001763,
-      "sha256": "8ff81a5b03f352554cdbb9831f22a50a5f5df571f88e59acb4e645e705743c32"
+      "bytes": 4442678,
+      "sha256": "7bf6f638da14664c70ab30fc19fc75a8d73d6250d9819ae54023a790090294c4"
     },
     {
       "path": "data/validation.jsonl",
-      "bytes": 896442,
-      "sha256": "5c72d53104bf3311f3315485cbd640b2b3c6baf2aad435a450ba0e845bc99799"
+      "bytes": 1001245,
+      "sha256": "cbda6182dbb11c3a41f6c59b64ea02dba47eec781d8f1fc2d2e13a4f8a5c5d8f"
     },
     {
       "path": "records.jsonl",
-      "bytes": 5199048,
-      "sha256": "f00ffbb66a5af9ac097c626717979ce055154d75b58d27aa4a4ea4267e2f21f4"
+      "bytes": 5719998,
+      "sha256": "c1885bfb779928002171d6deb9bc02c2dccd6081364202d7fe69c9fa787a21ae"
     },
     {
       "path": "schema.json",
-      "bytes": 14123,
-      "sha256": "6804b90d2823e7ee81888b7e9f08714bdeb71e63959e44eda41760f39d0aace9"
+      "bytes": 33141,
+      "sha256": "3f3bfaab823b79571435c8d3d3f5bddc80abb26a5f280dc8977e15629c12fd37"
     },
     {
       "path": "sources.json",
-      "bytes": 48795,
-      "sha256": "890fd4529911ba21d1139559189034b703a48f31e4807dbee298681bacac04cf"
+      "bytes": 58107,
+      "sha256": "0e0f4c8511ac7588264ae0e8ee36a4e0c85538cc9b6b6aa8837ff9e17024dcf2"
     },
     {
       "path": "split_assignments.jsonl",
-      "bytes": 306763,
-      "sha256": "72d91d55dc53f97edbbce9e8512cc6b2eae8a3ba7fe25dc630cee8c390e024f3"
+      "bytes": 321814,
+      "sha256": "e6ea3fa7f1eb4bf656766ac90318ffd3a98a5fead2fbfa650e7f98d76a2a8b4d"
     },
     {
       "path": "validate_package.py",
-      "bytes": 18360,
-      "sha256": "3f68683dd817e76a60a50258e15929420c7e831fa06388b1f5133aa50a9fc705"
+      "bytes": 26232,
+      "sha256": "f3d4e2e10535306ac587a66c9be89d8be6bdb195882907e55946c7c78a8d0d9a"
     }
   ]
 }

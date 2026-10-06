@@ -1,19 +1,15 @@
 # Split Policy
 
-Version 1.1.0 retains all 506 v1.0.0 record IDs and their split assignments unchanged. The 267 new records are assigned by complete report family; every new source and connected evidence group appears in exactly one split.
+Version 1.2.0 retains the v1.0.0 and v1.1.0 records and split assignments unchanged. The 60 v1.2.0 records are grouped by report family and evidence-connected group. Every source, report family, and connected group is assigned to one split only.
 
-| Split | Legacy retained | New additions | Total |
-|---|---:|---:|---:|
-| TRAIN | 354 | 183 | 537 |
-| DEV | 75 | 44 | 119 |
-| TEST | 77 | 40 | 117 |
+| Split | v1.0.0 retained | v1.1.0 additions | v1.2.0 additions | Total |
+|---|---:|---:|---:|---:|
+| TRAIN | 354 | 183 | 42 | 579 |
+| DEV | 75 | 44 | 9 | 128 |
+| TEST | 77 | 40 | 9 | 126 |
 
-New source assignment:
+Each v1.2.0 task type has the same allocation: TRAIN 14, DEV 3, TEST 3. This places no-answer, cross-document, and table/figure candidates in TEST while preserving source and evidence-group isolation. Cross-document sources are kept together in one split.
 
-- TRAIN: WB2014-RURAL, WB2019-WORK, WB2025-DIGITAL, ILO2020-PLATFORM, ADB2018-CITIES
-- DEV: WB2016-DIGITAL, ADB2023-YOUTH
-- TEST: ILO2021-PLATFORM
+The assignment happened after annotation. It is not prospective, preregistered, or a blind holdout; prior system exposure was not audited. The package has 21 unanswerable records overall: one retained legacy record and 20 new candidate records. The 20 new candidates include their report/page search scope and nearby evidence but have not received independent human adjudication.
 
-The split is post-annotation, not prospective or preregistered. Prior system exposure was not audited, so TEST must not be described as an unbiased blind holdout. There is one unanswerable item, retained from v1.0.0 and assigned to TEST; v1.1.0 adds no unanswerable examples.
-
-See `split_assignments.jsonl` for the record-level audit. Legacy assignment rows are preserved byte-for-byte at the file prefix.
+See `split_assignments.jsonl` for the record-level audit. The original v1.0.0 and v1.1.0 assignment prefixes are preserved byte-for-byte.

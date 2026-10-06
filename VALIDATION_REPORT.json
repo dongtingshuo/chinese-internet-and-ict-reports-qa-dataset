@@ -1,61 +1,74 @@
 {
-  "dataset_version": "1.1.0",
   "validation_status": "passed",
-  "record_count": 773,
-  "legacy_record_count": 506,
-  "added_record_count": 267,
-  "source_count": 22,
-  "added_source_count": 8,
-  "added_publisher_count": 3,
+  "version": "1.2.0",
+  "validated_on": "2026-10-06",
+  "record_count": 833,
+  "source_count": 25,
+  "added_record_count": 60,
+  "v1_2_additions_by_type": {
+    "unanswerable_absence": 20,
+    "cross_document_synthesis": 20,
+    "table_chart_reasoning": 20
+  },
   "split_counts": {
-    "TRAIN": 537,
-    "TEST": 117,
-    "DEV": 119
+    "TRAIN": 579,
+    "TEST": 126,
+    "DEV": 128
   },
-  "added_split_counts": {
-    "TRAIN": 183,
-    "DEV": 44,
-    "TEST": 40
+  "v1_2_split_counts": {
+    "TRAIN": 42,
+    "DEV": 9,
+    "TEST": 9
   },
-  "legacy_prefix_hashes_preserved": true,
-  "report_family_split_isolation": "passed",
-  "source_and_page_locators": "all added rows point to a valid physical source-PDF page; five WDR2019 rows map printed page 37 to PDF page 49",
-  "source_rights_metadata": "CC BY 3.0 IGO, notice page, attribution, adaptation notice, translation identity and third-party limits recorded per added source",
-  "human_reviewed": false,
-  "independent_human_double_annotation": "not_performed",
-  "hugging_face_viewer_files": "generated from canonical records; checked for row, split and record_json parity",
-  "source_pdfs_or_media_included": false,
+  "v1_2_question_type_split_counts": {
+    "cross_document_synthesis": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    },
+    "table_chart_reasoning": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    },
+    "unanswerable_absence": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    }
+  },
+  "answerability_counts": {
+    "answerable": 812,
+    "unanswerable": 21
+  },
+  "record_license_counts": {
+    "CC-BY-4.0": 513,
+    "CC-BY-3.0-IGO": 317,
+    "CC-BY-SA-3.0-IGO": 3
+  },
+  "v1_2_record_license_counts": {
+    "CC-BY-4.0": 7,
+    "CC-BY-3.0-IGO": 50,
+    "CC-BY-SA-3.0-IGO": 3
+  },
+  "source_rights": "Mixed record-level terms verified against the source registry; BY-SA adaptations retain BY-SA terms.",
   "checks": {
-    "legacy_records_prefix": "passed",
-    "legacy_split_assignments_prefix": "passed",
-    "record_fields_and_schema_versions": "passed",
-    "source_ids_and_page_bounds": "passed",
-    "printed_page_pdf_page_mapping": "passed",
-    "record_level_license_and_attribution": "passed",
-    "source_report_family_and_evidence_group_split_isolation": "passed",
-    "viewer_split_counts_and_row_parity": "passed",
-    "package_file_hashes_and_SHA256SUMS": "passed",
-    "original_source_media_exclusion": "passed"
+    "frozen_v1_0_prefixes": true,
+    "frozen_v1_1_prefixes": true,
+    "record_ids_unique_and_contiguous": true,
+    "schema_and_conditionals": true,
+    "license_attribution_and_adaptation_fields": true,
+    "absence_scope_and_near_miss_fields": true,
+    "cross_document_source_and_fact_coverage": true,
+    "table_figure_visual_locators": true,
+    "source_family_group_split_isolation": true,
+    "viewer_rows_match_canonical_records": true,
+    "no_source_pdfs_or_media": true,
+    "manifest_and_sha256sum_coverage": true
   },
-  "new_sources_by_id": {
-    "WB2014-RURAL": 28,
-    "WB2016-DIGITAL": 30,
-    "WB2019-WORK": 42,
-    "WB2025-DIGITAL": 52,
-    "ILO2020-PLATFORM": 41,
-    "ILO2021-PLATFORM": 40,
-    "ADB2018-CITIES": 20,
-    "ADB2023-YOUTH": 14
-  },
-  "new_publishers": [
-    "Asian Development Bank",
-    "International Labour Organization",
-    "World Bank"
-  ],
-  "notes": [
-    "AI-assisted source and evidence verification; independent human review is not claimed.",
-    "The existing one-item unanswerable set is retained; no new no-answer items were added.",
-    "Five WDR2019 evidence locators were corrected from printed page 37 to physical PDF page 49.",
-    "No model-performance results are included."
-  ]
+  "human_reviewed": false,
+  "independent_human_review": "not_performed",
+  "source_pdfs_or_media_included": false,
+  "prospective_blind_holdout_claim": false,
+  "prior_system_exposure_audit": "not_performed"
 }
