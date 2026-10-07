@@ -1309,7 +1309,7 @@
     {
       "path": "VALIDATION_REPORT.json",
       "bytes": 51465,
-      "sha256": "27cd527f6d5974de5882ed69c6686b3aaa5598f68b7ee55dbec030cdc27bfe98"
+      "sha256": "4a49f059bf03580901ac18728086074a3f66f94a138167cd1cc9e8e6b9c11b66"
     },
     {
       "path": "audit/v2_1_all_candidate_questions.jsonl",
@@ -1388,8 +1388,8 @@
     },
     {
       "path": "build_release_metadata.py",
-      "bytes": 12678,
-      "sha256": "67fc46614801f49ba24bab2de089be2586dd74ca687291677ad39eea48afbdc0"
+      "bytes": 12760,
+      "sha256": "8853aeddd707d3345ebc909c41922278870fae7fe1a2b38bead8e5a4b60610a3"
     },
     {
       "path": "build_v2_1_package.py",
@@ -1492,6 +1492,11 @@
       "sha256": "4801bd706c912c5534862cf263839aa32a5ebba15f184926b46d4a8e805e498e"
     },
     {
+      "path": "history/v1.2.0/SHA256SUMS",
+      "bytes": 2065,
+      "sha256": "a279a7cef5774bfc5432119e8a5f09bb5bdd660f136c11103da95354a1ccf327"
+    },
+    {
       "path": "history/v1.2.0/SNAPSHOT_MANIFEST.json",
       "bytes": 2528,
       "sha256": "30df07fc47d35fda7680f4e99a8bbc3cdddd59de64010d16a93b2cad8bcfb5dc"
@@ -1535,6 +1540,11 @@
       "path": "history/v1.2.0/data/validation.jsonl",
       "bytes": 1001245,
       "sha256": "cbda6182dbb11c3a41f6c59b64ea02dba47eec781d8f1fc2d2e13a4f8a5c5d8f"
+    },
+    {
+      "path": "history/v1.2.0/manifest.json",
+      "bytes": 9728,
+      "sha256": "bba10e62ea398153b046b3e1c2a73c09a32e2c16d069c428b23a8bfc44ae74c3"
     },
     {
       "path": "history/v1.2.0/records.jsonl",
@@ -1617,6 +1627,11 @@
       "sha256": "9d46b292b5256e70c125f7c36dd5d0eca4f60d0f25917a37d7e910a9bac6cefe"
     },
     {
+      "path": "history/v2.0.0/SHA256SUMS",
+      "bytes": 6002,
+      "sha256": "85df2b15da30800e9bb1325127060247cbf6c20c7990154e03c925996e694c0b"
+    },
+    {
       "path": "history/v2.0.0/SNAPSHOT_MANIFEST.json",
       "bytes": 2576,
       "sha256": "a302e3cea6eaef55549fa205f9083b140bdb04397e272548ede3ffb1cc396059"
@@ -1660,6 +1675,11 @@
       "path": "history/v2.0.0/data/recommended/validation.jsonl",
       "bytes": 3051992,
       "sha256": "9db7cdc88cac61695632f985fb79ac8b46ba6e1e16ff7dec0b4d0e1280c1aaf2"
+    },
+    {
+      "path": "history/v2.0.0/manifest.json",
+      "bytes": 42831,
+      "sha256": "69d9559d7a6c3d53a99758e785fe8fe6bc5bebfc88f3a6c362bcca343c493250"
     },
     {
       "path": "history/v2.0.0/records.jsonl",

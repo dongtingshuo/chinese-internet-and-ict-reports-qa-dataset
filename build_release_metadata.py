@@ -47,7 +47,7 @@ def payload_fingerprint() -> str:
     payload = [
         {"path": path.relative_to(ROOT).as_posix(), "sha256": sha(path)}
         for path in repo_files()
-        if path.name not in DYNAMIC_FILES
+        if path.relative_to(ROOT).as_posix() not in DYNAMIC_FILES
     ]
     encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
     return sha_bytes(encoded)
@@ -189,7 +189,10 @@ if not remote_viewer_verified:
     report["pending_gates"].append("Verify Hugging Face Dataset Viewer split counts after its processing job completes.")
 (ROOT / "VALIDATION_REPORT.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-package_files = [path for path in repo_files() if path.name not in {"manifest.json", "SHA256SUMS"}]
+package_files = [
+    path for path in repo_files()
+    if path.relative_to(ROOT).as_posix() not in {"manifest.json", "SHA256SUMS"}
+]
 manifest = {
     "dataset_id": "chinese_internet_ict_reports_qa",
     "dataset_name": "Chinese Internet and ICT Reports QA Dataset / 中文互联网与 ICT 报告问答数据集",
@@ -242,7 +245,7 @@ manifest = {
 }
 (ROOT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-checksum_files = [path for path in repo_files() if path.name != "SHA256SUMS"]
+checksum_files = [path for path in repo_files() if path.relative_to(ROOT).as_posix() != "SHA256SUMS"]
 (ROOT / "SHA256SUMS").write_text(
     "".join(f"{sha(path)}  {path.relative_to(ROOT).as_posix()}\n" for path in checksum_files),
     encoding="utf-8",
