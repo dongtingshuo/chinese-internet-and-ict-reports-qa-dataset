@@ -42,7 +42,7 @@ Maintain the Chinese Internet and ICT Reports QA Dataset as a standalone, source
 - The 60 other new candidates have AI-assisted answer-blind source reconstruction without independent human review. All 833 historical rows preserve their original question/answer/facts/evidence/source IDs/splits and remain pending v2 answer-blind reconstruction; some historical source files also await revalidation.
 - The 1,107 cloze rows use 32 ITU/WHO Chinese source documents with CC BY-NC-SA 3.0 IGO notices. Their row-level attribution, adaptation, noncommercial, and ShareAlike terms are retained. No source PDFs/media or full extracted text are packaged; each cloze question contains one short sentence excerpt.
 - Local package validation passed with zero structural, rights-field, split, hash, and duplicate findings. Exact/near duplicate counts are zero at the current 0.82 threshold. The v1.2.0 snapshot hashes match.
-- GitHub/Hugging Face have not yet been updated with this 2,000-row package. The prior Hub payload was 893 rows; after upload, compare payload hashes and query Viewer counts. Earlier Viewer endpoints returned server-side errors, so do not claim remote Viewer validation until a current request succeeds.
+- GitHub `main` was pushed at commit `4e4a472`. Hugging Face received the 2,000-row package at commit `0b8cb466ea3f5e1b326094d9039b4103bd820d7b`; all 65 paths listed in `SHA256SUMS` matched the downloaded Hub files. Dataset Viewer endpoints `/is-valid`, `/splits`, `/parquet`, and `/size` still return HTTP 500, while the `stanfordnlp/imdb` control returns HTTP 200. Viewer counts are therefore unverified; do not tag v2.0.0 until they succeed.
 
 ## Important decisions
 
@@ -62,7 +62,7 @@ Maintain the Chinese Internet and ICT Reports QA Dataset as a standalone, source
 
 ## Prioritized TODOs
 
-1. Publish the validated 2,000-row unified package to GitHub and Hugging Face; verify the Hub files and Viewer split counts.
+1. Sync final validation metadata to GitHub and Hugging Face, verify all Hub file hashes, and retry Viewer split counts; tag v2.0.0 only after Viewer verification succeeds.
 2. Complete content and third-party attribution review of the 1,107 sentence-cloze candidates while keeping their status visible.
 3. Complete v2 answer-blind reconstruction for the 833 historical rows and revalidate source files marked pending.
 4. Add a more balanced set of multi-hop, cross-document, table/figure, and answerability tasks before describing the corpus as a complex reasoning benchmark.
