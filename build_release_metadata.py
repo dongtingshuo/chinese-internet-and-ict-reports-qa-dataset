@@ -11,13 +11,23 @@ def readj(path): return json.loads(path.read_text(encoding='utf-8'))
 def readl(path): return [json.loads(x) for x in path.read_text(encoding='utf-8').splitlines() if x.strip()]
 def clean_files():
     return sorted(p for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.relative_to(ROOT).parts and '__pycache__' not in p.parts and p.suffix not in {'.pyc','.pyo'} and p.name not in {'manifest.json','SHA256SUMS'})
+def payload_fingerprint():
+    files=sorted(p for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.relative_to(ROOT).parts and '__pycache__' not in p.parts and p.suffix not in {'.pyc','.pyo'} and p.name not in {'manifest.json','SHA256SUMS','VALIDATION_REPORT.json'})
+    payload=[{'path':p.relative_to(ROOT).as_posix(),'sha256':sha(p)} for p in files]
+    return sha_bytes(json.dumps(payload,sort_keys=True,separators=(',',':')).encode())
+previous_report_path=ROOT/'VALIDATION_REPORT.json'
+previous_report=readj(previous_report_path) if previous_report_path.exists() else {}
+current_payload_fingerprint=payload_fingerprint()
+previous_remote=previous_report.get('remote_hf_viewer_verification')
+if previous_report.get('remote_payload_fingerprint')==current_payload_fingerprint:
+    remote_hf_viewer_verification=previous_remote
+else:
+    remote_hf_viewer_verification=None
+remote_viewer_verified=bool(remote_hf_viewer_verification and remote_hf_viewer_verification.get('dataset_viewer_verified'))
+remote_files_verified=bool(remote_hf_viewer_verification and remote_hf_viewer_verification.get('all_local_files_match'))
 issues,stats=validate(ROOT)
 if issues: raise SystemExit('Validation failed; refusing to write release metadata: '+ '; '.join(issues[:10]))
 rows=readl(ROOT/'records.jsonl'); sources_doc=readj(ROOT/'sources.json'); sources={s['source_id']:s for s in sources_doc['sources']}
-previous_report_path=ROOT/'VALIDATION_REPORT.json'
-previous_report=readj(previous_report_path) if previous_report_path.exists() else {}
-remote_viewer_verified=bool(previous_report.get('remote_viewer_verified',False))
-remote_hf_viewer_verification=previous_report.get('remote_hf_viewer_verification')
 recommend=[r for r in rows if r['recommended_for_evaluation']]
 new=[r for r in rows if r['query_id'].startswith('IICR-V20-')]
 old=[r for r in rows if not r['query_id'].startswith('IICR-V20-')]
@@ -45,7 +55,10 @@ report={
  'task_family_counts':dict(collections.Counter(r['task_family'] for r in rows)),'recommended_task_family_counts':dict(collections.Counter(r['task_family'] for r in recommend)),
  'answerability_counts':dict(collections.Counter(r['answerability'] for r in rows)),'recommended_answerability_counts':dict(collections.Counter(r['answerability'] for r in recommend)),
  'record_license_counts':license_counts(rows),'recommended_record_license_counts':license_counts(recommend),
- 'caict_active_record_count':stats['caict_active_count'],'caict_active_record_share':stats['caict_active_share'],'history_only_caict_count':506,
+ 'caict_active_record_count':stats['caict_active_count'],'caict_active_record_share':stats['caict_active_share'],'history_only_caict_count':0,
+ 'legacy_caict_recommended_count':sum(any(sid.startswith('CAICT-') for sid in r['source_ids']) and r['recommended_for_evaluation'] for r in rows),
+ 'historical_rows_recommended_per_dataset_owner_instruction':True,
+ 'legacy_authorization_basis':'dataset_owner_confirmation_recorded_per_source_and_record',
  'target_progress':{'active_records':{'target':2000,'actual':len(rows),'shortfall':max(0,2000-len(rows))},
    'report_documents':{'target':60,'actual':len(sources),'shortfall':max(0,60-len(sources))},
    'publishing_institutions':{'target':10,'actual':len(publisher_entities),'shortfall':max(0,10-len(publisher_entities))},
@@ -58,26 +71,28 @@ report={
  'source_pdf_or_media_included':False,'human_reviewed':False,'independent_human_review':'not_performed',
  'gold_benchmark_claim':False,'prospective_blind_holdout_claim':False,'prior_system_exposure_audit':'not_performed',
  'model_performance_results_included':False,'remote_viewer_verified':remote_viewer_verified,
+ 'remote_payload_fingerprint':current_payload_fingerprint,
  'remote_hf_viewer_verification':remote_hf_viewer_verification,
  'duplicate_checks':{'exact_question_duplicates':stats['exact_duplicate_question_count'],'near_duplicate_pairs_at_or_above_0_82':stats['near_duplicate_pair_count_at_0_82']},
  'checks':{
    'schema_and_normalized_fields':True,'unique_ids_and_source_references':True,'record_level_license_attribution_and_sharealike':True,
    'new_source_hash_and_license_notice_pages':True,'evidence_page_bounds_and_fact_coverage':True,
-   'historical_327_questions_answers_facts_evidence_ids_and_splits_preserved':True,
+   'all_833_historical_questions_answers_facts_evidence_ids_and_splits_preserved':True,
+   'all_833_historical_rows_in_candidate_and_recommended_configs':True,
    'v1_2_snapshot_hashes_unchanged':True,'new_family_and_group_split_isolation':True,
    'question_only_packet_excludes_answer_fields':True,'migration_ledger_covers_833_rows':True,
    'exact_and_near_duplicate_checks':True,'candidate_and_recommended_viewer_files_match':True,
    'no_report_pdf_or_media_in_package':True,
-   'remote_file_inventory_and_blob_hashes_match':bool(remote_hf_viewer_verification and remote_hf_viewer_verification.get('all_local_files_match') is True)},
- 'pending_gates':['Revalidate sources and complete v2 answer-blind reconstruction for all 327 historical candidates before recommending any of them.']
+   'remote_file_inventory_and_blob_hashes_match':remote_files_verified},
+ 'pending_gates':['The 833 historical rows are included in the recommended subset per dataset-owner instruction, but their v2 content and answer-blind review remains pending; recommendation does not imply human review or gold status.']
 }
 if not remote_viewer_verified:
- report['pending_gates'].append('Hugging Face Dataset Viewer endpoints are returning HTTP 500; remote file hashes match, but Viewer split counts remain unverified.')
+ report['pending_gates'].append('Hugging Face Dataset Viewer counts for the current payload are not verified.' if remote_files_verified else 'The unified payload must be synchronized to Hugging Face and its remote file hashes and Viewer counts verified.')
 (ROOT/'VALIDATION_REPORT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 files=clean_files()
 manifest={
  'dataset_id':'chinese_internet_ict_reports_qa','dataset_name':'Chinese Internet and ICT Reports QA Dataset / 中文互联网与 ICT 报告问答数据集',
- 'version':'2.0.0','created_on':TODAY,'package_status':'complete_v2_candidate_package_with_historical_review_pending',
+ 'version':'2.0.0','created_on':TODAY,'package_status':'unified_v2_candidate_corpus_with_historical_review_pending',
  'record_count':len(rows),'historical_candidate_count':len(old),'new_record_count':len(new),'recommended_candidate_count':len(recommend),
  'source_count':len(sources),'source_document_count':len(sources),'report_family_count':len(report_families),
  'publisher_label_count':stats['publisher_label_count'],'publishing_institution_count':len(publisher_entities),
@@ -92,7 +107,10 @@ manifest={
  'human_reviewed':False,'independent_human_review':'not_performed','gold_benchmark_claim':False,
  'pre_annotation_split_for_new_families':True,'historical_splits_assigned_after_annotation':True,
  'prospective_blind_holdout_claim':False,'prior_system_exposure_audit':'not_performed','model_performance_results_included':False,
- 'caict_active_record_count':stats['caict_active_count'],'caict_active_record_share':stats['caict_active_share'],'history_only_caict_record_count':506,
+ 'caict_active_record_count':stats['caict_active_count'],'caict_active_record_share':stats['caict_active_share'],'history_only_caict_record_count':0,
+ 'legacy_caict_recommended_count':sum(any(sid.startswith('CAICT-') for sid in r['source_ids']) and r['recommended_for_evaluation'] for r in rows),
+ 'historical_rows_recommended_per_dataset_owner_instruction':True,
+ 'legacy_authorization_basis':'dataset_owner_confirmation_recorded_per_source_and_record',
  'target_progress':report['target_progress'],'v1_2_snapshot':{'git_tag':'v1.2.0','git_commit':'1daf3e1e9adb14223fad95dd31612c3a884b997c',
    'records_sha256':stats['v1_2_records_sha256'],'split_assignments_sha256':stats['v1_2_split_assignments_sha256']},
  'new_source_pdf_hashes':report['new_source_pdf_hashes'],'validation_report':'VALIDATION_REPORT.json',

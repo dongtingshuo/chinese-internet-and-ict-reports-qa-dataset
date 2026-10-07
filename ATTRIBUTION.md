@@ -1,6 +1,8 @@
 # Source attribution and adaptation notices — v2.0.0
 
-Attribution and adaptation obligations are recorded per source in `sources.json` and copied into each record's `publication_rights`. Users should retain the full attribution, license link, adaptation notice, translation notice, and third-party limits when extracting or redistributing rows.
+The exact source attributions, license links, adaptation and translation notices, and third-party limitations are recorded in each row's `publication_rights` and in `sources.json`. Preserve those fields when extracting or redistributing records.
+
+The 506 legacy CAICT QA records retain the source attribution “来源：中国信息通信研究院” and their prior CC BY 4.0 record license. The dataset owner confirmed authorization to republish these QA records. That record license does not make the underlying CAICT reports CC BY 4.0; the source-level license is not asserted, and the reports are not included.
 
 New sources:
 
@@ -9,4 +11,4 @@ New sources:
 - UNESCO. 2023. *Guidance for generative AI in education and research*, Traditional Chinese translation prepared by the Taiwan Academic Research Ethics Education Center. CC BY-SA 3.0 IGO. The English original controls if versions differ.
 - Trendov, N. M., Varas, S. & Zeng, M. 2019. *Digital technologies in agriculture and rural areas – Status report* (Chinese briefing paper). FAO. CC BY-NC-SA 3.0 IGO.
 
-The package includes paraphrased QA metadata and page locators, not the reports or their media. Adaptations are not endorsed by the cited institutions. For all active sources, use the exact bibliographic attribution and notices in `sources.json`; the abbreviated list above is not a substitute.
+The package contains paraphrased QA metadata and page locators, not the reports or their media. Adaptations are not endorsed by the cited institutions. For all rows, use the exact bibliographic attribution and notices in `sources.json`; this summary is not a substitute.

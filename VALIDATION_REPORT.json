@@ -2,23 +2,23 @@
   "validation_status": "passed_with_historical_review_pending",
   "version": "2.0.0",
   "validated_on": "2026-10-07",
-  "record_count": 387,
-  "historical_candidate_count": 327,
+  "record_count": 893,
+  "historical_candidate_count": 833,
   "new_record_count": 60,
-  "recommended_candidate_count": 60,
-  "source_document_count": 15,
-  "report_family_count": 15,
-  "publisher_label_count": 8,
-  "publishing_institution_count": 7,
+  "recommended_candidate_count": 893,
+  "source_document_count": 29,
+  "report_family_count": 31,
+  "publisher_label_count": 9,
+  "publishing_institution_count": 8,
   "split_counts": {
-    "TRAIN": 267,
-    "DEV": 62,
-    "TEST": 58
+    "TRAIN": 621,
+    "DEV": 137,
+    "TEST": 135
   },
   "recommended_split_counts": {
-    "TRAIN": 42,
-    "DEV": 9,
-    "TEST": 9
+    "TRAIN": 621,
+    "DEV": 137,
+    "TEST": 135
   },
   "new_family_split_counts": {
     "TRAIN": 2,
@@ -26,68 +26,78 @@
     "TEST": 1
   },
   "task_family_counts": {
-    "single_document_retrieval": 105,
-    "temporal_numeric_reasoning": 146,
-    "within_document_synthesis": 51,
+    "single_document_retrieval": 263,
+    "temporal_numeric_reasoning": 400,
+    "within_document_synthesis": 145,
     "answerability_judgment": 20,
     "cross_document_synthesis": 26,
     "visual_data_reasoning": 20,
     "quantitative_retrieval": 19
   },
   "recommended_task_family_counts": {
-    "single_document_retrieval": 8,
-    "quantitative_retrieval": 19,
-    "within_document_synthesis": 27,
-    "cross_document_synthesis": 6
+    "single_document_retrieval": 263,
+    "temporal_numeric_reasoning": 400,
+    "within_document_synthesis": 145,
+    "answerability_judgment": 20,
+    "cross_document_synthesis": 26,
+    "visual_data_reasoning": 20,
+    "quantitative_retrieval": 19
   },
   "answerability_counts": {
-    "answerable": 367,
-    "unanswerable": 20
+    "answerable": 872,
+    "unanswerable": 21
   },
   "recommended_answerability_counts": {
-    "answerable": 60
+    "answerable": 872,
+    "unanswerable": 21
   },
   "record_license_counts": {
     "CC BY 3.0 IGO": 317,
-    "CC BY 4.0": 7,
+    "CC BY 4.0": 513,
     "CC BY-NC-SA 3.0 IGO": 9,
     "CC BY-SA 3.0 IGO": 54
   },
   "recommended_record_license_counts": {
+    "CC BY 3.0 IGO": 317,
+    "CC BY 4.0": 513,
     "CC BY-NC-SA 3.0 IGO": 9,
-    "CC BY-SA 3.0 IGO": 51
+    "CC BY-SA 3.0 IGO": 54
   },
-  "caict_active_record_count": 0,
-  "caict_active_record_share": 0.0,
-  "history_only_caict_count": 506,
+  "caict_active_record_count": 506,
+  "caict_active_record_share": 0.5666293393057111,
+  "history_only_caict_count": 0,
+  "legacy_caict_recommended_count": 506,
+  "historical_rows_recommended_per_dataset_owner_instruction": true,
+  "legacy_authorization_basis": "dataset_owner_confirmation_recorded_per_source_and_record",
   "target_progress": {
     "active_records": {
       "target": 2000,
-      "actual": 387,
-      "shortfall": 1613
+      "actual": 893,
+      "shortfall": 1107
     },
     "report_documents": {
       "target": 60,
-      "actual": 15,
-      "shortfall": 45
+      "actual": 29,
+      "shortfall": 31
     },
     "publishing_institutions": {
       "target": 10,
-      "actual": 7,
-      "shortfall": 3
+      "actual": 8,
+      "shortfall": 2
     },
     "caict_active_share": {
       "target_below": 0.45,
-      "actual": 0.0,
-      "met": true
+      "actual": 0.5666293393057111,
+      "met": false
     }
   },
   "historical_review_status_counts": {
     "pending_source_file_revalidation": 83,
-    "pending_v2_answer_blind_reconstruction": 244
+    "pending_v2_answer_blind_reconstruction": 750
   },
   "historical_source_file_status_counts": {
     "pending_source_file_revalidation": 5,
+    "historical_registry_only": 14,
     "sha256_verified_local_pdf_and_license_page": 3,
     "pending_blind_second_pass": 6,
     "sha256_verified_local_pdf_license_and_translation_notice": 1
@@ -112,28 +122,8 @@
   "prior_system_exposure_audit": "not_performed",
   "model_performance_results_included": false,
   "remote_viewer_verified": false,
-  "remote_hf_viewer_verification": {
-    "status": "viewer_api_pending",
-    "hub_revision": "279480c9a61707f9be29aec701cfce30763695f6",
-    "checked_on": "2026-10-07",
-    "local_file_count": 63,
-    "remote_file_count_excluding_preexisting_gitattributes": 63,
-    "preexisting_remote_files": [
-      ".gitattributes"
-    ],
-    "all_local_files_match": true,
-    "comparison": "remote Git blob OIDs and file sizes match all local package files",
-    "obsolete_v1_2_root_viewer_files_absent": true,
-    "viewer_api": {
-      "is-valid": 500,
-      "splits": 500,
-      "parquet": 500,
-      "message": "The server is busier than usual and the response is not ready yet. Please retry later."
-    },
-    "control_dataset": "stanfordnlp/imdb",
-    "control_splits_http_status": 200,
-    "viewer_split_counts_verified": false
-  },
+  "remote_payload_fingerprint": "a5c480f5374c0b2310ebfe4688ab2bce2de0d481f42f0b6a6215294196acb873",
+  "remote_hf_viewer_verification": null,
   "duplicate_checks": {
     "exact_question_duplicates": 0,
     "near_duplicate_pairs_at_or_above_0_82": 0
@@ -144,7 +134,8 @@
     "record_level_license_attribution_and_sharealike": true,
     "new_source_hash_and_license_notice_pages": true,
     "evidence_page_bounds_and_fact_coverage": true,
-    "historical_327_questions_answers_facts_evidence_ids_and_splits_preserved": true,
+    "all_833_historical_questions_answers_facts_evidence_ids_and_splits_preserved": true,
+    "all_833_historical_rows_in_candidate_and_recommended_configs": true,
     "v1_2_snapshot_hashes_unchanged": true,
     "new_family_and_group_split_isolation": true,
     "question_only_packet_excludes_answer_fields": true,
@@ -152,10 +143,10 @@
     "exact_and_near_duplicate_checks": true,
     "candidate_and_recommended_viewer_files_match": true,
     "no_report_pdf_or_media_in_package": true,
-    "remote_file_inventory_and_blob_hashes_match": true
+    "remote_file_inventory_and_blob_hashes_match": false
   },
   "pending_gates": [
-    "Revalidate sources and complete v2 answer-blind reconstruction for all 327 historical candidates before recommending any of them.",
-    "Hugging Face Dataset Viewer endpoints are returning HTTP 500; remote file hashes match, but Viewer split counts remain unverified."
+    "The 833 historical rows are included in the recommended subset per dataset-owner instruction, but their v2 content and answer-blind review remains pending; recommendation does not imply human review or gold status.",
+    "The unified payload must be synchronized to Hugging Face and its remote file hashes and Viewer counts verified."
   ]
 }

@@ -11,5 +11,6 @@ repository-code: https://github.com/dongtingshuo/chinese-internet-and-ict-report
 license: other
 abstract: >-
   A mixed record-level licensed Chinese source-grounded QA candidate dataset.
-  The v2.0.0 active package has 387 records and a recommended 60-record
-  AI-assisted source-reconstructed subset. No human review or gold status is claimed.
+  The v2.0.0 active package unifies all 833 v1.2.0 records with 60 new
+  candidates; all 893 records are included in the recommended subset. Review
+  status remains explicit, and no dataset-wide human review or gold status is claimed.

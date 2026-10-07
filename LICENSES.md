@@ -1,15 +1,15 @@
 # Record-level licenses — v2.0.0
 
-This repository has mixed record-level licensing. No single license applies to every active row or to the package as a whole. The source report and its images or third-party components are not relicensed by the dataset. Each row's `publication_rights` and `sources.json` entry are authoritative for its obligations.
+This package has mixed record-level licensing; no single license applies to every record or to the repository as a whole. A source report and its images or third-party components are not relicensed by the dataset. Each row's `publication_rights` and corresponding `sources.json` entry are authoritative.
 
-| License | Active record count | Main obligations |
+| Record license | Active and recommended record count | Main obligations |
 |---|---:|---|
 | CC BY 3.0 IGO | 317 | Attribution, license link, and indication of adaptation where required. |
-| CC BY 4.0 | 7 | Attribution and indication of changes. |
+| CC BY 4.0 | 513 | Attribution and indication of changes for the QA records. |
 | CC BY-SA 3.0 IGO | 54 | Attribution, indication of adaptation, and ShareAlike for the adapted record. |
 | CC BY-NC-SA 3.0 IGO | 9 | Attribution, noncommercial use, indication of adaptation, and ShareAlike for the adapted record. |
-| **Total** | **387** | Per-record terms apply. |
+| **Total** | **893** | Per-record terms apply. |
 
-The recommended 60-row subset contains 51 CC BY-SA 3.0 IGO records and 9 CC BY-NC-SA 3.0 IGO records. The CC BY-NC-SA records carry a noncommercial limitation. Hugging Face uses `license: other` for this mixed package.
+The full 893-row recommended subset contains the same license counts as the active corpus. The 506 legacy CAICT QA records retain the CC BY 4.0 record license from the previous release. The dataset owner confirmed authorization to republish these QA records. This confirmation does not assert that the underlying CAICT reports carry a CC BY 4.0 source license; their source-level license remains unasserted. The source report is not included.
 
-The archived v1.2.0 files are retained as an exact historical snapshot. Their historical license notices are not extended to the active v2 records. The 506 CAICT records in the snapshot are excluded from active v2 because source-level permission for adaptation and redistribution was not established.
+Hugging Face metadata uses `license: other` to indicate mixed record-level terms. Users redistributing rows must keep the row's license, source attribution, adaptation notice, and any source-specific terms together.

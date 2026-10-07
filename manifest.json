@@ -3,48 +3,50 @@
   "dataset_name": "Chinese Internet and ICT Reports QA Dataset / 中文互联网与 ICT 报告问答数据集",
   "version": "2.0.0",
   "created_on": "2026-10-07",
-  "package_status": "complete_v2_candidate_package_with_historical_review_pending",
-  "record_count": 387,
-  "historical_candidate_count": 327,
+  "package_status": "unified_v2_candidate_corpus_with_historical_review_pending",
+  "record_count": 893,
+  "historical_candidate_count": 833,
   "new_record_count": 60,
-  "recommended_candidate_count": 60,
-  "source_count": 15,
-  "source_document_count": 15,
-  "report_family_count": 15,
-  "publisher_label_count": 8,
-  "publishing_institution_count": 7,
+  "recommended_candidate_count": 893,
+  "source_count": 29,
+  "source_document_count": 29,
+  "report_family_count": 31,
+  "publisher_label_count": 9,
+  "publishing_institution_count": 8,
   "split_counts": {
-    "TRAIN": 267,
-    "DEV": 62,
-    "TEST": 58
+    "TRAIN": 621,
+    "DEV": 137,
+    "TEST": 135
   },
   "recommended_split_counts": {
-    "TRAIN": 42,
-    "DEV": 9,
-    "TEST": 9
+    "TRAIN": 621,
+    "DEV": 137,
+    "TEST": 135
   },
   "task_family_counts": {
-    "single_document_retrieval": 105,
-    "temporal_numeric_reasoning": 146,
-    "within_document_synthesis": 51,
+    "single_document_retrieval": 263,
+    "temporal_numeric_reasoning": 400,
+    "within_document_synthesis": 145,
     "answerability_judgment": 20,
     "cross_document_synthesis": 26,
     "visual_data_reasoning": 20,
     "quantitative_retrieval": 19
   },
   "answerability_counts": {
-    "answerable": 367,
-    "unanswerable": 20
+    "answerable": 872,
+    "unanswerable": 21
   },
   "record_license_counts": {
     "CC BY 3.0 IGO": 317,
-    "CC BY 4.0": 7,
+    "CC BY 4.0": 513,
     "CC BY-NC-SA 3.0 IGO": 9,
     "CC BY-SA 3.0 IGO": 54
   },
   "recommended_record_license_counts": {
+    "CC BY 3.0 IGO": 317,
+    "CC BY 4.0": 513,
     "CC BY-NC-SA 3.0 IGO": 9,
-    "CC BY-SA 3.0 IGO": 51
+    "CC BY-SA 3.0 IGO": 54
   },
   "source_record_counts": {
     "WB2014-RURAL": 34,
@@ -61,11 +63,39 @@
     "UNESCO-AI-EDU-POLICY-2021": 24,
     "UNESCO-GEM-TECH-2023-ZH-SUMMARY": 24,
     "UNESCO-GENAI-GUIDANCE-2023-ZH": 9,
-    "FAO-DIGITAL-AGRI-2019-ZH-BRIEF": 9
+    "FAO-DIGITAL-AGRI-2019-ZH-BRIEF": 9,
+    "CAICT-5G-2023": 79,
+    "CAICT-WIRELESS-ECONOMY-2023": 79,
+    "CAICT-GLOBAL-DIGITAL-ECONOMY-2024": 31,
+    "CAICT-AI-GOV-2024": 59,
+    "CAICT-COMPUTING-CENTER-PROVIDERS-2025": 34,
+    "CAICT-DIGITAL-GOV-2023": 33,
+    "CAICT-DATA-ELEMENTS-2023": 24,
+    "CAICT-ICT-ENV-2023": 34,
+    "CAICT-REAL-DIGITAL-INTEGRATION-2025": 39,
+    "CAICT-DIGITAL-TRUST-2025": 32,
+    "CAICT-AI-LAW-POLICY-2025": 44,
+    "CAICT-DIGITAL-PASSPORT-2025": 36,
+    "CAICT-INTERNET-DISCLOSURE-2023": 25,
+    "CAICT-WEB3-2023": 36
   },
   "source_ids": [
     "ADB2018-CITIES",
     "ADB2023-YOUTH",
+    "CAICT-5G-2023",
+    "CAICT-AI-GOV-2024",
+    "CAICT-AI-LAW-POLICY-2025",
+    "CAICT-COMPUTING-CENTER-PROVIDERS-2025",
+    "CAICT-DATA-ELEMENTS-2023",
+    "CAICT-DIGITAL-GOV-2023",
+    "CAICT-DIGITAL-PASSPORT-2025",
+    "CAICT-DIGITAL-TRUST-2025",
+    "CAICT-GLOBAL-DIGITAL-ECONOMY-2024",
+    "CAICT-ICT-ENV-2023",
+    "CAICT-INTERNET-DISCLOSURE-2023",
+    "CAICT-REAL-DIGITAL-INTEGRATION-2025",
+    "CAICT-WEB3-2023",
+    "CAICT-WIRELESS-ECONOMY-2023",
     "FAO-DIGITAL-AGRI-2019-ZH-BRIEF",
     "ILO2020-PLATFORM",
     "ILO2021-EMPLOYMENT-RELATIONSHIP",
@@ -82,12 +112,13 @@
   ],
   "source_file_status_counts": {
     "pending_source_file_revalidation": 5,
+    "historical_registry_only": 14,
     "sha256_verified_local_pdf_and_license_page": 3,
     "pending_blind_second_pass": 6,
     "sha256_verified_local_pdf_license_and_translation_notice": 1
   },
   "historical_rows_pending_source_file_revalidation": 83,
-  "historical_rows_pending_answer_blind_reconstruction": 244,
+  "historical_rows_pending_answer_blind_reconstruction": 750,
   "source_attribution_required": true,
   "record_license_policy": "mixed_record_level_no_repository_wide_license",
   "dataset_license": null,
@@ -101,29 +132,32 @@
   "prospective_blind_holdout_claim": false,
   "prior_system_exposure_audit": "not_performed",
   "model_performance_results_included": false,
-  "caict_active_record_count": 0,
-  "caict_active_record_share": 0.0,
-  "history_only_caict_record_count": 506,
+  "caict_active_record_count": 506,
+  "caict_active_record_share": 0.5666293393057111,
+  "history_only_caict_record_count": 0,
+  "legacy_caict_recommended_count": 506,
+  "historical_rows_recommended_per_dataset_owner_instruction": true,
+  "legacy_authorization_basis": "dataset_owner_confirmation_recorded_per_source_and_record",
   "target_progress": {
     "active_records": {
       "target": 2000,
-      "actual": 387,
-      "shortfall": 1613
+      "actual": 893,
+      "shortfall": 1107
     },
     "report_documents": {
       "target": 60,
-      "actual": 15,
-      "shortfall": 45
+      "actual": 29,
+      "shortfall": 31
     },
     "publishing_institutions": {
       "target": 10,
-      "actual": 7,
-      "shortfall": 3
+      "actual": 8,
+      "shortfall": 2
     },
     "caict_active_share": {
       "target_below": 0.45,
-      "actual": 0.0,
-      "met": true
+      "actual": 0.5666293393057111,
+      "met": false
     }
   },
   "v1_2_snapshot": {
@@ -143,14 +177,14 @@
     "candidate_config": "candidates",
     "recommended_config": "recommended",
     "candidate_split_counts": {
-      "TRAIN": 267,
-      "DEV": 62,
-      "TEST": 58
+      "TRAIN": 621,
+      "DEV": 137,
+      "TEST": 135
     },
     "recommended_split_counts": {
-      "TRAIN": 42,
-      "DEV": 9,
-      "TEST": 9
+      "TRAIN": 621,
+      "DEV": 137,
+      "TEST": 135
     }
   },
   "license_notice": "See LICENSE, LICENSES.md, LICENSE_STATUS.md, ATTRIBUTION.md, and per-record publication_rights; no single license applies.",
@@ -162,68 +196,68 @@
     },
     {
       "path": "ATTRIBUTION.md",
-      "bytes": 1317,
-      "sha256": "804f05cbabd467b250f5bbacbb574e65c195836e500927ad50dedbab24c5ecc3"
+      "bytes": 1619,
+      "sha256": "2a8d8fd7adc86b4f061f5c2d7229bbe2af86b37a2ab1753cbd8862634f53efd2"
     },
     {
       "path": "CITATION.cff",
-      "bytes": 763,
-      "sha256": "1de7b2d2ec21c6923af7fde7cfebbf7b9d5528e0c0d58e1f7acfcd6fb2ac914c"
+      "bytes": 840,
+      "sha256": "1544a0f14237b782def3f32e53422aea8728b1be2c8ca1282795135b0971e69c"
     },
     {
       "path": "CITATION.md",
-      "bytes": 514,
-      "sha256": "857df3ec5bbf62eb2e6b85a24dcfad298b28719a2e5c2043179c76467fb843f3"
+      "bytes": 571,
+      "sha256": "e905ee8573307e63df7580cdd076750a8895fdd9bdbdeeaf15e25f9f05cdd532"
     },
     {
       "path": "DATA_CARD.md",
-      "bytes": 3482,
-      "sha256": "ad46c9a813b4e71e4dae1c34ade41d73893a5218010145a120e9b3a2e7047627"
+      "bytes": 3518,
+      "sha256": "2c8446ab1ce3e59ebbd30f14869576397a1d6094758182f6216d02524c7cdc45"
     },
     {
       "path": "DATA_STATEMENT.md",
-      "bytes": 2771,
-      "sha256": "97e0a22b2b242b78d7add2d20ad359b70c1e7f00633d75a60146d1ef39e41c32"
+      "bytes": 2863,
+      "sha256": "ebe5b8a6894b756b35e3c53f5ec05317fecc8b7a8e9f8d22ddaeb2e5039713e3"
     },
     {
       "path": "LICENSE",
-      "bytes": 535,
-      "sha256": "9d19266bd5adc7fe138e779145744db3ecf880479a53ce3f0b53b3bcb5a418c1"
+      "bytes": 659,
+      "sha256": "4fa1739332acd441a1dfc65c7b6b7a65653b26b00fc1a493ab38ff840f2cb59f"
     },
     {
       "path": "LICENSES.md",
-      "bytes": 1383,
-      "sha256": "130438577969bebef8604238089d45481c0c4fe99c65a71d014bfb82910d0413"
+      "bytes": 1554,
+      "sha256": "7eedf8ab65b0da7f53ac1d1d3c60cc808cb475baa53805652f61a1b4c1e89a14"
     },
     {
       "path": "LICENSE_STATUS.md",
-      "bytes": 1159,
-      "sha256": "6202dccbafda37d50d1f9ab570fbc69b45bbda6cdb8753c57abbcd8e57385b34"
+      "bytes": 1489,
+      "sha256": "17ed57a443be545e253bb63edf80778fde331d4c8859f8cf2d2145c50092d7a6"
     },
     {
       "path": "PROJECT_CONTEXT.md",
-      "bytes": 6279,
-      "sha256": "c8badb09686e419edd609b9a9c3c8f9a523dc7cb7ce840079a8eb80af344074b"
+      "bytes": 6431,
+      "sha256": "f1d4836b3acc309322ddbe3850fcb43e0c593555f4d925f7ab1282dacc1d308f"
     },
     {
       "path": "README.md",
-      "bytes": 4327,
-      "sha256": "0d543dad59a95c13344606fea15f8418abf6b6d37ce0a491f538228dd941e0a9"
+      "bytes": 3500,
+      "sha256": "c830d37c7edc64272fc19d73eaad13f6385b14daf9f4dbb7fc70c74cecb6321c"
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 2944,
-      "sha256": "63618ae090ac55cc2f1c9802dfff9b6cb02fb14c5bf1bf4b09df699505e4ad2f"
+      "bytes": 3194,
+      "sha256": "5a38c0a0152efa289b6844640e0603ca907c9cb8836120c58da52ad6cd4e534e"
     },
     {
       "path": "SPLIT_POLICY.md",
-      "bytes": 1137,
-      "sha256": "ed7515a10bea11556bc752f9ea15e7caf809f9af17281510c1eb84bd45a850ab"
+      "bytes": 1321,
+      "sha256": "9d6e0de68cd73b003a1ef222c966ba1c64438ab2f079a6e5a5667171cdec02da"
     },
     {
       "path": "VALIDATION_REPORT.json",
-      "bytes": 5485,
-      "sha256": "5751557e221adb398872dc899c9c84a83b42616fdf00494d650c3468d701e27b"
+      "bytes": 5407,
+      "sha256": "964c1ff36f0b36fd70860d59f71e0f1d25cf00f1138d71ecb6a8e565af28e5be"
     },
     {
       "path": "audit/v2_answer_blind_reconstruction.jsonl",
@@ -232,8 +266,8 @@
     },
     {
       "path": "audit/v2_migration_ledger.jsonl",
-      "bytes": 314781,
-      "sha256": "6b6da648bfb240a90d03caf56a753faceb50a09170d5ed9fd32de74a49b5346d"
+      "bytes": 318564,
+      "sha256": "0fa79c61eedf31b6871c9febcc17f9839b9f167b054968e58f56768b70b08bdd"
     },
     {
       "path": "audit/v2_question_only_review.jsonl",
@@ -257,43 +291,43 @@
     },
     {
       "path": "build_release_metadata.py",
-      "bytes": 10596,
-      "sha256": "b62cfbe2a4d5a04f3c8d18908e5ca082da3775c14704f9ae620607dfd3edf15c"
+      "bytes": 12249,
+      "sha256": "3d2f3549f571b6528ad5ccb013cce74bac6e8cba46ddde6bbf5dd4f05de78da2"
     },
     {
       "path": "build_v2_package.py",
-      "bytes": 57857,
-      "sha256": "b1e7fbe15a8beb1670d8935bace1a1262ab1696e21c0f6ffd5e3d63629a455fc"
+      "bytes": 61089,
+      "sha256": "63f66eeecff4060caa24492991fbf97997483b5e41915c076ab62fb3ab0252f1"
     },
     {
       "path": "data/candidates_test.jsonl",
-      "bytes": 587298,
-      "sha256": "722ea62fbf24a7168da9de60a8f7bfb18201f087621321797ab30454b58e372b"
+      "bytes": 1408449,
+      "sha256": "2b04958bf7b7b5b612ef0c90dd6fe33b7179d96617a30987a09304f7a11d79da"
     },
     {
       "path": "data/candidates_train.jsonl",
-      "bytes": 2578512,
-      "sha256": "9369b099223137a31599e9c55aa5255b7f9d29a9c8e9e25fb17c4176623874f4"
+      "bytes": 6580256,
+      "sha256": "14c0ef813aa3830a376e8128d1ac44cf86d24dd9328f3aed95455f091e5d6b0c"
     },
     {
       "path": "data/candidates_validation.jsonl",
-      "bytes": 614980,
-      "sha256": "435fa250d227ecc84595a670acd4eb8d14b32370b4e6c41df66bf580138ec846"
+      "bytes": 1420048,
+      "sha256": "4c971fd7efde8bd2ecd8015b416ae8e6d9a3f462209fbd5ebac5938cf6444308"
     },
     {
       "path": "data/recommended/test.jsonl",
-      "bytes": 89494,
-      "sha256": "69393e6eb4840531f4941c4daad1f0cd9dfdf1e1e766be1f849e84d3acfee524"
+      "bytes": 1408449,
+      "sha256": "2b04958bf7b7b5b612ef0c90dd6fe33b7179d96617a30987a09304f7a11d79da"
     },
     {
       "path": "data/recommended/train.jsonl",
-      "bytes": 431570,
-      "sha256": "52a8bae91b080f7e43a3e03d0dfbf6c0686741d306cbfe7581ecb528e3289bbc"
+      "bytes": 6580256,
+      "sha256": "14c0ef813aa3830a376e8128d1ac44cf86d24dd9328f3aed95455f091e5d6b0c"
     },
     {
       "path": "data/recommended/validation.jsonl",
-      "bytes": 90306,
-      "sha256": "e42256fc891e5b97e32a1a7c438aa8de6552fce0aa5a06783b062adff53943e0"
+      "bytes": 1420048,
+      "sha256": "4c971fd7efde8bd2ecd8015b416ae8e6d9a3f462209fbd5ebac5938cf6444308"
     },
     {
       "path": "history/v1.2.0/ARCHIVE_NOTE.md",
@@ -427,28 +461,28 @@
     },
     {
       "path": "records.jsonl",
-      "bytes": 3403061,
-      "sha256": "84e007e4d890857e5e40aff16a64f8a6c24972ae8c5f15d128081cf458b9350c"
+      "bytes": 8405159,
+      "sha256": "08033d109c1082ed79d0468b1eacd3c8fd13ea22669915716bb0b84cbf68aabd"
     },
     {
       "path": "schema.json",
-      "bytes": 4272,
-      "sha256": "7fe3b0fecaf5b48379bade6fb8dd9ec5bfbf3cf0cd13726d4654b7c5cd3ae39f"
+      "bytes": 4408,
+      "sha256": "98b74eab2408b9d1997e3899d8740ddc29cc50fa945a9a9ed989553e3e255731"
     },
     {
       "path": "sources.json",
-      "bytes": 47329,
-      "sha256": "785ec9695bc932a089199427647de987c9e7c5b9dd29759bd2d6c994db511e0b"
+      "bytes": 94948,
+      "sha256": "cf412694daa2ced1879a724125dfb6d33728d2b57e481720bb5b41358d66be0a"
     },
     {
       "path": "split_assignments.jsonl",
-      "bytes": 165284,
-      "sha256": "e702af2b10c09cb6b390e84d4d1f773f3bf268ec0b9e77df3230fa6903453506"
+      "bytes": 405330,
+      "sha256": "be90319f16c171068ac56a911bddb86fb6ba8c176c941d159a1da2acbcd6deaa"
     },
     {
       "path": "validate_v2_package.py",
-      "bytes": 13812,
-      "sha256": "4ad4af0c88c9a47e94f78f58d1d6b54a28d7db72f47e01645a70e82644865e70"
+      "bytes": 15127,
+      "sha256": "2ebc5069196b66fa720c8e9d9609d9f745df157c501a5d712c0257240c42c8e4"
     }
   ]
 }

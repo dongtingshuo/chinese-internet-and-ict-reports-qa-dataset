@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset/blob/main/schema.json",
   "title": "Chinese Internet and ICT Reports QA Dataset v2.0.0 record",
-  "description": "Active candidate rows use mixed record-level licenses. Historical v1.1/v1.2 records retain their legacy schema and receive normalized v2 review and task fields. Candidate annotations are not gold and are not human reviewed.",
+  "description": "The active corpus unifies all v1.2.0 records with new v2 records. Historical rows remain in the recommended subset by dataset-owner instruction while their v2 content-review status remains explicit. Records use mixed record-level licenses; the package is not a human-reviewed gold benchmark.",
   "oneOf": [
     { "$ref": "#/$defs/historical_candidate_v2" },
     { "$ref": "#/$defs/new_candidate_v2" }
@@ -29,8 +29,8 @@
           "type": "object",
           "required": ["schema_version", "query_id", "question", "gold_answer", "answerability", "source_ids", "source_refs", "publication_rights", "split", "task_type", "human_reviewed"],
           "properties": {
-            "schema_version": { "enum": ["iicr_report_qa_v1_1", "iicr_report_qa_v1_2"] },
-            "query_id": { "type": "string", "pattern": "^IICR-V1[12]-[0-9]{4}$" },
+            "schema_version": { "enum": ["iicr_report_qa_v1_1", "iicr_report_qa_v1_2", "legacy_main_domain_gold_candidate_record_v1"] },
+            "query_id": { "type": "string", "pattern": "^(IICR-V1[12]-[0-9]{4}|M3-TR-CAND-[0-9]{4})$" },
             "question": { "type": "string", "minLength": 1 },
             "gold_answer": { "type": "string", "minLength": 1 },
             "answerability": { "enum": ["answerable", "unanswerable"] },
@@ -40,7 +40,7 @@
             "split": { "enum": ["TRAIN", "DEV", "TEST"] },
             "task_type": { "type": "string" },
             "human_reviewed": { "const": false },
-            "recommended_for_evaluation": { "const": false }
+            "recommended_for_evaluation": { "const": true }
           }
         }
       ]

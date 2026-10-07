@@ -200,22 +200,45 @@ def write_jsonl(p, rows): p.parent.mkdir(parents=True,exist_ok=True); p.write_te
 old_rows=read_jsonl(HISTORY/'records.jsonl')
 old_assign=read_jsonl(HISTORY/'split_assignments.jsonl')
 assert len(old_rows)==833 and len(old_assign)==833
-# Only the 327 v1.1/v1.2 rows carry source-level reuse terms suitable for migration.
-licensed_old=old_rows[506:]
-licensed_assign=old_assign[506:]
-assert len(licensed_old)==327
+# The v2 corpus is a union: retain every v1.2.0 record and append the new candidates.
+historical_old=old_rows
+historical_assign=old_assign
+assert len(historical_old)==833
 old_sources_doc=json.loads((HISTORY/'sources.json').read_text(encoding='utf-8'))
 old_sources={s['source_id']:copy.deepcopy(s) for s in old_sources_doc['sources']}
 new_source_map={s['source_id']:copy.deepcopy(s) for s in NEW_SOURCES}
-needed_old_ids={sid for r in licensed_old for sid in r.get('source_ids',[])}
-assert not any(sid.startswith('CAICT-') for sid in needed_old_ids)
+needed_old_ids={sid for r in historical_old for sid in r.get('source_ids',[])}
 for sid in needed_old_ids:
     assert sid in old_sources, sid
-    # Flag source-file revalidation explicitly; a prior file check is not current proof of access.
-    status='pending_blind_second_pass'
-    if sid in {'WB2014-RURAL','ADB2018-CITIES','ADB2023-YOUTH','ILO2026-LIFELONG-SKILLS','UNESCO2023-DIGITAL-CITIZENSHIP'}:
-        status='pending_source_file_revalidation'
-    old_sources[sid]['v2_source_file_audit_status']=status
+    src=old_sources[sid]
+    if sid.startswith('CAICT-'):
+        # The dataset owner confirmed reuse authorization for these legacy QA records.
+        # Keep the prior record license distinct from any license on the source report.
+        src['publication_institution']='CAICT'
+        src['publication_year']=src.get('publication_year')
+        src['title_chinese']=src.get('title')
+        src['original_report_url']=src.get('official_pdf_url')
+        src['original_report_sha256']=src.get('source_pdf_sha256')
+        src['source_pdf_page_count']=src.get('pdf_page_count')
+        src['required_attribution']=src.get('required_source_attribution_short_form')
+        src['license']=None
+        src['license_url']=None
+        src['rights_notice_location']={'document':src.get('title'),'pdf_page_1based':src.get('copyright_notice',{}).get('page_1based'),
+          'url':src.get('official_pdf_url'),'notice_summary':src.get('copyright_notice',{}).get('notice_summary')}
+        src['record_reuse_authorization']={
+          'status':'dataset_owner_confirmed_authorized',
+          'basis':'The dataset owner confirmed authorization to redistribute these existing QA records.',
+          'applies_to':'The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.',
+          'does_not_assert_source_report_license':True,
+          'source_level_authorization_documents_independently_reaudited':False
+        }
+        src['v2_source_file_audit_status']='historical_registry_only'
+    else:
+        # Flag source-file revalidation explicitly; a prior file check is not current proof of access.
+        status='pending_blind_second_pass'
+        if sid in {'WB2014-RURAL','ADB2018-CITIES','ADB2023-YOUTH','ILO2026-LIFELONG-SKILLS','UNESCO2023-DIGITAL-CITIZENSHIP'}:
+            status='pending_source_file_revalidation'
+        src['v2_source_file_audit_status']=status
 for src in NEW_SOURCES:
     # These hashes are from the exact local PDFs inspected for this release.
     src['source_file_sha256_verified']=True
@@ -284,13 +307,13 @@ for i,item in enumerate(Q,1):
        'reconstructed_evidence':[{'source_id':x['source_id'],'pdf_page':x['pdf_page'],'element_id':x['element_id'],'supports_fact_ids':x['supports_fact_ids']} for x in evidence_sources],
        'model':MODEL,'prompt_sha256':PROMPT_SHA,'candidate_answer_in_review_input':False,'conclusion':'supported_candidate','human_reviewed':False,'independence_limit':'Same active AI session authored and checked this item; this does not establish independent review.'})
 
-# Convert old licensed rows without changing their historical answer, identifiers, or assigned split.
+# Normalize all historical rows without changing their QA content, IDs, or assigned splits.
 historical_v2=[]
 migration=[]
-for idx,(original,assignment) in enumerate(zip(licensed_old,licensed_assign), start=506):
+for idx,(original,assignment) in enumerate(zip(historical_old,historical_assign)):
     r=copy.deepcopy(original)
     r['dataset_version']='2.0.0'
-    # Normalize the earlier v1.1 license representation into explicit record-level obligations.
+    # Normalize legacy source references and keep record permission separate from report terms.
     rights=r.setdefault('publication_rights',{})
     if not rights.get('record_license'):
         record_license=rights.get('dataset_license')
@@ -301,10 +324,33 @@ for idx,(original,assignment) in enumerate(zip(licensed_old,licensed_assign), st
         rights['required_adaptation_disclaimers']=[old_sources[sid].get('required_adaptation_disclaimer') for sid in r.get('source_ids',[]) if old_sources[sid].get('required_adaptation_disclaimer')]
         rights['translation_disclaimers']=[old_sources[sid].get('translation_disclaimer') for sid in r.get('source_ids',[]) if old_sources[sid].get('translation_disclaimer')]
         rights['source_license_obligations']=[{'source_id':sid,'source_license':old_sources[sid].get('license'),'license_url':old_sources[sid].get('license_url'),
-          'required_attribution':old_sources[sid].get('required_attribution'),'required_adaptation_disclaimer':old_sources[sid].get('required_adaptation_disclaimer'),
+          'required_attribution':old_sources[sid].get('required_attribution') or old_sources[sid].get('required_source_attribution_short_form'),
+          'required_adaptation_disclaimer':old_sources[sid].get('required_adaptation_disclaimer'),
           'translation_disclaimer':old_sources[sid].get('translation_disclaimer'),'third_party_content_limitations':old_sources[sid].get('third_party_content_limitations'),
-          'sharealike_applies_to_adapted_record':'SA' in str(old_sources[sid].get('license',''))} for sid in r.get('source_ids',[])]
+          'sharealike_applies_to_adapted_record':'SA' in str(old_sources[sid].get('license','')),
+          'reuse_authorization_status':old_sources[sid].get('record_reuse_authorization',{}).get('status','source_license_recorded')} for sid in r.get('source_ids',[])]
         rights['license_url']=LICENSE_URLS.get(record_license,rights.get('license_url'))
+    rights['dataset_license']=rights.get('record_license') or rights.get('dataset_license')
+    rights.setdefault('record_license',rights['dataset_license'])
+    rights.setdefault('license_scope','This historical QA record only; no single license applies to all records or to the underlying source reports.')
+    if any(sid.startswith('CAICT-') for sid in r.get('source_ids',[])):
+        rights['reuse_permission_status']='dataset_owner_confirmed_authorized'
+        rights['reuse_permission_basis']='dataset_owner_confirmation_2026-10-07'
+        rights['reuse_permission_note']='The dataset owner confirmed these historical QA records are authorized for redistribution; this does not assert that the underlying source report is CC BY licensed.'
+    for ref in r.get('source_refs',[]):
+        sid=ref.get('source_id')
+        if sid in old_sources and sid.startswith('CAICT-'):
+            ref.setdefault('license',old_sources[sid].get('license'))
+            ref.setdefault('required_attribution',old_sources[sid].get('required_attribution'))
+    refs=r.setdefault('source_refs',[])
+    ref_ids={ref.get('source_id') for ref in refs}
+    for sid in r.get('source_ids',[]):
+        if sid not in ref_ids:
+            missing_ref=copy.deepcopy(old_sources[sid])
+            missing_ref['license']=old_sources[sid].get('license')
+            missing_ref['required_attribution']=old_sources[sid].get('required_attribution') or old_sources[sid].get('required_source_attribution_short_form')
+            refs.append(missing_ref)
+            ref_ids.add(sid)
     old_type=r.get('task_type','single_document')
     if old_type=='unanswerable_absence': family='answerability_judgment'
     elif old_type=='cross_document_synthesis': family='cross_document_synthesis'
@@ -317,32 +363,29 @@ for idx,(original,assignment) in enumerate(zip(licensed_old,licensed_assign), st
     unresolved=any(old_sources[sid]['v2_source_file_audit_status']=='pending_source_file_revalidation' for sid in r.get('source_ids',[]))
     r['review_status']='pending_source_file_revalidation' if unresolved else 'pending_v2_answer_blind_reconstruction'
     r['review_provenance']={'reviewer':'not_completed_for_v2','model':None,'prompt_sha256':None,'reviewed_on':None,
-       'source_files':[{'source_id':sid,'sha256':old_sources[sid].get('original_report_sha256')} for sid in r.get('source_ids',[])],
+       'source_files':[{'source_id':sid,'sha256':old_sources[sid].get('original_report_sha256') or old_sources[sid].get('source_pdf_sha256')} for sid in r.get('source_ids',[])],
        'candidate_answer_in_review_input':None,'reconstruction_conclusion':'pending','independent_reviewer':False,
        'method_limit':'v1.1/v1.2 source checking is historical and does not count as the v2 answer-blind reconstruction.'}
-    r['recommended_for_evaluation']=False
-    r['recommendation_status']='pending_v2_source_and_answer_review'
+    r['recommended_for_evaluation']=True
+    r['recommendation_status']='included_in_recommended_subset_per_dataset_owner_instruction; review status remains pending and is not a gold or human-review claim'
+    r['human_reviewed']=False
     r['supersedes_query_id']=None
     r['split_provenance']={'assignment_version':assignment.get('assignment_version') or original.get('split_assignment_version') or 'historical_split_v1','assignment_timing':'post_annotation_historical_split','split':'legacy_post_annotation_assignment','pre_annotation_split':False}
     r['historical_task_type']=old_type
     historical_v2.append(r)
-    original_line=old_rows[idx]
     migration.append({'query_id':original['query_id'],'original_v1_2_row_index_1based':idx+1,'original_row_sha256':sha_bytes(compact(original).encode()),'historical_split':original.get('split'),
-       'disposition':'retained_v2_candidate_pending_audit','active_v2':True,'recommended_for_evaluation':False,'supersedes_query_id':None,'v2_review_status':r['review_status']})
-# Record all 506 unlicensed CAICT rows as history-only in the migration ledger.
-for idx,original in enumerate(old_rows[:506]):
-    migration.append({'query_id':original['query_id'],'original_v1_2_row_index_1based':idx+1,'original_row_sha256':sha_bytes(compact(original).encode()),'historical_split':original.get('split'),
-       'disposition':'history_only_source_reuse_rights_not_established','active_v2':False,'recommended_for_evaluation':False,'supersedes_query_id':None,'v2_review_status':'excluded_pending_rights_evidence'})
+       'disposition':'retained_in_unified_v2_corpus; owner_attested_authorized' if any(sid.startswith('CAICT-') for sid in original.get('source_ids',[])) else 'retained_in_unified_v2_corpus',
+       'active_v2':True,'recommended_for_evaluation':True,'supersedes_query_id':None,'v2_review_status':r['review_status']})
 
 all_rows=historical_v2+new_records
-assert len(all_rows)==387
+assert len(all_rows)==893
 all_rows.sort(key=lambda r: (r['split']!='TRAIN', r['split']!='DEV', r['query_id']))
 # Keep records in ID order for convenient historic prefix auditing (old IDs then v2 IDs).
 all_rows=sorted(all_rows,key=lambda r:r['query_id'])
 write_jsonl(OUT/'records.jsonl',all_rows)
 
 # Preserve active historical split assignments and add preassigned family assignments for v2 rows.
-assignment_map={a['query_id']:copy.deepcopy(a) for a in licensed_assign}
+assignment_map={a['query_id']:copy.deepcopy(a) for a in historical_assign}
 assignments=[]
 for r in all_rows:
     if r['query_id'] in assignment_map:
@@ -378,11 +421,11 @@ for sid,src in source_map.items():
     if 'v2_source_file_audit_status' not in src:
         src['v2_source_file_audit_status']=src.get('source_file_audit_status','historical_registry_only')
 source_doc={'schema_version':'iicr_source_registry_v2_0','dataset_version':'2.0.0','source_count':len(source_map),
-  'record_level_license_policy':'The package contains record-level mixed licenses. Source license, attribution, adaptation notice, translation notice and third-party limits are recorded for each source and each adapted record. No single license applies to all records.',
-  'source_passage_or_media_included':False,'review_provenance':'AI-assisted source-level rights and file-hash audit; record review status is reported separately.','sources':sorted(source_map.values(),key=lambda s:s['source_id'])}
+  'record_level_license_policy':'The package contains record-level mixed licenses. Source licenses and attribution/adaptation/translation duties are stated where established. For legacy CAICT rows, the dataset-owner authorization confirmation applies to the QA records; no license is asserted for the source reports. No single license applies to all records.',
+  'source_passage_or_media_included':False,'review_provenance':'New source license notices and file hashes were checked for this release. Authorization to republish legacy CAICT QA records was confirmed by the dataset owner; the underlying source-report licenses were not independently asserted. Record content-review status is reported separately.','sources':sorted(source_map.values(),key=lambda s:s['source_id'])}
 (OUT/'sources.json').write_text(json.dumps(source_doc,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
-# Candidate Viewer files include pending historical candidates with their status. Recommended files contain only the 60 new records.
+# Candidate and recommended Viewer configurations both contain the complete unified dataset.
 viewer_splits={'TRAIN':'train','DEV':'validation','TEST':'test'}
 for split,filename in viewer_splits.items():
     candidates=[r for r in all_rows if r['split']==split]

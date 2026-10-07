@@ -1,10 +1,10 @@
 {
   "schema_version": "iicr_source_registry_v2_0",
   "dataset_version": "2.0.0",
-  "source_count": 15,
-  "record_level_license_policy": "The package contains record-level mixed licenses. Source license, attribution, adaptation notice, translation notice and third-party limits are recorded for each source and each adapted record. No single license applies to all records.",
+  "source_count": 29,
+  "record_level_license_policy": "The package contains record-level mixed licenses. Source licenses and attribution/adaptation/translation duties are stated where established. For legacy CAICT rows, the dataset-owner authorization confirmation applies to the QA records; no license is asserted for the source reports. No single license applies to all records.",
   "source_passage_or_media_included": false,
-  "review_provenance": "AI-assisted source-level rights and file-hash audit; record review status is reported separately.",
+  "review_provenance": "New source license notices and file hashes were checked for this release. Authorization to republish legacy CAICT QA records was confirmed by the dataset owner; the underlying source-report licenses were not independently asserted. Record content-review status is reported separately.",
   "sources": [
     {
       "source_id": "ADB2018-CITIES",
@@ -82,6 +82,835 @@
       "active_v2_record_count": 19,
       "publishing_institution_entities": [
         "Asian Development Bank"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326603524901232.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2023年白皮书合集",
+        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 37,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-5G-2023",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "e9b7bb7fbcd8e7322847de4ee87244833b058588ec2e6a635c953b4592b5fd15",
+      "title": "中国5G发展和经济社会影响白皮书（2023年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "中国5G发展和经济社会影响白皮书（2023年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326603524901232.pdf",
+      "original_report_sha256": "e9b7bb7fbcd8e7322847de4ee87244833b058588ec2e6a635c953b4592b5fd15",
+      "source_pdf_page_count": 37,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "中国5G发展和经济社会影响白皮书（2023年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326603524901232.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 79,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202412/P020241227660032159191.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2024年蓝皮书合集",
+        "sha256": "95711c489967e4432456af65bbcc9b049be8f8a63d659b9a90b41075444ca679",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-published-by-caict-in-2024"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 58,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-AI-GOV-2024",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "62142abc80cf35988959cf761c9aca0cf20e5bc088351dd407a4b1fe8f575da8",
+      "title": "人工智能治理蓝皮书（2024年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "人工智能治理蓝皮书（2024年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202412/P020241227660032159191.pdf",
+      "original_report_sha256": "62142abc80cf35988959cf761c9aca0cf20e5bc088351dd407a4b1fe8f575da8",
+      "source_pdf_page_count": 58,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "人工智能治理蓝皮书（2024年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202412/P020241227660032159191.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 59,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202506/P020250618611605590281.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
+        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 48,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-AI-LAW-POLICY-2025",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "816cce1179b1ac797619b81e1ece9e6da8072ad5953c1906d48a5b86797f7df7",
+      "title": "人工智能法律政策图景研究报告（2025年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "人工智能法律政策图景研究报告（2025年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202506/P020250618611605590281.pdf",
+      "original_report_sha256": "816cce1179b1ac797619b81e1ece9e6da8072ad5953c1906d48a5b86797f7df7",
+      "source_pdf_page_count": 48,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "人工智能法律政策图景研究报告（2025年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202506/P020250618611605590281.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 44,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202507/P020250707617798232823.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
+        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 34,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-COMPUTING-CENTER-PROVIDERS-2025",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "046e6559f07a15e7745678fb869b5c08b60841cc83e05dbf8383481010ba3fc1",
+      "title": "算力中心服务商分析报告（2025年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "算力中心服务商分析报告（2025年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202507/P020250707617798232823.pdf",
+      "original_report_sha256": "046e6559f07a15e7745678fb869b5c08b60841cc83e05dbf8383481010ba3fc1",
+      "source_pdf_page_count": 34,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "算力中心服务商分析报告（2025年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202507/P020250707617798232823.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 34,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/english/research/whitepapers/202311/P020231103487266783845.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2023年白皮书合集",
+        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 53,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-DATA-ELEMENTS-2023",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "76d7be1cb18418a2e76554023e4e9ad580bb7c5eea2cfc852406ed1c809dbbd9",
+      "title": "数据要素白皮书（2023年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "数据要素白皮书（2023年）",
+      "original_report_url": "https://www.caict.ac.cn/english/research/whitepapers/202311/P020231103487266783845.pdf",
+      "original_report_sha256": "76d7be1cb18418a2e76554023e4e9ad580bb7c5eea2cfc852406ed1c809dbbd9",
+      "source_pdf_page_count": 53,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "数据要素白皮书（2023年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/english/research/whitepapers/202311/P020231103487266783845.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 24,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326610278819760.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2023年白皮书合集",
+        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 47,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-DIGITAL-GOV-2023",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "45799c36b2fd89dbaca52829fd10e7054f73f17abc8d377f96233ea46736acf5",
+      "title": "全球数字治理白皮书（2023年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "全球数字治理白皮书（2023年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326610278819760.pdf",
+      "original_report_sha256": "45799c36b2fd89dbaca52829fd10e7054f73f17abc8d377f96233ea46736acf5",
+      "source_pdf_page_count": 47,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "全球数字治理白皮书（2023年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326610278819760.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 33,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院",
+        "中国标准化研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202504/P020250429523322386705.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
+        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 54,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院和中国标准化研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-DIGITAL-PASSPORT-2025",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "d741c79d2e811abec8163506b7f90436af7bbc639214ee4a934341ba2fdf7781",
+      "title": "产品数字护照（DPP）技术发展报告（2025年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "产品数字护照（DPP）技术发展报告（2025年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202504/P020250429523322386705.pdf",
+      "original_report_sha256": "d741c79d2e811abec8163506b7f90436af7bbc639214ee4a934341ba2fdf7781",
+      "source_pdf_page_count": 54,
+      "required_attribution": "来源：中国信息通信研究院和中国标准化研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "产品数字护照（DPP）技术发展报告（2025年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202504/P020250429523322386705.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 36,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202502/P020250225386048959475.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
+        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 43,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-DIGITAL-TRUST-2025",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "360262a9c702a5e9dddb687e966a4ae7fd4fce57ac76726595c69e3e6e4e0e66",
+      "title": "数字信任发展报告（2025年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "数字信任发展报告（2025年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202502/P020250225386048959475.pdf",
+      "original_report_sha256": "360262a9c702a5e9dddb687e966a4ae7fd4fce57ac76726595c69e3e6e4e0e66",
+      "source_pdf_page_count": 43,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "数字信任发展报告（2025年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202502/P020250225386048959475.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 32,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326601000238100.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2024年蓝皮书合集",
+        "sha256": "95711c489967e4432456af65bbcc9b049be8f8a63d659b9a90b41075444ca679",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-published-by-caict-in-2024"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 64,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-GLOBAL-DIGITAL-ECONOMY-2024",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "c163120e41288e9f9395cdc6a672670267f4f0afd3740e4be168000249a9d0ac",
+      "title": "全球数字经济白皮书（2023年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "全球数字经济白皮书（2023年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326601000238100.pdf",
+      "original_report_sha256": "c163120e41288e9f9395cdc6a672670267f4f0afd3740e4be168000249a9d0ac",
+      "source_pdf_page_count": 64,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "全球数字经济白皮书（2023年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326601000238100.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 31,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202307/P020240326635401942044.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2023年白皮书合集",
+        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 35,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-ICT-ENV-2023",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "f638ff059e9815fa1769253406c79c29d81905c103eb6177db5567c513897a34",
+      "title": "优化营商环境研究报告——信息通信行业管理的改革和实践（2023年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "优化营商环境研究报告——信息通信行业管理的改革和实践（2023年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202307/P020240326635401942044.pdf",
+      "original_report_sha256": "f638ff059e9815fa1769253406c79c29d81905c103eb6177db5567c513897a34",
+      "source_pdf_page_count": 35,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "优化营商环境研究报告——信息通信行业管理的改革和实践（2023年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202307/P020240326635401942044.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 34,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院",
+        "中国互联网协会",
+        "中国通信企业协会"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202311/P020240326622451105021.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2023年白皮书合集",
+        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 72,
+      "publisher": "中国信息通信研究院（CAICT）、中国互联网协会、中国通信企业协会",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院、中国互联网协会和中国通信企业协会",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-INTERNET-DISCLOSURE-2023",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "746a24b536b03ccdbefbf061a23deaa2a6ea57fe7dc7f5d27eefd9e52581e699",
+      "title": "互联网行业可持续信息披露发展报告（2023年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "互联网行业可持续信息披露发展报告（2023年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202311/P020240326622451105021.pdf",
+      "original_report_sha256": "746a24b536b03ccdbefbf061a23deaa2a6ea57fe7dc7f5d27eefd9e52581e699",
+      "source_pdf_page_count": 72,
+      "required_attribution": "来源：中国信息通信研究院、中国互联网协会和中国通信企业协会",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "互联网行业可持续信息披露发展报告（2023年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202311/P020240326622451105021.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 25,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202504/P020250429598988720492.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
+        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 44,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-REAL-DIGITAL-INTEGRATION-2025",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "7feec3bd1ac3d63796ac59b4bc61dfdf16583b377a11f7fd8963f37d6e147c83",
+      "title": "实数融合发展观察（2025年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "实数融合发展观察（2025年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202504/P020250429598988720492.pdf",
+      "original_report_sha256": "7feec3bd1ac3d63796ac59b4bc61dfdf16583b377a11f7fd8963f37d6e147c83",
+      "source_pdf_page_count": 44,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "实数融合发展观察（2025年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202504/P020250429598988720492.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 39,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202312/P020240326611792004085.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2023年白皮书合集",
+        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 48,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-WEB3-2023",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "7633073bf8474c225ca38ffa78472c4540ce65e189e13f42540aafb6566b7d7f",
+      "title": "全球Web3技术产业生态发展报告（2023年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "全球Web3技术产业生态发展报告（2023年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202312/P020240326611792004085.pdf",
+      "original_report_sha256": "7633073bf8474c225ca38ffa78472c4540ce65e189e13f42540aafb6566b7d7f",
+      "source_pdf_page_count": 48,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "全球Web3技术产业生态发展报告（2023年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202312/P020240326611792004085.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 36,
+      "publishing_institution_entities": [
+        "CAICT"
+      ]
+    },
+    {
+      "copyright_notice": {
+        "interpretation_status": "source_attribution_required",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "notice_visible": true,
+        "page_1based": 2
+      },
+      "legal_opinion": false,
+      "named_rightsholders": [
+        "中国信息通信研究院"
+      ],
+      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202309/P020240326631644442389.pdf",
+      "official_publication_listing": {
+        "accessed_on": "2026-10-02",
+        "listed_title_confirmed": true,
+        "page_title": "中国信通院2023年白皮书合集",
+        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
+        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
+      },
+      "open_license_scan": {
+        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
+        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
+      },
+      "pdf_page_count": 45,
+      "publisher": "中国信息通信研究院（CAICT）",
+      "required_source_attribution_short_form": "来源：中国信息通信研究院",
+      "rights_review_human_reviewed": false,
+      "source_id": "CAICT-WIRELESS-ECONOMY-2023",
+      "source_pdf_included": false,
+      "source_pdf_sha256": "a16f2dac51cb2da8abdcc17e3899fb919d66ec74095a69a23b56b570f1ce7b67",
+      "title": "中国无线经济发展研究报告（2023年）",
+      "publication_institution": "CAICT",
+      "publication_year": null,
+      "title_chinese": "中国无线经济发展研究报告（2023年）",
+      "original_report_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202309/P020240326631644442389.pdf",
+      "original_report_sha256": "a16f2dac51cb2da8abdcc17e3899fb919d66ec74095a69a23b56b570f1ce7b67",
+      "source_pdf_page_count": 45,
+      "required_attribution": "来源：中国信息通信研究院",
+      "license": null,
+      "license_url": null,
+      "rights_notice_location": {
+        "document": "中国无线经济发展研究报告（2023年）",
+        "pdf_page_1based": 2,
+        "url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202309/P020240326631644442389.pdf",
+        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source."
+      },
+      "record_reuse_authorization": {
+        "status": "dataset_owner_confirmed_authorized",
+        "basis": "The dataset owner confirmed authorization to redistribute these existing QA records.",
+        "applies_to": "The historical question, answer, annotation and evidence-locator records under their prior CC-BY-4.0 dataset-record license.",
+        "does_not_assert_source_report_license": true,
+        "source_level_authorization_documents_independently_reaudited": false
+      },
+      "v2_source_file_audit_status": "historical_registry_only",
+      "active_v2_record_count": 79,
+      "publishing_institution_entities": [
+        "CAICT"
       ]
     },
     {

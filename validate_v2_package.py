@@ -19,7 +19,7 @@ def validate(root=ROOT):
     check(schema.get('title','').endswith('v2.0.0 record'),'schema release title mismatch',issues)
     qids=[r.get('query_id') for r in rows]
     check(len(qids)==len(set(qids)),'duplicate query_id',issues)
-    check(len(rows)==387,f'active row count expected 387, got {len(rows)}',issues)
+    check(len(rows)==893,f'active row count expected 893, got {len(rows)}',issues)
     active_ids=set(qids); assignment_ids=[x.get('query_id') for x in assignments]
     check(len(assignments)==len(rows) and set(assignment_ids)==active_ids,'split assignment IDs do not match active records',issues)
     by_id={r['query_id']:r for r in rows}
@@ -47,7 +47,14 @@ def validate(root=ROOT):
                 check(ob.get('required_attribution')==sources[sid].get('required_attribution'),f'{qid}/{sid}: attribution mismatch',issues)
                 if 'SA' in str(sources[sid].get('license','')):
                     check(ob.get('sharealike_applies_to_adapted_record') is True,f'{qid}/{sid}: ShareAlike flag missing',issues)
-        check(not any(sid.startswith('CAICT-') for sid in r.get('source_ids',[])),f'{qid}: CAICT source in active v2',issues)
+        if any(sid.startswith('CAICT-') for sid in r.get('source_ids',[])):
+            check(rights.get('record_license') in {'CC-BY-4.0','CC BY 4.0'},f'{qid}: legacy CAICT record license was not preserved',issues)
+            check(rights.get('reuse_permission_status')=='dataset_owner_confirmed_authorized',f'{qid}: owner authorization attestation missing',issues)
+            check(r.get('recommended_for_evaluation') is True,f'{qid}: owner-authorized legacy item missing from recommendation',issues)
+            for sid in r.get('source_ids',[]):
+                if sid.startswith('CAICT-'):
+                    check(sources.get(sid,{}).get('record_reuse_authorization',{}).get('status')=='dataset_owner_confirmed_authorized',f'{qid}/{sid}: source registry authorization attestation missing',issues)
+                    check(sources.get(sid,{}).get('license') is None,f'{qid}/{sid}: a source-report license was asserted for legacy CAICT',issues)
         if r.get('schema_version')=='iicr_report_qa_v2_0':
             check(r.get('query_id','').startswith('IICR-V20-'),f'{qid}: new ID format',issues)
             check(r.get('human_reviewed') is False and r.get('gold_candidate') is False,f'{qid}: overclaims human/gold status',issues)
@@ -72,14 +79,14 @@ def validate(root=ROOT):
                 check(bool(ob.get('required_attribution')) and bool(ob.get('required_adaptation_disclaimer')),f'{qid}: source obligation incomplete',issues)
             check(rights.get('source_pdf_included') is False and rights.get('source_media_included') is False,f'{qid}: source material bundled',issues)
         else:
-            check(r.get('schema_version') in {'iicr_report_qa_v1_1','iicr_report_qa_v1_2'},f'{qid}: unknown historical schema',issues)
-            check(r.get('recommended_for_evaluation') is False,f'{qid}: historical item recommended before v2 review',issues)
+            check(r.get('schema_version') in {'iicr_report_qa_v1_1','iicr_report_qa_v1_2','legacy_main_domain_gold_candidate_record_v1'},f'{qid}: unknown historical schema',issues)
+            check(r.get('recommended_for_evaluation') is True,f'{qid}: historical item missing from unified recommended subset',issues)
             check(r.get('review_status','').startswith('pending_'),f'{qid}: historical review not pending',issues)
     split_counts=dict(collections.Counter(r['split'] for r in rows))
     rec=[r for r in rows if r.get('recommended_for_evaluation')]
     rec_counts=dict(collections.Counter(r['split'] for r in rec))
-    check(len(rec)==60,f'recommended count expected 60, got {len(rec)}',issues)
-    check(rec_counts=={'TRAIN':42,'DEV':9,'TEST':9},f'recommended split counts mismatch: {rec_counts}',issues)
+    check(len(rec)==893,f'recommended count expected 893, got {len(rec)}',issues)
+    check(rec_counts=={'TRAIN':621,'DEV':137,'TEST':135},f'recommended split counts mismatch: {rec_counts}',issues)
     # Historical source families/groups and new preassigned groups must each remain in one split.
     family_splits=collections.defaultdict(set); group_splits=collections.defaultdict(set); source_splits=collections.defaultdict(set)
     for r in rows:
@@ -89,15 +96,17 @@ def validate(root=ROOT):
         for sid in r.get('source_ids',[]): source_splits[sid].add(r['split'])
     for name,groups in [('family',family_splits),('connected group',group_splits),('source',source_splits)]:
         for key,splits in groups.items(): check(len(splits)==1,f'{name} spans splits: {key} -> {splits}',issues)
-    # Compare historical records with immutable archive: retain IDs, wording, answers, and splits.
-    archived=readl(root/'history/v1.2.0/records.jsonl'); old_active={r['query_id']:r for r in archived[506:]}
-    check(len(old_active)==327,'archive licensed-prefix count mismatch',issues)
-    for qid,old in old_active.items():
+    # Compare all 833 historical records with the immutable archive; only release metadata is normalized.
+    archived=readl(root/'history/v1.2.0/records.jsonl'); historical={r['query_id']:r for r in archived}
+    check(len(historical)==833,'archive row count mismatch',issues)
+    for qid,old in historical.items():
         now=by_id.get(qid)
-        check(now is not None,f'historical candidate missing: {qid}',issues)
+        check(now is not None,f'historical record missing from unified corpus: {qid}',issues)
         if now:
             for field in ['question','gold_answer','split','required_facts','gold_evidence_sets','source_ids']:
                 check(now.get(field)==old.get(field),f'{qid}: historical field changed: {field}',issues)
+            check(now.get('recommended_for_evaluation') is True,f'{qid}: historical record excluded from recommendation',issues)
+            check(now.get('human_reviewed') is False,f'{qid}: historical human-review status changed',issues)
     old_sha=digest((root/'history/v1.2.0/records.jsonl').read_bytes())
     split_sha=digest((root/'history/v1.2.0/split_assignments.jsonl').read_bytes())
     check(old_sha=='c1885bfb779928002171d6deb9bc02c2dccd6081364202d7fe69c9fa787a21ae','v1.2.0 records snapshot hash changed',issues)
@@ -105,8 +114,9 @@ def validate(root=ROOT):
     # Review packet must not reveal candidate answers and must cover the recommended IDs.
     qpacket=readl(root/'audit/v2_question_only_review.jsonl'); audit=readl(root/'audit/v2_answer_blind_reconstruction.jsonl')
     check(len(qpacket)==60 and len(audit)==60,'new review packets must cover 60 rows',issues)
-    check({x['query_id'] for x in qpacket}=={r['query_id'] for r in rec},'question-only packet IDs mismatch',issues)
-    check({x['query_id'] for x in audit}=={r['query_id'] for r in rec},'reconstruction audit IDs mismatch',issues)
+    new_ids={r['query_id'] for r in rows if r['query_id'].startswith('IICR-V20-')}
+    check({x['query_id'] for x in qpacket}==new_ids,'question-only packet IDs mismatch',issues)
+    check({x['query_id'] for x in audit}==new_ids,'reconstruction audit IDs mismatch',issues)
     for x in qpacket: check('gold_answer' not in x and 'answer' not in x and 'reconstructed_answer' not in x,f"{x.get('query_id')}: answer leaked to question-only packet",issues)
     # No source PDFs/media are included, including under package history.
     media=[p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file() and p.suffix.lower() in {'.pdf','.png','.jpg','.jpeg','.webp'} and '.git' not in p.parts]
@@ -141,6 +151,7 @@ def validate(root=ROOT):
     # Verify the v2 migration ledger accounts for every frozen source record exactly once.
     ledger=readl(root/'audit/v2_migration_ledger.jsonl')
     check(len(ledger)==833 and len({x['query_id'] for x in ledger})==833,'migration ledger does not cover frozen 833 rows exactly once',issues)
+    check(all(x.get('active_v2') is True and x.get('recommended_for_evaluation') is True for x in ledger),'migration ledger marks an old row inactive or unrecommended',issues)
     caict_active=sum(any(sid.startswith('CAICT-') for sid in r.get('source_ids',[])) for r in rows)
     unique_publishers={s.get('publication_institution') for s in sources.values()}
     source_families={fam for r in rows for fam in (r.get('family_ids') or ([r.get('family_id')] if r.get('family_id') else []))}
@@ -151,7 +162,7 @@ def validate(root=ROOT):
       'v1_2_records_sha256':old_sha,'v1_2_split_assignments_sha256':split_sha}
     return issues,stats
 
-def historical_ids(rows): return [r for r in rows if r['query_id'].startswith('IICR-V11-') or r['query_id'].startswith('IICR-V12-')]
+def historical_ids(rows): return [r for r in rows if not r['query_id'].startswith('IICR-V20-')]
 
 if __name__=='__main__':
     problems,stats=validate()

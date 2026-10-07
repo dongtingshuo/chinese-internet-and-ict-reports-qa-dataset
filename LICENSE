@@ -1,5 +1,5 @@
 This package has mixed record-level licenses. No single license applies to the entire repository.
 
-For active records, follow each record's publication_rights and the matching entry in sources.json. See LICENSES.md, LICENSE_STATUS.md, and ATTRIBUTION.md for a summary.
+For each active record, follow its publication_rights and the matching source entry in sources.json. See LICENSES.md, LICENSE_STATUS.md, and ATTRIBUTION.md for the release-wide summary.
 
-The exact v1.2.0 historical archive is retained under history/v1.2.0/. Its files keep their historical notices. The 506 CAICT legacy rows in that archive are excluded from active v2 because source-level adaptation and redistribution permission was not established.
+The exact v1.2.0 package is retained under history/v1.2.0/. All 833 historical records are also included in the unified v2.0.0 corpus. The 506 legacy CAICT QA records retain their prior CC BY 4.0 record license; the dataset owner confirmed authorization to republish them. This does not assert a CC BY 4.0 license for the underlying source reports, which are not included.

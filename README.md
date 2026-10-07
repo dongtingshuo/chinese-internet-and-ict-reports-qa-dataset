@@ -21,44 +21,34 @@ configs:
 
 # Chinese Internet and ICT Reports QA Dataset
 
-**Version:** 2.0.0 · **Language:** Chinese · **Records:** 387 active candidates · **Recommended AI candidate subset:** 60
+**Version:** 2.0.0 · **Language:** Chinese · **Unified corpus:** 893 records · **Recommended subset:** 893 records
 
-This release contains source-grounded questions and concise answer candidates derived from public Chinese Internet, ICT, education-technology, and digital-agriculture reports. Each record links to physical PDF pages and records its source license, attribution, adaptation notice, and third-party-content limits.
+This version keeps all 833 records from v1.2.0 in the current corpus and adds 60 new AI-assisted candidates. Every record retains its original ID and split; the exact v1.2.0 package is also preserved under `history/v1.2.0/`.
 
-## What is included
+## Contents
 
-- 327 prior v1.1/v1.2 records retained as historical candidates, pending v2 source-file revalidation or answer-blind reconstruction. They are not in the recommended subset.
-- 60 new AI-assisted candidates from four Chinese report documents, with a separate question-only review packet and source-page reconstruction audit.
-- 15 report documents are registered across seven consolidated publishing institutions; four are new in v2.0.0. The original target of 60 reports and 10 institutions has not been reached. Five historical source files still need revalidation.
-- 60 recommended candidates split TRAIN/DEV/TEST as 42/9/9. New report families were assigned to splits before question drafting.
+- 833 historical v1.2.0 records and 60 new candidates.
+- Both `candidates` and `recommended` Viewer configurations contain the same 893 records. The historical records are included in the recommended subset at the dataset owner's direction; their `review_status` remains explicit and must be considered by users.
+- Unified TRAIN/DEV/TEST counts are 621/137/135. Historical splits were assigned after annotation; the 60 new records use source-family assignments made before drafting.
+- The source registry, record metadata, and manifest give exact document, institution, split, license, review, and hash counts.
 - No source PDF, image, table, figure, or long source passage is included.
 
-The active set has 387 records, below the 2,000-record target. This release excludes the 506 CAICT legacy rows from the active corpus because source-level permission to redistribute adaptations was not established in the v1.2.0 source registry. The 506 rows remain in `history/v1.2.0/` and are itemized in the migration ledger. CAICT is 0% of the active v2 corpus.
+## Review status and limitations
 
-## Viewer configurations
+All 833 historical rows still need the v2 answer-blind content reconstruction; some historical source files also need revalidation. Their inclusion in `recommended` does not imply completed review, human verification, or gold-standard status. The 60 new records have AI-assisted source-page reconstruction, but no independent human review. Historical splits are not blind holdouts, and prior system exposure has not been audited.
 
-- **candidates** includes all 387 active rows. Review status distinguishes pending historical candidates from the new AI-assisted set.
-- **recommended** includes only the 60 newly source-reconstructed AI candidates. “Recommended” means a candidate subset for research use; it does not mean human verified or gold.
+The merged corpus contains 506 CAICT legacy records (56.7% of the total), so the prior goal of reducing CAICT below 45% is not met. These records retain their existing CC BY 4.0 license for the QA records. The dataset owner confirmed authorization to republish them; this does not assert that the underlying CAICT reports use CC BY 4.0. Original source reports are not included.
 
-Use `answer_candidate` and `review_status` when loading Viewer rows. `record_json` preserves the full record, including evidence locators and source-rights metadata.
+No RAG baseline or model-performance result is included. See `DATA_CARD.md`, `LICENSE_STATUS.md`, and `VALIDATION_REPORT.json` for scope and release gates.
 
-## License
+## Licensing
 
-This is a mixed-license dataset. **No single license applies to the repository as a whole.** Each record carries its applicable license and required source attributions. The recommended subset includes 51 records under CC BY-SA 3.0 IGO and 9 FAO-derived records under CC BY-NC-SA 3.0 IGO. Review `LICENSES.md`, `LICENSE_STATUS.md`, `ATTRIBUTION.md`, and the record's `publication_rights` before reuse. Hugging Face metadata uses `license: other` because the package has mixed record-level terms.
+This is a mixed-license dataset. **No single license applies to the repository as a whole.** Each record carries its applicable record license and required attribution. For legacy CAICT rows, the record license applies to the QA record only; the source report's license is not asserted. See `LICENSES.md`, `ATTRIBUTION.md`, `sources.json`, and each record's `publication_rights` before reuse. Hugging Face metadata uses `license: other`.
 
-## Review and limitations
+## Viewer fields
 
-All new rows were checked against the cited Chinese source pages using an AI-assisted, answer-blind review packet. The same active AI session drafted and checked the questions; no independent reviewer is claimed. `human_reviewed` remains false and `gold_candidate` remains false for all new rows. Historical rows are still pending v2 review. Historical splits were assigned after annotation, and prior system exposure was not audited. No RAG baseline or model-performance result is included.
+Use `answer_candidate`, `review_status`, and `recommended_for_evaluation` when loading Viewer rows. `record_json` preserves each full record, including evidence locators and record-level rights metadata.
 
 ## Reproduce and validate
 
-Run `python3 build_v2_package.py`, then `python3 build_hf_splits.py`, `python3 build_release_metadata.py`, and `python3 validate_v2_package.py`. See `PROJECT_CONTEXT.md` for the release workflow and `manifest.json` for exact counts and hashes.
-
-## Files
-
-- `records.jsonl`: canonical active record set.
-- `sources.json`: report, rights, attribution, and source-file metadata.
-- `split_assignments.jsonl`: historical and v2 split provenance.
-- `data/`: Hugging Face Viewer splits for candidates and recommended subset.
-- `audit/`: v1.2 migration ledger, v2 source-family allocation, and AI review artifacts.
-- `history/v1.2.0/`: frozen v1.2.0 snapshot.
+Run `python3 build_v2_package.py`, `python3 build_hf_splits.py`, `python3 validate_v2_package.py`, then `python3 build_release_metadata.py`. See `PROJECT_CONTEXT.md` for the release workflow and `manifest.json` for exact counts and hashes.

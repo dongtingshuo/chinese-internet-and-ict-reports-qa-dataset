@@ -2,35 +2,31 @@
 
 ## Dataset description
 
-A Chinese-language, source-grounded question-answer candidate dataset about Internet, ICT, education technology, labor platforms, and digital agriculture reports. The canonical set is 387 active rows. A 60-row AI-assisted source-reconstructed subset is recommended for exploratory evaluation; it is not human verified and is not a gold benchmark.
+A Chinese-language, source-grounded question-answer dataset about Internet, ICT, education technology, labor platforms, and digital agriculture reports. The unified corpus contains 893 records: all 833 records from v1.2.0 and 60 new AI-assisted candidates. All 893 are in the recommended evaluation subset at the dataset owner's direction. Recommendation does not replace the record-level `review_status` and is not a claim that all labels have been freshly reviewed.
 
 ## Contents and composition
 
-- 327 historical v1.1/v1.2 licensed-source records, retained as candidates pending v2 review and excluded from the recommended subset.
-- 60 new records across four Chinese report documents and four new source families.
-- 15 source documents are registered across seven consolidated publishing institutions; four are new in v2.0.0, while five historical source files await revalidation.
-- Recommended task families: single-document retrieval, numeric retrieval, within-document synthesis, and cross-document synthesis.
-- Recommended splits: TRAIN 42, DEV 9, TEST 9.
-- All 60 recommended rows are answerable. Historical rows include answerable and unanswerable items, but remain pending v2 review.
+- 833 historical records preserve their original IDs, question/answer content, evidence, source references, and split assignments.
+- 60 new records cover four Chinese report documents and four new source families.
+- Unified TRAIN/DEV/TEST counts are 621/137/135. Exact source and consolidated publisher counts are in `manifest.json`.
+- The recommended subset has the same 893 records and split counts as the full corpus.
+- The 506 CAICT legacy records are 56.7% of the merged corpus, so the prior goal of reducing that share below 45% is not met.
+- No source PDF, image, table, figure, or long text passage is included.
 
-Targets of 2,000 records, 60 reports, and 10 publishing institutions were not met. The active set excludes the 506 CAICT legacy rows because source adaptation and redistribution rights were not established. The exact v1.2.0 package remains in the historical snapshot and migration ledger.
+## Data creation and review
 
-## Data creation
+The new questions and answers were created with AI assistance from four Chinese source documents. New source-family splits were assigned before drafting. An answer-free review packet was used to reconstruct answers and evidence from cited source PDF pages. Drafting and checking occurred in the same active AI session; independent review and human review are not claimed. The model label, prompt hash, source PDF hashes, locators, and review status are recorded under `audit/` and in each new record.
 
-New question and answer candidates were created with AI assistance from four Chinese source documents. New family splits were assigned before question drafting. An answer-only-free review packet was used to reconstruct answers and evidence from the source PDFs. The same active AI session drafted and checked the new items; the work is not independent human annotation and does not establish cognitive blindness. Model label: GPT-6 (Codex; exact deployment identifier not exposed). Prompt and source file hashes are recorded under `audit/` and in each record.
+All 833 earlier records remain pending v2 answer-blind content reconstruction; some historical source files also await revalidation. Their current inclusion is an explicit maintainer decision. Historical split assignments were made after annotation and are not prospective blind holdouts. Prior system exposure has not been audited. Legacy candidate labels are preserved as historical metadata; the dataset does not make a corpus-wide gold-standard claim.
 
-## Source and evidence
+## Sources and licensing
 
-Evidence locators identify physical, 1-based PDF pages and a narrative text region. The package excludes source passages, figures, tables, images, and PDFs. Where source licenses limit rights to text, only paraphrased narrative facts are used. Source metadata records translation status, license page and hash, required attribution, adaptation notice, and third-party limits.
+Records use mixed record-level terms. No repository-wide license is asserted. The 506 legacy CAICT QA records retain their prior CC BY 4.0 record license and source attribution; the dataset owner confirmed authorization to republish them. This does not assert a CC BY 4.0 license for the underlying reports. See `LICENSES.md`, `LICENSE_STATUS.md`, `ATTRIBUTION.md`, and `sources.json` for exact obligations.
 
-## License
+New records use the license and attribution shown for each source, including ShareAlike and noncommercial requirements where applicable. The package does not redistribute report text blocks, PDFs, or media. Source metadata records Chinese edition or translation status, license notice, source hashes, and third-party-content limits.
 
-Mixed record-level terms apply. No single repository-wide license is asserted. New recommended rows include CC BY-SA 3.0 IGO and CC BY-NC-SA 3.0 IGO records. See `LICENSES.md`, `LICENSE_STATUS.md`, `ATTRIBUTION.md`, and `sources.json`.
+## Intended use and limitations
 
-## Review and intended use
+Use as a candidate corpus for Chinese source-grounded QA, retrieval, and document-understanding research. Keep `review_status` and row-level license metadata with every extracted record. Users should design evaluation protocols that account for pending historical review, post-annotation historical splits, and unaudited prior system exposure.
 
-Use as a candidate corpus for QA, evidence retrieval, source-grounding, and document understanding research. Review statuses must be retained during use. The new subset has AI source reconstruction but no human review. Historical rows require further source-file and answer-blind review. The historical splits were assigned after annotation; they are not prospective blind holdouts. Prior system exposure has not been audited.
-
-## Limitations
-
-The release is far below its expansion targets. Report coverage is concentrated in seven consolidated publishers and education-related sources. No independent human audit, gold-label claim, RAG baseline, or model-performance result is included. Some historical source files require revalidation, and all 327 historical candidates remain outside the recommended subset.
+The corpus remains below the scale targets of 2,000 records, 60 reports, and 10 publishing institutions. It does not include RAG baselines or model-performance results, and it is not a human-verified gold benchmark.
