@@ -40,7 +40,7 @@ Maintain the public Chinese Internet and ICT Reports QA Dataset as a source-grou
 - Historical candidates are not recommended for evaluation until their v2 source/hash and answer-blind checks are complete. Some source files remain pending revalidation.
 - Hugging Face package upload completed at commit `e9d446ddc6c9e0cde902ce5e82da17a85bfd037b`; local and remote hashes match for the manifest, canonical records, assignments, bilingual READMEs, and all six Viewer split files. Obsolete root-level v1.2 Viewer files were removed from the Hub.
 - Hugging Face Dataset Viewer endpoints currently return a transient “server is busier than usual” HTTP 500; remote Viewer counts are not yet verified.
-- Current Git branch is `main`, based on remote commit `fb6b38fcb873e901267813f88b7e74dc84a9572f`; the v2 GitHub commit and tag are still pending.
+- The v2.0.0 candidate package was pushed directly to GitHub `main` in commit `0180fde`. The version tag is intentionally pending successful Viewer verification.
 
 ## Quality and licensing decisions
 
@@ -60,7 +60,6 @@ Maintain the public Chinese Internet and ICT Reports QA Dataset as a source-grou
 
 ## Prioritized TODOs
 
-1. Push the checked v2 package directly to GitHub `main` and create the version tag.
-2. Retry the Hugging Face Viewer checks after the service-side 500 clears; update the release report with remote verification only after counts and hashes pass.
-3. Continue source-first review of the 327 retained historical candidates before recommending any of them.
-4. Expand only with additional official Chinese sources whose adaptation rights and evidence locators are verified; current release remains below its scale targets (387/2,000 records, 15/60 documents, 7/10 institutions).
+1. Retry the Hugging Face Viewer checks after the service-side 500 clears; update the release report and tag v2.0.0 only after counts and hashes pass.
+2. Continue source-first review of the 327 retained historical candidates before recommending any of them.
+3. Expand only with additional official Chinese sources whose adaptation rights and evidence locators are verified; current release remains below its scale targets (387/2,000 records, 15/60 documents, 7/10 institutions).
