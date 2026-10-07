@@ -1190,8 +1190,29 @@
   },
   "v2_0_snapshot_unchanged": true,
   "remote_payload_fingerprint": "b92c0662ef3ef98cb78a6fefb1ca0f1cbe7c6fe53fda0768faeb2722ff1a901c",
-  "remote_hf_viewer_verification": null,
-  "remote_payload_files_match": false,
+  "remote_hf_viewer_verification": {
+    "verified_on": "2026-10-07",
+    "remote_revision": "9a091011211092fd82bcc57eadd0f10882b5010a",
+    "dataset_payload_files_match": true,
+    "dataset_viewer_verified": false,
+    "tracked_release_file_count": 101,
+    "manifest_entries_match_remote": true,
+    "checksum_entries_match_remote": true,
+    "extra_remote_files": [
+      ".gitattributes"
+    ],
+    "viewer_api_endpoint_status": {
+      "is-valid": 500,
+      "splits": 500,
+      "size": 500,
+      "parquet": 500,
+      "rows_preview": 500
+    },
+    "viewer_api_message": "The server is busier than usual and the response is not ready yet.",
+    "viewer_split_counts": null,
+    "verification_method": "Downloaded and hash-compared all 101 tracked files at the full-check revision; then fetched and hash-compared every changed metadata/context file at subsequent Hub revisions through the current revision."
+  },
+  "remote_payload_files_match": true,
   "remote_dataset_viewer_verified": false,
   "checks": {
     "schema_and_version_fields": true,
@@ -1206,11 +1227,10 @@
     "viewer_files_match_canonical_records_and_splits": true,
     "no_source_pdf_or_media_in_repository_payload": true,
     "v2_0_frozen_snapshot_hashes_match": true,
-    "remote_dataset_payload_files_match": false,
+    "remote_dataset_payload_files_match": true,
     "remote_dataset_viewer_counts_verified": false
   },
   "pending_gates": [
-    "Synchronize the validated package to Hugging Face and compare the published file hashes.",
     "Verify Hugging Face Dataset Viewer split counts after its processing job completes."
   ]
 }
