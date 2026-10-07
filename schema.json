@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset/blob/main/schema.json",
   "title": "Chinese Internet and ICT Reports QA Dataset v2.0.0 record",
-  "description": "The active corpus unifies all v1.2.0 records with new v2 records. Historical rows remain in the recommended subset by dataset-owner instruction while their v2 content-review status remains explicit. Records use mixed record-level licenses; the package is not a human-reviewed gold benchmark.",
+  "description": "The active corpus unifies all v1.2.0 records with new v2 records. Historical rows and pending short-sentence cloze candidates remain in the recommended subset by dataset-owner instruction while their review status remains explicit. Records use mixed record-level licenses; the package is not a human-reviewed gold benchmark.",
   "oneOf": [
     { "$ref": "#/$defs/historical_candidate_v2" },
     { "$ref": "#/$defs/new_candidate_v2" }
@@ -66,6 +66,7 @@
             "task_type": { "type": "string" },
             "human_reviewed": { "const": false },
             "gold_candidate": { "const": false },
+            "source_sentence_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
             "recommended_for_evaluation": { "const": true }
           }
         }

@@ -47,12 +47,16 @@ new_families=[x for x in readj(ROOT/'audit/v2_split_manifest.json')['family_assi
 license_source_rechecks={sid:sources[sid].get('v2_source_file_audit_status') for sid in sorted(source_ids)}
 source_file_status_counts=dict(collections.Counter(s.get('v2_source_file_audit_status','unknown') for s in sources.values()))
 historical_review_counts=dict(collections.Counter(r['review_status'] for r in old))
+source_excerpt_rows=[r for r in rows if r.get('publication_rights',{}).get('source_excerpt_included') is True]
+cloze_rows=[r for r in rows if r.get('review_status')=='pending_ai_content_verification']
 report={
- 'validation_status':'passed_with_historical_review_pending','version':'2.0.0','validated_on':TODAY,
+ 'validation_status':'passed_with_content_review_pending','version':'2.0.0','validated_on':TODAY,
  'record_count':len(rows),'historical_candidate_count':len(old),'new_record_count':len(new),'recommended_candidate_count':len(recommend),
  'source_document_count':len(sources),'report_family_count':len(report_families),'publisher_label_count':stats['publisher_label_count'],'publishing_institution_count':len(publisher_entities),
  'split_counts':split_counts(rows),'recommended_split_counts':split_counts(recommend),'new_family_split_counts':dict(collections.Counter(x['split'] for x in new_families)),
  'task_family_counts':dict(collections.Counter(r['task_family'] for r in rows)),'recommended_task_family_counts':dict(collections.Counter(r['task_family'] for r in recommend)),
+ 'task_subtype_counts':dict(collections.Counter(r['task_subtype'] for r in rows)),'review_status_counts':dict(collections.Counter(r['review_status'] for r in rows)),
+ 'source_sentence_cloze_record_count':len(cloze_rows),'short_source_excerpt_record_count':len(source_excerpt_rows),
  'answerability_counts':dict(collections.Counter(r['answerability'] for r in rows)),'recommended_answerability_counts':dict(collections.Counter(r['answerability'] for r in recommend)),
  'record_license_counts':license_counts(rows),'recommended_record_license_counts':license_counts(recommend),
  'caict_active_record_count':stats['caict_active_count'],'caict_active_record_share':stats['caict_active_share'],'history_only_caict_count':0,
@@ -68,7 +72,7 @@ report={
  'new_review_status_counts':dict(collections.Counter(r['review_status'] for r in new)),
  'v1_2_records_sha256':stats['v1_2_records_sha256'],'v1_2_split_assignments_sha256':stats['v1_2_split_assignments_sha256'],
  'new_source_pdf_hashes':{sid:sources[sid]['original_report_sha256'] for sid in sorted(set(x for r in new for x in r['source_ids']))},
- 'source_pdf_or_media_included':False,'human_reviewed':False,'independent_human_review':'not_performed',
+ 'source_pdf_or_media_included':False,'source_sentence_cloze_excerpts_included':bool(source_excerpt_rows),'human_reviewed':False,'independent_human_review':'not_performed',
  'gold_benchmark_claim':False,'prospective_blind_holdout_claim':False,'prior_system_exposure_audit':'not_performed',
  'model_performance_results_included':False,'remote_viewer_verified':remote_viewer_verified,
  'remote_payload_fingerprint':current_payload_fingerprint,
@@ -81,10 +85,10 @@ report={
    'all_833_historical_rows_in_candidate_and_recommended_configs':True,
    'v1_2_snapshot_hashes_unchanged':True,'new_family_and_group_split_isolation':True,
    'question_only_packet_excludes_answer_fields':True,'migration_ledger_covers_833_rows':True,
-   'exact_and_near_duplicate_checks':True,'candidate_and_recommended_viewer_files_match':True,
+   'exact_and_near_duplicate_checks':True,'cloze_restored_sentence_hashes_match':True,'generation_script_hashes_match':True,'candidate_and_recommended_viewer_files_match':True,
    'no_report_pdf_or_media_in_package':True,
    'remote_dataset_payload_hashes_match':remote_payload_verified},
- 'pending_gates':['The 833 historical rows are included in the recommended subset per dataset-owner instruction, but their v2 content and answer-blind review remains pending; recommendation does not imply human review or gold status.']
+ 'pending_gates':['The 833 historical rows are included in the recommended subset per dataset-owner instruction, but their v2 content and answer-blind review remains pending; recommendation does not imply human review or gold status.','The 1,107 rule-generated cloze candidates remain pending content and third-party attribution review; they are included in recommended per dataset-owner instruction.']
 }
 if not remote_viewer_verified:
  report['pending_gates'].append('The Hugging Face Dataset Viewer counts are not verified; the current data-payload file hashes match the recorded Hub revision.' if remote_payload_verified else 'The unified payload must be synchronized to Hugging Face and its data-payload hashes and Viewer counts verified.')
@@ -92,18 +96,19 @@ if not remote_viewer_verified:
 files=clean_files()
 manifest={
  'dataset_id':'chinese_internet_ict_reports_qa','dataset_name':'Chinese Internet and ICT Reports QA Dataset / 中文互联网与 ICT 报告问答数据集',
- 'version':'2.0.0','created_on':TODAY,'package_status':'unified_v2_candidate_corpus_with_historical_review_pending',
+ 'version':'2.0.0','created_on':TODAY,'package_status':'unified_v2_candidate_corpus_with_content_review_pending',
  'record_count':len(rows),'historical_candidate_count':len(old),'new_record_count':len(new),'recommended_candidate_count':len(recommend),
  'source_count':len(sources),'source_document_count':len(sources),'report_family_count':len(report_families),
  'publisher_label_count':stats['publisher_label_count'],'publishing_institution_count':len(publisher_entities),
- 'split_counts':split_counts(rows),'recommended_split_counts':split_counts(recommend),'task_family_counts':dict(collections.Counter(r['task_family'] for r in rows)),
+ 'split_counts':split_counts(rows),'recommended_split_counts':split_counts(recommend),'task_family_counts':dict(collections.Counter(r['task_family'] for r in rows)),'task_subtype_counts':dict(collections.Counter(r['task_subtype'] for r in rows)),
+ 'review_status_counts':dict(collections.Counter(r['review_status'] for r in rows)),'source_sentence_cloze_record_count':len(cloze_rows),'short_source_excerpt_record_count':len(source_excerpt_rows),
  'answerability_counts':dict(collections.Counter(r['answerability'] for r in rows)),
  'record_license_counts':license_counts(rows),'recommended_record_license_counts':license_counts(recommend),
  'source_record_counts':dict(collections.Counter(sid for r in rows for sid in r['source_ids'])),
  'source_ids':sorted(source_ids),'source_file_status_counts':source_file_status_counts,
  'historical_rows_pending_source_file_revalidation':sum(r['review_status']=='pending_source_file_revalidation' for r in old),
  'historical_rows_pending_answer_blind_reconstruction':sum(r['review_status']=='pending_v2_answer_blind_reconstruction' for r in old),'source_attribution_required':True,'record_license_policy':'mixed_record_level_no_repository_wide_license',
- 'dataset_license':None,'huggingface_license_metadata':'other','source_pdfs_or_media_included':False,
+ 'dataset_license':None,'huggingface_license_metadata':'other','source_pdfs_or_media_included':False,'source_sentence_cloze_excerpts_included':bool(source_excerpt_rows),
  'human_reviewed':False,'independent_human_review':'not_performed','gold_benchmark_claim':False,
  'pre_annotation_split_for_new_families':True,'historical_splits_assigned_after_annotation':True,
  'prospective_blind_holdout_claim':False,'prior_system_exposure_audit':'not_performed','model_performance_results_included':False,

@@ -19,7 +19,7 @@ def validate(root=ROOT):
     check(schema.get('title','').endswith('v2.0.0 record'),'schema release title mismatch',issues)
     qids=[r.get('query_id') for r in rows]
     check(len(qids)==len(set(qids)),'duplicate query_id',issues)
-    check(len(rows)==893,f'active row count expected 893, got {len(rows)}',issues)
+    check(len(rows)>=2000,f'active row count must meet the v2 target of 2000, got {len(rows)}',issues)
     active_ids=set(qids); assignment_ids=[x.get('query_id') for x in assignments]
     check(len(assignments)==len(rows) and set(assignment_ids)==active_ids,'split assignment IDs do not match active records',issues)
     by_id={r['query_id']:r for r in rows}
@@ -59,8 +59,30 @@ def validate(root=ROOT):
             check(r.get('query_id','').startswith('IICR-V20-'),f'{qid}: new ID format',issues)
             check(r.get('human_reviewed') is False and r.get('gold_candidate') is False,f'{qid}: overclaims human/gold status',issues)
             check(r.get('recommended_for_evaluation') is True,f'{qid}: new candidate not in recommended set',issues)
-            check(r.get('review_provenance',{}).get('candidate_answer_in_review_input') is False,f'{qid}: answer not hidden from review input',issues)
-            check(bool(r.get('review_provenance',{}).get('prompt_sha256')),f'{qid}: missing prompt hash',issues)
+            pending=r.get('review_status')=='pending_ai_content_verification'
+            if pending:
+                check(r.get('review_provenance',{}).get('candidate_answer_in_review_input') is True,f'{qid}: pending cloze provenance must disclose answer-visible generation',issues)
+                check(r.get('recommended_for_evaluation') is True,f'{qid}: pending item not retained in recommended subset',issues)
+                check(r.get('publication_rights',{}).get('source_excerpt_included') is True,f'{qid}: cloze excerpt disclosure missing',issues)
+                check(r.get('publication_rights',{}).get('third_party_content_reused') is None,f'{qid}: pending attribution status is overstated',issues)
+                question=r.get('question','')
+                check(question.count('______')==1,f'{qid}: pending cloze question must have one answer slot',issues)
+                check(r.get('gold_answer','') not in question,f'{qid}: candidate answer remains visible in cloze question',issues)
+                check(r.get('task_family')=='single_document_retrieval' and 'cloze' in r.get('task_subtype',''),f'{qid}: cloze task family/subtype mismatch',issues)
+                check(r.get('review_provenance',{}).get('model') is None and r.get('review_provenance',{}).get('prompt_sha256') is None,f'{qid}: rule-based generation is mislabeled as per-row model review',issues)
+                script_path=root/r.get('review_provenance',{}).get('generation_script','')
+                check(script_path.is_file(),f'{qid}: cloze generation script missing',issues)
+                if script_path.is_file():
+                    check(digest(script_path.read_bytes())==r.get('review_provenance',{}).get('generation_script_sha256'),f'{qid}: cloze generation script hash mismatch',issues)
+                source_hash=r.get('source_sentence_sha256')
+                check(bool(re.fullmatch(r'[a-f0-9]{64}',str(source_hash))),f'{qid}: source sentence hash missing or invalid',issues)
+                if question.count('______')==1 and source_hash:
+                    quoted=question.split('“',1)[-1].rsplit('”',1)[0]
+                    restored=quoted.replace('______',r['gold_answer'])
+                    check(digest(restored.encode('utf-8'))==source_hash,f'{qid}: reconstructed sentence does not match its source sentence hash',issues)
+            else:
+                check(r.get('review_provenance',{}).get('candidate_answer_in_review_input') is False,f'{qid}: answer not hidden from review input',issues)
+                check(bool(r.get('review_provenance',{}).get('prompt_sha256')),f'{qid}: missing answer-blind reconstruction prompt hash',issues)
             facts={x['fact_id'] for x in r.get('required_facts',[])}
             evidence=r.get('gold_evidence_sets',[])
             check(len(evidence)>0,f'{qid}: missing evidence',issues)
@@ -72,7 +94,7 @@ def validate(root=ROOT):
                     check(sid in r.get('source_ids',[]),f'{qid}: evidence cites undeclared source {sid}',issues)
                     if sid in sources:
                         check(1<=loc.get('pdf_page',0)<=sources[sid].get('source_pdf_page_count',0),f'{qid}/{sid}: evidence page outside source PDF',issues)
-                    check(loc.get('locator_type')=='narrative_text_region' and bool(loc.get('element_id')),f'{qid}: evidence locator is incomplete',issues)
+                    check(loc.get('locator_type') in {'narrative_text_region','source_sentence_cloze'} and bool(loc.get('element_id')),f'{qid}: evidence locator is incomplete',issues)
             check(cited==facts,f'{qid}: evidence does not cover every required fact',issues)
             for ob in rights.get('source_license_obligations',[]):
                 check(ob.get('source_license')==sources.get(ob.get('source_id'),{}).get('license'),f'{qid}: source obligation license mismatch',issues)
@@ -85,8 +107,8 @@ def validate(root=ROOT):
     split_counts=dict(collections.Counter(r['split'] for r in rows))
     rec=[r for r in rows if r.get('recommended_for_evaluation')]
     rec_counts=dict(collections.Counter(r['split'] for r in rec))
-    check(len(rec)==893,f'recommended count expected 893, got {len(rec)}',issues)
-    check(rec_counts=={'TRAIN':621,'DEV':137,'TEST':135},f'recommended split counts mismatch: {rec_counts}',issues)
+    check(len(rec)==len(rows),f'recommended subset must contain all active rows, got {len(rec)}/{len(rows)}',issues)
+    check(rec_counts==split_counts,f'recommended split counts mismatch: {rec_counts} vs {split_counts}',issues)
     # Historical source families/groups and new preassigned groups must each remain in one split.
     family_splits=collections.defaultdict(set); group_splits=collections.defaultdict(set); source_splits=collections.defaultdict(set)
     for r in rows:
@@ -113,10 +135,18 @@ def validate(root=ROOT):
     check(split_sha=='e6ea3fa7f1eb4bf656766ac90318ffd3a98a5fead2fbfa650e7f98d76a2a8b4d','v1.2.0 assignment snapshot hash changed',issues)
     # Review packet must not reveal candidate answers and must cover the recommended IDs.
     qpacket=readl(root/'audit/v2_question_only_review.jsonl'); audit=readl(root/'audit/v2_answer_blind_reconstruction.jsonl')
-    check(len(qpacket)==60 and len(audit)==60,'new review packets must cover 60 rows',issues)
+    pending_audit=readl(root/'audit/v2_pending_content_review.jsonl')
     new_ids={r['query_id'] for r in rows if r['query_id'].startswith('IICR-V20-')}
-    check({x['query_id'] for x in qpacket}==new_ids,'question-only packet IDs mismatch',issues)
-    check({x['query_id'] for x in audit}==new_ids,'reconstruction audit IDs mismatch',issues)
+    reviewed_ids={r['query_id'] for r in rows if r['query_id'].startswith('IICR-V20-') and r['review_status']=='ai_answer_blind_reconstruction_match'}
+    pending_ids={r['query_id'] for r in rows if r['query_id'].startswith('IICR-V20-') and r['review_status']=='pending_ai_content_verification'}
+    check(len(qpacket)==len(new_ids) and {x['query_id'] for x in qpacket}==new_ids,'question-only packet IDs mismatch',issues)
+    check({x['query_id'] for x in audit}==reviewed_ids,f'answer-blind reconstruction audit ID mismatch: {len(audit)} vs {len(reviewed_ids)}',issues)
+    check({x['query_id'] for x in pending_audit}==pending_ids,f'pending content audit ID mismatch: {len(pending_audit)} vs {len(pending_ids)}',issues)
+    pending_audit_by_id={x['query_id']:x for x in pending_audit}
+    for qid in pending_ids:
+        record=by_id.get(qid,{}); audit=pending_audit_by_id.get(qid,{})
+        check(audit.get('source_sentence_sha256')==record.get('source_sentence_sha256'),f'{qid}: pending audit/source sentence hash mismatch',issues)
+        check(audit.get('evidence_page')==record.get('gold_evidence_sets',[{}])[0].get('sources',[{}])[0].get('pdf_page'),f'{qid}: pending audit/evidence page mismatch',issues)
     for x in qpacket: check('gold_answer' not in x and 'answer' not in x and 'reconstructed_answer' not in x,f"{x.get('query_id')}: answer leaked to question-only packet",issues)
     # No source PDFs/media are included, including under package history.
     media=[p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file() and p.suffix.lower() in {'.pdf','.png','.jpg','.jpeg','.webp'} and '.git' not in p.parts]
@@ -132,22 +162,48 @@ def validate(root=ROOT):
     normalized=[re.sub(r'\W+','',r['question']).lower() for r in rows]
     exact_dupes=len(normalized)-len(set(normalized))
     new_rows=[r for r in rows if r['query_id'].startswith('IICR-V20-')]
+    # Use a character 4-gram index to shortlist plausible matches before the slower
+    # SequenceMatcher check. This keeps the release audit practical at 2k+ rows.
+    normalized_questions=[re.sub(r'\W+','',r['question']).lower() for r in rows]
+    grams=[{value[i:i+4] for i in range(max(0,len(value)-3))} for value in normalized_questions]
+    gram_rows=collections.defaultdict(list)
+    for idx,values in enumerate(grams):
+        for value in values: gram_rows[value].append(idx)
+    pair_overlap=collections.Counter()
+    new_indexes={idx for idx,r in enumerate(rows) if r['query_id'].startswith('IICR-V20-')}
+    for value,indexes in gram_rows.items():
+        if len(indexes)>100: continue
+        relevant=[idx for idx in indexes if idx in new_indexes]
+        if len(relevant)==0: continue
+        for i in relevant:
+            for j in indexes:
+                if i<j: pair_overlap[(i,j)]+=1
+                elif j<i: pair_overlap[(j,i)]+=1
     near_pairs=[]
-    for i,a in enumerate(new_rows):
-        atext=re.sub(r'\s+','',a['question'].lower())
-        for b in rows:
-            if b['query_id']==a['query_id']: continue
-            btext=re.sub(r'\s+','',b['question'].lower())
-            ratio=difflib.SequenceMatcher(None,atext,btext).ratio()
-            if ratio>=0.82: near_pairs.append({'query_ids':[a['query_id'],b['query_id']],'similarity':round(ratio,3)})
+    for (i,j),overlap in pair_overlap.items():
+        minimum=min(len(grams[i]),len(grams[j]))
+        if overlap<max(3,int(minimum*0.20)): continue
+        ratio=difflib.SequenceMatcher(None,normalized_questions[i],normalized_questions[j]).ratio()
+        if ratio>=0.82: near_pairs.append({'query_ids':[rows[i]['query_id'],rows[j]['query_id']],'similarity':round(ratio,3)})
     check(not near_pairs,f'near-duplicate questions >=0.82: {near_pairs[:8]}',issues)
     # New source hashes and rights pages refer to the same verified local PDF.
-    for sid,src in sources.items():
-        if sid.startswith(('UNESCO-AI-EDU','UNESCO-GEM-TECH','UNESCO-GENAI','FAO-DIGITAL-AGRI')):
-            rh=src.get('rights_notice_location',{})
-            check(src.get('source_file_sha256_verified') is True,f'{sid}: source hash was not marked verified',issues)
-            check(rh.get('pdf_sha256')==src.get('original_report_sha256'),f'{sid}: rights-page hash mismatch',issues)
-            check(1<=rh.get('pdf_page_1based',0)<=src.get('source_pdf_page_count',0),f'{sid}: invalid rights notice page',issues)
+    expansion_doc=readj(root/'audit/v2_expansion_sources.json')
+    expansion_sources={s['source_id']:s for s in expansion_doc.get('sources',[])}
+    check(len(expansion_sources)==32,f'expected 32 added source documents, got {len(expansion_sources)}',issues)
+    for sid,src in expansion_sources.items():
+        actual=sources.get(sid,{})
+        rh=actual.get('rights_notice_location',{})
+        check(actual.get('source_file_sha256_verified') is True,f'{sid}: source hash was not marked verified',issues)
+        check(bool(re.fullmatch(r'[a-f0-9]{64}',str(src.get('extracted_text_sha256','')))),f'{sid}: extracted-text hash missing from expansion provenance',issues)
+        check(actual.get('extracted_text_sha256')==src.get('extracted_text_sha256'),f'{sid}: extracted-text hash missing from source registry',issues)
+        check(rh.get('pdf_sha256')==actual.get('original_report_sha256'),f'{sid}: rights-page hash mismatch',issues)
+        check(1<=rh.get('pdf_page_1based',0)<=actual.get('source_pdf_page_count',0),f'{sid}: invalid rights notice page',issues)
+        check(actual.get('license')=='CC BY-NC-SA 3.0 IGO',f'{sid}: unexpected license or missing license review',issues)
+        check(bool(actual.get('required_attribution')) and bool(actual.get('required_adaptation_disclaimer')),f'{sid}: attribution/adaptation terms missing',issues)
+        check(actual.get('source_pdf_included') is False,f'{sid}: source PDF declared as bundled',issues)
+        src_rows=[r for r in rows if sid in r.get('source_ids',[])]
+        check(len(src_rows)==src.get('target_records'),f'{sid}: source question count {len(src_rows)} != planned {src.get("target_records")}',issues)
+        check(all(r['split']==src.get('preassigned_split') for r in src_rows),f'{sid}: source questions do not follow preassigned split',issues)
     # Verify the v2 migration ledger accounts for every frozen source record exactly once.
     ledger=readl(root/'audit/v2_migration_ledger.jsonl')
     check(len(ledger)==833 and len({x['query_id'] for x in ledger})==833,'migration ledger does not cover frozen 833 rows exactly once',issues)

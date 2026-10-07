@@ -21,34 +21,42 @@ configs:
 
 # 中文互联网与 ICT 报告问答数据集
 
-**版本：** 2.0.0 · **语言：** 中文 · **合并数据集：** 893 条 · **推荐评测子集：** 893 条
+**版本：** 2.0.0 · **语言：** 中文 · **统一数据集：** 2,000 条 · **推荐评测子集：** 2,000 条
 
-本版本将 v1.2.0 的 833 条记录全部保留在当前数据集中，并新增 60 条 AI 辅助候选题。旧题 ID 和切分保持不变；v1.2.0 原始文件也完整保存在 `history/v1.2.0/`。
+本版本将 v1.2.0 的 833 条记录与新增 1,167 条合并在同一数据集中。v1.2.0 原始包仍保存在 `history/v1.2.0/`。
 
 ## 数据内容
 
-- 833 条历史记录和 60 条新增候选题。
-- Hugging Face Viewer 的 `candidates` 与 `recommended` 配置均包含相同的 893 条记录。按数据集所有者的要求，旧题也进入推荐子集；每条记录仍保留真实的 `review_status`，使用者应结合复核状态判断适用性。
-- TRAIN/DEV/TEST 共 621/137/135 条。历史切分在标注后分配；新增 60 条按来源家族在出题前分配。
-- 来源、机构、切分、许可、复核状态和哈希的精确统计见 `manifest.json` 与 `VALIDATION_REPORT.json`。
-- 数据包不包含报告 PDF、图片、表格、图表或长段原文。
+- 833 条历史记录、60 条 AI 辅助来源重建候选题、1,107 条规则生成的句子填空候选题。
+- 共 61 份来源文档、50 个报告家族、10 家归并后的出版机构。CAICT 记录 506 条，占 25.3%。
+- TRAIN/DEV/TEST 分别为 1,377/300/323 条。新报告家族在出题前分配切分；历史切分保留原有的标注后分配说明。
+- Hugging Face 的 `candidates` 和 `recommended` 两种配置都包含这 2,000 条。按数据集所有者要求，所有记录均保留在推荐子集；筛选时请同时查看每条记录的 `review_status`。
+- 1,107 条填空题各含一条经授权中文来源中的短句，并挖去一个数值、术语或短语。数据包不含报告 PDF、图片、图表、表格或长段原文。
 
 ## 复核状态与限制
 
-833 条旧记录尚未完成 v2 答案盲化内容重建，部分旧报告文件也待重新核验。它们进入 `recommended` 不代表已完成复核、人工核验或达到金标准。新增 60 条通过 AI 辅助对照来源页重建答案和证据，但没有独立人工复核。旧切分不是盲测集，历史系统接触情况未审计。
+1,107 条填空候选由确定性脚本处理从 32 份 ITU 和 WHO 中文 PDF 提取的文本生成，尚未逐条进行答案盲化或独立内容复核。数据记录包含答案、PDF 物理页码、来源文件哈希、原句哈希、生成方法和脚本哈希；状态为 `pending_ai_content_verification`。这些记录没有逐条调用语言模型。
 
-合并后包含 506 条 CAICT 旧记录，占总量约 56.7%，因此 CAICT 占比低于 45% 的扩展目标尚未达到。这些记录沿用 QA 记录原有的 CC BY 4.0 许可；数据集所有者已确认其可重新发布。该许可不代表底层 CAICT 报告本身采用 CC BY 4.0，数据包也不包含报告原件。
+另外 60 条 v2 候选题经过 AI 辅助的来源页重建，但没有独立人工复核。833 条历史题保留原内容和切分，其 v2 答案盲化重建仍待完成，部分历史来源文件也待复核。按所有者要求纳入 `recommended` 不代表已经核验或达到金标准。本版新增量主要是短句填空，复杂推理题型并不均衡。
 
-本版本不含 RAG 基线或模型性能结果。范围和发布门槛见 `DATA_CARD.md`、`LICENSE_STATUS.md` 与 `VALIDATION_REPORT.json`。
+新增 ITU 和 WHO 文档的许可页及 PDF 哈希已核对。相应记录适用 CC BY-NC-SA 3.0 IGO，并逐条记录署名、改编声明、相同方式共享和非商业义务。1,107 条待复核填空题的第三方署名筛查尚未完成。506 条 CAICT 历史 QA 记录依据数据集所有者授权继续使用原有 CC BY 4.0 记录许可；这不表示底层报告也采用该许可。
+
+历史切分不是盲测集，既有系统接触情况未审计。数据包不含 RAG 基线或模型性能结果，也不声称全库是金标准。
 
 ## 许可
 
-本数据集采用逐条混合许可，**整个仓库不适用单一许可**。每条记录携带适用的记录许可和署名信息。CAICT 旧题的许可仅适用于 QA 记录，不对原报告许可作额外声明。复用前请查看 `LICENSES.md`、`ATTRIBUTION.md`、`sources.json` 和记录中的 `publication_rights`。由于许可混合，Hugging Face 元数据使用 `license: other`。
+本仓库采用逐条混合许可，整个数据集没有单一适用许可。重新分发记录时，须保留 `publication_rights`、来源署名和适用的改编声明。详情见 `LICENSES.md`、`LICENSE_STATUS.md`、`ATTRIBUTION.md` 和 `sources.json`。Hugging Face 元数据使用 `license: other`。
 
 ## Viewer 字段
 
-读取 Viewer 时请同时查看 `answer_candidate`、`review_status` 和 `recommended_for_evaluation`。`record_json` 保留完整题目、证据定位和逐条权利信息。
+请结合 `answer_candidate`、`review_status` 和 `recommended_for_evaluation` 使用。`record_json` 保存完整记录、证据定位和许可信息。
 
-## 构建与校验
+## 重建与校验
 
-依次运行 `python3 build_v2_package.py`、`python3 build_hf_splits.py`、`python3 validate_v2_package.py` 和 `python3 build_release_metadata.py`。发布流程见 `PROJECT_CONTEXT.md`，精确数量和哈希见 `manifest.json`。
+先从所列来源 PDF 在本地提取带物理页分隔符的 UTF-8 文本，再运行：
+
+```bash
+python3 scripts/generate_v2_cloze_candidates.py --extracted-text-dir /path/to/extracted-text
+```
+
+随后运行 `python3 build_v2_package.py`、`python3 build_hf_splits.py`、`python3 validate_v2_package.py` 和 `python3 build_release_metadata.py`。仓库不包含来源 PDF 或完整提取文本。

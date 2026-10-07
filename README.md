@@ -21,34 +21,42 @@ configs:
 
 # Chinese Internet and ICT Reports QA Dataset
 
-**Version:** 2.0.0 · **Language:** Chinese · **Unified corpus:** 893 records · **Recommended subset:** 893 records
+**Version:** 2.0.0 · **Language:** Chinese · **Unified corpus:** 2,000 records · **Recommended subset:** 2,000 records
 
-This version keeps all 833 records from v1.2.0 in the current corpus and adds 60 new AI-assisted candidates. Every record retains its original ID and split; the exact v1.2.0 package is also preserved under `history/v1.2.0/`.
+This release keeps all 833 records from v1.2.0 in one unified corpus and adds 1,167 records. The exact v1.2.0 package remains under `history/v1.2.0/`.
 
 ## Contents
 
-- 833 historical v1.2.0 records and 60 new candidates.
-- Both `candidates` and `recommended` Viewer configurations contain the same 893 records. The historical records are included in the recommended subset at the dataset owner's direction; their `review_status` remains explicit and must be considered by users.
-- Unified TRAIN/DEV/TEST counts are 621/137/135. Historical splits were assigned after annotation; the 60 new records use source-family assignments made before drafting.
-- The source registry, record metadata, and manifest give exact document, institution, split, license, review, and hash counts.
-- No source PDF, image, table, figure, or long source passage is included.
+- 833 historical records, 60 AI-assisted source-reconstructed candidates, and 1,107 rule-generated sentence-cloze candidates.
+- 61 source documents across 50 report families and 10 consolidated publishing institutions. CAICT accounts for 506 records (25.3%).
+- TRAIN/DEV/TEST contain 1,377/300/323 records. New source families were assigned before question drafting; historical splits retain their post-annotation provenance.
+- Both Hugging Face Viewer configurations contain the same 2,000 records. All rows remain in `recommended` at the dataset owner's direction; use each row's `review_status` when selecting evaluation data.
+- Each of the 1,107 cloze questions contains one short sentence excerpt from an authorized Chinese source, with one masked value, term, or clause. No source PDF, image, figure, table, or long passage is included.
 
 ## Review status and limitations
 
-All 833 historical rows still need the v2 answer-blind content reconstruction; some historical source files also need revalidation. Their inclusion in `recommended` does not imply completed review, human verification, or gold-standard status. The 60 new records have AI-assisted source-page reconstruction, but no independent human review. Historical splits are not blind holdouts, and prior system exposure has not been audited.
+The 1,107 cloze candidates were produced by a deterministic script from local text extracted from 32 ITU and WHO Chinese PDFs. They have not received per-item answer-blind or independent content review. The answer, physical PDF page, source-file hash, sentence hash, generation method, and script hash are recorded, and their status remains `pending_ai_content_verification`. No per-record language-model inference is claimed for these rows.
 
-The merged corpus contains 506 CAICT legacy records (56.7% of the total), so the prior goal of reducing CAICT below 45% is not met. These records retain their existing CC BY 4.0 license for the QA records. The dataset owner confirmed authorization to republish them; this does not assert that the underlying CAICT reports use CC BY 4.0. Original source reports are not included.
+The 60 other v2 records have AI-assisted source-page reconstruction, without independent human review. The 833 historical rows retain their existing content and split; their v2 answer-blind reconstruction remains pending and some historical source files await revalidation. Inclusion in `recommended` is an owner decision, not a claim of verification or gold status. This release is dominated by short sentence-completion tasks and is not a balanced high-complexity benchmark.
 
-No RAG baseline or model-performance result is included. See `DATA_CARD.md`, `LICENSE_STATUS.md`, and `VALIDATION_REPORT.json` for scope and release gates.
+Source rights notices and PDF hashes were checked for the new ITU and WHO documents. Their records carry CC BY-NC-SA 3.0 IGO terms, attribution, adaptation notices, and ShareAlike/noncommercial obligations. Third-party attribution screening for the pending cloze candidates remains incomplete. CAICT's 506 legacy QA rows retain their CC BY 4.0 record license under the dataset owner's republishing authorization; this does not assert a license for the underlying reports.
+
+Historical splits are not blind holdouts, and prior system exposure has not been audited. This package has no RAG baselines or model-performance results and makes no corpus-wide gold-standard claim.
 
 ## Licensing
 
-This is a mixed-license dataset. **No single license applies to the repository as a whole.** Each record carries its applicable record license and required attribution. For legacy CAICT rows, the record license applies to the QA record only; the source report's license is not asserted. See `LICENSES.md`, `ATTRIBUTION.md`, `sources.json`, and each record's `publication_rights` before reuse. Hugging Face metadata uses `license: other`.
+The repository has mixed record-level licensing; no single license applies to the whole dataset. Keep `publication_rights`, source attribution, and applicable adaptation notices with every redistributed row. See `LICENSES.md`, `LICENSE_STATUS.md`, `ATTRIBUTION.md`, and `sources.json`. Hugging Face metadata uses `license: other`.
 
 ## Viewer fields
 
-Use `answer_candidate`, `review_status`, and `recommended_for_evaluation` when loading Viewer rows. `record_json` preserves each full record, including evidence locators and record-level rights metadata.
+Use `answer_candidate`, `review_status`, and `recommended_for_evaluation` together. `record_json` contains the full record, including source locators and rights metadata.
 
 ## Reproduce and validate
 
-Run `python3 build_v2_package.py`, `python3 build_hf_splits.py`, `python3 validate_v2_package.py`, then `python3 build_release_metadata.py`. See `PROJECT_CONTEXT.md` for the release workflow and `manifest.json` for exact counts and hashes.
+With page-marked UTF-8 text extracted locally from the listed source PDFs, regenerate cloze candidates with:
+
+```bash
+python3 scripts/generate_v2_cloze_candidates.py --extracted-text-dir /path/to/extracted-text
+```
+
+Then run `python3 build_v2_package.py`, `python3 build_hf_splits.py`, `python3 validate_v2_package.py`, and `python3 build_release_metadata.py`. Source PDFs and extracted full-text files are not included in this repository.

@@ -25,6 +25,8 @@ PROMPT = (
 )
 PROMPT_SHA = hashlib.sha256(PROMPT.encode()).hexdigest()
 MODEL = 'GPT-6 (Codex; exact deployment identifier not exposed)'
+CLOZE_GENERATOR_PATH = ROOT / 'scripts' / 'generate_v2_cloze_candidates.py'
+CLOZE_GENERATOR_SHA = hashlib.sha256(CLOZE_GENERATOR_PATH.read_bytes()).hexdigest()
 REVIEW_DATE = '2026-10-07'
 
 NEW_SOURCES = [
@@ -98,6 +100,13 @@ NEW_SOURCES = [
     'source_pdf_included':False,'edition_note':'来源是26页中文摘要文件，不是完整英文状态报告；使用物理PDF页码。','source_file_audit_status':'sha256_verified_local_pdf_and_license_page'
   }
 ]
+
+# The additional 32 source records and source-sentence cloze candidates are kept in
+# audit inputs so this builder remains deterministic without bundling any source PDFs.
+EXPANSION_SOURCE_DOC = json.loads((ROOT / 'audit' / 'v2_expansion_sources.json').read_text(encoding='utf-8'))
+EXPANSION_SOURCES = EXPANSION_SOURCE_DOC['sources']
+FAMILIES.update({s['source_id']: (s['source_family_id'], s['preassigned_split']) for s in EXPANSION_SOURCES})
+NEW_SOURCES.extend(copy.deepcopy(EXPANSION_SOURCES))
 
 # Each fact entry carries a short paraphrase of the corresponding page region. The region IDs are
 # stable page locators; no source passage or source media is included in the package.
@@ -184,6 +193,17 @@ add(F,'TEST','文件指出，农业企业资源规划（ERP）软件可以贯通
 add(F,'TEST','文件描述的农业人工智能监测方式如何帮助农民及早作出决策？','企业可用卫星或无人机数据扫描田地并跟踪生产周期；预测模型可帮助更早决策、提升资源利用效率，并支持全天候持续监测。',[{'page':18,'fact':'AI农业应用使用卫星或无人机记录扫描田地和监测生产周期，以预测模型支持早决策、资源效率和全天监测。'}],task='within_document_synthesis',subtype='monitoring_mechanism')
 
 assert len(Q) == 60, len(Q)
+EXPANSION_QAS = [json.loads(line) for line in (ROOT / 'audit' / 'v2_expansion_qas.jsonl').read_text(encoding='utf-8').splitlines() if line.strip()]
+for item in EXPANSION_QAS:
+    # Candidate content is intentionally retained in the recommended subset at
+    # the dataset owner's direction; its pending status remains explicit.
+    add(item['source_ids'], item['split'], item['question'], item['answer'], item['facts'],
+        task=item['task_family'], subtype=item['task_subtype'],
+        family=item['family_ids'][0], group=item['connected_group_id'])
+    Q[-1]['content_review_status'] = item['content_review_status']
+    Q[-1]['generation_method'] = item['generation_method']
+    Q[-1]['source_sentence_sha256'] = item['source_sentence_sha256']
+assert len(Q) == 60 + len(EXPANSION_QAS), (len(Q), len(EXPANSION_QAS))
 
 LICENSE_URLS = {
  'CC BY 3.0 IGO':'https://creativecommons.org/licenses/by/3.0/igo/',
@@ -247,20 +267,22 @@ for src in NEW_SOURCES:
 new_records=[]
 question_only=[]
 reconstruction_audit=[]
+pending_content_audit=[]
 for i,item in enumerate(Q,1):
     qid=f'IICR-V20-{i:04d}'
+    pending_content_review=item.get('content_review_status')=='pending_ai_content_verification'
     fact_ids=[f'{qid}-F{j}' for j in range(1,len(item['facts'])+1)]
     evidence_sources=[]
     for fact_id,f in zip(fact_ids,item['facts']):
         # Cross-document items use one fact locator for each source; single-document items use one.
         sid=item['source_ids'][0] if len(item['source_ids'])==1 else None
         if sid is not None:
-            evidence_sources.append({'source_id':sid,'element_id':f"{sid.lower()}-p{f['page']:04d}-narrative-region",'locator_type':'narrative_text_region','pdf_page':f['page'],'printed_page':None,'element_summary':f['fact'],'supports_fact_ids':[fact_id]})
+            evidence_sources.append({'source_id':sid,'element_id':f"{sid.lower()}-p{f['page']:04d}-source-sentence" if pending_content_review else f"{sid.lower()}-p{f['page']:04d}-narrative-region",'locator_type':'source_sentence_cloze' if pending_content_review else 'narrative_text_region','pdf_page':f['page'],'printed_page':None,'element_summary':f['fact'],'supports_fact_ids':[fact_id]})
     if len(item['source_ids'])>1:
         for sid,f,fact_id in zip(item['source_ids'],item['facts'],fact_ids):
-            evidence_sources.append({'source_id':sid,'element_id':f"{sid.lower()}-p{f['page']:04d}-narrative-region",'locator_type':'narrative_text_region','pdf_page':f['page'],'printed_page':None,'element_summary':f['fact'],'supports_fact_ids':[fact_id]})
+            evidence_sources.append({'source_id':sid,'element_id':f"{sid.lower()}-p{f['page']:04d}-source-sentence" if pending_content_review else f"{sid.lower()}-p{f['page']:04d}-narrative-region",'locator_type':'source_sentence_cloze' if pending_content_review else 'narrative_text_region','pdf_page':f['page'],'printed_page':None,'element_summary':f['fact'],'supports_fact_ids':[fact_id]})
     else:
-        evidence_sources=[{'source_id':item['source_ids'][0],'element_id':f"{item['source_ids'][0].lower()}-p{f['page']:04d}-narrative-region",'locator_type':'narrative_text_region','pdf_page':f['page'],'printed_page':None,'element_summary':f['fact'],'supports_fact_ids':[fid]} for f,fid in zip(item['facts'],fact_ids)]
+        evidence_sources=[{'source_id':item['source_ids'][0],'element_id':f"{item['source_ids'][0].lower()}-p{f['page']:04d}-source-sentence" if pending_content_review else f"{item['source_ids'][0].lower()}-p{f['page']:04d}-narrative-region",'locator_type':'source_sentence_cloze' if pending_content_review else 'narrative_text_region','pdf_page':f['page'],'printed_page':None,'element_summary':f['fact'],'supports_fact_ids':[fid]} for f,fid in zip(item['facts'],fact_ids)]
     pubs=[new_source_map[sid] for sid in item['source_ids']]
     licenses={s['license'] for s in pubs}
     if len(licenses)!=1: raise ValueError(f'Incompatible cross-doc license: {qid} {licenses}')
@@ -280,32 +302,37 @@ for i,item in enumerate(Q,1):
       'query_id':qid,'gold_candidate':False,'question':item['question'],'answerability':'answerable','gold_answer':item['answer'],
       'required_facts':[{'fact_id':fid,'statement':f['fact']} for fid,f in zip(fact_ids,item['facts'])],
       'gold_evidence_sets':[{'evidence_set_id':f'{qid}-E1','equivalent_group_id':f'{qid}-EQ1','page_reference_scheme':'1-based physical PDF page; no printed page asserted unless separately verified','required_fact_ids':fact_ids,'sources':evidence_sources}],
-      'gold_quality':{'source_support_status':'ai_source_reconstructed_candidate','human_reviewed':False,'independent_human_double_annotation':'not_performed','heldout_gold_accessed':False,
-        'source_review_provenance':{'reviewer':'AI-assisted source reconstruction','review_type':'answer-blind review packet; reconstructed answer and evidence from source PDF pages','reviewed_on':REVIEW_DATE,'source_text_written_to_package':False,'candidate_answer_in_review_input':False,'independent_reviewer':False},
-        'required_facts_review':[{'fact_id':fid,'cited_element_ids':[next(x['element_id'] for x in evidence_sources if fid in x['supports_fact_ids'])],'review_status':'supported_by_source_page_and_locator'} for fid in fact_ids],
-        'semantic_review_status_in_ledger':'ai_answer_blind_reconstruction_match','reviewed_on':REVIEW_DATE},
+      'gold_quality':{'source_support_status':'source_sentence_cloze_candidate_pending_content_review' if pending_content_review else 'ai_source_reconstructed_candidate','human_reviewed':False,'independent_human_double_annotation':'not_performed','heldout_gold_accessed':False,
+        'source_review_provenance':{'reviewer':'rule-based source-sentence cloze generator','review_type':'licensed short-sentence cloze generation; content and locator not independently reconstructed','reviewed_on':None if pending_content_review else REVIEW_DATE,'source_text_written_to_package':True if pending_content_review else False,'candidate_answer_in_review_input':True if pending_content_review else False,'independent_reviewer':False},
+        'required_facts_review':[{'fact_id':fid,'cited_element_ids':[next(x['element_id'] for x in evidence_sources if fid in x['supports_fact_ids'])],'review_status':'pending_source_content_verification' if pending_content_review else 'supported_by_source_page_and_locator'} for fid in fact_ids],
+        'semantic_review_status_in_ledger':'pending_ai_content_verification' if pending_content_review else 'ai_answer_blind_reconstruction_match','reviewed_on':None if pending_content_review else REVIEW_DATE},
       'publication_rights':{'dataset_license':lic,'record_license':lic,'license_url':lic_url,'license_name':lic,'license_scope':'This record and adapted QA metadata only; no single license applies to the full mixed-license repository.','status':'licensed_record_level','rights_assessment_is_legal_opinion':False,'source_attribution_required':True,
         'required_source_attributions':attributions,'required_adaptation_disclaimers':disclaimers,'translation_disclaimers':translations,
-        'modification_notice':'Question, answer, fact summaries and page locators are AI-assisted paraphrase/adaptation metadata; no source PDF, long passage or media is included.',
-        'source_license_obligations':obligations,'third_party_content_reused':False,'source_excerpt_included':False,'source_media_included':False,'source_pdf_included':False,'source_pdf_redistribution':'not_included_in_package'},
-      'source_ids':item['source_ids'],'source':'; '.join(s['title_chinese'] for s in pubs),'source_refs':source_refs,
+        'modification_notice':'Source-reconstructed rows contain AI-assisted paraphrased metadata. Pending cloze candidates were created by deterministic masking of one short licensed source sentence; no long passage, PDF or media is included.',
+        'source_license_obligations':obligations,'third_party_content_reused':None if pending_content_review else False,'third_party_content_review_status':'pending_attribution_screen' if pending_content_review else 'not_applicable_to_paraphrased_text','source_excerpt_included':pending_content_review,'source_media_included':False,'source_pdf_included':False,'source_pdf_redistribution':'not_included_in_package'},
+      'source_ids':item['source_ids'],'source':'; '.join(s['title_chinese'] for s in pubs),**({'source_sentence_sha256':item['source_sentence_sha256']} if pending_content_review else {}),'source_refs':source_refs,
       'domain_id':'MAIN_INTERNET_ICT','document_id':item['family_ids'][0],'document_scope':item['source_ids'],'family_id':item['family_ids'][0],
       'family_ids':item['family_ids'],'connected_group_id':item['connected_group_id'],'split':item['split'],'split_assignment_version':'v2_source_families_preassigned_v1',
       'task_type':task_type,'task_family':item['task_family'],'task_subtype':item['task_subtype'],'modality_tags':['text'],'human_reviewed':False,
-      'review_status':'ai_answer_blind_reconstruction_match','review_provenance':{'reviewer':'AI-assisted source reconstruction','model':MODEL,'prompt':PROMPT,'prompt_sha256':PROMPT_SHA,'reviewed_on':REVIEW_DATE,
+      'review_status':'pending_ai_content_verification' if pending_content_review else 'ai_answer_blind_reconstruction_match','review_provenance':{'reviewer':'rule-based source-sentence cloze generator' if pending_content_review else 'AI-assisted source reconstruction','model':None if pending_content_review else MODEL,'prompt':None if pending_content_review else PROMPT,'prompt_sha256':None if pending_content_review else PROMPT_SHA,'generation_method':'rule_based_sentence_masking' if pending_content_review else None,'generation_script':'scripts/generate_v2_cloze_candidates.py' if pending_content_review else None,'generation_script_sha256':CLOZE_GENERATOR_SHA if pending_content_review else None,'reviewed_on':None if pending_content_review else REVIEW_DATE,
          'source_files':[{'source_id':sid,'sha256':new_source_map[sid]['original_report_sha256']} for sid in item['source_ids']],
-         'candidate_answer_in_review_input':False,'reconstruction_conclusion':'match_supported_by_cited_source_pages','independent_reviewer':False,
-         'method_limit':'The same active AI session created and checked the items; answer-blind input was used, but independent reviewer or separate-session blindness is not claimed.'},
-      'recommended_for_evaluation':True,'recommendation_status':'AI-assisted source-reconstructed candidate; not gold; no independent human review','supersedes_query_id':None,
+         'candidate_answer_in_review_input':True if pending_content_review else False,'reconstruction_conclusion':'pending_content_and_attribution_review' if pending_content_review else 'match_supported_by_cited_source_pages','independent_reviewer':False,
+         'method_limit':'No per-record LLM inference was performed. A deterministic script masked a value or clause in a licensed short source sentence. Content, ambiguity, and third-party attribution have not been independently reviewed.' if pending_content_review else 'The same active AI session created and checked the items; answer-blind input was used, but independent reviewer or separate-session blindness is not claimed.'},
+      'recommended_for_evaluation':True,'recommendation_status':'included per dataset-owner instruction; source content review pending; not gold or human reviewed' if pending_content_review else 'AI-assisted source-reconstructed candidate; not gold; no independent human review','supersedes_query_id':None,
       'split_provenance':{'assignment_version':'v2_source_families_preassigned_v1','assignment_timing':'source_family_assigned_before_question_drafting','split':'v2_source_family_preassignment','pre_annotation_split':True},
       'lineage':{'v2_annotation':'new_record','supersedes_query_id':None}
     }
     new_records.append(rec)
     question_only.append({'query_id':qid,'question':item['question'],'source_ids':item['source_ids'],'assigned_split':item['split'],'family_ids':item['family_ids'],'question_type':item['task_family'],'task_subtype':item['task_subtype']})
-    reconstruction_audit.append({'query_id':qid,'question':item['question'],'source_ids':item['source_ids'],'source_pdf_sha256':[new_source_map[sid]['original_report_sha256'] for sid in item['source_ids']],
-       'reconstructed_answer':item['answer'],'reconstructed_required_facts':[{'fact_id':fid,'statement':f['fact']} for fid,f in zip(fact_ids,item['facts'])],
-       'reconstructed_evidence':[{'source_id':x['source_id'],'pdf_page':x['pdf_page'],'element_id':x['element_id'],'supports_fact_ids':x['supports_fact_ids']} for x in evidence_sources],
-       'model':MODEL,'prompt_sha256':PROMPT_SHA,'candidate_answer_in_review_input':False,'conclusion':'supported_candidate','human_reviewed':False,'independence_limit':'Same active AI session authored and checked this item; this does not establish independent review.'})
+    if pending_content_review:
+        pending_content_audit.append({'query_id':qid,'question':item['question'],'source_ids':item['source_ids'],'source_pdf_sha256':[new_source_map[sid]['original_report_sha256'] for sid in item['source_ids']],
+          'source_sentence_sha256':item['source_sentence_sha256'],'evidence_page':item['facts'][0]['page'],'content_review_status':'pending_ai_content_verification',
+          'generation_method':item['generation_method'],'answer_blind_reconstruction_performed':False,'recommended_for_evaluation':True,'human_reviewed':False})
+    else:
+        reconstruction_audit.append({'query_id':qid,'question':item['question'],'source_ids':item['source_ids'],'source_pdf_sha256':[new_source_map[sid]['original_report_sha256'] for sid in item['source_ids']],
+           'reconstructed_answer':item['answer'],'reconstructed_required_facts':[{'fact_id':fid,'statement':f['fact']} for fid,f in zip(fact_ids,item['facts'])],
+           'reconstructed_evidence':[{'source_id':x['source_id'],'pdf_page':x['pdf_page'],'element_id':x['element_id'],'supports_fact_ids':x['supports_fact_ids']} for x in evidence_sources],
+           'model':MODEL,'prompt_sha256':PROMPT_SHA,'candidate_answer_in_review_input':False,'conclusion':'supported_candidate','human_reviewed':False,'independence_limit':'Same active AI session authored and checked this item; this does not establish independent review.'})
 
 # Normalize all historical rows without changing their QA content, IDs, or assigned splits.
 historical_v2=[]
@@ -378,7 +405,7 @@ for idx,(original,assignment) in enumerate(zip(historical_old,historical_assign)
        'active_v2':True,'recommended_for_evaluation':True,'supersedes_query_id':None,'v2_review_status':r['review_status']})
 
 all_rows=historical_v2+new_records
-assert len(all_rows)==893
+assert len(all_rows)==833+len(Q)
 all_rows.sort(key=lambda r: (r['split']!='TRAIN', r['split']!='DEV', r['query_id']))
 # Keep records in ID order for convenient historic prefix auditing (old IDs then v2 IDs).
 all_rows=sorted(all_rows,key=lambda r:r['query_id'])
@@ -407,6 +434,10 @@ for sid,src in source_map.items():
     institution=src.get('publication_institution','')
     if institution in {'World Bank','International Labour Organization','Asian Development Bank'}:
         entities=[institution]
+    elif institution.startswith('International Telecommunication Union'):
+        entities=['ITU']
+    elif institution.startswith('World Health Organization'):
+        entities=['WHO']
     elif institution.startswith('UNESCO Institute for Information Technologies'):
         entities=['UNESCO','Shanghai Open University']
     elif institution.startswith('UNESCO Global Education Monitoring') or institution=='UNESCO':
@@ -422,7 +453,7 @@ for sid,src in source_map.items():
         src['v2_source_file_audit_status']=src.get('source_file_audit_status','historical_registry_only')
 source_doc={'schema_version':'iicr_source_registry_v2_0','dataset_version':'2.0.0','source_count':len(source_map),
   'record_level_license_policy':'The package contains record-level mixed licenses. Source licenses and attribution/adaptation/translation duties are stated where established. For legacy CAICT rows, the dataset-owner authorization confirmation applies to the QA records; no license is asserted for the source reports. No single license applies to all records.',
-  'source_passage_or_media_included':False,'review_provenance':'New source license notices and file hashes were checked for this release. Authorization to republish legacy CAICT QA records was confirmed by the dataset owner; the underlying source-report licenses were not independently asserted. Record content-review status is reported separately.','sources':sorted(source_map.values(),key=lambda s:s['source_id'])}
+  'long_source_passage_or_media_included':False,'source_sentence_cloze_excerpts_included':True,'review_provenance':'The 32 added source PDFs and rights pages were checked for this release. The 1,107 cloze candidates have not had answer-blind content or third-party attribution review and remain marked pending; the dataset owner directed that pending items remain recommended. Authorization to republish legacy CAICT QA records was confirmed separately.','sources':sorted(source_map.values(),key=lambda s:s['source_id'])}
 (OUT/'sources.json').write_text(json.dumps(source_doc,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
 # Candidate and recommended Viewer configurations both contain the complete unified dataset.
@@ -440,13 +471,14 @@ for split,filename in viewer_splits.items():
 
 write_jsonl(OUT/'audit'/'v2_question_only_review.jsonl',question_only)
 write_jsonl(OUT/'audit'/'v2_answer_blind_reconstruction.jsonl',reconstruction_audit)
+write_jsonl(OUT/'audit'/'v2_pending_content_review.jsonl',pending_content_audit)
 write_jsonl(OUT/'audit'/'v2_migration_ledger.jsonl',sorted(migration,key=lambda x:x['original_v1_2_row_index_1based']))
 
-split_manifest={'version':'v2_source_families_preassigned_v1','created_on':'2026-10-07','assignment_timing':'before drafting v2 questions',
+split_manifest={'version':'v2_source_families_preassigned_v2','created_on':'2026-10-07','assignment_timing':'before drafting v2 questions',
   'family_assignments':[{'source_id':sid,'family_id':family,'split':split} for sid,(family,split) in FAMILIES.items()],
   'note':'The two UNESCO families used for cross-document questions are both assigned to TRAIN. Existing historical rows keep their post-annotation v1.1/v1.2 splits and are not described as blind holdout.'}
 (OUT/'audit'/'v2_split_manifest.json').write_text(json.dumps(split_manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-(OUT/'audit'/'v2_review_prompt.md').write_text('# v2 AI source reconstruction prompt\n\n'+PROMPT+'\n\nThis prompt was used to structure an answer-blind source review packet. The same active AI session drafted and checked the questions; no independent reviewer is claimed.\n',encoding='utf-8')
+(OUT/'audit'/'v2_review_prompt.md').write_text('# v2 AI source reconstruction prompt\n\n'+PROMPT+'\n\nThis prompt applies to the 60 answer-blind source-reconstructed questions only. The 1,107 sentence-cloze candidates were generated separately and remain pending content and attribution review. No independent human review is claimed.\n',encoding='utf-8')
 print(f'Built {len(all_rows)} active records: historical={len(historical_v2)}, new={len(new_records)}, recommended={sum(r["recommended_for_evaluation"] for r in all_rows)}, sources={len(source_map)}')
 print('Split counts:',dict(Counter(r['split'] for r in all_rows)))
 print('Recommended split counts:',dict(Counter(r['split'] for r in all_rows if r['recommended_for_evaluation'])))

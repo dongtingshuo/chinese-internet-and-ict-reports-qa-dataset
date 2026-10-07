@@ -1,11 +1,12 @@
 # License and rights status — v2.0.0
 
-- **Active rows:** 893, containing all 833 v1.2.0 records plus 60 new candidates.
-- **Recommended subset:** all 893 active rows. Recommendation reflects maintainer inclusion; `review_status` remains authoritative for each row's review state.
-- **Historical content review:** the 833 earlier records still await v2 answer-blind reconstruction; some earlier source files also await revalidation. These review gates do not exclude the rows from the current corpus.
-- **Legacy CAICT authorization:** the dataset owner confirmed that the 506 legacy CAICT QA records are authorized for republication. They retain the prior CC BY 4.0 license for the QA records and preserve source attribution. The underlying CAICT report license is not asserted, and the reports are not included.
-- **Other source obligations:** other records keep the applicable source license, attribution, adaptation, translation, and third-party-content terms in their row-level `publication_rights` and `sources.json` entry.
-- **No report material bundled:** the package contains no source PDF, image, table, figure, or long source passage.
-- **No blanket license:** repository metadata uses `other` for mixed record-level terms. No one license applies to all records or source reports.
+- **Active rows:** 2,000: all 833 v1.2.0 records, 60 previously added source-reconstructed candidates, and 1,107 rule-generated cloze candidates.
+- **Recommended subset:** all 2,000 records, per dataset-owner instruction. `review_status` remains the per-record review indicator.
+- **New source licenses:** each of the 1,107 cloze records derives from an ITU or WHO Chinese report carrying a CC BY-NC-SA 3.0 IGO notice. Attribution, adaptation notice, noncommercial and ShareAlike obligations are stored per record.
+- **Cloze review status:** all 1,107 remain `pending_ai_content_verification`. Their answers were present during deterministic sentence masking; there was no answer-blind or independent content review. Third-party attribution screening is also pending. This status does not remove them from `recommended`, as directed by the dataset owner.
+- **Historical content review:** the 833 earlier records remain pending v2 answer-blind reconstruction; some historical source files await revalidation.
+- **Legacy CAICT authorization:** the dataset owner confirmed authorization to republish 506 CAICT QA records. They retain the prior CC BY 4.0 license for the QA records and source attribution. The underlying report license is not asserted, and reports are not included.
+- **No source PDFs or media:** 1,107 questions contain one short licensed sentence excerpt each. The package contains no PDF, image, table, figure, or long passage.
+- **No blanket license:** the repository uses mixed record-level terms. Hugging Face metadata uses `other`.
 
-This file reports the dataset owner's authorization confirmation and the package's recorded obligations; it is not a legal opinion or an independent audit of source-level authorization documents.
+This file records the package's stated source terms and the dataset owner's authorization confirmation; it is not legal advice or an independent audit of embedded third-party rights.
