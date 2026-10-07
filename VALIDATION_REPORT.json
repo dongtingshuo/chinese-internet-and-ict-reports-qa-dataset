@@ -1189,31 +1189,63 @@
     "split_assignments.jsonl": "294f6e608d98e7221209e1f0095f98ef5aa99beb6a96bfb38c3a6f83605366a7"
   },
   "v2_0_snapshot_unchanged": true,
-  "remote_payload_fingerprint": "b92c0662ef3ef98cb78a6fefb1ca0f1cbe7c6fe53fda0768faeb2722ff1a901c",
+  "remote_payload_fingerprint": "4b79dd4a7bc6d8cf09045cd24742853c645d395a9b7e8e8af60976aae09de2fa",
   "remote_hf_viewer_verification": {
     "verified_on": "2026-10-07",
-    "remote_revision": "9a091011211092fd82bcc57eadd0f10882b5010a",
-    "dataset_payload_files_match": true,
-    "dataset_viewer_verified": false,
-    "tracked_release_file_count": 101,
-    "manifest_entries_match_remote": true,
-    "checksum_entries_match_remote": true,
-    "extra_remote_files": [
-      ".gitattributes"
-    ],
-    "viewer_api_endpoint_status": {
-      "is-valid": 500,
-      "splits": 500,
-      "size": 500,
-      "parquet": 500,
-      "rows_preview": 500
+    "remote_revision": "b02e4d6f57c7362fee3f1c505b333bd2d9de489d",
+    "dataset_payload_files_match": false,
+    "dataset_viewer_verified": true,
+    "viewer_configs": {
+      "candidates": {
+        "train": 1681,
+        "validation": 397,
+        "test": 430,
+        "total": 2508
+      },
+      "recommended": {
+        "train": 1681,
+        "validation": 397,
+        "test": 430,
+        "total": 2508
+      }
     },
-    "viewer_api_message": "The server is busier than usual and the response is not ready yet.",
-    "viewer_split_counts": null,
-    "verification_method": "Downloaded and hash-compared all 101 tracked files at the full-check revision; then fetched and hash-compared every changed metadata/context file at subsequent Hub revisions through the current revision."
+    "combined_config_rows": 5016,
+    "parquet_shard_count": 6,
+    "pending_parquet_conversions": [],
+    "failed_parquet_conversions": [],
+    "viewer_endpoint_status": {
+      "is-valid": 200,
+      "splits": 200,
+      "size": 200,
+      "parquet": 200,
+      "first-rows": 200,
+      "rows": 200
+    },
+    "viewer_validity": {
+      "preview": true,
+      "viewer": true,
+      "search": true,
+      "filter": true,
+      "statistics": false
+    },
+    "last_row_ids_by_config_and_split": {
+      "candidates": {
+        "train": "IICR-V21-0542",
+        "validation": "IICR-V21-0480",
+        "test": "IICR-V21-0527"
+      },
+      "recommended": {
+        "train": "IICR-V21-0542",
+        "validation": "IICR-V21-0480",
+        "test": "IICR-V21-0527"
+      }
+    },
+    "viewer_split_counts_match_local_package": true,
+    "full_release_hash_check_pending_after_context_update": true,
+    "verification_method": "Viewer /size and /splits returned all six exact split counts with no pending or failed jobs; /parquet exposed six shards; /first-rows and /rows succeeded for both configs and their final v2.1 rows."
   },
-  "remote_payload_files_match": true,
-  "remote_dataset_viewer_verified": false,
+  "remote_payload_files_match": false,
+  "remote_dataset_viewer_verified": true,
   "checks": {
     "schema_and_version_fields": true,
     "unique_ids_and_v2_1_id_format": true,
@@ -1227,10 +1259,10 @@
     "viewer_files_match_canonical_records_and_splits": true,
     "no_source_pdf_or_media_in_repository_payload": true,
     "v2_0_frozen_snapshot_hashes_match": true,
-    "remote_dataset_payload_files_match": true,
-    "remote_dataset_viewer_counts_verified": false
+    "remote_dataset_payload_files_match": false,
+    "remote_dataset_viewer_counts_verified": true
   },
   "pending_gates": [
-    "Verify Hugging Face Dataset Viewer split counts after its processing job completes."
+    "Synchronize the validated package to Hugging Face and compare the published file hashes."
   ]
 }

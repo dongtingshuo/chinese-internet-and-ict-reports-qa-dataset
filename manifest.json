@@ -1288,8 +1288,8 @@
     },
     {
       "path": "PROJECT_CONTEXT.md",
-      "bytes": 6616,
-      "sha256": "7cbeee6d60f8dc107630a98a5cd779317abb6313a650f673354f61cb6b23b69a"
+      "bytes": 6704,
+      "sha256": "518d92827aa2e12cd0082ae188fb252f36b6f13f30f185d29acc3ef7318324da"
     },
     {
       "path": "README.md",
@@ -1308,8 +1308,8 @@
     },
     {
       "path": "VALIDATION_REPORT.json",
-      "bytes": 52246,
-      "sha256": "95d3aa5d61803c2972cf5bf2773a0825be4144dc767be1da61c88e8b4c8d1855"
+      "bytes": 52953,
+      "sha256": "d20435872f167ee9805ead3e803ece1e9cc8f359d93e36f423d58ee56ce6aebb"
     },
     {
       "path": "audit/v2_1_all_candidate_questions.jsonl",
