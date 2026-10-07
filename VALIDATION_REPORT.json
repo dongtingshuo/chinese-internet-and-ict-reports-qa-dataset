@@ -122,8 +122,41 @@
   "prior_system_exposure_audit": "not_performed",
   "model_performance_results_included": false,
   "remote_viewer_verified": false,
-  "remote_payload_fingerprint": "a5c480f5374c0b2310ebfe4688ab2bce2de0d481f42f0b6a6215294196acb873",
-  "remote_hf_viewer_verification": null,
+  "remote_payload_fingerprint": "65b43c67427ce66540eb3ce22763da5ce698d60d6e623ff6fdc8304b6d308064",
+  "remote_hf_viewer_verification": {
+    "repository": "TingshuoDong/chinese-internet-and-ict-reports-qa-dataset",
+    "hub_revision": "3a8309f91d96e52a1b7ec64f19b4b118629e735e",
+    "dataset_payload_files_match": true,
+    "dataset_payload_file_count": 10,
+    "dataset_payload_file_sha256": {
+      "records.jsonl": "08033d109c1082ed79d0468b1eacd3c8fd13ea22669915716bb0b84cbf68aabd",
+      "split_assignments.jsonl": "be90319f16c171068ac56a911bddb86fb6ba8c176c941d159a1da2acbcd6deaa",
+      "sources.json": "cf412694daa2ced1879a724125dfb6d33728d2b57e481720bb5b41358d66be0a",
+      "schema.json": "98b74eab2408b9d1997e3899d8740ddc29cc50fa945a9a9ed989553e3e255731",
+      "data/candidates_train.jsonl": "14c0ef813aa3830a376e8128d1ac44cf86d24dd9328f3aed95455f091e5d6b0c",
+      "data/candidates_validation.jsonl": "4c971fd7efde8bd2ecd8015b416ae8e6d9a3f462209fbd5ebac5938cf6444308",
+      "data/candidates_test.jsonl": "2b04958bf7b7b5b612ef0c90dd6fe33b7179d96617a30987a09304f7a11d79da",
+      "data/recommended/train.jsonl": "14c0ef813aa3830a376e8128d1ac44cf86d24dd9328f3aed95455f091e5d6b0c",
+      "data/recommended/validation.jsonl": "4c971fd7efde8bd2ecd8015b416ae8e6d9a3f462209fbd5ebac5938cf6444308",
+      "data/recommended/test.jsonl": "2b04958bf7b7b5b612ef0c90dd6fe33b7179d96617a30987a09304f7a11d79da"
+    },
+    "dataset_viewer_verified": false,
+    "viewer_api_http_status": {
+      "is-valid": 500,
+      "splits": 500,
+      "parquet": 500,
+      "size": 500
+    },
+    "control_dataset": "stanfordnlp/imdb",
+    "control_splits_http_status": 200,
+    "remote_file_count_at_payload_check": 64,
+    "local_expected_file_count_at_payload_check": 63,
+    "extra_remote_files_at_payload_check": [
+      ".gitattributes"
+    ],
+    "verified_on": "2026-10-07",
+    "note": "Canonical record, split, source, schema and all six Viewer files were downloaded and SHA-256 matched at this revision. The Dataset Viewer returned HTTP 500 for this dataset while the control dataset returned HTTP 200. Later metadata-only synchronization preserves these canonical payload file hashes."
+  },
   "duplicate_checks": {
     "exact_question_duplicates": 0,
     "near_duplicate_pairs_at_or_above_0_82": 0
@@ -143,10 +176,10 @@
     "exact_and_near_duplicate_checks": true,
     "candidate_and_recommended_viewer_files_match": true,
     "no_report_pdf_or_media_in_package": true,
-    "remote_file_inventory_and_blob_hashes_match": false
+    "remote_dataset_payload_hashes_match": true
   },
   "pending_gates": [
     "The 833 historical rows are included in the recommended subset per dataset-owner instruction, but their v2 content and answer-blind review remains pending; recommendation does not imply human review or gold status.",
-    "The unified payload must be synchronized to Hugging Face and its remote file hashes and Viewer counts verified."
+    "The Hugging Face Dataset Viewer counts are not verified; the current data-payload file hashes match the recorded Hub revision."
   ]
 }

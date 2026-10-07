@@ -40,8 +40,9 @@ Maintain a public Chinese Internet and ICT Reports QA dataset as a source-ground
 - The owner confirmed authorization to republish the 506 legacy CAICT QA records. Their record license remains CC BY 4.0; the source-report license is not asserted. Their source attribution is retained.
 - All 833 historical rows still have pending v2 answer-blind content review; some source files also await revalidation. Their inclusion in `recommended` is a maintainer decision, not a claim of review or gold status. New records remain AI-assisted and not human reviewed.
 - The v1.2.0 snapshot hashes remain unchanged. The local validator currently passes; all 893 rows are present in the six Viewer files, with no exact or thresholded near-duplicate pairs and no source media included.
-- The current Hugging Face files and Viewer checks refer to the previous 387-row payload and must be refreshed. The Dataset Viewer had returned HTTP 500 for the previous payload, so counts for this merged version are not yet verified. The v2.0.0 tag remains pending.
-- The previous GitHub `main` contains a 387-row v2 candidate package. The unified 893-row update is being prepared for direct push and Hub synchronization.
+- The unified package was pushed to GitHub `main` in commit `ff3b3b5` and uploaded to the Hugging Face dataset repository. Downloaded Hub files match all 63 local package files by SHA-256; the remote has one extra pre-existing `.gitattributes` file. The current Hub data revision was `3a8309f91d96e52a1b7ec64f19b4b118629e735e` when checked.
+- Hugging Face Viewer `/is-valid`, `/splits`, `/parquet`, and `/size` return HTTP 500 for this dataset. The same service returns HTTP 200 for the `stanfordnlp/imdb` control dataset, so the current dataset's split counts remain unverified. The v2.0.0 tag remains pending.
+- Any later documentation or release-report update must be pushed to GitHub and synchronized to Hugging Face; the current 893-row data files are already present on both.
 
 ## Quality and licensing decisions
 
@@ -61,6 +62,6 @@ Maintain a public Chinese Internet and ICT Reports QA dataset as a source-ground
 
 ## Prioritized TODOs
 
-1. Publish the merged 893-row package to GitHub and Hugging Face; retry Viewer verification for the new revision.
+1. Retry Hugging Face Viewer verification after its server-side error clears; tag v2.0.0 only after the 893-row split counts are confirmed.
 2. Complete source-first, answer-blind review of the 833 historical rows; retain them in the recommended set while exposing their pending status.
 3. Continue expanding source coverage toward 2,000 records, 60 reports, and 10 institutions while reducing the current 56.7% CAICT share through authorized non-CAICT sources.

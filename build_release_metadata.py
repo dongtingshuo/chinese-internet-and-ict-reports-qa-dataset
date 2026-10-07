@@ -24,7 +24,7 @@ if previous_report.get('remote_payload_fingerprint')==current_payload_fingerprin
 else:
     remote_hf_viewer_verification=None
 remote_viewer_verified=bool(remote_hf_viewer_verification and remote_hf_viewer_verification.get('dataset_viewer_verified'))
-remote_files_verified=bool(remote_hf_viewer_verification and remote_hf_viewer_verification.get('all_local_files_match'))
+remote_payload_verified=bool(remote_hf_viewer_verification and remote_hf_viewer_verification.get('dataset_payload_files_match'))
 issues,stats=validate(ROOT)
 if issues: raise SystemExit('Validation failed; refusing to write release metadata: '+ '; '.join(issues[:10]))
 rows=readl(ROOT/'records.jsonl'); sources_doc=readj(ROOT/'sources.json'); sources={s['source_id']:s for s in sources_doc['sources']}
@@ -83,11 +83,11 @@ report={
    'question_only_packet_excludes_answer_fields':True,'migration_ledger_covers_833_rows':True,
    'exact_and_near_duplicate_checks':True,'candidate_and_recommended_viewer_files_match':True,
    'no_report_pdf_or_media_in_package':True,
-   'remote_file_inventory_and_blob_hashes_match':remote_files_verified},
+   'remote_dataset_payload_hashes_match':remote_payload_verified},
  'pending_gates':['The 833 historical rows are included in the recommended subset per dataset-owner instruction, but their v2 content and answer-blind review remains pending; recommendation does not imply human review or gold status.']
 }
 if not remote_viewer_verified:
- report['pending_gates'].append('Hugging Face Dataset Viewer counts for the current payload are not verified.' if remote_files_verified else 'The unified payload must be synchronized to Hugging Face and its remote file hashes and Viewer counts verified.')
+ report['pending_gates'].append('The Hugging Face Dataset Viewer counts are not verified; the current data-payload file hashes match the recorded Hub revision.' if remote_payload_verified else 'The unified payload must be synchronized to Hugging Face and its data-payload hashes and Viewer counts verified.')
 (ROOT/'VALIDATION_REPORT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 files=clean_files()
 manifest={
