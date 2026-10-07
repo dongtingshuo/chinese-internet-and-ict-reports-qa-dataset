@@ -1,100 +1,64 @@
 ---
 license: other
-license_name: mixed-record-level-licensing
-license_link: https://huggingface.co/datasets/TingshuoDong/chinese-internet-and-ict-reports-qa-dataset/blob/main/LICENSES.md
-language:
-- zh
-task_categories:
-- question-answering
-size_categories:
-- n<1K
 configs:
-- config_name: default
+- config_name: candidates
   data_files:
   - split: train
-    path: data/train.jsonl
+    path: data/candidates_train.jsonl
   - split: validation
-    path: data/validation.jsonl
+    path: data/candidates_validation.jsonl
   - split: test
-    path: data/test.jsonl
+    path: data/candidates_test.jsonl
+- config_name: recommended
+  data_files:
+  - split: train
+    path: data/recommended/train.jsonl
+  - split: validation
+    path: data/recommended/validation.jsonl
+  - split: test
+    path: data/recommended/test.jsonl
 ---
 
-# Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集
+# Chinese Internet and ICT Reports QA Dataset
 
-[简体中文](README.zh-CN.md) · English
+**Version:** 2.0.0 · **Language:** Chinese · **Records:** 387 active candidates · **Recommended AI candidate subset:** 60
 
-Version 1.2.0 · 2026-10-06
+This release contains source-grounded questions and concise answer candidates derived from public Chinese Internet, ICT, education-technology, and digital-agriculture reports. Each record links to physical PDF pages and records its source license, attribution, adaptation notice, and third-party-content limits.
 
-## Overview
+## What is included
 
-This release contains 833 Chinese question-answer records grounded in 25 public Internet and information-communications reports. It preserves the 506 v1.0.0 and 267 v1.1.0 records, IDs, and split assignments, and adds 60 AI-assisted candidate records: 20 answerability checks, 20 cross-document questions, and 20 table or figure questions. The three new source reports are from ILO, UNESCO IITE and Shanghai Open University; v1.2.0 also reuses eligible reports already catalogued in v1.1.0.
+- 327 prior v1.1/v1.2 records retained as historical candidates, pending v2 source-file revalidation or answer-blind reconstruction. They are not in the recommended subset.
+- 60 new AI-assisted candidates from four Chinese report documents, with a separate question-only review packet and source-page reconstruction audit.
+- 15 report documents are registered across seven consolidated publishing institutions; four are new in v2.0.0. The original target of 60 reports and 10 institutions has not been reached. Five historical source files still need revalidation.
+- 60 recommended candidates split TRAIN/DEV/TEST as 42/9/9. New report families were assigned to splits before question drafting.
+- No source PDF, image, table, figure, or long source passage is included.
 
-Every record contains concise required facts, evidence locators, answerability, source references, and applicable record-level licensing information. Evidence locators distinguish physical PDF pages from printed page numbers. New v1.2.0 records are marked `human_reviewed: false`. The package contains no source PDFs, extracted page text, screenshots, images, or copied long passages.
+The active set has 387 records, below the 2,000-record target. This release excludes the 506 CAICT legacy rows from the active corpus because source-level permission to redistribute adaptations was not established in the v1.2.0 source registry. The 506 rows remain in `history/v1.2.0/` and are itemized in the migration ledger. CAICT is 0% of the active v2 corpus.
 
-## Dataset at a glance
+## Viewer configurations
 
-- Records: 833 (812 answerable; 21 unanswerable)
-- Sources: 25 reports
-- Split: TRAIN 579 · DEV 128 · TEST 126
-- v1.2.0 additions: 60 (20 unanswerable, 20 cross-document, 20 table/figure)
-- Language: Chinese
-- Canonical data: `records.jsonl`, one record per line
-- Hugging Face Viewer data: `data/train.jsonl`, `data/validation.jsonl`, `data/test.jsonl`
-- Licensing: mixed record-level terms; no single license applies to the complete package
+- **candidates** includes all 387 active rows. Review status distinguishes pending historical candidates from the new AI-assisted set.
+- **recommended** includes only the 60 newly source-reconstructed AI candidates. “Recommended” means a candidate subset for research use; it does not mean human verified or gold.
 
-## Intended use and limitations
+Use `answer_candidate` and `review_status` when loading Viewer rows. `record_json` preserves the full record, including evidence locators and source-rights metadata.
 
-Use the dataset to prototype source-grounded document retrieval, multi-document question answering, evidence localization, answerability detection, and table/figure reasoning. It is a purposive collection, not a representative sample of Internet and ICT reports. The split was assigned after annotation; it is not a prospective blind holdout, and prior system exposure has not been audited. The package reports no model-performance results and makes no claim of independent human review.
+## License
 
-The 20 v1.2.0 no-answer records are candidates grounded in the stated report/page search scope, with nearby evidence and an explanation of why it does not answer the question. They should not be treated as independently adjudicated gold labels. Cross-document records require evidence from at least two reports. Visual reasoning records identify a table or figure and a physical PDF page; the source visual is not bundled.
+This is a mixed-license dataset. **No single license applies to the repository as a whole.** Each record carries its applicable license and required source attributions. The recommended subset includes 51 records under CC BY-SA 3.0 IGO and 9 FAO-derived records under CC BY-NC-SA 3.0 IGO. Review `LICENSES.md`, `LICENSE_STATUS.md`, `ATTRIBUTION.md`, and the record's `publication_rights` before reuse. Hugging Face metadata uses `license: other` because the package has mixed record-level terms.
 
-## Quick start
+## Review and limitations
 
-```python
-import json
-from pathlib import Path
+All new rows were checked against the cited Chinese source pages using an AI-assisted, answer-blind review packet. The same active AI session drafted and checked the questions; no independent reviewer is claimed. `human_reviewed` remains false and `gold_candidate` remains false for all new rows. Historical rows are still pending v2 review. Historical splits were assigned after annotation, and prior system exposure was not audited. No RAG baseline or model-performance result is included.
 
-records = [json.loads(line) for line in Path("records.jsonl").read_text(encoding="utf-8").splitlines() if line]
-train = [record for record in records if record["split"] == "TRAIN"]
-print(f"records={len(records)}, train={len(train)}")
-```
+## Reproduce and validate
 
-Run the package checks with Python 3:
+Run `python3 build_v2_package.py`, then `python3 build_hf_splits.py`, `python3 build_release_metadata.py`, and `python3 validate_v2_package.py`. See `PROJECT_CONTEXT.md` for the release workflow and `manifest.json` for exact counts and hashes.
 
-```bash
-python3 validate_package.py
-```
+## Files
 
-Rebuild Hugging Face Viewer files from the canonical records:
-
-```bash
-python3 build_hf_splits.py
-```
-
-## Record format
-
-See [`schema.json`](schema.json) for the legacy, v1.1, and v1.2 JSON Schemas. New records use `schema_version: iicr_report_qa_v1_2` and stable IDs `IICR-V12-####`. The v1.2 schema requires absence-verification details for no-answer candidates, at least two sources for cross-document questions, and a visual dependency locator for table/figure questions. `publication_rights` records the license and obligations for every source used by a v1.2 record.
-
-The Hugging Face Viewer rows include a `record_json` field with the complete canonical row, plus searchable task type, source IDs, record license, and modality tags. Physical PDF pages are one-based; a separately verified printed page is recorded independently.
-
-## Review and split provenance
-
-The v1.0.0 and v1.1.0 rows and split assignment prefixes are preserved byte-for-byte. The 60 v1.2.0 additions are grouped by report family and evidence-connected group; each source and group is kept within one split. Each of the three v1.2.0 question types contributes 14 TRAIN, 3 DEV, and 3 TEST records.
-
-| Split | v1.0.0 retained | v1.1.0 additions | v1.2.0 additions | Total |
-|---|---:|---:|---:|---:|
-| TRAIN | 354 | 183 | 42 | 579 |
-| DEV | 75 | 44 | 9 | 128 |
-| TEST | 77 | 40 | 9 | 126 |
-
-All new annotations were checked with AI assistance. Independent human review or double annotation is not claimed. The split was assigned after annotation, and prior system exposure was not audited; do not describe TEST as a prospective blind holdout. See [`SPLIT_POLICY.md`](SPLIT_POLICY.md) and [`split_assignments.jsonl`](split_assignments.jsonl).
-
-## Record-level licensing and attribution
-
-The package has **mixed record-level licensing** and no blanket license. The retained v1.0.0 records and seven v1.2.0 ILO executive-summary records use CC BY 4.0; v1.1.0 adaptations and 50 v1.2.0 adaptations use CC BY 3.0 IGO; three v1.2.0 UNESCO toolkit adaptations use CC BY-SA 3.0 IGO. The ShareAlike records carry that same license at the record level. The exact terms, source attribution, adaptation/translation notices, and third-party limits are recorded in each row, `sources.json`, [`LICENSES.md`](LICENSES.md), and [`ATTRIBUTION.md`](ATTRIBUTION.md). Hugging Face metadata uses `license: other` because one license does not cover every row.
-
-When redistributing a record, retain its source citation, link its applicable license, state that changes/adaptations were made, and preserve all source-specific notices. A report's license does not automatically cover third-party content within it. Original reports and media are not included and remain outside this package's license.
-
-## Citation
-
-Cite the dataset version and each source report identified by a record's `source_ids`. See [`CITATION.cff`](CITATION.cff), [`CITATION.md`](CITATION.md), and [`ATTRIBUTION.md`](ATTRIBUTION.md).
+- `records.jsonl`: canonical active record set.
+- `sources.json`: report, rights, attribution, and source-file metadata.
+- `split_assignments.jsonl`: historical and v2 split provenance.
+- `data/`: Hugging Face Viewer splits for candidates and recommended subset.
+- `audit/`: v1.2 migration ledger, v2 source-family allocation, and AI review artifacts.
+- `history/v1.2.0/`: frozen v1.2.0 snapshot.

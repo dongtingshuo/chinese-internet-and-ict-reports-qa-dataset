@@ -1,21 +1,27 @@
-# Data Statement
+# Data Statement — v2.0.0
 
-## Source and population
+## Motivation and scope
 
-Version 1.2.0 contains 833 Chinese QA records grounded in 25 public reports on Internet and information-communications topics. It preserves the 506 v1.0.0 and 267 v1.1.0 records and adds 60 candidates: 20 unanswerable, 20 cross-document, and 20 table/figure questions. Three newly catalogued sources are an ILO Chinese-language executive summary, a UNESCO IITE/Shanghai Open University Chinese toolkit, and an ILO Chinese translation. The collection is purposive and does not represent all reports or the wider domain.
+This dataset supports research on Chinese question answering over public Internet, ICT, education technology, labor, and digital-agriculture reports. It contains paraphrased questions, answer candidates, required-fact summaries, evidence-page locators, split metadata, and per-record source-rights information.
 
-## Collection and annotation
+## Language and sources
 
-The new questions, answers, fact summaries, absence checks, and evidence locators were prepared and checked with AI assistance against the cited official Chinese PDFs. The package records physical PDF pages separately from printed page numbers. Cross-document items link required facts to at least two report sources; table/figure items identify the visual and page used. All additions are marked `human_reviewed: false`; independent human review and double annotation are not claimed.
+The active records use Simplified or Traditional Chinese, depending on the cited source. New sources are official Chinese-language editions or summaries, or an institution-prepared Traditional Chinese translation. The dataset does not translate English reports itself. See `sources.json` for titles, language, translation provenance, original and parent URLs, file hashes, and rights notices.
 
-## Content and privacy
+## Annotation and review
 
-The package contains QA text, concise fact summaries, source IDs, evidence locators, absence-verification metadata, and licensing metadata. It excludes original PDFs, images, screenshots, extracted page text, long quotations, logos, charts, table contents, and other source media. No formal privacy audit is claimed. Sources are public institutional publications; personal user data was not collected for this release.
+New items are AI-assisted candidates. Review artifacts omit candidate answers from the question-only review input and record source-first reconstructed answers, page locators, prompt hash, model label, PDF hash, and conclusion. Drafting and checking were performed in the same active AI session; independent review and human review are not claimed. `human_reviewed=false`; new rows use `gold_candidate=false`.
 
-## Split and evaluation
+Historical records preserve prior IDs, questions, answers, required facts, evidence, and splits. They are migrated as pending candidates. Source-file revalidation is pending for some historical families, and all historical records await the v2 answer-blind reconstruction. They are not included in the recommended subset.
 
-All prior v1.0.0 and v1.1.0 records and assignments are unchanged. The overall split is TRAIN 579 / DEV 128 / TEST 126; v1.2.0 contributes 42 / 9 / 9. New sources, report families, and connected evidence groups are each confined to one split. Assignment occurred after questions existed, so TEST is not a prospective blind holdout. Prior system exposure was not audited. The 21 unanswerable records comprise one retained legacy item and 20 v1.2.0 candidates.
+## Rights and redistribution
 
-## License and attribution
+Licensing is mixed by record. Each record carries source attribution and adaptation duties; source records also state translation and third-party-content limits. CC BY-SA and CC BY-NC-SA obligations remain attached to adapted records. The package contains no source report PDFs, images, tables, figures, or long excerpts. The 506 legacy CAICT rows remain only in the exact v1.2.0 archive and migration ledger because source-level adaptation and redistribution permission was not established for them.
 
-Licensing is record-level, with 513 CC BY 4.0, 317 CC BY 3.0 IGO, and 3 CC BY-SA 3.0 IGO records. Each record identifies the applicable license and source obligations. Preserve source attribution, link the applicable license, indicate adaptations, and include required source-specific adaptation and translation notices. The three CC BY-SA adaptations remain under CC BY-SA 3.0 IGO. Original reports and third-party materials are not included and remain outside this package license. See `LICENSES.md`, `ATTRIBUTION.md`, `sources.json`, and each record's `publication_rights`.
+## Splits and prior exposure
+
+The 60 new records are assigned by source family before question drafting and grouped to prevent linked questions from crossing splits. Historical splits were assigned after annotation and retain their original provenance. No blind-holdout claim is made. Prior system exposure has not been audited.
+
+## Intended and out-of-scope use
+
+The dataset is intended for exploratory source-grounded QA and retrieval research. It does not supply model baselines or performance claims. It is not a human-verified gold benchmark. Users must respect row-level license and attribution obligations, and should not treat pending historical records as recommended evaluation data.

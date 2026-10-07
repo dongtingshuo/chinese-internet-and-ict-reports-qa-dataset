@@ -1,74 +1,139 @@
 {
-  "validation_status": "passed",
-  "version": "1.2.0",
-  "validated_on": "2026-10-06",
-  "record_count": 833,
-  "source_count": 25,
-  "added_record_count": 60,
-  "v1_2_additions_by_type": {
-    "unanswerable_absence": 20,
-    "cross_document_synthesis": 20,
-    "table_chart_reasoning": 20
-  },
+  "validation_status": "passed_with_historical_review_pending",
+  "version": "2.0.0",
+  "validated_on": "2026-10-07",
+  "record_count": 387,
+  "historical_candidate_count": 327,
+  "new_record_count": 60,
+  "recommended_candidate_count": 60,
+  "source_document_count": 15,
+  "report_family_count": 15,
+  "publisher_label_count": 8,
+  "publishing_institution_count": 7,
   "split_counts": {
-    "TRAIN": 579,
-    "TEST": 126,
-    "DEV": 128
+    "TRAIN": 267,
+    "DEV": 62,
+    "TEST": 58
   },
-  "v1_2_split_counts": {
+  "recommended_split_counts": {
     "TRAIN": 42,
     "DEV": 9,
     "TEST": 9
   },
-  "v1_2_question_type_split_counts": {
-    "cross_document_synthesis": {
-      "TRAIN": 14,
-      "DEV": 3,
-      "TEST": 3
-    },
-    "table_chart_reasoning": {
-      "TRAIN": 14,
-      "DEV": 3,
-      "TEST": 3
-    },
-    "unanswerable_absence": {
-      "TRAIN": 14,
-      "DEV": 3,
-      "TEST": 3
-    }
+  "new_family_split_counts": {
+    "TRAIN": 2,
+    "DEV": 1,
+    "TEST": 1
+  },
+  "task_family_counts": {
+    "single_document_retrieval": 105,
+    "temporal_numeric_reasoning": 146,
+    "within_document_synthesis": 51,
+    "answerability_judgment": 20,
+    "cross_document_synthesis": 26,
+    "visual_data_reasoning": 20,
+    "quantitative_retrieval": 19
+  },
+  "recommended_task_family_counts": {
+    "single_document_retrieval": 8,
+    "quantitative_retrieval": 19,
+    "within_document_synthesis": 27,
+    "cross_document_synthesis": 6
   },
   "answerability_counts": {
-    "answerable": 812,
-    "unanswerable": 21
+    "answerable": 367,
+    "unanswerable": 20
+  },
+  "recommended_answerability_counts": {
+    "answerable": 60
   },
   "record_license_counts": {
-    "CC-BY-4.0": 513,
-    "CC-BY-3.0-IGO": 317,
-    "CC-BY-SA-3.0-IGO": 3
+    "CC BY 3.0 IGO": 317,
+    "CC BY 4.0": 7,
+    "CC BY-NC-SA 3.0 IGO": 9,
+    "CC BY-SA 3.0 IGO": 54
   },
-  "v1_2_record_license_counts": {
-    "CC-BY-4.0": 7,
-    "CC-BY-3.0-IGO": 50,
-    "CC-BY-SA-3.0-IGO": 3
+  "recommended_record_license_counts": {
+    "CC BY-NC-SA 3.0 IGO": 9,
+    "CC BY-SA 3.0 IGO": 51
   },
-  "source_rights": "Mixed record-level terms verified against the source registry; BY-SA adaptations retain BY-SA terms.",
-  "checks": {
-    "frozen_v1_0_prefixes": true,
-    "frozen_v1_1_prefixes": true,
-    "record_ids_unique_and_contiguous": true,
-    "schema_and_conditionals": true,
-    "license_attribution_and_adaptation_fields": true,
-    "absence_scope_and_near_miss_fields": true,
-    "cross_document_source_and_fact_coverage": true,
-    "table_figure_visual_locators": true,
-    "source_family_group_split_isolation": true,
-    "viewer_rows_match_canonical_records": true,
-    "no_source_pdfs_or_media": true,
-    "manifest_and_sha256sum_coverage": true
+  "caict_active_record_count": 0,
+  "caict_active_record_share": 0.0,
+  "history_only_caict_count": 506,
+  "target_progress": {
+    "active_records": {
+      "target": 2000,
+      "actual": 387,
+      "shortfall": 1613
+    },
+    "report_documents": {
+      "target": 60,
+      "actual": 15,
+      "shortfall": 45
+    },
+    "publishing_institutions": {
+      "target": 10,
+      "actual": 7,
+      "shortfall": 3
+    },
+    "caict_active_share": {
+      "target_below": 0.45,
+      "actual": 0.0,
+      "met": true
+    }
   },
+  "historical_review_status_counts": {
+    "pending_source_file_revalidation": 83,
+    "pending_v2_answer_blind_reconstruction": 244
+  },
+  "historical_source_file_status_counts": {
+    "pending_source_file_revalidation": 5,
+    "sha256_verified_local_pdf_and_license_page": 3,
+    "pending_blind_second_pass": 6,
+    "sha256_verified_local_pdf_license_and_translation_notice": 1
+  },
+  "historical_rows_pending_source_file_revalidation": 83,
+  "new_review_status_counts": {
+    "ai_answer_blind_reconstruction_match": 60
+  },
+  "v1_2_records_sha256": "c1885bfb779928002171d6deb9bc02c2dccd6081364202d7fe69c9fa787a21ae",
+  "v1_2_split_assignments_sha256": "e6ea3fa7f1eb4bf656766ac90318ffd3a98a5fead2fbfa650e7f98d76a2a8b4d",
+  "new_source_pdf_hashes": {
+    "FAO-DIGITAL-AGRI-2019-ZH-BRIEF": "54abd0d5ba6e647256cbff9d2ef8981bcc0fadcbd56590f1a36eec5d8e774f9f",
+    "UNESCO-AI-EDU-POLICY-2021": "c6f78640c8dc48613898d864289725cf24ceaefc4e282e8d51c84213d889bd25",
+    "UNESCO-GEM-TECH-2023-ZH-SUMMARY": "af522ed13f253cd740783f06f415deef30c4fe36bbf1110b7699ad6a87cc47b2",
+    "UNESCO-GENAI-GUIDANCE-2023-ZH": "bf155d250a3120ded78b894742e41857e1efd9c9e4d71b4b53d818cef622817b"
+  },
+  "source_pdf_or_media_included": false,
   "human_reviewed": false,
   "independent_human_review": "not_performed",
-  "source_pdfs_or_media_included": false,
+  "gold_benchmark_claim": false,
   "prospective_blind_holdout_claim": false,
-  "prior_system_exposure_audit": "not_performed"
+  "prior_system_exposure_audit": "not_performed",
+  "model_performance_results_included": false,
+  "remote_viewer_verified": false,
+  "remote_hf_viewer_verification": null,
+  "duplicate_checks": {
+    "exact_question_duplicates": 0,
+    "near_duplicate_pairs_at_or_above_0_82": 0
+  },
+  "checks": {
+    "schema_and_normalized_fields": true,
+    "unique_ids_and_source_references": true,
+    "record_level_license_attribution_and_sharealike": true,
+    "new_source_hash_and_license_notice_pages": true,
+    "evidence_page_bounds_and_fact_coverage": true,
+    "historical_327_questions_answers_facts_evidence_ids_and_splits_preserved": true,
+    "v1_2_snapshot_hashes_unchanged": true,
+    "new_family_and_group_split_isolation": true,
+    "question_only_packet_excludes_answer_fields": true,
+    "migration_ledger_covers_833_rows": true,
+    "exact_and_near_duplicate_checks": true,
+    "candidate_and_recommended_viewer_files_match": true,
+    "no_report_pdf_or_media_in_package": true
+  },
+  "pending_gates": [
+    "Revalidate sources and complete v2 answer-blind reconstruction for all 327 historical candidates before recommending any of them.",
+    "Hugging Face Viewer processing and remote file verification are pending publication."
+  ]
 }

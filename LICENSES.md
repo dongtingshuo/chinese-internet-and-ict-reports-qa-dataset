@@ -1,18 +1,15 @@
-# Record-level license scope
+# Record-level licenses — v2.0.0
 
-Version 1.2.0 contains separate record-level terms. **There is no blanket license for the complete package.** Hugging Face metadata therefore declares `license: other` and points to this file.
+This repository has mixed record-level licensing. No single license applies to every active row or to the package as a whole. The source report and its images or third-party components are not relicensed by the dataset. Each row's `publication_rights` and `sources.json` entry are authoritative for its obligations.
 
-| Record set | Count | License | Conditions |
-|---|---:|---|---|
-| Retained v1.0.0 records | 506 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Retain attribution, link the license, and indicate changes. |
-| v1.1.0 adaptations | 267 | [CC BY 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) | Retain source attribution, license link, adaptation notice, and source-institution disclaimer. |
-| v1.2.0 ILO executive-summary adaptations | 7 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Retain ILO attribution, license link, and the record's adaptation notice. |
-| v1.2.0 other ILO/World Bank/ADB adaptations | 50 | [CC BY 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) | Retain each source citation, license link, and applicable institution/translation notices. |
-| v1.2.0 UNESCO IITE/SOU toolkit adaptations | 3 | [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/) | Retain source attribution and notices; the adapted record remains under CC BY-SA 3.0 IGO. |
-| **Total** | **833** | Mixed | Apply the terms recorded on the individual row. |
+| License | Active record count | Main obligations |
+|---|---:|---|
+| CC BY 3.0 IGO | 317 | Attribution, license link, and indication of adaptation where required. |
+| CC BY 4.0 | 7 | Attribution and indication of changes. |
+| CC BY-SA 3.0 IGO | 54 | Attribution, indication of adaptation, and ShareAlike for the adapted record. |
+| CC BY-NC-SA 3.0 IGO | 9 | Attribution, noncommercial use, indication of adaptation, and ShareAlike for the adapted record. |
+| **Total** | **387** | Per-record terms apply. |
 
-The dataset includes 513 CC BY 4.0 records, 317 CC BY 3.0 IGO records, and 3 CC BY-SA 3.0 IGO records. `publication_rights.record_license` gives the reuse license for a row. `source_license_obligations` records each supporting report's license, source attribution, adaptation disclaimer, translation disclaimer, and third-party-content limitations. The license of a source report does not apply to third-party content credited inside it.
+The recommended 60-row subset contains 51 CC BY-SA 3.0 IGO records and 9 CC BY-NC-SA 3.0 IGO records. The CC BY-NC-SA records carry a noncommercial limitation. Hugging Face uses `license: other` for this mixed package.
 
-The three ShareAlike records are the table/figure-derived QA adaptations `IICR-V12-0055` through `IICR-V12-0057`; they are released under the same CC BY-SA 3.0 IGO terms as their source. No table contents, source images, report PDFs, or long passages are included.
-
-`LICENSE-CC-BY-4.0.txt` preserves the legal text for CC BY 4.0 records. Canonical license links: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), [CC BY 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/), and [CC BY-SA 3.0 IGO](https://creativecommons.org/licenses/by-sa/3.0/igo/). See each record and `ATTRIBUTION.md` before reuse. This notice is not legal advice.
+The archived v1.2.0 files are retained as an exact historical snapshot. Their historical license notices are not extended to the active v2 records. The 506 CAICT records in the snapshot are excluded from active v2 because source-level permission for adaptation and redistribution was not established.

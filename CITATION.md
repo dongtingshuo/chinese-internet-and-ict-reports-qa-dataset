@@ -1,7 +1,7 @@
 # Citation
 
-Please cite this dataset release and every original report identified by the record's `source_ids`.
+Please cite this dataset release as:
 
-TingShuo Dong. (2026). *Chinese Internet and ICT Reports QA Dataset* (Version 1.2.0) [Data set]. GitHub. https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset
+> Dong, T. (2026). *Chinese Internet and ICT Reports QA Dataset / 中文互联网与 ICT 报告问答数据集* (Version 2.0.0) [Dataset]. GitHub and Hugging Face. https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset
 
-The package uses mixed record-level licenses: 513 records are CC BY 4.0, 317 are CC BY 3.0 IGO, and 3 UNESCO-derived records are CC BY-SA 3.0 IGO. Preserve the source citation, applicable license link, adaptation/translation notices, and source-specific disclaimers when redistributing records. Full source metadata is in `sources.json` and `ATTRIBUTION.md`.
+This release contains 387 active candidate records, including a recommended 60-row AI-assisted source-reconstructed subset. Cite the version and split/config used. Do not describe the records as human-verified gold labels.

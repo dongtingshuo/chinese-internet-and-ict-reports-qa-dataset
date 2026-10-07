@@ -1,0 +1,28 @@
+{
+  "version": "v2_source_families_preassigned_v1",
+  "created_on": "2026-10-07",
+  "assignment_timing": "before drafting v2 questions",
+  "family_assignments": [
+    {
+      "source_id": "UNESCO-AI-EDU-POLICY-2021",
+      "family_id": "v2-unesco-ai-education-policy-2021",
+      "split": "TRAIN"
+    },
+    {
+      "source_id": "UNESCO-GEM-TECH-2023-ZH-SUMMARY",
+      "family_id": "v2-unesco-gem-technology-2023-summary",
+      "split": "TRAIN"
+    },
+    {
+      "source_id": "UNESCO-GENAI-GUIDANCE-2023-ZH",
+      "family_id": "v2-unesco-genai-guidance-traditional-chinese",
+      "split": "DEV"
+    },
+    {
+      "source_id": "FAO-DIGITAL-AGRI-2019-ZH-BRIEF",
+      "family_id": "v2-fao-digital-agriculture-2019-chinese-brief",
+      "split": "TEST"
+    }
+  ],
+  "note": "The two UNESCO families used for cross-document questions are both assigned to TRAIN. Existing historical rows keep their post-annotation v1.1/v1.2 splits and are not described as blind holdout."
+}

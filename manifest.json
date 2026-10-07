@@ -1,326 +1,454 @@
 {
   "dataset_id": "chinese_internet_ict_reports_qa",
-  "dataset_name": "Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集",
-  "version": "1.2.0",
-  "created_on": "2026-10-06",
-  "package_status": "complete_record_level_mixed_license_dataset_package",
-  "record_count": 833,
-  "legacy_record_count": 506,
-  "v1_1_record_count": 267,
-  "v1_2_record_count": 60,
-  "source_count": 25,
-  "v1_1_source_count": 8,
-  "v1_2_new_source_count": 3,
+  "dataset_name": "Chinese Internet and ICT Reports QA Dataset / 中文互联网与 ICT 报告问答数据集",
+  "version": "2.0.0",
+  "created_on": "2026-10-07",
+  "package_status": "complete_v2_candidate_package_with_historical_review_pending",
+  "record_count": 387,
+  "historical_candidate_count": 327,
+  "new_record_count": 60,
+  "recommended_candidate_count": 60,
+  "source_count": 15,
+  "source_document_count": 15,
+  "report_family_count": 15,
+  "publisher_label_count": 8,
+  "publishing_institution_count": 7,
   "split_counts": {
-    "TRAIN": 579,
-    "TEST": 126,
-    "DEV": 128
+    "TRAIN": 267,
+    "DEV": 62,
+    "TEST": 58
   },
-  "v1_0_split_counts": {
-    "TRAIN": 354,
-    "TEST": 77,
-    "DEV": 75
-  },
-  "v1_1_split_counts": {
-    "TRAIN": 183,
-    "DEV": 44,
-    "TEST": 40
-  },
-  "v1_2_split_counts": {
+  "recommended_split_counts": {
     "TRAIN": 42,
     "DEV": 9,
     "TEST": 9
   },
-  "v1_2_question_type_counts": {
-    "unanswerable_absence": 20,
-    "cross_document_synthesis": 20,
-    "table_chart_reasoning": 20
-  },
-  "v1_2_question_type_split_counts": {
-    "cross_document_synthesis": {
-      "TRAIN": 14,
-      "DEV": 3,
-      "TEST": 3
-    },
-    "table_chart_reasoning": {
-      "TRAIN": 14,
-      "DEV": 3,
-      "TEST": 3
-    },
-    "unanswerable_absence": {
-      "TRAIN": 14,
-      "DEV": 3,
-      "TEST": 3
-    }
-  },
-  "connected_component_counts": {
-    "TRAIN": 22,
-    "TEST": 6,
-    "DEV": 8
-  },
-  "family_counts": {
-    "TRAIN": 20,
-    "TEST": 5,
-    "DEV": 6
-  },
-  "source_counts": {
-    "TRAIN": 16,
-    "TEST": 4,
-    "DEV": 5
+  "task_family_counts": {
+    "single_document_retrieval": 105,
+    "temporal_numeric_reasoning": 146,
+    "within_document_synthesis": 51,
+    "answerability_judgment": 20,
+    "cross_document_synthesis": 26,
+    "visual_data_reasoning": 20,
+    "quantitative_retrieval": 19
   },
   "answerability_counts": {
-    "answerable": 812,
-    "unanswerable": 21
+    "answerable": 367,
+    "unanswerable": 20
   },
-  "source_support_status_counts": {
-    "source_supported_candidate": 401,
-    "source_verified_after_locator_repair": 55,
-    "source_checked_in_followup_resolution": 2,
-    "historical_source_verified_gold": 40,
-    "source_verified_after_content_correction": 8,
-    "source_verified_candidate": 307,
-    "source_checked_unanswerable_candidate": 20
-  },
-  "gold_candidate_count": 833,
-  "human_reviewed": false,
-  "v1_2_independent_human_review": "not_performed",
-  "v1_2_source_checking": "AI-assisted page-level evidence, absence-scope, cross-document, and visual locator verification",
-  "pre_annotation_split": false,
-  "prospective_blind_holdout_claim": false,
-  "prior_system_exposure_audit": "not_performed",
-  "m3_formal_train_query_count": 0,
-  "legacy_train_query_count": 354,
-  "included_in_m3_formal_experiments": false,
-  "included_in_m4_experiments": false,
-  "source_pdfs_or_media_included": false,
-  "source_passage_or_media_included": false,
-  "dataset_license": "mixed_record_level",
-  "open_license_asserted": true,
-  "source_attribution_required": true,
   "record_license_counts": {
-    "CC-BY-4.0": 513,
-    "CC-BY-3.0-IGO": 317,
-    "CC-BY-SA-3.0-IGO": 3
+    "CC BY 3.0 IGO": 317,
+    "CC BY 4.0": 7,
+    "CC BY-NC-SA 3.0 IGO": 9,
+    "CC BY-SA 3.0 IGO": 54
   },
-  "v1_2_record_license_counts": {
-    "CC-BY-4.0": 7,
-    "CC-BY-3.0-IGO": 50,
-    "CC-BY-SA-3.0-IGO": 3
+  "recommended_record_license_counts": {
+    "CC BY-NC-SA 3.0 IGO": 9,
+    "CC BY-SA 3.0 IGO": 51
   },
-  "license_components": [
-    {
-      "license": "CC-BY-4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "record_id_prefix": "M3-TR-CAND-",
-      "record_count": 506,
-      "scope": "unchanged v1.0.0 records"
-    },
-    {
-      "license": "CC-BY-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
-      "record_id_prefix": "IICR-V11-",
-      "record_count": 267,
-      "scope": "v1.1.0 report adaptations"
-    },
-    {
-      "license": "CC-BY-4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
-      "record_id_prefix": "IICR-V12-",
-      "record_count": 7,
-      "scope": "ILO Chinese executive-summary adaptations"
-    },
-    {
-      "license": "CC-BY-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
-      "record_id_prefix": "IICR-V12-",
-      "record_count": 50,
-      "scope": "v1.2.0 adaptations of CC BY 3.0 IGO reports"
-    },
-    {
-      "license": "CC-BY-SA-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
-      "record_id_prefix": "IICR-V12-",
-      "record_count": 3,
-      "scope": "v1.2.0 UNESCO toolkit adaptations; same ShareAlike terms apply"
-    }
-  ],
-  "v1_0_records_and_splits_unchanged": true,
-  "v1_1_records_and_splits_unchanged": true,
-  "v1_0_records_sha256": "7d4d3028b06c7926515607ecb9ad596984a74feccc91a0cea5fac2dc23fc6a6a",
-  "v1_0_split_assignments_sha256": "fe3ef765e94f142bcf4c40d4d1011b1c1cd42520b99ab7361421636b6add670e",
-  "v1_1_records_sha256": "f00ffbb66a5af9ac097c626717979ce055154d75b58d27aa4a4ea4267e2f21f4",
-  "v1_1_split_assignments_sha256": "72d91d55dc53f97edbbce9e8512cc6b2eae8a3ba7fe25dc630cee8c390e024f3",
-  "v1_1_source_record_counts": {
-    "WB2014-RURAL": 28,
-    "WB2016-DIGITAL": 30,
-    "WB2019-WORK": 42,
-    "WB2025-DIGITAL": 52,
-    "ILO2020-PLATFORM": 41,
-    "ILO2021-PLATFORM": 40,
+  "source_record_counts": {
+    "WB2014-RURAL": 34,
+    "WB2016-DIGITAL": 34,
+    "WB2019-WORK": 50,
+    "WB2025-DIGITAL": 71,
+    "ILO2020-PLATFORM": 57,
+    "ILO2021-PLATFORM": 48,
     "ADB2018-CITIES": 20,
-    "ADB2023-YOUTH": 14
-  },
-  "v1_1_source_publishers": [
-    "Asian Development Bank",
-    "International Labour Organization",
-    "World Bank"
-  ],
-  "v1_2_source_record_counts": {
+    "ADB2023-YOUTH": 19,
     "ILO2026-LIFELONG-SKILLS": 7,
-    "ILO2020-PLATFORM": 16,
-    "WB2014-RURAL": 6,
-    "WB2025-DIGITAL": 19,
-    "ADB2023-YOUTH": 5,
-    "WB2016-DIGITAL": 4,
-    "ILO2021-PLATFORM": 8,
     "ILO2021-EMPLOYMENT-RELATIONSHIP": 4,
-    "WB2019-WORK": 8,
-    "UNESCO2023-DIGITAL-CITIZENSHIP": 3
+    "UNESCO2023-DIGITAL-CITIZENSHIP": 3,
+    "UNESCO-AI-EDU-POLICY-2021": 24,
+    "UNESCO-GEM-TECH-2023-ZH-SUMMARY": 24,
+    "UNESCO-GENAI-GUIDANCE-2023-ZH": 9,
+    "FAO-DIGITAL-AGRI-2019-ZH-BRIEF": 9
   },
-  "v1_2_source_ids": [
+  "source_ids": [
+    "ADB2018-CITIES",
     "ADB2023-YOUTH",
+    "FAO-DIGITAL-AGRI-2019-ZH-BRIEF",
     "ILO2020-PLATFORM",
     "ILO2021-EMPLOYMENT-RELATIONSHIP",
     "ILO2021-PLATFORM",
     "ILO2026-LIFELONG-SKILLS",
+    "UNESCO-AI-EDU-POLICY-2021",
+    "UNESCO-GEM-TECH-2023-ZH-SUMMARY",
+    "UNESCO-GENAI-GUIDANCE-2023-ZH",
     "UNESCO2023-DIGITAL-CITIZENSHIP",
     "WB2014-RURAL",
     "WB2016-DIGITAL",
     "WB2019-WORK",
     "WB2025-DIGITAL"
   ],
-  "v1_2_new_source_ids": [
-    "ILO2021-EMPLOYMENT-RELATIONSHIP",
-    "ILO2026-LIFELONG-SKILLS",
-    "UNESCO2023-DIGITAL-CITIZENSHIP"
-  ],
-  "v1_2_new_source_publishers": [
-    "International Labour Organization",
-    "UNESCO Institute for Information Technologies in Education and Shanghai Open University"
-  ],
-  "split_manifest_reference": "legacy_dataset_split_v1/legacy_dataset_split_manifest_v1.json",
-  "dataset_license_url": null,
-  "license_notice": "See LICENSE and LICENSES.md; no single license applies to all records.",
+  "source_file_status_counts": {
+    "pending_source_file_revalidation": 5,
+    "sha256_verified_local_pdf_and_license_page": 3,
+    "pending_blind_second_pass": 6,
+    "sha256_verified_local_pdf_license_and_translation_notice": 1
+  },
+  "historical_rows_pending_source_file_revalidation": 83,
+  "historical_rows_pending_answer_blind_reconstruction": 244,
+  "source_attribution_required": true,
+  "record_license_policy": "mixed_record_level_no_repository_wide_license",
+  "dataset_license": null,
+  "huggingface_license_metadata": "other",
+  "source_pdfs_or_media_included": false,
+  "human_reviewed": false,
+  "independent_human_review": "not_performed",
+  "gold_benchmark_claim": false,
+  "pre_annotation_split_for_new_families": true,
+  "historical_splits_assigned_after_annotation": true,
+  "prospective_blind_holdout_claim": false,
+  "prior_system_exposure_audit": "not_performed",
+  "model_performance_results_included": false,
+  "caict_active_record_count": 0,
+  "caict_active_record_share": 0.0,
+  "history_only_caict_record_count": 506,
+  "target_progress": {
+    "active_records": {
+      "target": 2000,
+      "actual": 387,
+      "shortfall": 1613
+    },
+    "report_documents": {
+      "target": 60,
+      "actual": 15,
+      "shortfall": 45
+    },
+    "publishing_institutions": {
+      "target": 10,
+      "actual": 7,
+      "shortfall": 3
+    },
+    "caict_active_share": {
+      "target_below": 0.45,
+      "actual": 0.0,
+      "met": true
+    }
+  },
+  "v1_2_snapshot": {
+    "git_tag": "v1.2.0",
+    "git_commit": "1daf3e1e9adb14223fad95dd31612c3a884b997c",
+    "records_sha256": "c1885bfb779928002171d6deb9bc02c2dccd6081364202d7fe69c9fa787a21ae",
+    "split_assignments_sha256": "e6ea3fa7f1eb4bf656766ac90318ffd3a98a5fead2fbfa650e7f98d76a2a8b4d"
+  },
+  "new_source_pdf_hashes": {
+    "FAO-DIGITAL-AGRI-2019-ZH-BRIEF": "54abd0d5ba6e647256cbff9d2ef8981bcc0fadcbd56590f1a36eec5d8e774f9f",
+    "UNESCO-AI-EDU-POLICY-2021": "c6f78640c8dc48613898d864289725cf24ceaefc4e282e8d51c84213d889bd25",
+    "UNESCO-GEM-TECH-2023-ZH-SUMMARY": "af522ed13f253cd740783f06f415deef30c4fe36bbf1110b7699ad6a87cc47b2",
+    "UNESCO-GENAI-GUIDANCE-2023-ZH": "bf155d250a3120ded78b894742e41857e1efd9c9e4d71b4b53d818cef622817b"
+  },
+  "validation_report": "VALIDATION_REPORT.json",
+  "viewer_layout": {
+    "candidate_config": "candidates",
+    "recommended_config": "recommended",
+    "candidate_split_counts": {
+      "TRAIN": 267,
+      "DEV": 62,
+      "TEST": 58
+    },
+    "recommended_split_counts": {
+      "TRAIN": 42,
+      "DEV": 9,
+      "TEST": 9
+    }
+  },
+  "license_notice": "See LICENSE, LICENSES.md, LICENSE_STATUS.md, ATTRIBUTION.md, and per-record publication_rights; no single license applies.",
   "package_files": [
     {
+      "path": ".gitignore",
+      "bytes": 33,
+      "sha256": "fa5b2d4433b835933b22140e01833a4972a0ee8532d76951286e3dd071994af0"
+    },
+    {
       "path": "ATTRIBUTION.md",
+      "bytes": 1317,
+      "sha256": "804f05cbabd467b250f5bbacbb574e65c195836e500927ad50dedbab24c5ecc3"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 763,
+      "sha256": "1de7b2d2ec21c6923af7fde7cfebbf7b9d5528e0c0d58e1f7acfcd6fb2ac914c"
+    },
+    {
+      "path": "CITATION.md",
+      "bytes": 514,
+      "sha256": "857df3ec5bbf62eb2e6b85a24dcfad298b28719a2e5c2043179c76467fb843f3"
+    },
+    {
+      "path": "DATA_CARD.md",
+      "bytes": 3482,
+      "sha256": "ad46c9a813b4e71e4dae1c34ade41d73893a5218010145a120e9b3a2e7047627"
+    },
+    {
+      "path": "DATA_STATEMENT.md",
+      "bytes": 2771,
+      "sha256": "97e0a22b2b242b78d7add2d20ad359b70c1e7f00633d75a60146d1ef39e41c32"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 535,
+      "sha256": "9d19266bd5adc7fe138e779145744db3ecf880479a53ce3f0b53b3bcb5a418c1"
+    },
+    {
+      "path": "LICENSES.md",
+      "bytes": 1383,
+      "sha256": "130438577969bebef8604238089d45481c0c4fe99c65a71d014bfb82910d0413"
+    },
+    {
+      "path": "LICENSE_STATUS.md",
+      "bytes": 1159,
+      "sha256": "6202dccbafda37d50d1f9ab570fbc69b45bbda6cdb8753c57abbcd8e57385b34"
+    },
+    {
+      "path": "PROJECT_CONTEXT.md",
+      "bytes": 5759,
+      "sha256": "64d9fda7cac26be12ee41ebe39e40c1e7ff5dc0d9d7c8f1aaf195af019654468"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4327,
+      "sha256": "0d543dad59a95c13344606fea15f8418abf6b6d37ce0a491f538228dd941e0a9"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "bytes": 2944,
+      "sha256": "63618ae090ac55cc2f1c9802dfff9b6cb02fb14c5bf1bf4b09df699505e4ad2f"
+    },
+    {
+      "path": "SPLIT_POLICY.md",
+      "bytes": 1137,
+      "sha256": "ed7515a10bea11556bc752f9ea15e7caf809f9af17281510c1eb84bd45a850ab"
+    },
+    {
+      "path": "VALIDATION_REPORT.json",
+      "bytes": 4595,
+      "sha256": "da1b10c717a70396734b1a606e9513143622d29f7ef3861e0a8db1ba50507869"
+    },
+    {
+      "path": "audit/v2_answer_blind_reconstruction.jsonl",
+      "bytes": 70197,
+      "sha256": "80a74392084da4789e3cb4ed647481cba0f308470529dca79d8e0c96f9b5a46e"
+    },
+    {
+      "path": "audit/v2_migration_ledger.jsonl",
+      "bytes": 314781,
+      "sha256": "6b6da648bfb240a90d03caf56a753faceb50a09170d5ed9fd32de74a49b5346d"
+    },
+    {
+      "path": "audit/v2_question_only_review.jsonl",
+      "bytes": 20956,
+      "sha256": "a824fe01f424dd1156de605f701e8a8c5542216833cb7901c218b794a665d23a"
+    },
+    {
+      "path": "audit/v2_review_prompt.md",
+      "bytes": 529,
+      "sha256": "4b7f8e303061e723cc29f6498c3bb6a7c25c0bdb770ed2731752251cf40b24d3"
+    },
+    {
+      "path": "audit/v2_split_manifest.json",
+      "bytes": 976,
+      "sha256": "0ce0afc8b3a7a1f4c5a77e2009835d548bedfbd39a2bdc53624683a7fe861991"
+    },
+    {
+      "path": "build_hf_splits.py",
+      "bytes": 1577,
+      "sha256": "e8c56a2f6e9eab5fddb9328964207077c6ef611bed141c536c54b43e0a67188a"
+    },
+    {
+      "path": "build_release_metadata.py",
+      "bytes": 10393,
+      "sha256": "a591af45c4eeaa33359f57d9aa1916997ab6528fbe7a83ec58cb2926a6d2be1d"
+    },
+    {
+      "path": "build_v2_package.py",
+      "bytes": 57857,
+      "sha256": "b1e7fbe15a8beb1670d8935bace1a1262ab1696e21c0f6ffd5e3d63629a455fc"
+    },
+    {
+      "path": "data/candidates_test.jsonl",
+      "bytes": 587298,
+      "sha256": "722ea62fbf24a7168da9de60a8f7bfb18201f087621321797ab30454b58e372b"
+    },
+    {
+      "path": "data/candidates_train.jsonl",
+      "bytes": 2578512,
+      "sha256": "9369b099223137a31599e9c55aa5255b7f9d29a9c8e9e25fb17c4176623874f4"
+    },
+    {
+      "path": "data/candidates_validation.jsonl",
+      "bytes": 614980,
+      "sha256": "435fa250d227ecc84595a670acd4eb8d14b32370b4e6c41df66bf580138ec846"
+    },
+    {
+      "path": "data/recommended/test.jsonl",
+      "bytes": 89494,
+      "sha256": "69393e6eb4840531f4941c4daad1f0cd9dfdf1e1e766be1f849e84d3acfee524"
+    },
+    {
+      "path": "data/recommended/train.jsonl",
+      "bytes": 431570,
+      "sha256": "52a8bae91b080f7e43a3e03d0dfbf6c0686741d306cbfe7581ecb528e3289bbc"
+    },
+    {
+      "path": "data/recommended/validation.jsonl",
+      "bytes": 90306,
+      "sha256": "e42256fc891e5b97e32a1a7c438aa8de6552fce0aa5a06783b062adff53943e0"
+    },
+    {
+      "path": "history/v1.2.0/ARCHIVE_NOTE.md",
+      "bytes": 389,
+      "sha256": "1a3a749a69b0995913c5eb8446cdf3636de31e8e185f6d1be78163e97dcd3d7a"
+    },
+    {
+      "path": "history/v1.2.0/ATTRIBUTION.md",
       "bytes": 2741,
       "sha256": "45e4a84cc2c5e6a9f7f0d6699130b89a85c6dfa47e9f094a428cd0434e0d68c4"
     },
     {
-      "path": "CITATION.cff",
+      "path": "history/v1.2.0/CITATION.cff",
       "bytes": 1047,
       "sha256": "8afe1723466babbd9ec58a1df549501d6591ab2cab9a04fccfe465d73470febe"
     },
     {
-      "path": "CITATION.md",
+      "path": "history/v1.2.0/CITATION.md",
       "bytes": 654,
       "sha256": "6923bfffa47d0c0ca9951c905c8a01e91925191a9acd4f0a3f7cbded3b7a228e"
     },
     {
-      "path": "DATA_CARD.md",
+      "path": "history/v1.2.0/DATA_CARD.md",
       "bytes": 3447,
       "sha256": "68286f6878ba35c2c1f7cb8cda702da5f74f64f840af8eded8d28929d1e37245"
     },
     {
-      "path": "DATA_STATEMENT.md",
+      "path": "history/v1.2.0/DATA_STATEMENT.md",
       "bytes": 2615,
       "sha256": "06118ab78db9ff7fea85be4b891c752debb59cc5ab421daaad708925d4d7b00e"
     },
     {
-      "path": "LICENSE",
+      "path": "history/v1.2.0/LICENSE",
       "bytes": 928,
       "sha256": "218323e57a0ed8666d5d840c392c1d1b29f37aecb23ff4a6c131823cfe77db81"
     },
     {
-      "path": "LICENSE-CC-BY-4.0.txt",
+      "path": "history/v1.2.0/LICENSE-CC-BY-4.0.txt",
       "bytes": 18657,
       "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
     },
     {
-      "path": "LICENSES.md",
+      "path": "history/v1.2.0/LICENSES.md",
       "bytes": 2427,
       "sha256": "1bcd6211806f2fa4f265ad9cabd2ffd8de1ad5cf64a7732adfe1fe6c1d180558"
     },
     {
-      "path": "LICENSE_STATUS.md",
+      "path": "history/v1.2.0/LICENSE_STATUS.md",
       "bytes": 1969,
       "sha256": "8010aebed7081f615abde0bd0bf412c09d9ab7eaff33ef49c6c897e4d7ffaf38"
     },
     {
-      "path": "README.md",
+      "path": "history/v1.2.0/README.md",
       "bytes": 6277,
       "sha256": "39ce0057bd086d59a3d39d09b83f16c7bfd8dcf57c82db3c5cd6cde99fb45cb0"
     },
     {
-      "path": "README.zh-CN.md",
+      "path": "history/v1.2.0/README.zh-CN.md",
       "bytes": 5491,
       "sha256": "4801bd706c912c5534862cf263839aa32a5ebba15f184926b46d4a8e805e498e"
     },
     {
-      "path": "SPLIT_POLICY.md",
+      "path": "history/v1.2.0/SNAPSHOT_MANIFEST.json",
+      "bytes": 2528,
+      "sha256": "30df07fc47d35fda7680f4e99a8bbc3cdddd59de64010d16a93b2cad8bcfb5dc"
+    },
+    {
+      "path": "history/v1.2.0/SPLIT_POLICY.md",
       "bytes": 1230,
       "sha256": "ae5554f987de3b6a526d7fe68cfc5930f83dd2296e9ce928b9f9114eb9a9a4f6"
     },
     {
-      "path": "VALIDATION_REPORT.json",
+      "path": "history/v1.2.0/VALIDATION_REPORT.json",
       "bytes": 1937,
       "sha256": "f5c68cce3a02635a756d641251694bad0749029740b86f547b6b18953e71a0d0"
     },
     {
-      "path": "build_hf_splits.py",
+      "path": "history/v1.2.0/build_hf_splits.py",
       "bytes": 1709,
       "sha256": "851575bd0e15c744288241e7dc7af6ab226b83bff92450f8936ad9821d77ec61"
     },
     {
-      "path": "build_release_metadata.py",
+      "path": "history/v1.2.0/build_release_metadata.py",
       "bytes": 9160,
       "sha256": "a92c6b9c82d0c6e16b6a07d7dfbb350cc2e999223a7dc3e331385164b51fa75c"
     },
     {
-      "path": "build_v1_2_records.py",
+      "path": "history/v1.2.0/build_v1_2_records.py",
       "bytes": 64650,
       "sha256": "4b5b7c0919cc9c799f3326a689784f456e0fa7ad46f0e14a6d871d6a678ca5c3"
     },
     {
-      "path": "data/test.jsonl",
+      "path": "history/v1.2.0/data/test.jsonl",
       "bytes": 998814,
       "sha256": "7979db40be24af4c2f2f3d26862c53493bf5ff651923e6efa2119dcb817581a3"
     },
     {
-      "path": "data/train.jsonl",
+      "path": "history/v1.2.0/data/train.jsonl",
       "bytes": 4442678,
       "sha256": "7bf6f638da14664c70ab30fc19fc75a8d73d6250d9819ae54023a790090294c4"
     },
     {
-      "path": "data/validation.jsonl",
+      "path": "history/v1.2.0/data/validation.jsonl",
       "bytes": 1001245,
       "sha256": "cbda6182dbb11c3a41f6c59b64ea02dba47eec781d8f1fc2d2e13a4f8a5c5d8f"
     },
     {
-      "path": "records.jsonl",
+      "path": "history/v1.2.0/records.jsonl",
       "bytes": 5719998,
       "sha256": "c1885bfb779928002171d6deb9bc02c2dccd6081364202d7fe69c9fa787a21ae"
     },
     {
-      "path": "schema.json",
+      "path": "history/v1.2.0/schema.json",
       "bytes": 33141,
       "sha256": "3f3bfaab823b79571435c8d3d3f5bddc80abb26a5f280dc8977e15629c12fd37"
     },
     {
-      "path": "sources.json",
+      "path": "history/v1.2.0/sources.json",
       "bytes": 58107,
       "sha256": "0e0f4c8511ac7588264ae0e8ee36a4e0c85538cc9b6b6aa8837ff9e17024dcf2"
     },
     {
-      "path": "split_assignments.jsonl",
+      "path": "history/v1.2.0/split_assignments.jsonl",
       "bytes": 321814,
       "sha256": "e6ea3fa7f1eb4bf656766ac90318ffd3a98a5fead2fbfa650e7f98d76a2a8b4d"
     },
     {
-      "path": "validate_package.py",
+      "path": "history/v1.2.0/validate_package.py",
       "bytes": 26232,
       "sha256": "f3d4e2e10535306ac587a66c9be89d8be6bdb195882907e55946c7c78a8d0d9a"
+    },
+    {
+      "path": "records.jsonl",
+      "bytes": 3403061,
+      "sha256": "84e007e4d890857e5e40aff16a64f8a6c24972ae8c5f15d128081cf458b9350c"
+    },
+    {
+      "path": "schema.json",
+      "bytes": 4272,
+      "sha256": "7fe3b0fecaf5b48379bade6fb8dd9ec5bfbf3cf0cd13726d4654b7c5cd3ae39f"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 47329,
+      "sha256": "785ec9695bc932a089199427647de987c9e7c5b9dd29759bd2d6c994db511e0b"
+    },
+    {
+      "path": "split_assignments.jsonl",
+      "bytes": 165284,
+      "sha256": "e702af2b10c09cb6b390e84d4d1f773f3bf268ec0b9e77df3230fa6903453506"
+    },
+    {
+      "path": "validate_v2_package.py",
+      "bytes": 13812,
+      "sha256": "4ad4af0c88c9a47e94f78f58d1d6b54a28d7db72f47e01645a70e82644865e70"
     }
   ]
 }

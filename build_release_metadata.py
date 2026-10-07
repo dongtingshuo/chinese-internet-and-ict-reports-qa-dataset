@@ -1,110 +1,105 @@
 #!/usr/bin/env python3
-"""Regenerate v1.2.0 release report, manifest and package checksums."""
-import hashlib
-import json
-from collections import Counter, defaultdict
+"""Generate the v2.0.0 validation report, manifest, and SHA256SUMS."""
+import collections, hashlib, json, re
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent
-rows = [json.loads(line) for line in (ROOT / 'records.jsonl').read_text(encoding='utf-8').splitlines() if line.strip()]
-assignments = [json.loads(line) for line in (ROOT / 'split_assignments.jsonl').read_text(encoding='utf-8').splitlines() if line.strip()]
-sources_doc = json.loads((ROOT / 'sources.json').read_text(encoding='utf-8'))
-sources = {s['source_id']:s for s in sources_doc['sources']}
-legacy = rows[:506]; v11 = rows[506:773]; v12 = rows[773:]
-legacy_assignments = assignments[:506]; v11_assignments = assignments[506:773]; v12_assignments = assignments[773:]
-
-
-def digest(data): return hashlib.sha256(data).hexdigest()
-def sha(path): return digest(path.read_bytes())
-def counts_split(items): return dict(Counter(x['split'] for x in items))
-def split_group_counts(groups):
-    result=Counter()
-    for split_set in groups.values():
-        if len(split_set)==1: result[next(iter(split_set))]+=1
-        else: raise SystemExit(f'group spans splits: {split_set}')
-    return dict(result)
-
-groups=defaultdict(set); families=defaultdict(set); source_splits=defaultdict(set)
-for index,row in enumerate(rows):
-    component=row.get('legacy_split_component_id') if index<506 else row.get('connected_group_id')
-    if component: groups[component].add(row['split'])
-    fams=row.get('legacy_family_ids') or ([row['family_id']] if row.get('family_id') else [])
-    for family in fams: families[family].add(row['split'])
-    for sid in row.get('source_ids',[]): source_splits[sid].add(row['split'])
-source_counts=Counter(sid for row in v12 for sid in row['source_ids'])
-type_counts=Counter(row['task_type'] for row in v12)
-type_split={t:dict(Counter(row['split'] for row in v12 if row['task_type']==t)) for t in sorted(type_counts)}
-record_license=lambda row: row.get('publication_rights',{}).get('record_license',row.get('publication_rights',{}).get('dataset_license'))
-license_counts=Counter(record_license(row) for row in rows)
-v12_license_counts=Counter(record_license(row) for row in v12)
-answerability=Counter(row['answerability'] for row in rows)
-support=Counter(row.get('gold_quality',{}).get('source_support_status','unknown') for row in rows)
-new_source_ids={sid for row in v12 for sid in row['source_ids']}
-v12_new_sources={'ILO2026-LIFELONG-SKILLS','UNESCO2023-DIGITAL-CITIZENSHIP','ILO2021-EMPLOYMENT-RELATIONSHIP'}
-new_pubs=sorted({sources[sid]['publication_institution'] for sid in v12_new_sources})
-old_records_sha=digest(b''.join((ROOT/'records.jsonl').read_bytes().splitlines(keepends=True)[:506]))
-old_splits_sha=digest(b''.join((ROOT/'split_assignments.jsonl').read_bytes().splitlines(keepends=True)[:506]))
-v11_records_sha=digest(b''.join((ROOT/'records.jsonl').read_bytes().splitlines(keepends=True)[:773]))
-v11_splits_sha=digest(b''.join((ROOT/'split_assignments.jsonl').read_bytes().splitlines(keepends=True)[:773]))
-
+from validate_v2_package import validate
+ROOT=Path(__file__).resolve().parent
+TODAY='2026-10-07'
+def sha_bytes(b): return hashlib.sha256(b).hexdigest()
+def sha(path): return sha_bytes(path.read_bytes())
+def readj(path): return json.loads(path.read_text(encoding='utf-8'))
+def readl(path): return [json.loads(x) for x in path.read_text(encoding='utf-8').splitlines() if x.strip()]
+def clean_files():
+    return sorted(p for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.relative_to(ROOT).parts and '__pycache__' not in p.parts and p.suffix not in {'.pyc','.pyo'} and p.name not in {'manifest.json','SHA256SUMS'})
+issues,stats=validate(ROOT)
+if issues: raise SystemExit('Validation failed; refusing to write release metadata: '+ '; '.join(issues[:10]))
+rows=readl(ROOT/'records.jsonl'); sources_doc=readj(ROOT/'sources.json'); sources={s['source_id']:s for s in sources_doc['sources']}
+previous_report_path=ROOT/'VALIDATION_REPORT.json'
+previous_report=readj(previous_report_path) if previous_report_path.exists() else {}
+remote_viewer_verified=bool(previous_report.get('remote_viewer_verified',False))
+remote_hf_viewer_verification=previous_report.get('remote_hf_viewer_verification')
+recommend=[r for r in rows if r['recommended_for_evaluation']]
+new=[r for r in rows if r['query_id'].startswith('IICR-V20-')]
+old=[r for r in rows if not r['query_id'].startswith('IICR-V20-')]
+source_ids={sid for r in rows for sid in r['source_ids']}
+license_alias={
+ 'CC-BY-3.0-IGO':'CC BY 3.0 IGO','CC BY 3.0 IGO':'CC BY 3.0 IGO',
+ 'CC-BY-4.0':'CC BY 4.0','CC BY 4.0':'CC BY 4.0',
+ 'CC-BY-SA-3.0-IGO':'CC BY-SA 3.0 IGO','CC BY-SA 3.0 IGO':'CC BY-SA 3.0 IGO',
+ 'CC BY-NC-SA 3.0 IGO':'CC BY-NC-SA 3.0 IGO','CC-BY-NC-SA-3.0-IGO':'CC BY-NC-SA 3.0 IGO'}
+def license_counts(items): return dict(sorted(collections.Counter(license_alias.get(r['publication_rights']['record_license'],r['publication_rights']['record_license']) for r in items).items()))
+def split_counts(items): return dict(collections.Counter(r['split'] for r in items))
+report_families={fam for r in rows for fam in (r.get('family_ids') or ([r.get('family_id')] if r.get('family_id') else []))}
+publisher_entities={e for s in sources.values() for e in s.get('publishing_institution_entities',[])}
+legacy_history=readl(ROOT/'history/v1.2.0/records.jsonl')
+ledger=readl(ROOT/'audit/v2_migration_ledger.jsonl')
+new_families=[x for x in readj(ROOT/'audit/v2_split_manifest.json')['family_assignments']]
+license_source_rechecks={sid:sources[sid].get('v2_source_file_audit_status') for sid in sorted(source_ids)}
+source_file_status_counts=dict(collections.Counter(s.get('v2_source_file_audit_status','unknown') for s in sources.values()))
+historical_review_counts=dict(collections.Counter(r['review_status'] for r in old))
 report={
- 'validation_status':'passed','version':'1.2.0','validated_on':'2026-10-06','record_count':len(rows),
- 'source_count':len(sources),'added_record_count':len(v12),'v1_2_additions_by_type':dict(type_counts),
- 'split_counts':counts_split(rows),'v1_2_split_counts':counts_split(v12),
- 'v1_2_question_type_split_counts':type_split,'answerability_counts':dict(answerability),
- 'record_license_counts':dict(license_counts),'v1_2_record_license_counts':dict(v12_license_counts),
- 'source_rights':'Mixed record-level terms verified against the source registry; BY-SA adaptations retain BY-SA terms.',
+ 'validation_status':'passed_with_historical_review_pending','version':'2.0.0','validated_on':TODAY,
+ 'record_count':len(rows),'historical_candidate_count':len(old),'new_record_count':len(new),'recommended_candidate_count':len(recommend),
+ 'source_document_count':len(sources),'report_family_count':len(report_families),'publisher_label_count':stats['publisher_label_count'],'publishing_institution_count':len(publisher_entities),
+ 'split_counts':split_counts(rows),'recommended_split_counts':split_counts(recommend),'new_family_split_counts':dict(collections.Counter(x['split'] for x in new_families)),
+ 'task_family_counts':dict(collections.Counter(r['task_family'] for r in rows)),'recommended_task_family_counts':dict(collections.Counter(r['task_family'] for r in recommend)),
+ 'answerability_counts':dict(collections.Counter(r['answerability'] for r in rows)),'recommended_answerability_counts':dict(collections.Counter(r['answerability'] for r in recommend)),
+ 'record_license_counts':license_counts(rows),'recommended_record_license_counts':license_counts(recommend),
+ 'caict_active_record_count':stats['caict_active_count'],'caict_active_record_share':stats['caict_active_share'],'history_only_caict_count':506,
+ 'target_progress':{'active_records':{'target':2000,'actual':len(rows),'shortfall':max(0,2000-len(rows))},
+   'report_documents':{'target':60,'actual':len(sources),'shortfall':max(0,60-len(sources))},
+   'publishing_institutions':{'target':10,'actual':len(publisher_entities),'shortfall':max(0,10-len(publisher_entities))},
+   'caict_active_share':{'target_below':0.45,'actual':stats['caict_active_share'],'met':stats['caict_active_share']<0.45}},
+ 'historical_review_status_counts':historical_review_counts,'historical_source_file_status_counts':source_file_status_counts,
+ 'historical_rows_pending_source_file_revalidation':sum(r['review_status']=='pending_source_file_revalidation' for r in old),
+ 'new_review_status_counts':dict(collections.Counter(r['review_status'] for r in new)),
+ 'v1_2_records_sha256':stats['v1_2_records_sha256'],'v1_2_split_assignments_sha256':stats['v1_2_split_assignments_sha256'],
+ 'new_source_pdf_hashes':{sid:sources[sid]['original_report_sha256'] for sid in sorted(set(x for r in new for x in r['source_ids']))},
+ 'source_pdf_or_media_included':False,'human_reviewed':False,'independent_human_review':'not_performed',
+ 'gold_benchmark_claim':False,'prospective_blind_holdout_claim':False,'prior_system_exposure_audit':'not_performed',
+ 'model_performance_results_included':False,'remote_viewer_verified':remote_viewer_verified,
+ 'remote_hf_viewer_verification':remote_hf_viewer_verification,
+ 'duplicate_checks':{'exact_question_duplicates':stats['exact_duplicate_question_count'],'near_duplicate_pairs_at_or_above_0_82':stats['near_duplicate_pair_count_at_0_82']},
  'checks':{
-  'frozen_v1_0_prefixes':True,'frozen_v1_1_prefixes':True,'record_ids_unique_and_contiguous':True,
-  'schema_and_conditionals':True,'license_attribution_and_adaptation_fields':True,
-  'absence_scope_and_near_miss_fields':True,'cross_document_source_and_fact_coverage':True,
-  'table_figure_visual_locators':True,'source_family_group_split_isolation':True,
-  'viewer_rows_match_canonical_records':True,'no_source_pdfs_or_media':True,
-  'manifest_and_sha256sum_coverage':True
- },
- 'human_reviewed':False,'independent_human_review':'not_performed',
- 'source_pdfs_or_media_included':False,'prospective_blind_holdout_claim':False,'prior_system_exposure_audit':'not_performed'
+   'schema_and_normalized_fields':True,'unique_ids_and_source_references':True,'record_level_license_attribution_and_sharealike':True,
+   'new_source_hash_and_license_notice_pages':True,'evidence_page_bounds_and_fact_coverage':True,
+   'historical_327_questions_answers_facts_evidence_ids_and_splits_preserved':True,
+   'v1_2_snapshot_hashes_unchanged':True,'new_family_and_group_split_isolation':True,
+   'question_only_packet_excludes_answer_fields':True,'migration_ledger_covers_833_rows':True,
+   'exact_and_near_duplicate_checks':True,'candidate_and_recommended_viewer_files_match':True,
+   'no_report_pdf_or_media_in_package':True},
+ 'pending_gates':['Revalidate sources and complete v2 answer-blind reconstruction for all 327 historical candidates before recommending any of them.']
 }
+if not remote_viewer_verified:
+ report['pending_gates'].append('Hugging Face Viewer processing and remote file verification are pending publication.')
 (ROOT/'VALIDATION_REPORT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-
-exclude={'manifest.json','SHA256SUMS'}
-package_paths=sorted(p for p in ROOT.rglob('*') if p.is_file() and p.name not in exclude and '.git' not in p.relative_to(ROOT).parts and '__pycache__' not in p.relative_to(ROOT).parts)
-package_files=[{'path':p.relative_to(ROOT).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p)} for p in package_paths]
-license_components=[
- {'license':'CC-BY-4.0','license_url':'https://creativecommons.org/licenses/by/4.0/','record_id_prefix':'M3-TR-CAND-','record_count':506,'scope':'unchanged v1.0.0 records'},
- {'license':'CC-BY-3.0-IGO','license_url':'https://creativecommons.org/licenses/by/3.0/igo/','record_id_prefix':'IICR-V11-','record_count':267,'scope':'v1.1.0 report adaptations'},
- {'license':'CC-BY-4.0','license_url':'https://creativecommons.org/licenses/by/4.0/','record_id_prefix':'IICR-V12-','record_count':7,'scope':'ILO Chinese executive-summary adaptations'},
- {'license':'CC-BY-3.0-IGO','license_url':'https://creativecommons.org/licenses/by/3.0/igo/','record_id_prefix':'IICR-V12-','record_count':50,'scope':'v1.2.0 adaptations of CC BY 3.0 IGO reports'},
- {'license':'CC-BY-SA-3.0-IGO','license_url':'https://creativecommons.org/licenses/by-sa/3.0/igo/','record_id_prefix':'IICR-V12-','record_count':3,'scope':'v1.2.0 UNESCO toolkit adaptations; same ShareAlike terms apply'},
-]
+files=clean_files()
 manifest={
- 'dataset_id':'chinese_internet_ict_reports_qa','dataset_name':'Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集',
- 'version':'1.2.0','created_on':'2026-10-06','package_status':'complete_record_level_mixed_license_dataset_package',
- 'record_count':len(rows),'legacy_record_count':len(legacy),'v1_1_record_count':len(v11),'v1_2_record_count':len(v12),
- 'source_count':len(sources),'v1_1_source_count':8,'v1_2_new_source_count':3,
- 'split_counts':counts_split(rows),'v1_0_split_counts':counts_split(legacy),'v1_1_split_counts':counts_split(v11),'v1_2_split_counts':counts_split(v12),
- 'v1_2_question_type_counts':dict(type_counts),'v1_2_question_type_split_counts':type_split,
- 'connected_component_counts':split_group_counts(groups),'family_counts':split_group_counts(families),'source_counts':split_group_counts(source_splits),
- 'answerability_counts':dict(answerability),'source_support_status_counts':dict(support),'gold_candidate_count':sum(bool(r.get('gold_candidate')) for r in rows),
- 'human_reviewed':False,'v1_2_independent_human_review':'not_performed','v1_2_source_checking':'AI-assisted page-level evidence, absence-scope, cross-document, and visual locator verification',
- 'pre_annotation_split':False,'prospective_blind_holdout_claim':False,'prior_system_exposure_audit':'not_performed',
- 'm3_formal_train_query_count':0,'legacy_train_query_count':354,'included_in_m3_formal_experiments':False,'included_in_m4_experiments':False,
- 'source_pdfs_or_media_included':False,'source_passage_or_media_included':False,'dataset_license':'mixed_record_level','open_license_asserted':True,'source_attribution_required':True,
- 'record_license_counts':dict(license_counts),'v1_2_record_license_counts':dict(v12_license_counts),'license_components':license_components,
- 'v1_0_records_and_splits_unchanged':True,'v1_1_records_and_splits_unchanged':True,
- 'v1_0_records_sha256':old_records_sha,'v1_0_split_assignments_sha256':old_splits_sha,
- 'v1_1_records_sha256':v11_records_sha,'v1_1_split_assignments_sha256':v11_splits_sha,
- 'v1_1_source_record_counts':dict(Counter(sid for row in v11 for sid in row['source_ids'])),
- 'v1_1_source_publishers':sorted({sources[sid]['publication_institution'] for row in v11 for sid in row['source_ids']}),
- 'v1_2_source_record_counts':dict(source_counts),'v1_2_source_ids':sorted(new_source_ids),
- 'v1_2_new_source_ids':sorted(v12_new_sources),'v1_2_new_source_publishers':new_pubs,
- 'split_manifest_reference':'legacy_dataset_split_v1/legacy_dataset_split_manifest_v1.json',
- 'dataset_license_url':None,'license_notice':'See LICENSE and LICENSES.md; no single license applies to all records.',
- 'package_files':package_files
+ 'dataset_id':'chinese_internet_ict_reports_qa','dataset_name':'Chinese Internet and ICT Reports QA Dataset / 中文互联网与 ICT 报告问答数据集',
+ 'version':'2.0.0','created_on':TODAY,'package_status':'complete_v2_candidate_package_with_historical_review_pending',
+ 'record_count':len(rows),'historical_candidate_count':len(old),'new_record_count':len(new),'recommended_candidate_count':len(recommend),
+ 'source_count':len(sources),'source_document_count':len(sources),'report_family_count':len(report_families),
+ 'publisher_label_count':stats['publisher_label_count'],'publishing_institution_count':len(publisher_entities),
+ 'split_counts':split_counts(rows),'recommended_split_counts':split_counts(recommend),'task_family_counts':dict(collections.Counter(r['task_family'] for r in rows)),
+ 'answerability_counts':dict(collections.Counter(r['answerability'] for r in rows)),
+ 'record_license_counts':license_counts(rows),'recommended_record_license_counts':license_counts(recommend),
+ 'source_record_counts':dict(collections.Counter(sid for r in rows for sid in r['source_ids'])),
+ 'source_ids':sorted(source_ids),'source_file_status_counts':source_file_status_counts,
+ 'historical_rows_pending_source_file_revalidation':sum(r['review_status']=='pending_source_file_revalidation' for r in old),
+ 'historical_rows_pending_answer_blind_reconstruction':sum(r['review_status']=='pending_v2_answer_blind_reconstruction' for r in old),'source_attribution_required':True,'record_license_policy':'mixed_record_level_no_repository_wide_license',
+ 'dataset_license':None,'huggingface_license_metadata':'other','source_pdfs_or_media_included':False,
+ 'human_reviewed':False,'independent_human_review':'not_performed','gold_benchmark_claim':False,
+ 'pre_annotation_split_for_new_families':True,'historical_splits_assigned_after_annotation':True,
+ 'prospective_blind_holdout_claim':False,'prior_system_exposure_audit':'not_performed','model_performance_results_included':False,
+ 'caict_active_record_count':stats['caict_active_count'],'caict_active_record_share':stats['caict_active_share'],'history_only_caict_record_count':506,
+ 'target_progress':report['target_progress'],'v1_2_snapshot':{'git_tag':'v1.2.0','git_commit':'1daf3e1e9adb14223fad95dd31612c3a884b997c',
+   'records_sha256':stats['v1_2_records_sha256'],'split_assignments_sha256':stats['v1_2_split_assignments_sha256']},
+ 'new_source_pdf_hashes':report['new_source_pdf_hashes'],'validation_report':'VALIDATION_REPORT.json',
+ 'viewer_layout':{'candidate_config':'candidates','recommended_config':'recommended','candidate_split_counts':split_counts(rows),'recommended_split_counts':split_counts(recommend)},
+ 'license_notice':'See LICENSE, LICENSES.md, LICENSE_STATUS.md, ATTRIBUTION.md, and per-record publication_rights; no single license applies.',
+ 'package_files':[{'path':p.relative_to(ROOT).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p)} for p in files]
 }
 (ROOT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-# Hash every deliverable except SHA256SUMS itself. Include manifest and validation report.
-paths=sorted(p for p in ROOT.rglob('*') if p.is_file() and p.name!='SHA256SUMS' and '.git' not in p.relative_to(ROOT).parts and '__pycache__' not in p.relative_to(ROOT).parts)
-lines=[f'{sha(p)}  {p.relative_to(ROOT).as_posix()}' for p in paths]
-(ROOT/'SHA256SUMS').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-print(f'Wrote v1.2.0 release metadata: {len(rows)} records, {len(sources)} sources, {len(package_files)} manifest files.')
+all_files=sorted(p for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.relative_to(ROOT).parts and '__pycache__' not in p.parts and p.suffix not in {'.pyc','.pyo'} and p.name!='SHA256SUMS')
+(ROOT/'SHA256SUMS').write_text('\n'.join(f'{sha(p)}  {p.relative_to(ROOT).as_posix()}' for p in all_files)+'\n',encoding='utf-8')
+print(f"Release metadata generated: {len(rows)} records, {len(sources)} documents, {len(publisher_entities)} institutions, {len(manifest['package_files'])} package files")

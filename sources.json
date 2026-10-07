@@ -1,664 +1,11 @@
 {
-  "brief_source_markers_in_spotcheck": true,
-  "review_provenance": {
-    "v1_1": "AI-assisted page-level source and evidence verification; independent human review not performed.",
-    "v1_2": "AI-assisted page, table, figure, cross-document, and absence-scope verification; all new rows set human_reviewed=false; independent human review not performed."
-  },
-  "schema_version": "iicr_dataset_source_registry_v1_2",
-  "source_count": 25,
+  "schema_version": "iicr_source_registry_v2_0",
+  "dataset_version": "2.0.0",
+  "source_count": 15,
+  "record_level_license_policy": "The package contains record-level mixed licenses. Source license, attribution, adaptation notice, translation notice and third-party limits are recorded for each source and each adapted record. No single license applies to all records.",
   "source_passage_or_media_included": false,
+  "review_provenance": "AI-assisted source-level rights and file-hash audit; record review status is reported separately.",
   "sources": [
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326603524901232.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2023年白皮书合集",
-        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 37,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-5G-2023",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "e9b7bb7fbcd8e7322847de4ee87244833b058588ec2e6a635c953b4592b5fd15",
-      "title": "中国5G发展和经济社会影响白皮书（2023年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202412/P020241227660032159191.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2024年蓝皮书合集",
-        "sha256": "95711c489967e4432456af65bbcc9b049be8f8a63d659b9a90b41075444ca679",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-published-by-caict-in-2024"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 58,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-AI-GOV-2024",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "62142abc80cf35988959cf761c9aca0cf20e5bc088351dd407a4b1fe8f575da8",
-      "title": "人工智能治理蓝皮书（2024年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202506/P020250618611605590281.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
-        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 48,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-AI-LAW-POLICY-2025",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "816cce1179b1ac797619b81e1ece9e6da8072ad5953c1906d48a5b86797f7df7",
-      "title": "人工智能法律政策图景研究报告（2025年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202507/P020250707617798232823.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
-        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 34,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-COMPUTING-CENTER-PROVIDERS-2025",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "046e6559f07a15e7745678fb869b5c08b60841cc83e05dbf8383481010ba3fc1",
-      "title": "算力中心服务商分析报告（2025年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/english/research/whitepapers/202311/P020231103487266783845.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2023年白皮书合集",
-        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 53,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-DATA-ELEMENTS-2023",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "76d7be1cb18418a2e76554023e4e9ad580bb7c5eea2cfc852406ed1c809dbbd9",
-      "title": "数据要素白皮书（2023年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326610278819760.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2023年白皮书合集",
-        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 47,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-DIGITAL-GOV-2023",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "45799c36b2fd89dbaca52829fd10e7054f73f17abc8d377f96233ea46736acf5",
-      "title": "全球数字治理白皮书（2023年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院",
-        "中国标准化研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202504/P020250429523322386705.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
-        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 54,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院和中国标准化研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-DIGITAL-PASSPORT-2025",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "d741c79d2e811abec8163506b7f90436af7bbc639214ee4a934341ba2fdf7781",
-      "title": "产品数字护照（DPP）技术发展报告（2025年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202502/P020250225386048959475.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
-        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 43,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-DIGITAL-TRUST-2025",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "360262a9c702a5e9dddb687e966a4ae7fd4fce57ac76726595c69e3e6e4e0e66",
-      "title": "数字信任发展报告（2025年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202401/P020240326601000238100.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2024年蓝皮书合集",
-        "sha256": "95711c489967e4432456af65bbcc9b049be8f8a63d659b9a90b41075444ca679",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-published-by-caict-in-2024"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 64,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-GLOBAL-DIGITAL-ECONOMY-2024",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "c163120e41288e9f9395cdc6a672670267f4f0afd3740e4be168000249a9d0ac",
-      "title": "全球数字经济白皮书（2023年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202307/P020240326635401942044.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2023年白皮书合集",
-        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 35,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-ICT-ENV-2023",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "f638ff059e9815fa1769253406c79c29d81905c103eb6177db5567c513897a34",
-      "title": "优化营商环境研究报告——信息通信行业管理的改革和实践（2023年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院",
-        "中国互联网协会",
-        "中国通信企业协会"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202311/P020240326622451105021.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2023年白皮书合集",
-        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 72,
-      "publisher": "中国信息通信研究院（CAICT）、中国互联网协会、中国通信企业协会",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院、中国互联网协会和中国通信企业协会",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-INTERNET-DISCLOSURE-2023",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "746a24b536b03ccdbefbf061a23deaa2a6ea57fe7dc7f5d27eefd9e52581e699",
-      "title": "互联网行业可持续信息披露发展报告（2023年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/ztbg/202504/P020250429598988720492.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2025年“集智”系列蓝皮书及专题报告汇总",
-        "sha256": "889569642f1c8f37c8ef5e529146a3342bceebf4e03f47b9a26d47377dd08bc7",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-blue-books-and-report-published-by-caict-in-2025"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 44,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-REAL-DIGITAL-INTEGRATION-2025",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "7feec3bd1ac3d63796ac59b4bc61dfdf16583b377a11f7fd8963f37d6e147c83",
-      "title": "实数融合发展观察（2025年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202312/P020240326611792004085.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2023年白皮书合集",
-        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 48,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-WEB3-2023",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "7633073bf8474c225ca38ffa78472c4540ce65e189e13f42540aafb6566b7d7f",
-      "title": "全球Web3技术产业生态发展报告（2023年）"
-    },
-    {
-      "copyright_notice": {
-        "interpretation_status": "source_attribution_required",
-        "notice_summary": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
-        "notice_visible": true,
-        "page_1based": 2
-      },
-      "legal_opinion": false,
-      "named_rightsholders": [
-        "中国信息通信研究院"
-      ],
-      "official_pdf_url": "https://www.caict.ac.cn/kxyj/qwfb/bps/202309/P020240326631644442389.pdf",
-      "official_publication_listing": {
-        "accessed_on": "2026-10-02",
-        "listed_title_confirmed": true,
-        "page_title": "中国信通院2023年白皮书合集",
-        "sha256": "db51b4e06a234b4ca108f4225690197581be990b7b7790ce78d38d3ed09af042",
-        "url": "https://gma.caict.ac.cn/plat/news/full-collection-of-white-papers-published-by-caict-in-2023"
-      },
-      "open_license_scan": {
-        "limitation": "This scan covers only the original PDF text. The absence of a PDF-level license marker does not describe the separate dataset-package license.",
-        "status": "no_standalone_open_license_marker_detected_by_full_pdf_text_scan"
-      },
-      "pdf_page_count": 45,
-      "publisher": "中国信息通信研究院（CAICT）",
-      "required_source_attribution_short_form": "来源：中国信息通信研究院",
-      "rights_review_human_reviewed": false,
-      "source_id": "CAICT-WIRELESS-ECONOMY-2023",
-      "source_pdf_included": false,
-      "source_pdf_sha256": "a16f2dac51cb2da8abdcc17e3899fb919d66ec74095a69a23b56b570f1ce7b67",
-      "title": "中国无线经济发展研究报告（2023年）"
-    },
-    {
-      "source_id": "WB2014-RURAL",
-      "publication_institution": "World Bank",
-      "publisher": "世界银行（World Bank）",
-      "publication_year": 2014,
-      "title_chinese": "中国农村信息化：三省研究（概要）",
-      "title_english": "Information and Communications in the Chinese Countryside: A Study of Three Provinces (Executive Summary)",
-      "text_language": "Chinese",
-      "document_type": "official Chinese executive summary",
-      "translation_status": "Official Chinese-language summary hosted by the World Bank; the summary does not name a translator. The underlying English report is the licensed parent work.",
-      "original_report_url": "https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014_CN%20.pdf",
-      "original_report_sha256": "bc26c01ee17bdee179d4b2099f2f574780dbf9ef552877c849458b16b983423f",
-      "source_pdf_page_count": 4,
-      "parent_report_url": "https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014.pdf",
-      "parent_report_sha256": "1bb19108a09d0be4638087a709a19811702c2143eb3bf381f80da944a0a462b7",
-      "official_publication_page_url": "https://www.worldbank.org/en/country/china/publication/rural-ict-program-in-china",
-      "rights_holder": "International Bank for Reconstruction and Development / The World Bank",
-      "license": "CC BY 3.0 IGO",
-      "license_id": "CC-BY-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
-      "rights_notice_location": {
-        "document": "English parent report",
-        "pdf_page_1based": 6,
-        "url": "https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014.pdf",
-        "pdf_page_count": 99,
-        "pdf_sha256": "1bb19108a09d0be4638087a709a19811702c2143eb3bf381f80da944a0a462b7"
-      },
-      "required_attribution": "World Bank. 2014. Information and Communications in the Chinese Countryside: A Study of Three Provinces (official Chinese executive summary). Washington, DC: World Bank. CC BY 3.0 IGO. https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014_CN%20.pdf",
-      "required_adaptation_disclaimer": "这是对世界银行原著作的改编。本改编作品中的观点和看法完全是改编者的责任，世界银行对改编内容不表示认可。",
-      "third_party_content_limitations": "No third-party figures, photographs, tables, or media are reproduced; only concise paraphrased facts and page locators are included.",
-      "source_pdf_included": false,
-      "edition_note": "The Chinese 4-page summary is the source text used; the license notice is on page 6 of its official English parent report, whose hash is recorded separately."
-    },
-    {
-      "source_id": "WB2016-DIGITAL",
-      "publication_institution": "World Bank",
-      "publisher": "世界银行（World Bank）",
-      "publication_year": 2016,
-      "title_chinese": "《2016年世界发展报告：数字红利》概述",
-      "title_english": "World Development Report 2016: Digital Dividends (Overview)",
-      "text_language": "Chinese",
-      "document_type": "official Chinese overview booklet",
-      "translation_status": "Chinese overview published on the official World Bank document server; it is an overview, not the separately published full Chinese book.",
-      "original_report_url": "https://documents1.worldbank.org/curated/en/950951467993193548/pdf/102724-WDR-WDR2016Overview-CHINESE-WebResBox-394840B-OUO-9.pdf",
-      "original_report_sha256": "4b38eec9293bc6990b9fbaa980331dc83a489c967f254e4a35aef09e3d9ae482",
-      "source_pdf_page_count": 58,
-      "parent_report_url": "https://openknowledge.worldbank.org/handle/10986/23347",
-      "parent_report_sha256": null,
-      "official_publication_page_url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/102724-WDR-WDR2016Overview",
-      "rights_holder": "International Bank for Reconstruction and Development / The World Bank",
-      "license": "CC BY 3.0 IGO",
-      "license_id": "CC-BY-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
-      "rights_notice_location": {
-        "document": "Chinese overview PDF",
-        "pdf_page_1based": 4,
-        "url": "https://documents1.worldbank.org/curated/en/950951467993193548/pdf/102724-WDR-WDR2016Overview-CHINESE-WebResBox-394840B-OUO-9.pdf",
-        "pdf_page_count": 58,
-        "pdf_sha256": "4b38eec9293bc6990b9fbaa980331dc83a489c967f254e4a35aef09e3d9ae482"
-      },
-      "required_attribution": "World Bank. 2016. World Development Report 2016: Digital Dividends. Overview booklet (Chinese edition). Washington, DC: World Bank. CC BY 3.0 IGO. https://openknowledge.worldbank.org/handle/10986/23347",
-      "required_adaptation_disclaimer": "这是对世界银行原著作的改编。本改编作品中的观点和看法完全是改编者的责任，世界银行对改编内容不表示认可。",
-      "third_party_content_limitations": "The overview warns that third-party tables, figures, and images may not be covered. This dataset uses paraphrased narrative facts only and reproduces no charts, tables, photos, or media.",
-      "source_pdf_included": false,
-      "edition_note": "The overview itself says citations and adaptations should use the final report; attribution therefore identifies the final WDR title and separately labels the source artifact as the overview."
-    },
-    {
-      "source_id": "WB2019-WORK",
-      "publication_institution": "World Bank",
-      "publisher": "世界银行（World Bank）",
-      "publication_year": 2019,
-      "title_chinese": "《2019年世界发展报告：工作性质的变革》（中文版）",
-      "title_english": "World Development Report 2019: The Changing Nature of Work",
-      "text_language": "Chinese",
-      "document_type": "full Chinese-language report",
-      "translation_status": "Chinese-language version in the World Bank repository; repository metadata lists Language Chinese and Version Type Final. The PDF cover bears “会议版本”, retained here as an edition note.",
-      "original_report_url": "https://www.worldbank.org/content/dam/wdr/2019/WDR-2019-CHINESE.pdf",
-      "original_report_sha256": "cacad7fbb8465e5ea16cc8dc76c9a49f7d255b3ed960490d7f5dec5736c754c8",
-      "source_pdf_page_count": 140,
-      "parent_report_url": "https://www.worldbank.org/en/publication/wdr2019",
-      "parent_report_sha256": null,
-      "official_publication_page_url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/920551538153132300",
-      "rights_holder": "International Bank for Reconstruction and Development / The World Bank",
-      "license": "CC BY 3.0 IGO",
-      "license_id": "CC-BY-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
-      "rights_notice_location": {
-        "document": "Chinese report PDF",
-        "pdf_page_1based": 6,
-        "url": "https://www.worldbank.org/content/dam/wdr/2019/WDR-2019-CHINESE.pdf",
-        "pdf_page_count": 140,
-        "pdf_sha256": "cacad7fbb8465e5ea16cc8dc76c9a49f7d255b3ed960490d7f5dec5736c754c8"
-      },
-      "required_attribution": "World Bank. 2019. World Development Report 2019: The Changing Nature of Work (Chinese-language version). Washington, DC: World Bank. CC BY 3.0 IGO. https://documents.worldbank.org/en/publication/documents-reports/documentdetail/920551538153132300",
-      "required_adaptation_disclaimer": "这是对世界银行原著作的改编。本改编作品中的观点和看法完全是改编者的责任，世界银行对改编内容不表示认可。",
-      "third_party_content_limitations": "Third-party elements may not be covered by the report license. No figures, tables, photographs, or source media are reproduced; only paraphrased narrative facts and locators are included.",
-      "source_pdf_included": false,
-      "edition_note": "Official World Bank catalog records the Chinese report as Final, while the PDF cover says “会议版本”; the discrepancy is disclosed rather than silently resolved."
-    },
-    {
-      "source_id": "WB2025-DIGITAL",
-      "publication_institution": "World Bank",
-      "publisher": "世界银行（World Bank）",
-      "publication_year": 2025,
-      "title_chinese": "《2025年数字化进展与趋势报告：强化人工智能基础》（中文版概述）",
-      "title_english": "Digital Progress and Trends Report 2025: Strengthening AI Foundations (Overview)",
-      "text_language": "Chinese",
-      "document_type": "official Chinese overview",
-      "translation_status": "Chinese overview hosted by the World Bank; it summarizes the English-language 2025 report and is not the full report.",
-      "original_report_url": "https://documents1.worldbank.org/curated/en/099010926091546503/pdf/P505350-3d302ef2-4e71-4182-b795-9330b4f0c15a.pdf",
-      "original_report_sha256": "e6e9edbc959ba997470951113970e483b0ddf13beb2c78d297d7c930ee6188ac",
-      "source_pdf_page_count": 40,
-      "parent_report_url": "https://www.worldbank.org/en/publication/dptr2025-ai-foundations/report",
-      "parent_report_sha256": null,
-      "official_publication_page_url": "https://www.worldbank.org/en/publication/dptr2025-ai-foundations/report",
-      "rights_holder": "International Bank for Reconstruction and Development / The World Bank",
-      "license": "CC BY 3.0 IGO",
-      "license_id": "CC-BY-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
-      "rights_notice_location": {
-        "document": "Chinese overview PDF",
-        "pdf_page_1based": 6,
-        "url": "https://documents1.worldbank.org/curated/en/099010926091546503/pdf/P505350-3d302ef2-4e71-4182-b795-9330b4f0c15a.pdf",
-        "pdf_page_count": 40,
-        "pdf_sha256": "e6e9edbc959ba997470951113970e483b0ddf13beb2c78d297d7c930ee6188ac"
-      },
-      "required_attribution": "World Bank. 2025. Digital Progress and Trends Report 2025: Strengthening AI Foundations (Chinese overview). Washington, DC: World Bank. CC BY 3.0 IGO. https://www.worldbank.org/en/publication/dptr2025-ai-foundations/report",
-      "required_adaptation_disclaimer": "这是对世界银行原著作的改编。本改编作品中的观点和看法完全是改编者的责任，世界银行对改编内容不表示认可。",
-      "third_party_content_limitations": "The report license does not automatically cover third-party materials. Only paraphrased narrative facts are used; no charts, tables, or media are included.",
-      "source_pdf_included": false,
-      "edition_note": "The Chinese PDF explicitly identifies itself as an overview of the 2025 report."
-    },
-    {
-      "source_id": "ILO2020-PLATFORM",
-      "publication_institution": "International Labour Organization",
-      "publisher": "国际劳工组织（ILO）",
-      "publication_year": 2020,
-      "title_chinese": "中国数字劳工平台和工人权益保障",
-      "title_english": "Digital Labour Platforms and Labour Protection in China",
-      "text_language": "Chinese",
-      "document_type": "ILO Working Paper No. 11, Chinese edition",
-      "translation_status": "The ILO repository provides Chinese and English files for this working paper. The Chinese source PDF includes the ILO translation disclaimer on page 2.",
-      "original_report_url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40asia/%40ro-bangkok/%40ilo-beijing/documents/publication/wcms_761763.pdf",
-      "original_report_sha256": "3286f60d9db6d09b95a860bc252af43e372925dc698f823455d4f37352d80cb2",
-      "source_pdf_page_count": 51,
-      "parent_report_url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Digital-labour-platforms-and-labour-protection/995219146002676",
-      "parent_report_sha256": null,
-      "official_publication_page_url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Digital-labour-platforms-and-labour-protection/995219146002676",
-      "rights_holder": "International Labour Organization / International Labour Office",
-      "license": "CC BY 3.0 IGO",
-      "license_id": "CC-BY-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
-      "rights_notice_location": {
-        "document": "Chinese working paper PDF",
-        "pdf_page_1based": 2,
-        "url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40asia/%40ro-bangkok/%40ilo-beijing/documents/publication/wcms_761763.pdf",
-        "pdf_page_count": 51,
-        "pdf_sha256": "3286f60d9db6d09b95a860bc252af43e372925dc698f823455d4f37352d80cb2"
-      },
-      "required_attribution": "Zhou, Irene. 2020. Digital Labour Platforms and Labour Protection in China (Chinese edition). ILO Working Paper No. 11. Geneva: International Labour Office. CC BY 3.0 IGO. https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Digital-labour-platforms-and-labour-protection/995219146002676",
-      "required_adaptation_disclaimer": "该作品是对国际劳工局所著原作的改编。作品中所表达的观点和意见完全由改编作者负责，不代表国际劳工局对其观点和意见表示认可。",
-      "translation_disclaimer": "该中文版本的译文不应被视为国际劳工局的官方翻译；国际劳工局不对译文的内容及准确性负责。",
-      "third_party_content_limitations": "No third-party images or media are reused. The ILO logo is not used. Only paraphrased report facts and page locators are included.",
-      "source_pdf_included": false,
-      "edition_note": "The source PDF states that the Chinese translation is not an official translation of the International Labour Office and disclaims responsibility for translation accuracy."
-    },
-    {
-      "source_id": "ILO2021-PLATFORM",
-      "publication_institution": "International Labour Organization",
-      "publisher": "国际劳工组织（ILO）",
-      "publication_year": 2021,
-      "title_chinese": "中国在线数字劳工平台：工作条件、政策问题和未来前景",
-      "title_english": "Online Digital Labour Platforms in China: Working Conditions, Policy Issues and Prospects",
-      "text_language": "Chinese",
-      "document_type": "ILO Working Paper No. 24, Chinese edition",
-      "translation_status": "The ILO repository provides Chinese and English files for this working paper. The Chinese source PDF includes the ILO translation disclaimer on page 2.",
-      "original_report_url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40ed_protect/%40protrav/%40travail/documents/publication/wcms_781675.pdf",
-      "original_report_sha256": "0d98c29778e0f8b1f11e4b63636bc84bad9d7ffae48207c26324ee7d5afe9e8c",
-      "source_pdf_page_count": 42,
-      "parent_report_url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Online-digital-labour-platforms-in-China/995218801802676",
-      "parent_report_sha256": null,
-      "official_publication_page_url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Online-digital-labour-platforms-in-China/995218801802676",
-      "rights_holder": "International Labour Organization / International Labour Office",
-      "license": "CC BY 3.0 IGO",
-      "license_id": "CC-BY-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
-      "rights_notice_location": {
-        "document": "Chinese working paper PDF",
-        "pdf_page_1based": 2,
-        "url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40ed_protect/%40protrav/%40travail/documents/publication/wcms_781675.pdf",
-        "pdf_page_count": 42,
-        "pdf_sha256": "0d98c29778e0f8b1f11e4b63636bc84bad9d7ffae48207c26324ee7d5afe9e8c"
-      },
-      "required_attribution": "Chen, Yiu Por. 2021. Online Digital Labour Platforms in China: Working Conditions, Policy Issues and Prospects (Chinese edition). ILO Working Paper No. 24. Geneva: International Labour Office. CC BY 3.0 IGO. https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Online-digital-labour-platforms-in-China/995218801802676",
-      "required_adaptation_disclaimer": "该作品是对国际劳工局所著原作的改编。作品中所表达的观点和意见完全由改编作者负责，不代表国际劳工局对其观点和意见表示认可。",
-      "translation_disclaimer": "该中文版本的译文不应被视为国际劳工局的官方翻译；国际劳工局不对译文的内容及准确性负责。",
-      "third_party_content_limitations": "No third-party images or media are reused. The ILO logo is not used. Only paraphrased report facts and page locators are included.",
-      "source_pdf_included": false,
-      "edition_note": "The source PDF states that the Chinese translation is not an official translation of the International Labour Office and disclaims responsibility for translation accuracy."
-    },
     {
       "source_id": "ADB2018-CITIES",
       "publication_institution": "Asian Development Bank",
@@ -691,7 +38,12 @@
       "translation_disclaimer": "The Chinese text is a translation. The English original is the only official version; the translation quality and coherence remain the translator’s responsibility.",
       "third_party_content_limitations": "The CC BY license does not cover non-ADB-owned content. Only narrative case descriptions are paraphrased; no photos, diagrams, tables, or other third-party elements are reproduced.",
       "source_pdf_included": false,
-      "edition_note": "The source PDF specifies CC BY 3.0 IGO and states that the English original is the only official text."
+      "edition_note": "The source PDF specifies CC BY 3.0 IGO and states that the English original is the only official text.",
+      "v2_source_file_audit_status": "pending_source_file_revalidation",
+      "active_v2_record_count": 20,
+      "publishing_institution_entities": [
+        "Asian Development Bank"
+      ]
     },
     {
       "source_id": "ADB2023-YOUTH",
@@ -725,75 +77,92 @@
       "translation_disclaimer": "The Chinese text is a translation. The English original is the only official version; the translation quality and coherence remain the translator’s responsibility.",
       "third_party_content_limitations": "The CC BY license does not cover non-ADB-owned content. Only paraphrased narrative facts are used; no figures, tables, photos, or media are reproduced.",
       "source_pdf_included": false,
-      "edition_note": "This dataset uses only narrative statements about ICT and digital skills; the report is primarily about youth employment."
+      "edition_note": "This dataset uses only narrative statements about ICT and digital skills; the report is primarily about youth employment.",
+      "v2_source_file_audit_status": "pending_source_file_revalidation",
+      "active_v2_record_count": 19,
+      "publishing_institution_entities": [
+        "Asian Development Bank"
+      ]
     },
     {
-      "source_id": "ILO2026-LIFELONG-SKILLS",
+      "source_id": "FAO-DIGITAL-AGRI-2019-ZH-BRIEF",
+      "publication_institution": "Food and Agriculture Organization of the United Nations (FAO)",
+      "publisher": "联合国粮食及农业组织（FAO）",
+      "publication_year": 2019,
+      "title_chinese": "《农业和农村地区数字技术：摘要文件》",
+      "title_english": "Digital technologies in agriculture and rural areas: Briefing paper",
+      "text_language": "Chinese (Simplified)",
+      "document_type": "FAO Chinese-language briefing paper summarizing the status report",
+      "translation_status": "FAO lists the Chinese briefing paper among the report-language downloads; this dataset does not translate the English report.",
+      "original_report_url": "https://www.fao.org/3/ca4887zh/ca4887zh.pdf",
+      "original_report_sha256": "54abd0d5ba6e647256cbff9d2ef8981bcc0fadcbd56590f1a36eec5d8e774f9f",
+      "source_pdf_page_count": 26,
+      "parent_report_url": "https://www.fao.org/3/ca4985en/ca4985en.pdf",
+      "parent_report_sha256": null,
+      "official_publication_page_url": "https://www.fao.org/e-agriculture/news/read-digital-technologies-agriculture-and-rural-areas-report",
+      "rights_holder": "Food and Agriculture Organization of the United Nations",
+      "license": "CC BY-NC-SA 3.0 IGO",
+      "license_id": "CC-BY-NC-SA-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/3.0/igo/",
+      "rights_notice_location": {
+        "document": "Chinese briefing PDF",
+        "pdf_page_1based": 26,
+        "url": "https://www.fao.org/3/ca4887zh/ca4887zh.pdf",
+        "pdf_page_count": 26,
+        "pdf_sha256": "54abd0d5ba6e647256cbff9d2ef8981bcc0fadcbd56590f1a36eec5d8e774f9f"
+      },
+      "required_attribution": "Trendov, N. M., Varas, S. & Zeng, M. 2019. Digital technologies in agriculture and rural areas – Status report. Chinese briefing paper: 农业和农村地区数字技术：摘要文件. Rome: FAO. CC BY-NC-SA 3.0 IGO. https://www.fao.org/3/ca4887zh/ca4887zh.pdf",
+      "required_adaptation_disclaimer": "本记录改编自 FAO 出版物文本内容；改编责任由数据集发布者承担，不表示 FAO 认可。适用 CC BY-NC-SA 3.0 IGO，非商业使用并按相同方式共享。",
+      "translation_disclaimer": "使用 FAO 发布的中文摘要文件；本数据集未自行翻译原报告。",
+      "third_party_content_limitations": "报告含第三方图片和内容；本记录仅概述叙述性事实，不复用图表、图像、地图、表格或第三方材料。",
+      "source_pdf_included": false,
+      "edition_note": "来源是26页中文摘要文件，不是完整英文状态报告；使用物理PDF页码。",
+      "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "source_file_sha256_verified": true,
+      "active_v2_record_count": 9,
+      "publishing_institution_entities": [
+        "FAO"
+      ],
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+    },
+    {
+      "source_id": "ILO2020-PLATFORM",
       "publication_institution": "International Labour Organization",
       "publisher": "国际劳工组织（ILO）",
-      "publication_year": 2026,
-      "title_chinese": "面向未来的终身学习与技能——执行摘要",
-      "title_english": "Lifelong learning and skills for the future (Executive summary)",
+      "publication_year": 2020,
+      "title_chinese": "中国数字劳工平台和工人权益保障",
+      "title_english": "Digital Labour Platforms and Labour Protection in China",
       "text_language": "Chinese",
-      "document_type": "Official Chinese-language executive summary in the World of Work report series",
-      "translation_status": "Official Chinese-language executive summary hosted by ILO; the dataset author did not translate the source. The full flagship report is not included.",
-      "original_report_url": "https://doi.org/10.54394/00033011",
-      "official_publication_page_url": "https://www.ilo.org/zh-hans/publications/flagship-reports/面向未来的终身学习与技能-执行摘要",
-      "original_report_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e",
-      "source_pdf_page_count": 12,
-      "parent_report_url": "https://www.ilo.org/zh-hans/publications/flagship-reports/面向未来的终身学习与技能-执行摘要",
+      "document_type": "ILO Working Paper No. 11, Chinese edition",
+      "translation_status": "The ILO repository provides Chinese and English files for this working paper. The Chinese source PDF includes the ILO translation disclaimer on page 2.",
+      "original_report_url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40asia/%40ro-bangkok/%40ilo-beijing/documents/publication/wcms_761763.pdf",
+      "original_report_sha256": "3286f60d9db6d09b95a860bc252af43e372925dc698f823455d4f37352d80cb2",
+      "source_pdf_page_count": 51,
+      "parent_report_url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Digital-labour-platforms-and-labour-protection/995219146002676",
       "parent_report_sha256": null,
-      "rights_holder": "International Labour Organization",
-      "license": "CC BY 4.0",
-      "license_id": "CC-BY-4.0",
-      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "official_publication_page_url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Digital-labour-platforms-and-labour-protection/995219146002676",
+      "rights_holder": "International Labour Organization / International Labour Office",
+      "license": "CC BY 3.0 IGO",
+      "license_id": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
       "rights_notice_location": {
-        "document": "Chinese executive-summary PDF",
-        "pdf_page_1based": 12,
-        "url": "https://doi.org/10.54394/00033011",
-        "pdf_page_count": 12,
-        "pdf_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e"
-      },
-      "required_attribution": "International Labour Organization. 2026. Lifelong learning and skills for the future (Chinese executive summary), World of Work report series. Geneva: ILO. © ILO 2026. CC BY 4.0. https://doi.org/10.54394/00033011",
-      "required_adaptation_disclaimer": "This record is an AI-assisted paraphrase/adaptation of the cited ILO publication. Responsibility for this adaptation rests with the dataset publisher; no ILO endorsement is implied.",
-      "translation_disclaimer": null,
-      "third_party_content_limitations": "Only concise paraphrased facts and physical-page locators are used. No third-party table, figure, photograph, media, source passage, or PDF is included.",
-      "source_pdf_included": false,
-      "edition_note": "The released source is the 12-page official Chinese executive summary, not the full flagship report."
-    },
-    {
-      "source_id": "UNESCO2023-DIGITAL-CITIZENSHIP",
-      "publication_institution": "UNESCO Institute for Information Technologies in Education and Shanghai Open University",
-      "publisher": "联合国教科文组织教育信息技术研究所（UNESCO IITE）与上海开放大学",
-      "publication_year": 2023,
-      "title_chinese": "全球数字公民教育实践的测评与评价工具包：以人工智能为支撑，推动全球数字公民教育",
-      "title_english": "Global Practices Evaluation & Assessment Toolkit: Advancing Artificial Intelligence-Supported Global Digital Citizenship Education",
-      "text_language": "Chinese",
-      "document_type": "Official Chinese-language toolkit published by UNESCO IITE and Shanghai Open University",
-      "translation_status": "Official Chinese-language edition linked from the UNESCO IITE publication page; the dataset author did not translate the source.",
-      "original_report_url": "https://iite.unesco.org/wp-content/uploads/2023/03/CHINESE_UNESCO-IITE-SOU.-2023.-Global-Practices-Evaluation-Assessment-Toolkit.-Advancing-Artificial-Intelligence-Supported-Global-Digital-Citizenship-Education.pdf",
-      "official_publication_page_url": "https://iite.unesco.org/publications/global-practices-evaluation-assessment-toolkit-advancing-artificial-intelligence-supported-global-digital-citizenship-education/",
-      "original_report_sha256": "06b67090ac204c60f5a5fa9857619e375d8c1f51b99c70756a63414e76025314",
-      "source_pdf_page_count": 25,
-      "parent_report_url": null,
-      "parent_report_sha256": null,
-      "rights_holder": "UNESCO Institute for Information Technologies in Education and Shanghai Open University",
-      "license": "CC BY-SA 3.0 IGO",
-      "license_id": "CC-BY-SA-3.0-IGO",
-      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
-      "rights_notice_location": {
-        "document": "Chinese toolkit PDF",
+        "document": "Chinese working paper PDF",
         "pdf_page_1based": 2,
-        "url": "https://iite.unesco.org/wp-content/uploads/2023/03/CHINESE_UNESCO-IITE-SOU.-2023.-Global-Practices-Evaluation-Assessment-Toolkit.-Advancing-Artificial-Intelligence-Supported-Global-Digital-Citizenship-Education.pdf",
-        "pdf_page_count": 25,
-        "pdf_sha256": "06b67090ac204c60f5a5fa9857619e375d8c1f51b99c70756a63414e76025314"
+        "url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40asia/%40ro-bangkok/%40ilo-beijing/documents/publication/wcms_761763.pdf",
+        "pdf_page_count": 51,
+        "pdf_sha256": "3286f60d9db6d09b95a860bc252af43e372925dc698f823455d4f37352d80cb2"
       },
-      "required_attribution": "UNESCO IITE and Shanghai Open University. 2023. Global Practices Evaluation & Assessment Toolkit: Advancing Artificial Intelligence-Supported Global Digital Citizenship Education. CC BY-SA 3.0 IGO. https://iite.unesco.org/publications/global-practices-evaluation-assessment-toolkit-advancing-artificial-intelligence-supported-global-digital-citizenship-education/",
-      "required_adaptation_disclaimer": "This record is an AI-assisted adaptation of the cited toolkit. The adapted record is released under CC BY-SA 3.0 IGO; no UNESCO or Shanghai Open University endorsement is implied.",
-      "translation_disclaimer": null,
-      "third_party_content_limitations": "The PDF contains third-party visual material, including an Unsplash image on physical page 11. This dataset uses only the toolkit-authored scoring tables on physical pages 19 and 22; it reproduces no image, table contents, source passage, or PDF.",
+      "required_attribution": "Zhou, Irene. 2020. Digital Labour Platforms and Labour Protection in China (Chinese edition). ILO Working Paper No. 11. Geneva: International Labour Office. CC BY 3.0 IGO. https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Digital-labour-platforms-and-labour-protection/995219146002676",
+      "required_adaptation_disclaimer": "该作品是对国际劳工局所著原作的改编。作品中所表达的观点和意见完全由改编作者负责，不代表国际劳工局对其观点和意见表示认可。",
+      "translation_disclaimer": "该中文版本的译文不应被视为国际劳工局的官方翻译；国际劳工局不对译文的内容及准确性负责。",
+      "third_party_content_limitations": "No third-party images or media are reused. The ILO logo is not used. Only paraphrased report facts and page locators are included.",
       "source_pdf_included": false,
-      "edition_note": "The Chinese PDF states that the authors' views do not necessarily represent UNESCO or Shanghai Open University."
+      "edition_note": "The source PDF states that the Chinese translation is not an official translation of the International Labour Office and disclaims responsibility for translation accuracy.",
+      "v2_source_file_audit_status": "pending_blind_second_pass",
+      "active_v2_record_count": 57,
+      "publishing_institution_entities": [
+        "International Labour Organization"
+      ]
     },
     {
       "source_id": "ILO2021-EMPLOYMENT-RELATIONSHIP",
@@ -827,9 +196,405 @@
       "translation_disclaimer": "This translation was not created by the International Labour Office (ILO) and should not be considered an official ILO translation. The ILO is not responsible for the content or accuracy of this translation.",
       "third_party_content_limitations": "The report reviews laws and case materials. Only concise paraphrases of the report's own study description and findings are used; no third-party legal text, case excerpt, image, table, media, source passage, or PDF is included.",
       "source_pdf_included": false,
-      "edition_note": "The Chinese PDF is 49 physical pages; its printed pagination is recorded separately on evidence locators."
+      "edition_note": "The Chinese PDF is 49 physical pages; its printed pagination is recorded separately on evidence locators.",
+      "v2_source_file_audit_status": "pending_blind_second_pass",
+      "active_v2_record_count": 4,
+      "publishing_institution_entities": [
+        "International Labour Organization"
+      ]
+    },
+    {
+      "source_id": "ILO2021-PLATFORM",
+      "publication_institution": "International Labour Organization",
+      "publisher": "国际劳工组织（ILO）",
+      "publication_year": 2021,
+      "title_chinese": "中国在线数字劳工平台：工作条件、政策问题和未来前景",
+      "title_english": "Online Digital Labour Platforms in China: Working Conditions, Policy Issues and Prospects",
+      "text_language": "Chinese",
+      "document_type": "ILO Working Paper No. 24, Chinese edition",
+      "translation_status": "The ILO repository provides Chinese and English files for this working paper. The Chinese source PDF includes the ILO translation disclaimer on page 2.",
+      "original_report_url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40ed_protect/%40protrav/%40travail/documents/publication/wcms_781675.pdf",
+      "original_report_sha256": "0d98c29778e0f8b1f11e4b63636bc84bad9d7ffae48207c26324ee7d5afe9e8c",
+      "source_pdf_page_count": 42,
+      "parent_report_url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Online-digital-labour-platforms-in-China/995218801802676",
+      "parent_report_sha256": null,
+      "official_publication_page_url": "https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Online-digital-labour-platforms-in-China/995218801802676",
+      "rights_holder": "International Labour Organization / International Labour Office",
+      "license": "CC BY 3.0 IGO",
+      "license_id": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+      "rights_notice_location": {
+        "document": "Chinese working paper PDF",
+        "pdf_page_1based": 2,
+        "url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40ed_protect/%40protrav/%40travail/documents/publication/wcms_781675.pdf",
+        "pdf_page_count": 42,
+        "pdf_sha256": "0d98c29778e0f8b1f11e4b63636bc84bad9d7ffae48207c26324ee7d5afe9e8c"
+      },
+      "required_attribution": "Chen, Yiu Por. 2021. Online Digital Labour Platforms in China: Working Conditions, Policy Issues and Prospects (Chinese edition). ILO Working Paper No. 24. Geneva: International Labour Office. CC BY 3.0 IGO. https://researchrepository.ilo.org/esploro/outputs/encyclopediaEntry/Online-digital-labour-platforms-in-China/995218801802676",
+      "required_adaptation_disclaimer": "该作品是对国际劳工局所著原作的改编。作品中所表达的观点和意见完全由改编作者负责，不代表国际劳工局对其观点和意见表示认可。",
+      "translation_disclaimer": "该中文版本的译文不应被视为国际劳工局的官方翻译；国际劳工局不对译文的内容及准确性负责。",
+      "third_party_content_limitations": "No third-party images or media are reused. The ILO logo is not used. Only paraphrased report facts and page locators are included.",
+      "source_pdf_included": false,
+      "edition_note": "The source PDF states that the Chinese translation is not an official translation of the International Labour Office and disclaims responsibility for translation accuracy.",
+      "v2_source_file_audit_status": "pending_blind_second_pass",
+      "active_v2_record_count": 48,
+      "publishing_institution_entities": [
+        "International Labour Organization"
+      ]
+    },
+    {
+      "source_id": "ILO2026-LIFELONG-SKILLS",
+      "publication_institution": "International Labour Organization",
+      "publisher": "国际劳工组织（ILO）",
+      "publication_year": 2026,
+      "title_chinese": "面向未来的终身学习与技能——执行摘要",
+      "title_english": "Lifelong learning and skills for the future (Executive summary)",
+      "text_language": "Chinese",
+      "document_type": "Official Chinese-language executive summary in the World of Work report series",
+      "translation_status": "Official Chinese-language executive summary hosted by ILO; the dataset author did not translate the source. The full flagship report is not included.",
+      "original_report_url": "https://doi.org/10.54394/00033011",
+      "official_publication_page_url": "https://www.ilo.org/zh-hans/publications/flagship-reports/面向未来的终身学习与技能-执行摘要",
+      "original_report_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e",
+      "source_pdf_page_count": 12,
+      "parent_report_url": "https://www.ilo.org/zh-hans/publications/flagship-reports/面向未来的终身学习与技能-执行摘要",
+      "parent_report_sha256": null,
+      "rights_holder": "International Labour Organization",
+      "license": "CC BY 4.0",
+      "license_id": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "rights_notice_location": {
+        "document": "Chinese executive-summary PDF",
+        "pdf_page_1based": 12,
+        "url": "https://doi.org/10.54394/00033011",
+        "pdf_page_count": 12,
+        "pdf_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e"
+      },
+      "required_attribution": "International Labour Organization. 2026. Lifelong learning and skills for the future (Chinese executive summary), World of Work report series. Geneva: ILO. © ILO 2026. CC BY 4.0. https://doi.org/10.54394/00033011",
+      "required_adaptation_disclaimer": "This record is an AI-assisted paraphrase/adaptation of the cited ILO publication. Responsibility for this adaptation rests with the dataset publisher; no ILO endorsement is implied.",
+      "translation_disclaimer": null,
+      "third_party_content_limitations": "Only concise paraphrased facts and physical-page locators are used. No third-party table, figure, photograph, media, source passage, or PDF is included.",
+      "source_pdf_included": false,
+      "edition_note": "The released source is the 12-page official Chinese executive summary, not the full flagship report.",
+      "v2_source_file_audit_status": "pending_source_file_revalidation",
+      "active_v2_record_count": 7,
+      "publishing_institution_entities": [
+        "International Labour Organization"
+      ]
+    },
+    {
+      "source_id": "UNESCO-AI-EDU-POLICY-2021",
+      "publication_institution": "UNESCO",
+      "publisher": "联合国教育、科学及文化组织（UNESCO）",
+      "publication_year": 2021,
+      "title_chinese": "《人工智能与教育：政策制定者指南》",
+      "title_english": "AI and education: Guidance for policy-makers",
+      "text_language": "Chinese (Simplified)",
+      "document_type": "UNESCO Chinese edition of a policy guide",
+      "translation_status": "UNESCO distributed a Chinese edition; this dataset uses the Chinese publication and does not translate the English original.",
+      "original_report_url": "https://www.gcedclearinghouse.org/sites/default/files/resources/220221chi.pdf",
+      "original_report_sha256": "c6f78640c8dc48613898d864289725cf24ceaefc4e282e8d51c84213d889bd25",
+      "source_pdf_page_count": 51,
+      "parent_report_url": "https://unesdoc.unesco.org/ark:/48223/pf0000376709",
+      "parent_report_sha256": null,
+      "official_publication_page_url": "https://www.unesco.org/zh/digital-education/artificial-intelligence?hub=67076",
+      "rights_holder": "UNESCO",
+      "license": "CC BY-SA 3.0 IGO",
+      "license_id": "CC-BY-SA-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+      "rights_notice_location": {
+        "document": "Chinese UNESCO PDF",
+        "pdf_page_1based": 2,
+        "url": "https://www.gcedclearinghouse.org/sites/default/files/resources/220221chi.pdf",
+        "pdf_page_count": 51,
+        "pdf_sha256": "c6f78640c8dc48613898d864289725cf24ceaefc4e282e8d51c84213d889bd25"
+      },
+      "required_attribution": "UNESCO. 2021. AI and education: Guidance for policy-makers (Chinese edition). Paris: UNESCO. CC BY-SA 3.0 IGO. https://www.gcedclearinghouse.org/sites/default/files/resources/220221chi.pdf",
+      "required_adaptation_disclaimer": "本记录为对 UNESCO 出版物文本内容的改编摘要；改编责任由数据集发布者承担，不表示 UNESCO 认可。适用 CC BY-SA 3.0 IGO。",
+      "translation_disclaimer": "使用 UNESCO 发布的中文版本；本数据集未自行翻译原报告。",
+      "third_party_content_limitations": "许可页说明许可仅适用于文本；本记录仅概述叙述性文本，不复用图像、表格、图表或未明确归属 UNESCO 的第三方材料。",
+      "source_pdf_included": false,
+      "edition_note": "以 PDF 物理页码定位；不包含原 PDF 或原文长段。",
+      "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "source_file_sha256_verified": true,
+      "active_v2_record_count": 24,
+      "publishing_institution_entities": [
+        "UNESCO"
+      ],
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+    },
+    {
+      "source_id": "UNESCO-GEM-TECH-2023-ZH-SUMMARY",
+      "publication_institution": "UNESCO Global Education Monitoring Report Team",
+      "publisher": "联合国教科文组织全球教育监测报告团队（UNESCO GEM Report Team）",
+      "publication_year": 2023,
+      "title_chinese": "《2023年全球教育监测报告》摘要：技术运用于教育：谁来做主？",
+      "title_english": "Global Education Monitoring Report Summary 2023: Technology in education: A tool on whose terms?",
+      "text_language": "Chinese (Simplified)",
+      "document_type": "UNESCO official Chinese summary",
+      "translation_status": "A Chinese-language summary is listed in the UNESCO Global Citizenship Education Clearinghouse and on the UNESCO GEM report site; no translation by this dataset.",
+      "original_report_url": "https://www.gcedclearinghouse.org/sites/default/files/resources/230014chi.pdf",
+      "original_report_sha256": "af522ed13f253cd740783f06f415deef30c4fe36bbf1110b7699ad6a87cc47b2",
+      "source_pdf_page_count": 32,
+      "parent_report_url": "https://www.unesco.org/gem-report/zh/publication/technology",
+      "parent_report_sha256": null,
+      "official_publication_page_url": "https://www.unesco.org/gem-report/zh/publication/technology",
+      "rights_holder": "UNESCO",
+      "license": "CC BY-SA 3.0 IGO",
+      "license_id": "CC-BY-SA-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+      "rights_notice_location": {
+        "document": "Chinese summary PDF",
+        "pdf_page_1based": 4,
+        "url": "https://www.gcedclearinghouse.org/sites/default/files/resources/230014chi.pdf",
+        "pdf_page_count": 32,
+        "pdf_sha256": "af522ed13f253cd740783f06f415deef30c4fe36bbf1110b7699ad6a87cc47b2"
+      },
+      "required_attribution": "UNESCO. 2023. Global Education Monitoring Report Summary 2023: Technology in education: A tool on whose terms? Chinese summary. Paris: UNESCO. CC BY-SA 3.0 IGO. https://www.gcedclearinghouse.org/sites/default/files/resources/230014chi.pdf",
+      "required_adaptation_disclaimer": "本记录为对 UNESCO 出版物文本内容的改编摘要；改编责任由数据集发布者承担，不表示 UNESCO 认可。适用 CC BY-SA 3.0 IGO。",
+      "translation_disclaimer": "使用 UNESCO 发布的中文摘要；本数据集未自行翻译原报告。",
+      "third_party_content_limitations": "许可页说明许可仅适用于文本；本记录仅概述叙述性文本，不复用照片、图表、表格或第三方内容。",
+      "source_pdf_included": false,
+      "edition_note": "来源是32页中文摘要，而非526页完整报告；使用物理PDF页码。",
+      "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "source_file_sha256_verified": true,
+      "active_v2_record_count": 24,
+      "publishing_institution_entities": [
+        "UNESCO"
+      ],
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+    },
+    {
+      "source_id": "UNESCO-GENAI-GUIDANCE-2023-ZH",
+      "publication_institution": "Taiwan Academic Research Ethics Education Center (Ministry of Education, Taiwan)",
+      "publisher": "教育部臺灣學術倫理教育資源中心（AREE）",
+      "publication_year": 2023,
+      "title_chinese": "《教育與研究之生成式人工智慧應用指引》",
+      "title_english": "Guidance for generative AI in education and research",
+      "text_language": "Chinese (Traditional)",
+      "document_type": "Traditional Chinese translation prepared by AREE of the UNESCO 2023 guide",
+      "translation_status": "AREE identifies UNESCO as the original author and itself as the Traditional Chinese translation/preparation center; the English original controls where the translation differs. This is not described as an official UNESCO Chinese edition.",
+      "original_report_url": "https://ethics.moe.edu.tw/files/resource/ebook/file/ebook_04.pdf",
+      "original_report_sha256": "bf155d250a3120ded78b894742e41857e1efd9c9e4d71b4b53d818cef622817b",
+      "source_pdf_page_count": 67,
+      "parent_report_url": "https://unesdoc.unesco.org/ark:/48223/pf0000386693",
+      "parent_report_sha256": null,
+      "official_publication_page_url": "https://announce.yzu.edu.tw/index.php/tw/rd/rd-202512160911-03",
+      "rights_holder": "UNESCO (original text); Taiwan Academic Research Ethics Education Center (Traditional Chinese translation)",
+      "license": "CC BY-SA 3.0 IGO",
+      "license_id": "CC-BY-SA-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+      "rights_notice_location": {
+        "document": "AREE Traditional Chinese PDF",
+        "pdf_page_1based": 2,
+        "url": "https://ethics.moe.edu.tw/files/resource/ebook/file/ebook_04.pdf",
+        "pdf_page_count": 67,
+        "pdf_sha256": "bf155d250a3120ded78b894742e41857e1efd9c9e4d71b4b53d818cef622817b"
+      },
+      "required_attribution": "UNESCO. 2023. Guidance for generative AI in education and research. Traditional Chinese translation prepared by Taiwan Academic Research Ethics Education Center (AREE), Ministry of Education, Taiwan. CC BY-SA 3.0 IGO. https://ethics.moe.edu.tw/files/resource/ebook/file/ebook_04.pdf",
+      "required_adaptation_disclaimer": "本记录改编自 UNESCO 原文及 AREE 繁体中文译本；改编责任由数据集发布者承担，不表示 UNESCO 或 AREE 认可。适用 CC BY-SA 3.0 IGO。",
+      "translation_disclaimer": "AREE 制作的繁体中文版本；英文原文为准。署名 UNESCO 原作者及 AREE 译制机构。",
+      "third_party_content_limitations": "只概述文本内容，不复用图像、表格、插图或第三方材料。",
+      "source_pdf_included": false,
+      "edition_note": "来源为AREE正式提供的繁体中文译本；使用物理PDF页码。",
+      "source_file_audit_status": "sha256_verified_local_pdf_license_and_translation_notice",
+      "source_file_sha256_verified": true,
+      "active_v2_record_count": 9,
+      "publishing_institution_entities": [
+        "Taiwan Academic Research Ethics Education Center"
+      ],
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_license_and_translation_notice"
+    },
+    {
+      "source_id": "UNESCO2023-DIGITAL-CITIZENSHIP",
+      "publication_institution": "UNESCO Institute for Information Technologies in Education and Shanghai Open University",
+      "publisher": "联合国教科文组织教育信息技术研究所（UNESCO IITE）与上海开放大学",
+      "publication_year": 2023,
+      "title_chinese": "全球数字公民教育实践的测评与评价工具包：以人工智能为支撑，推动全球数字公民教育",
+      "title_english": "Global Practices Evaluation & Assessment Toolkit: Advancing Artificial Intelligence-Supported Global Digital Citizenship Education",
+      "text_language": "Chinese",
+      "document_type": "Official Chinese-language toolkit published by UNESCO IITE and Shanghai Open University",
+      "translation_status": "Official Chinese-language edition linked from the UNESCO IITE publication page; the dataset author did not translate the source.",
+      "original_report_url": "https://iite.unesco.org/wp-content/uploads/2023/03/CHINESE_UNESCO-IITE-SOU.-2023.-Global-Practices-Evaluation-Assessment-Toolkit.-Advancing-Artificial-Intelligence-Supported-Global-Digital-Citizenship-Education.pdf",
+      "official_publication_page_url": "https://iite.unesco.org/publications/global-practices-evaluation-assessment-toolkit-advancing-artificial-intelligence-supported-global-digital-citizenship-education/",
+      "original_report_sha256": "06b67090ac204c60f5a5fa9857619e375d8c1f51b99c70756a63414e76025314",
+      "source_pdf_page_count": 25,
+      "parent_report_url": null,
+      "parent_report_sha256": null,
+      "rights_holder": "UNESCO Institute for Information Technologies in Education and Shanghai Open University",
+      "license": "CC BY-SA 3.0 IGO",
+      "license_id": "CC-BY-SA-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+      "rights_notice_location": {
+        "document": "Chinese toolkit PDF",
+        "pdf_page_1based": 2,
+        "url": "https://iite.unesco.org/wp-content/uploads/2023/03/CHINESE_UNESCO-IITE-SOU.-2023.-Global-Practices-Evaluation-Assessment-Toolkit.-Advancing-Artificial-Intelligence-Supported-Global-Digital-Citizenship-Education.pdf",
+        "pdf_page_count": 25,
+        "pdf_sha256": "06b67090ac204c60f5a5fa9857619e375d8c1f51b99c70756a63414e76025314"
+      },
+      "required_attribution": "UNESCO IITE and Shanghai Open University. 2023. Global Practices Evaluation & Assessment Toolkit: Advancing Artificial Intelligence-Supported Global Digital Citizenship Education. CC BY-SA 3.0 IGO. https://iite.unesco.org/publications/global-practices-evaluation-assessment-toolkit-advancing-artificial-intelligence-supported-global-digital-citizenship-education/",
+      "required_adaptation_disclaimer": "This record is an AI-assisted adaptation of the cited toolkit. The adapted record is released under CC BY-SA 3.0 IGO; no UNESCO or Shanghai Open University endorsement is implied.",
+      "translation_disclaimer": null,
+      "third_party_content_limitations": "The PDF contains third-party visual material, including an Unsplash image on physical page 11. This dataset uses only the toolkit-authored scoring tables on physical pages 19 and 22; it reproduces no image, table contents, source passage, or PDF.",
+      "source_pdf_included": false,
+      "edition_note": "The Chinese PDF states that the authors' views do not necessarily represent UNESCO or Shanghai Open University.",
+      "v2_source_file_audit_status": "pending_source_file_revalidation",
+      "active_v2_record_count": 3,
+      "publishing_institution_entities": [
+        "UNESCO",
+        "Shanghai Open University"
+      ]
+    },
+    {
+      "source_id": "WB2014-RURAL",
+      "publication_institution": "World Bank",
+      "publisher": "世界银行（World Bank）",
+      "publication_year": 2014,
+      "title_chinese": "中国农村信息化：三省研究（概要）",
+      "title_english": "Information and Communications in the Chinese Countryside: A Study of Three Provinces (Executive Summary)",
+      "text_language": "Chinese",
+      "document_type": "official Chinese executive summary",
+      "translation_status": "Official Chinese-language summary hosted by the World Bank; the summary does not name a translator. The underlying English report is the licensed parent work.",
+      "original_report_url": "https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014_CN%20.pdf",
+      "original_report_sha256": "bc26c01ee17bdee179d4b2099f2f574780dbf9ef552877c849458b16b983423f",
+      "source_pdf_page_count": 4,
+      "parent_report_url": "https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014.pdf",
+      "parent_report_sha256": "1bb19108a09d0be4638087a709a19811702c2143eb3bf381f80da944a0a462b7",
+      "official_publication_page_url": "https://www.worldbank.org/en/country/china/publication/rural-ict-program-in-china",
+      "rights_holder": "International Bank for Reconstruction and Development / The World Bank",
+      "license": "CC BY 3.0 IGO",
+      "license_id": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+      "rights_notice_location": {
+        "document": "English parent report",
+        "pdf_page_1based": 6,
+        "url": "https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014.pdf",
+        "pdf_page_count": 99,
+        "pdf_sha256": "1bb19108a09d0be4638087a709a19811702c2143eb3bf381f80da944a0a462b7"
+      },
+      "required_attribution": "World Bank. 2014. Information and Communications in the Chinese Countryside: A Study of Three Provinces (official Chinese executive summary). Washington, DC: World Bank. CC BY 3.0 IGO. https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014_CN%20.pdf",
+      "required_adaptation_disclaimer": "这是对世界银行原著作的改编。本改编作品中的观点和看法完全是改编者的责任，世界银行对改编内容不表示认可。",
+      "third_party_content_limitations": "No third-party figures, photographs, tables, or media are reproduced; only concise paraphrased facts and page locators are included.",
+      "source_pdf_included": false,
+      "edition_note": "The Chinese 4-page summary is the source text used; the license notice is on page 6 of its official English parent report, whose hash is recorded separately.",
+      "v2_source_file_audit_status": "pending_source_file_revalidation",
+      "active_v2_record_count": 34,
+      "publishing_institution_entities": [
+        "World Bank"
+      ]
+    },
+    {
+      "source_id": "WB2016-DIGITAL",
+      "publication_institution": "World Bank",
+      "publisher": "世界银行（World Bank）",
+      "publication_year": 2016,
+      "title_chinese": "《2016年世界发展报告：数字红利》概述",
+      "title_english": "World Development Report 2016: Digital Dividends (Overview)",
+      "text_language": "Chinese",
+      "document_type": "official Chinese overview booklet",
+      "translation_status": "Chinese overview published on the official World Bank document server; it is an overview, not the separately published full Chinese book.",
+      "original_report_url": "https://documents1.worldbank.org/curated/en/950951467993193548/pdf/102724-WDR-WDR2016Overview-CHINESE-WebResBox-394840B-OUO-9.pdf",
+      "original_report_sha256": "4b38eec9293bc6990b9fbaa980331dc83a489c967f254e4a35aef09e3d9ae482",
+      "source_pdf_page_count": 58,
+      "parent_report_url": "https://openknowledge.worldbank.org/handle/10986/23347",
+      "parent_report_sha256": null,
+      "official_publication_page_url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/102724-WDR-WDR2016Overview",
+      "rights_holder": "International Bank for Reconstruction and Development / The World Bank",
+      "license": "CC BY 3.0 IGO",
+      "license_id": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+      "rights_notice_location": {
+        "document": "Chinese overview PDF",
+        "pdf_page_1based": 4,
+        "url": "https://documents1.worldbank.org/curated/en/950951467993193548/pdf/102724-WDR-WDR2016Overview-CHINESE-WebResBox-394840B-OUO-9.pdf",
+        "pdf_page_count": 58,
+        "pdf_sha256": "4b38eec9293bc6990b9fbaa980331dc83a489c967f254e4a35aef09e3d9ae482"
+      },
+      "required_attribution": "World Bank. 2016. World Development Report 2016: Digital Dividends. Overview booklet (Chinese edition). Washington, DC: World Bank. CC BY 3.0 IGO. https://openknowledge.worldbank.org/handle/10986/23347",
+      "required_adaptation_disclaimer": "这是对世界银行原著作的改编。本改编作品中的观点和看法完全是改编者的责任，世界银行对改编内容不表示认可。",
+      "third_party_content_limitations": "The overview warns that third-party tables, figures, and images may not be covered. This dataset uses paraphrased narrative facts only and reproduces no charts, tables, photos, or media.",
+      "source_pdf_included": false,
+      "edition_note": "The overview itself says citations and adaptations should use the final report; attribution therefore identifies the final WDR title and separately labels the source artifact as the overview.",
+      "v2_source_file_audit_status": "pending_blind_second_pass",
+      "active_v2_record_count": 34,
+      "publishing_institution_entities": [
+        "World Bank"
+      ]
+    },
+    {
+      "source_id": "WB2019-WORK",
+      "publication_institution": "World Bank",
+      "publisher": "世界银行（World Bank）",
+      "publication_year": 2019,
+      "title_chinese": "《2019年世界发展报告：工作性质的变革》（中文版）",
+      "title_english": "World Development Report 2019: The Changing Nature of Work",
+      "text_language": "Chinese",
+      "document_type": "full Chinese-language report",
+      "translation_status": "Chinese-language version in the World Bank repository; repository metadata lists Language Chinese and Version Type Final. The PDF cover bears “会议版本”, retained here as an edition note.",
+      "original_report_url": "https://www.worldbank.org/content/dam/wdr/2019/WDR-2019-CHINESE.pdf",
+      "original_report_sha256": "cacad7fbb8465e5ea16cc8dc76c9a49f7d255b3ed960490d7f5dec5736c754c8",
+      "source_pdf_page_count": 140,
+      "parent_report_url": "https://www.worldbank.org/en/publication/wdr2019",
+      "parent_report_sha256": null,
+      "official_publication_page_url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/920551538153132300",
+      "rights_holder": "International Bank for Reconstruction and Development / The World Bank",
+      "license": "CC BY 3.0 IGO",
+      "license_id": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+      "rights_notice_location": {
+        "document": "Chinese report PDF",
+        "pdf_page_1based": 6,
+        "url": "https://www.worldbank.org/content/dam/wdr/2019/WDR-2019-CHINESE.pdf",
+        "pdf_page_count": 140,
+        "pdf_sha256": "cacad7fbb8465e5ea16cc8dc76c9a49f7d255b3ed960490d7f5dec5736c754c8"
+      },
+      "required_attribution": "World Bank. 2019. World Development Report 2019: The Changing Nature of Work (Chinese-language version). Washington, DC: World Bank. CC BY 3.0 IGO. https://documents.worldbank.org/en/publication/documents-reports/documentdetail/920551538153132300",
+      "required_adaptation_disclaimer": "这是对世界银行原著作的改编。本改编作品中的观点和看法完全是改编者的责任，世界银行对改编内容不表示认可。",
+      "third_party_content_limitations": "Third-party elements may not be covered by the report license. No figures, tables, photographs, or source media are reproduced; only paraphrased narrative facts and locators are included.",
+      "source_pdf_included": false,
+      "edition_note": "Official World Bank catalog records the Chinese report as Final, while the PDF cover says “会议版本”; the discrepancy is disclosed rather than silently resolved.",
+      "v2_source_file_audit_status": "pending_blind_second_pass",
+      "active_v2_record_count": 50,
+      "publishing_institution_entities": [
+        "World Bank"
+      ]
+    },
+    {
+      "source_id": "WB2025-DIGITAL",
+      "publication_institution": "World Bank",
+      "publisher": "世界银行（World Bank）",
+      "publication_year": 2025,
+      "title_chinese": "《2025年数字化进展与趋势报告：强化人工智能基础》（中文版概述）",
+      "title_english": "Digital Progress and Trends Report 2025: Strengthening AI Foundations (Overview)",
+      "text_language": "Chinese",
+      "document_type": "official Chinese overview",
+      "translation_status": "Chinese overview hosted by the World Bank; it summarizes the English-language 2025 report and is not the full report.",
+      "original_report_url": "https://documents1.worldbank.org/curated/en/099010926091546503/pdf/P505350-3d302ef2-4e71-4182-b795-9330b4f0c15a.pdf",
+      "original_report_sha256": "e6e9edbc959ba997470951113970e483b0ddf13beb2c78d297d7c930ee6188ac",
+      "source_pdf_page_count": 40,
+      "parent_report_url": "https://www.worldbank.org/en/publication/dptr2025-ai-foundations/report",
+      "parent_report_sha256": null,
+      "official_publication_page_url": "https://www.worldbank.org/en/publication/dptr2025-ai-foundations/report",
+      "rights_holder": "International Bank for Reconstruction and Development / The World Bank",
+      "license": "CC BY 3.0 IGO",
+      "license_id": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+      "rights_notice_location": {
+        "document": "Chinese overview PDF",
+        "pdf_page_1based": 6,
+        "url": "https://documents1.worldbank.org/curated/en/099010926091546503/pdf/P505350-3d302ef2-4e71-4182-b795-9330b4f0c15a.pdf",
+        "pdf_page_count": 40,
+        "pdf_sha256": "e6e9edbc959ba997470951113970e483b0ddf13beb2c78d297d7c930ee6188ac"
+      },
+      "required_attribution": "World Bank. 2025. Digital Progress and Trends Report 2025: Strengthening AI Foundations (Chinese overview). Washington, DC: World Bank. CC BY 3.0 IGO. https://www.worldbank.org/en/publication/dptr2025-ai-foundations/report",
+      "required_adaptation_disclaimer": "这是对世界银行原著作的改编。本改编作品中的观点和看法完全是改编者的责任，世界银行对改编内容不表示认可。",
+      "third_party_content_limitations": "The report license does not automatically cover third-party materials. Only paraphrased narrative facts are used; no charts, tables, or media are included.",
+      "source_pdf_included": false,
+      "edition_note": "The Chinese PDF explicitly identifies itself as an overview of the 2025 report.",
+      "v2_source_file_audit_status": "pending_blind_second_pass",
+      "active_v2_record_count": 71,
+      "publishing_institution_entities": [
+        "World Bank"
+      ]
     }
-  ],
-  "dataset_version": "1.2.0",
-  "record_level_license_policy": "Mixed record-level licensing. Every record identifies its record license, source license, attribution, adaptation/translation notices, and third-party limitations. No single license applies to the complete package; CC BY-SA 3.0 IGO adaptations are released under the same terms."
+  ]
 }

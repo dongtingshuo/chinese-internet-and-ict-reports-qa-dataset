@@ -1,15 +1,22 @@
-# Split Policy
+# Split Policy — v2.0.0
 
-Version 1.2.0 retains the v1.0.0 and v1.1.0 records and split assignments unchanged. The 60 v1.2.0 records are grouped by report family and evidence-connected group. Every source, report family, and connected group is assigned to one split only.
+## v2 source-family assignments
 
-| Split | v1.0.0 retained | v1.1.0 additions | v1.2.0 additions | Total |
-|---|---:|---:|---:|---:|
-| TRAIN | 354 | 183 | 42 | 579 |
-| DEV | 75 | 44 | 9 | 128 |
-| TEST | 77 | 40 | 9 | 126 |
+New report families were assigned before question drafting:
 
-Each v1.2.0 task type has the same allocation: TRAIN 14, DEV 3, TEST 3. This places no-answer, cross-document, and table/figure candidates in TEST while preserving source and evidence-group isolation. Cross-document sources are kept together in one split.
+| Source family | Split |
+|---|---|
+| UNESCO AI and education policy guide (2021, Chinese) | TRAIN |
+| UNESCO GEM 2023 technology summary (Chinese) | TRAIN |
+| AREE Traditional Chinese translation of UNESCO GenAI guidance | DEV |
+| FAO digital agriculture briefing (2019, Chinese) | TEST |
 
-The assignment happened after annotation. It is not prospective, preregistered, or a blind holdout; prior system exposure was not audited. The package has 21 unanswerable records overall: one retained legacy record and 20 new candidate records. The 20 new candidates include their report/page search scope and nearby evidence but have not received independent human adjudication.
+The six cross-document items combine only the two TRAIN UNESCO sources. Connected groups and source families remain within one split. The 60 new rows are distributed 42/9/9.
 
-See `split_assignments.jsonl` for the record-level audit. The original v1.0.0 and v1.1.0 assignment prefixes are preserved byte-for-byte.
+## Historical assignments
+
+The 327 retained v1.1/v1.2 rows keep their prior IDs and split values. Those splits were assigned after annotation. They are historical partitions, not prospective blind holdouts. Historical rows do not enter the v2 recommended subset until the v2 source and answer review is complete.
+
+## Integrity checks
+
+The validator checks family, source, and connected-group isolation; active and recommended row counts; and exact preservation of the historical 327 records' question, answer, facts, evidence, source IDs, and split.

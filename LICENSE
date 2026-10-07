@@ -1,9 +1,5 @@
-Mixed record-level license notice for v1.2.0
+This package has mixed record-level licenses. No single license applies to the entire repository.
 
-No single license applies to every record in this package. The canonical license, attribution, adaptation, translation, and source-specific obligations are carried by each row's `publication_rights` and `source_refs`, and documented in LICENSES.md and ATTRIBUTION.md.
+For active records, follow each record's publication_rights and the matching entry in sources.json. See LICENSES.md, LICENSE_STATUS.md, and ATTRIBUTION.md for a summary.
 
-- The 506 retained v1.0.0 records and seven v1.2.0 ILO executive-summary adaptations use CC BY 4.0. The license text is in LICENSE-CC-BY-4.0.txt.
-- The 267 v1.1.0 records and 50 v1.2.0 adaptations use CC BY 3.0 IGO, subject to each source's attribution and disclaimer requirements.
-- Three v1.2.0 UNESCO toolkit adaptations use CC BY-SA 3.0 IGO at the record level, with attribution and source-specific notices.
-
-Original reports, third-party material, and source PDFs are not included and are outside these record licenses. The source hashes are provenance metadata, not permission to redistribute source files.
+The exact v1.2.0 historical archive is retained under history/v1.2.0/. Its files keep their historical notices. The 506 CAICT legacy rows in that archive are excluded from active v2 because source-level adaptation and redistribution permission was not established.

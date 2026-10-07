@@ -1,41 +1,36 @@
-# Data Card
+# Data Card — v2.0.0
 
-## Identity
+## Dataset description
 
-- Dataset: Chinese Internet and ICT Reports QA Dataset
-- Version: 1.2.0 (2026-10-06)
-- Records: 833; 60 added in this release
-- Sources: 25 public institutional reports
-- Language: Chinese
-- Splits: TRAIN 579 / DEV 128 / TEST 126
-- Question types added: 20 unanswerable, 20 cross-document, 20 table/figure
-- License: mixed record-level terms; see `LICENSES.md`
-- Independent human review: not claimed
+A Chinese-language, source-grounded question-answer candidate dataset about Internet, ICT, education technology, labor platforms, and digital agriculture reports. The canonical set is 387 active rows. A 60-row AI-assisted source-reconstructed subset is recommended for exploratory evaluation; it is not human verified and is not a gold benchmark.
 
-## Intended use
+## Contents and composition
 
-Research and prototyping for source-grounded document retrieval and question answering, no-answer detection, cross-document synthesis, table/figure reasoning, evidence localization, and split-safe evaluation. No model-performance results are included.
+- 327 historical v1.1/v1.2 licensed-source records, retained as candidates pending v2 review and excluded from the recommended subset.
+- 60 new records across four Chinese report documents and four new source families.
+- 15 source documents are registered across seven consolidated publishing institutions; four are new in v2.0.0, while five historical source files await revalidation.
+- Recommended task families: single-document retrieval, numeric retrieval, within-document synthesis, and cross-document synthesis.
+- Recommended splits: TRAIN 42, DEV 9, TEST 9.
+- All 60 recommended rows are answerable. Historical rows include answerable and unanswerable items, but remain pending v2 review.
 
-## Construction and annotation
+Targets of 2,000 records, 60 reports, and 10 publishing institutions were not met. The active set excludes the 506 CAICT legacy rows because source adaptation and redistribution rights were not established. The exact v1.2.0 package remains in the historical snapshot and migration ledger.
 
-The 506 v1.0.0 and 267 v1.1.0 records, IDs, and split assignments are preserved. The 60 v1.2.0 additions reuse eligible licensed reports and add three source records: an ILO Chinese executive summary (CC BY 4.0), a Chinese UNESCO IITE/Shanghai Open University toolkit (CC BY-SA 3.0 IGO), and an ILO Chinese translation (CC BY 3.0 IGO). Each source has an official link, exact source PDF SHA-256, page count, license notice location, attribution, adaptation/translation notice, and third-party content limits in `sources.json`.
+## Data creation
 
-The additions comprise 20 no-answer candidates with search scope and near-miss evidence, 20 cross-document questions supported by at least two sources, and 20 table/figure questions with physical PDF page locators and an explicit visual dependency. All were drafted and checked with AI assistance. Every new row is marked `human_reviewed: false`; independent human double annotation or adjudication is not claimed. The package contains no source PDFs, source page images, screenshots, extracted page text, copied long passages, or source media.
+New question and answer candidates were created with AI assistance from four Chinese source documents. New family splits were assigned before question drafting. An answer-only-free review packet was used to reconstruct answers and evidence from the source PDFs. The same active AI session drafted and checked the new items; the work is not independent human annotation and does not establish cognitive blindness. Model label: GPT-6 (Codex; exact deployment identifier not exposed). Prompt and source file hashes are recorded under `audit/` and in each record.
 
-## Split
+## Source and evidence
 
-The v1.0.0 and v1.1.0 rows and assignments remain byte-identical. Additions are TRAIN 42 / DEV 9 / TEST 9, with each new task type allocated TRAIN 14 / DEV 3 / TEST 3. Sources, report families, and connected evidence groups are kept within one split. Assignment happened after questions were created; it is not a prospective blind holdout, and prior system exposure was not audited.
+Evidence locators identify physical, 1-based PDF pages and a narrative text region. The package excludes source passages, figures, tables, images, and PDFs. Where source licenses limit rights to text, only paraphrased narrative facts are used. Source metadata records translation status, license page and hash, required attribution, adaptation notice, and third-party limits.
 
-## Licensing and attribution
+## License
 
-The package is not governed by one license across all rows. Totals by record-level license are 513 CC BY 4.0, 317 CC BY 3.0 IGO, and 3 CC BY-SA 3.0 IGO. The three ShareAlike adaptations are individually released under CC BY-SA 3.0 IGO. Each row's `publication_rights`, `source_refs`, and `sources.json` entry identify the applicable source terms. Retain the source citation, license link, adaptation notice, translation notice where applicable, and any institution-specific disclaimer. Hugging Face metadata uses `license: other` to reflect the mixed scope.
+Mixed record-level terms apply. No single repository-wide license is asserted. New recommended rows include CC BY-SA 3.0 IGO and CC BY-NC-SA 3.0 IGO records. See `LICENSES.md`, `LICENSE_STATUS.md`, `ATTRIBUTION.md`, and `sources.json`.
 
-Original reports and third-party media remain outside the package license. The UNESCO source contains third-party imagery; only toolkit-authored scoring tables were used as evidence and no table contents or images are reproduced.
+## Review and intended use
+
+Use as a candidate corpus for QA, evidence retrieval, source-grounding, and document understanding research. Review statuses must be retained during use. The new subset has AI source reconstruction but no human review. Historical rows require further source-file and answer-blind review. The historical splits were assigned after annotation; they are not prospective blind holdouts. Prior system exposure has not been audited.
 
 ## Limitations
 
-- Purposive collection; not representative of all Internet and ICT reports.
-- New candidates have not received independent human adjudication.
-- No-answer labels reflect the recorded report and page scope, not all possible external information.
-- Post-annotation split; no prospective blind holdout or prior-system-exposure audit is claimed.
-- No formal privacy audit or model-performance evaluation is included.
+The release is far below its expansion targets. Report coverage is concentrated in seven consolidated publishers and education-related sources. No independent human audit, gold-label claim, RAG baseline, or model-performance result is included. Some historical source files require revalidation, and all 327 historical candidates remain outside the recommended subset.
