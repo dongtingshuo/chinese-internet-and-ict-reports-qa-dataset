@@ -635,7 +635,7 @@
   "prior_system_exposure_audit": "not_performed",
   "model_performance_results_included": false,
   "remote_viewer_verified": false,
-  "remote_payload_fingerprint": "c0805bd14843a0fe93b5dc6037fc0b643d1041ecc1ba01419288e32fc5439c4f",
+  "remote_payload_fingerprint": "4cedc9df80a042b877353c2f06bcbcc45bb3f0e19c14e4318ea71706f441ee0c",
   "remote_hf_viewer_verification": null,
   "duplicate_checks": {
     "exact_question_duplicates": 0,
