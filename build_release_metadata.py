@@ -14,7 +14,9 @@ VERSION = "2.1.0"
 VALIDATED_ON = "2026-10-07"
 DYNAMIC_FILES = {"VALIDATION_REPORT.json", "manifest.json", "SHA256SUMS"}
 IGNORED_PARTS = {".git", "__pycache__"}
-IGNORED_NAMES = {".DS_Store"}
+# Finder/iCloud left this untracked conflict copy beside the active validator;
+# it is preserved locally but is not part of the repository release payload.
+IGNORED_NAMES = {".DS_Store", "validate_v2_package 2.py"}
 
 
 def sha_bytes(payload: bytes) -> str:

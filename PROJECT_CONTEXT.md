@@ -42,7 +42,7 @@ Maintain the Chinese Internet and ICT Reports QA Dataset as a standalone, source
 - The 542-draft ledger records 508 included, 20 deferred without completed reconstruction audit, 6 rejected for invalid labels, and 8 excluded as near duplicates. Exact and near-duplicate checks at the 0.82 threshold report zero collisions among active records.
 - Table evidence uses physical PDF page numbers plus table IDs and row/column or footnote details. A locator audit corrected the standard-definition rationale question to cite physical page 13 and the related terminology table on page 20.
 - Per-record licenses and source obligations remain mixed; there is no repository-wide license. The 1,107 sentence-cloze rows remain pending content and third-party attribution review; the 833 older historical rows retain prior review statuses and have not received v2.1 answer-blind reconstruction.
-- Local package validation passes with zero findings; Viewer files match canonical split counts and SHA256SUMS verifies. No source PDFs/media/full extracted text are in the package. GitHub and Hugging Face v2.1 synchronization and remote Viewer verification are the remaining release steps.
+- Local package validation passes with zero findings; Viewer files match canonical split counts and SHA256SUMS verifies. No source PDFs/media/full extracted text are in the package. GitHub `main` has v2.1 release commit `608d278`. At the latest Hub hash check, all 101 tracked release files matched the local package at revision `bad5a5fb2569280aae605cdb0da65a985db1156c`; the Hub also has one pre-existing extra `.gitattributes` file. Dataset Viewer endpoints currently return a server-busy/HTTP 500 response, so live Viewer row counts remain unverified.
 
 ## Release procedure
 
@@ -54,7 +54,7 @@ Maintain the Chinese Internet and ICT Reports QA Dataset as a standalone, source
 
 ## Prioritized TODOs
 
-1. Push v2.1.0 to GitHub and Hugging Face; verify remote package hashes and Dataset Viewer counts.
+1. Retry Hugging Face Dataset Viewer verification after processing recovers; confirm all six config/split counts before marking the Viewer gate complete.
 2. Complete content and third-party attribution review of the 1,107 sentence-cloze candidates while keeping their status visible.
 3. Complete v2 answer-blind reconstruction for the 833 historical rows and revalidate sources whose status is pending.
 4. Continue balancing complex question types only with source-supported records and verified rights.

@@ -1288,8 +1288,8 @@
     },
     {
       "path": "PROJECT_CONTEXT.md",
-      "bytes": 6112,
-      "sha256": "4eca37567dfa834d0989ac637e5e558d2c4d9c3bd5402bfd6e74edf39112c844"
+      "bytes": 6432,
+      "sha256": "96af0fd7edcbc8c2d1ba7f5122c4479479b80a780428a9086df1884248673d92"
     },
     {
       "path": "README.md",
@@ -1309,7 +1309,7 @@
     {
       "path": "VALIDATION_REPORT.json",
       "bytes": 51465,
-      "sha256": "4a49f059bf03580901ac18728086074a3f66f94a138167cd1cc9e8e6b9c11b66"
+      "sha256": "deaf4a1ee2e1092f2a7f067d82eb922896518e8fc9a6010b71f19f05ad096d46"
     },
     {
       "path": "audit/v2_1_all_candidate_questions.jsonl",
@@ -1388,8 +1388,8 @@
     },
     {
       "path": "build_release_metadata.py",
-      "bytes": 12760,
-      "sha256": "8853aeddd707d3345ebc909c41922278870fae7fe1a2b38bead8e5a4b60610a3"
+      "bytes": 12944,
+      "sha256": "5364164e4b89f8da7dd4d8b2b9c691596b0cec0a301187b75de3b8ce0f98996e"
     },
     {
       "path": "build_v2_1_package.py",
