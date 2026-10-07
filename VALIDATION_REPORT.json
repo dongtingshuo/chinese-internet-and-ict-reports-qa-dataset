@@ -635,8 +635,59 @@
   "prior_system_exposure_audit": "not_performed",
   "model_performance_results_included": false,
   "remote_viewer_verified": false,
-  "remote_payload_fingerprint": "4cedc9df80a042b877353c2f06bcbcc45bb3f0e19c14e4318ea71706f441ee0c",
-  "remote_hf_viewer_verification": null,
+  "remote_payload_fingerprint": "c1c93bd4c2eee90db9082afdce26fcdd4d4307a22c6e6e76bc6a5dd4ad65a9a0",
+  "remote_hf_viewer_verification": {
+    "verified_on": "2026-10-07",
+    "dataset_repo_revision": "f76514cfc3cdaa0f97fb6f78e6fcf4d7dba8cdac",
+    "dataset_payload_files_match": true,
+    "matched_sha256sum_entries": 65,
+    "unexpected_remote_files": [
+      ".gitattributes"
+    ],
+    "dataset_viewer_verified": false,
+    "viewer_endpoints_at_latest_check": {
+      "is-valid": 500,
+      "splits": 500,
+      "parquet": 500,
+      "size": 500
+    },
+    "viewer_last_successful_response_at_previous_revision": {
+      "revision": "7c02750a0580574147cca00bf42667136569a4e4",
+      "is-valid": {
+        "http": 200,
+        "preview": false,
+        "viewer": false
+      },
+      "splits": {
+        "http": 200,
+        "split_names": 6,
+        "counts_available": false
+      },
+      "parquet": {
+        "http": 200,
+        "pending_configs": [
+          "candidates",
+          "recommended"
+        ],
+        "failed": []
+      },
+      "size": {
+        "http": 200,
+        "pending_configs": [
+          "candidates",
+          "recommended"
+        ],
+        "num_rows": 0,
+        "counts_available": false
+      }
+    },
+    "control_dataset": {
+      "id": "stanfordnlp/imdb",
+      "is-valid_http": 200,
+      "splits_http": 200
+    },
+    "viewer_counts_verified": false
+  },
   "duplicate_checks": {
     "exact_question_duplicates": 0,
     "near_duplicate_pairs_at_or_above_0_82": 0
@@ -658,11 +709,11 @@
     "generation_script_hashes_match": true,
     "candidate_and_recommended_viewer_files_match": true,
     "no_report_pdf_or_media_in_package": true,
-    "remote_dataset_payload_hashes_match": false
+    "remote_dataset_payload_hashes_match": true
   },
   "pending_gates": [
     "The 833 historical rows are included in the recommended subset per dataset-owner instruction, but their v2 content and answer-blind review remains pending; recommendation does not imply human review or gold status.",
     "The 1,107 rule-generated cloze candidates remain pending content and third-party attribution review; they are included in recommended per dataset-owner instruction.",
-    "The unified payload must be synchronized to Hugging Face and its data-payload hashes and Viewer counts verified."
+    "The Hugging Face Dataset Viewer counts are not verified; the current data-payload file hashes match the recorded Hub revision."
   ]
 }

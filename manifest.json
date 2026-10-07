@@ -812,8 +812,8 @@
     },
     {
       "path": "PROJECT_CONTEXT.md",
-      "bytes": 7354,
-      "sha256": "ed90e9a834c93f368b4b8b0a95600fd4a17f33a490aeef6fbb41d0412a45fc2c"
+      "bytes": 7347,
+      "sha256": "5422067ac5e7dd0bb44641a608dc7f6d61acc81ec6a13e43e6bd0668a0a7f1d9"
     },
     {
       "path": "README.md",
@@ -832,8 +832,8 @@
     },
     {
       "path": "VALIDATION_REPORT.json",
-      "bytes": 30126,
-      "sha256": "1700adc5c25e1a4c8abd7108044516495227299322ec8b99456f01b1c4115127"
+      "bytes": 31398,
+      "sha256": "2ae1f243c52854bf810157a973c69cde03d06ce1d8c94e5b42baa60d0af44471"
     },
     {
       "path": "audit/v2_answer_blind_reconstruction.jsonl",
