@@ -112,7 +112,28 @@
   "prior_system_exposure_audit": "not_performed",
   "model_performance_results_included": false,
   "remote_viewer_verified": false,
-  "remote_hf_viewer_verification": null,
+  "remote_hf_viewer_verification": {
+    "status": "viewer_api_pending",
+    "hub_revision": "279480c9a61707f9be29aec701cfce30763695f6",
+    "checked_on": "2026-10-07",
+    "local_file_count": 63,
+    "remote_file_count_excluding_preexisting_gitattributes": 63,
+    "preexisting_remote_files": [
+      ".gitattributes"
+    ],
+    "all_local_files_match": true,
+    "comparison": "remote Git blob OIDs and file sizes match all local package files",
+    "obsolete_v1_2_root_viewer_files_absent": true,
+    "viewer_api": {
+      "is-valid": 500,
+      "splits": 500,
+      "parquet": 500,
+      "message": "The server is busier than usual and the response is not ready yet. Please retry later."
+    },
+    "control_dataset": "stanfordnlp/imdb",
+    "control_splits_http_status": 200,
+    "viewer_split_counts_verified": false
+  },
   "duplicate_checks": {
     "exact_question_duplicates": 0,
     "near_duplicate_pairs_at_or_above_0_82": 0
@@ -130,10 +151,11 @@
     "migration_ledger_covers_833_rows": true,
     "exact_and_near_duplicate_checks": true,
     "candidate_and_recommended_viewer_files_match": true,
-    "no_report_pdf_or_media_in_package": true
+    "no_report_pdf_or_media_in_package": true,
+    "remote_file_inventory_and_blob_hashes_match": true
   },
   "pending_gates": [
     "Revalidate sources and complete v2 answer-blind reconstruction for all 327 historical candidates before recommending any of them.",
-    "Hugging Face Viewer processing and remote file verification are pending publication."
+    "Hugging Face Dataset Viewer endpoints are returning HTTP 500; remote file hashes match, but Viewer split counts remain unverified."
   ]
 }

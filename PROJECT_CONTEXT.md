@@ -38,8 +38,8 @@ Maintain the public Chinese Internet and ICT Reports QA Dataset as a source-grou
 - New records use UNESCO AI education guidance, UNESCO GEM 2023 Chinese summary, an AREE Traditional Chinese translation of UNESCO GenAI guidance, and FAO's Chinese digital-agriculture briefing. New split counts are TRAIN/DEV/TEST = 42/9/9; new report families were assigned before question drafting.
 - The new set is AI-reconstructed from cited physical PDF pages, with answer values excluded from the question-only review packet. The same active AI session drafted and checked the set; independent review is not claimed. The 60 records are candidate annotations, not human-verified gold data.
 - Historical candidates are not recommended for evaluation until their v2 source/hash and answer-blind checks are complete. Some source files remain pending revalidation.
-- Hugging Face package upload completed at commit `e9d446ddc6c9e0cde902ce5e82da17a85bfd037b`; local and remote hashes match for the manifest, canonical records, assignments, bilingual READMEs, and all six Viewer split files. Obsolete root-level v1.2 Viewer files were removed from the Hub.
-- Hugging Face Dataset Viewer endpoints currently return a transient “server is busier than usual” HTTP 500; remote Viewer counts are not yet verified.
+- Hugging Face package upload completed; the current Hub revision is `279480c9a61707f9be29aec701cfce30763695f6`. Remote Git blob IDs and file sizes match all 63 local files; the only extra remote file is the pre-existing `.gitattributes`. Obsolete root-level v1.2 Viewer files were removed.
+- Hugging Face Dataset Viewer `/is-valid`, `/splits`, and `/parquet` endpoints currently return HTTP 500 (“server is busier than usual”); the same `/splits` endpoint works for a control dataset. Viewer counts are not verified, so the `v2.0.0` tag remains pending.
 - The v2.0.0 candidate package was pushed directly to GitHub `main` in commit `0180fde`. The version tag is intentionally pending successful Viewer verification.
 
 ## Quality and licensing decisions

@@ -67,11 +67,12 @@ report={
    'v1_2_snapshot_hashes_unchanged':True,'new_family_and_group_split_isolation':True,
    'question_only_packet_excludes_answer_fields':True,'migration_ledger_covers_833_rows':True,
    'exact_and_near_duplicate_checks':True,'candidate_and_recommended_viewer_files_match':True,
-   'no_report_pdf_or_media_in_package':True},
+   'no_report_pdf_or_media_in_package':True,
+   'remote_file_inventory_and_blob_hashes_match':bool(remote_hf_viewer_verification and remote_hf_viewer_verification.get('all_local_files_match') is True)},
  'pending_gates':['Revalidate sources and complete v2 answer-blind reconstruction for all 327 historical candidates before recommending any of them.']
 }
 if not remote_viewer_verified:
- report['pending_gates'].append('Hugging Face Viewer processing and remote file verification are pending publication.')
+ report['pending_gates'].append('Hugging Face Dataset Viewer endpoints are returning HTTP 500; remote file hashes match, but Viewer split counts remain unverified.')
 (ROOT/'VALIDATION_REPORT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 files=clean_files()
 manifest={
