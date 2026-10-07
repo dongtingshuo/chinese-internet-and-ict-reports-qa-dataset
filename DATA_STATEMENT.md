@@ -1,31 +1,29 @@
-# Data Statement — v2.0.0
+# Data Statement — v2.1.0
 
 ## Motivation and scope
 
-The dataset supports research on Chinese question answering over Internet, ICT, education technology, health information systems, labor, and digital agriculture reports. The unified corpus has 2,000 rows: all 833 v1.2.0 records plus 1,167 new candidates. It contains questions, candidate answers, required-fact summaries, physical PDF page locators, split metadata, and record-level rights information.
+The dataset supports research on Chinese question answering over Internet, ICT, education technology, health information systems, labor, and digital agriculture reports. The unified corpus has 2,508 rows: all 2,000 v2.0.0 records plus 508 new non-cloze, source-reconstructed QA records. It contains questions, candidate answers, required-fact summaries, physical PDF page locators, split metadata, and per-record rights information.
 
 ## Language and sources
 
-The 1,107 latest additions use text extracted from 32 Chinese-language PDFs published by ITU and WHO. The remaining new candidates use the source editions documented in `sources.json`. The dataset does not translate English reports itself. Source titles, languages, translation provenance, official links, hashes, and license notices are listed by source ID.
+The v2.1 additions use official Chinese-language reports or official Chinese editions already listed in `sources.json`; the dataset does not translate English reports. The new items add no report documents and include no source PDFs, media, or long passages. Source titles, official links, hashes, language/translation provenance, and licensing obligations are registered by source ID.
 
 ## Annotation and review
 
-The 1,107 additions are rule-generated sentence clozes: each question embeds one short source sentence with a value, term, or clause masked. The answer was available to the deterministic generation process. There was no per-row LLM inference, answer-blind reconstruction, or independent human review. Each row is marked `pending_ai_content_verification` and carries its source sentence hash, physical page, source PDF hash, generation method, and script hash.
+The 508 v2.1 additions were checked from question-only packets against the cited source PDFs. The audit stores the reconstructed answers, required facts, physical PDF pages, and source hashes. The same active AI session drafted and checked the questions; there was no independent human review. The 20 unaudited drafts, six invalid-label candidates, and eight near duplicates were not released.
 
-The other 60 new candidates were checked with an answer-free source reconstruction in the same AI-assisted session that drafted them; this is not independent review. The 833 historical rows retain their existing IDs, content, evidence, and splits. Their v2 answer-blind review is pending, as is revalidation for some historical source files. The dataset owner directed that all 2,000 rows remain in `recommended`; users should treat the review status as authoritative.
+Table-based evidence includes a compact locator for the table identifier and applicable row/column labels or footnote marker. It does not include the table or its image.
 
-No human review, independent annotation, or corpus-wide gold status is claimed.
+The 1,107 v2.0 additions remain rule-generated sentence clozes with the answer visible to the masking process; they are still pending content verification and third-party attribution screening. The 833 historical records retain their earlier statuses. All rows remain in `recommended` per dataset-owner instruction, which does not imply that they are verified or gold.
 
 ## Rights and redistribution
 
-Licensing is mixed by record. The 1,107 cloze rows adapt short sentence excerpts from ITU and WHO reports with CC BY-NC-SA 3.0 IGO notices. Their exact source attribution, license link, adaptation notice, noncommercial and ShareAlike obligations are carried in each record. Third-party attribution screening remains pending for those candidates. No source PDFs or media are redistributed.
-
-The 506 legacy CAICT QA records retain their prior CC BY 4.0 record license and source attribution. The dataset owner confirmed authorization to republish those QA records; the underlying CAICT report license is not asserted. See `LICENSES.md`, `LICENSE_STATUS.md`, `ATTRIBUTION.md`, and per-record `publication_rights`.
+Licensing is mixed by record. Preserve each row's `publication_rights`, its source attribution, and adaptation/translation notices. The v2.1 records are concise paraphrases and contain no report PDF or media. The 1,107 cloze rows retain short source sentence excerpts under their row-level terms. The 506 legacy CAICT QA records retain their prior record license based on the dataset owner's authorization confirmation; this does not assert a license for the underlying reports.
 
 ## Splits and prior exposure
 
-The 1,167 new rows follow source-family assignments made before drafting; same-source items stay in one split. The 833 historical splits were assigned after annotation and retain their original values. The combined split counts are 1,377/300/323 for TRAIN/DEV/TEST. No blind-holdout claim is made; prior system exposure has not been audited.
+The v2.1 records inherit source-family assignments made before v2.0.0 question drafting; linked reports and evidence groups remain in one split. Their TRAIN/DEV/TEST counts are 304/97/107. The full corpus counts are 1,681/397/430. The exact v2.0.0 rows and assignments remain unchanged. Historical splits were assigned after annotation and are not blind holdouts; prior system exposure has not been audited.
 
 ## Intended and out-of-scope use
 
-The corpus is intended for exploratory source-grounded QA and retrieval research. Most of the latest 1,107 additions are sentence-completion items; they should not be treated as a balanced complex-reasoning evaluation set. The package has no model baselines or performance claims and is not a human-verified gold benchmark.
+The corpus is intended for exploratory source-grounded QA and retrieval research. It is not a human-reviewed gold benchmark. No retrieval baseline or model-performance result is included.

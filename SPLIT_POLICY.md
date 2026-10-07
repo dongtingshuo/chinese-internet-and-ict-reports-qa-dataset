@@ -1,21 +1,22 @@
-# Split Policy — v2.0.0
+# Split Policy — v2.1.0
 
-## New source-family assignments
+## v2.1 source-family assignments
 
-All 1,167 new rows follow source-family assignments made before drafting. Every source and connected group is restricted to one split. The exact source-family mapping is in `audit/v2_split_manifest.json` and `split_assignments.jsonl`.
+The 508 v2.1 additions inherit source-family assignments established before v2.0.0 question drafting. Cross-document items share the split assigned to their linked source family, and every source/evidence-connected group stays within one split. The mapping is recorded in `audit/v2_1_split_manifest.json` and `split_assignments.jsonl`.
 
-| Split | Unified records | Recommended records |
-|---|---:|---:|
-| TRAIN | 1,377 | 1,377 |
-| DEV | 300 | 300 |
-| TEST | 323 | 323 |
+| Split | v2.1 additions | Unified records | Recommended records |
+|---|---:|---:|---:|
+| TRAIN | 304 | 1,681 | 1,681 |
+| DEV | 97 | 397 | 397 |
+| TEST | 107 | 430 | 430 |
+| **Total** | **508** | **2,508** | **2,508** |
 
-This is approximately 68.9%/15.0%/16.2% overall. Source-family constraints take precedence over exact proportions.
+The v2.1 additions follow inherited report-family constraints rather than independently rebalancing source documents. The original 2,000 v2.0.0 assignments remain byte-for-byte unchanged.
 
 ## Historical assignments
 
-All 833 v1.2.0 records retain their original IDs and split values. Those splits were assigned after annotation; they are historical partitions, not prospective blind holdouts. The archive under `history/v1.2.0/` preserves the original package and its hashes. All historical records remain in the unified recommended subset by dataset-owner instruction.
+The v2.0.0 corpus retains all 833 v1.2.0 records and all subsequent v2.0.0 rows with their original IDs and split values. Historical splits were assigned after annotation; they are not prospective blind holdouts. Immutable v1.2.0 and v2.0.0 packages are kept under `history/`.
 
 ## Integrity checks
 
-`validate_v2_package.py` checks unique IDs, assignment coverage, same-split source/family/connected groups, row and recommended counts, exact preservation of historical question/answer/fact/evidence/source/split fields, and the frozen v1.2.0 hashes. It also verifies each pending cloze's sentence hash after restoring the masked answer and checks the Viewer split files against the canonical records.
+`validate_v2_package.py` checks assignment coverage, source/family/connected-group isolation, all 2,000 v2.0.0 rows and assignments against the frozen v2.0.0 snapshot, v2.1 audit alignment and evidence coverage, split Viewer files, licensing metadata, duplicate questions, and package integrity.

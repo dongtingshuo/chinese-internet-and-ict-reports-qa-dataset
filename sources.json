@@ -1,11 +1,11 @@
 {
-  "schema_version": "iicr_source_registry_v2_0",
-  "dataset_version": "2.0.0",
+  "schema_version": "iicr_source_registry_v2_1",
+  "dataset_version": "2.1.0",
   "source_count": 61,
   "record_level_license_policy": "The package contains record-level mixed licenses. Source licenses and attribution/adaptation/translation duties are stated where established. For legacy CAICT rows, the dataset-owner authorization confirmation applies to the QA records; no license is asserted for the source reports. No single license applies to all records.",
   "long_source_passage_or_media_included": false,
   "source_sentence_cloze_excerpts_included": true,
-  "review_provenance": "The 32 added source PDFs and rights pages were checked for this release. The 1,107 cloze candidates have not had answer-blind content or third-party attribution review and remain marked pending; the dataset owner directed that pending items remain recommended. Authorization to republish legacy CAICT QA records was confirmed separately.",
+  "review_provenance": "The 508 v2.1 records use answer-blind AI reconstruction against official Chinese source editions already registered and licensed in v2.0.0. Twenty additional drafts were deferred because no completed reconstruction audit was present; six invalid-label drafts and eight near duplicates were excluded. No independent human review is claimed. The 1,107 v2.0.0 sentence-cloze records remain pending content and third-party attribution review and remain in recommended per owner instruction.",
   "sources": [
     {
       "source_id": "ADB2018-CITIES",
@@ -44,7 +44,9 @@
       "active_v2_record_count": 20,
       "publishing_institution_entities": [
         "Asian Development Bank"
-      ]
+      ],
+      "v2_0_record_count": 20,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "ADB2023-YOUTH",
@@ -83,7 +85,9 @@
       "active_v2_record_count": 19,
       "publishing_institution_entities": [
         "Asian Development Bank"
-      ]
+      ],
+      "v2_0_record_count": 19,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -142,7 +146,9 @@
       "active_v2_record_count": 79,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 79,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -201,7 +207,9 @@
       "active_v2_record_count": 59,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 59,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -260,7 +268,9 @@
       "active_v2_record_count": 44,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 44,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -319,7 +329,9 @@
       "active_v2_record_count": 34,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 34,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -378,7 +390,9 @@
       "active_v2_record_count": 24,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 24,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -437,7 +451,9 @@
       "active_v2_record_count": 33,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 33,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -497,7 +513,9 @@
       "active_v2_record_count": 36,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 36,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -556,7 +574,9 @@
       "active_v2_record_count": 32,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 32,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -615,7 +635,9 @@
       "active_v2_record_count": 31,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 31,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -674,7 +696,9 @@
       "active_v2_record_count": 34,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 34,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -735,7 +759,9 @@
       "active_v2_record_count": 25,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 25,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -794,7 +820,9 @@
       "active_v2_record_count": 39,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 39,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -853,7 +881,9 @@
       "active_v2_record_count": 36,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 36,
+      "v2_1_added_record_count": 0
     },
     {
       "copyright_notice": {
@@ -912,7 +942,9 @@
       "active_v2_record_count": 79,
       "publishing_institution_entities": [
         "CAICT"
-      ]
+      ],
+      "v2_0_record_count": 79,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "FAO-DIGITAL-AGRI-2019-ZH-BRIEF",
@@ -953,7 +985,9 @@
       "publishing_institution_entities": [
         "FAO"
       ],
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 9,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "ILO2020-PLATFORM",
@@ -992,7 +1026,9 @@
       "active_v2_record_count": 57,
       "publishing_institution_entities": [
         "International Labour Organization"
-      ]
+      ],
+      "v2_0_record_count": 57,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "ILO2021-EMPLOYMENT-RELATIONSHIP",
@@ -1031,7 +1067,9 @@
       "active_v2_record_count": 4,
       "publishing_institution_entities": [
         "International Labour Organization"
-      ]
+      ],
+      "v2_0_record_count": 4,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "ILO2021-PLATFORM",
@@ -1070,7 +1108,9 @@
       "active_v2_record_count": 48,
       "publishing_institution_entities": [
         "International Labour Organization"
-      ]
+      ],
+      "v2_0_record_count": 48,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "ILO2026-LIFELONG-SKILLS",
@@ -1109,13 +1149,14 @@
       "active_v2_record_count": 7,
       "publishing_institution_entities": [
         "International Labour Organization"
-      ]
+      ],
+      "v2_0_record_count": 7,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "ITU-SG01-Q01-2021",
       "source_family_id": "v2-itu-sg01-q01",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1155,14 +1196,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "98eb769841b8a1fbc9c325b3abe652d2a70027fe54fdb196559232d37aad995a",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 47,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 10,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q01-2025",
       "source_family_id": "v2-itu-sg01-q01",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1202,14 +1245,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "3c4983029b4b4bf3f3887872611d01e3447baa00b7d5b6dd44e0d86a031eff84",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 67,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 30,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q02-2025",
       "source_family_id": "v2-itu-sg01-q02",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1249,14 +1294,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "ab38830b5577f2bb4f2af03e1e95533abccccfeb62a98f708acaedc1ca9bccaf",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 47,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 10,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q03-2021",
       "source_family_id": "v2-itu-sg01-q03",
       "preassigned_split": "TEST",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1296,14 +1343,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "4bcf477571021d4521355080fa7983babc572e368be5e9088c3ff6a307d4c4c0",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 41,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 4,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q03-2025",
       "source_family_id": "v2-itu-sg01-q03",
       "preassigned_split": "TEST",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1343,14 +1392,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "53d05eeba8c4263de5eb2d62ae725f4171dd801f64ea058d01f6e07f31e884b2",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 53,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 16,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q04-2025",
       "source_family_id": "v2-itu-sg01-q04",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1390,14 +1441,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "5f0ba51ca091753c4256ad27f5b67b75370ff8fdf03807b5584a91e7746629b4",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 48,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 11,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q04-COST-MODEL-2021",
       "source_family_id": "v2-itu-sg01-q04",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1437,14 +1490,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "10771a5b23cafb64c7e8b6a3148c49469b62c5e32109c4f3788c753b038bab53",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 38,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 1,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q05-2021",
       "source_family_id": "v2-itu-sg01-q05",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1484,14 +1539,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "9adcf5697f21e367a352445aaba8360e03a127c66e91e891bc079c379256f1da",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 47,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 10,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q05-2025",
       "source_family_id": "v2-itu-sg01-q05",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1531,14 +1588,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "8023b05d34549e5a7b9db6791246c79ab67b392124593218c20b6b174579a95d",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 58,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 21,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q06-2021",
       "source_family_id": "v2-itu-sg01-q06",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1578,14 +1637,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "82b4dd6c8c27923066c176b41233898f9ea19f73ec29c0a087c94b9862f60496",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 44,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 7,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q06-2025",
       "source_family_id": "v2-itu-sg01-q06",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1625,14 +1686,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "3be0c09f3ff8ac802a74b0496e3d6ad0d5086282b4522f2781d04ee787f8de2c",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 49,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 12,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q07-2021",
       "source_family_id": "v2-itu-sg01-q07",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1672,14 +1735,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "a0abd703f91830561cd0e9435548e27a77794547ed7fe27aead1a87781a51618",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 47,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 10,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG01-Q07-2025",
       "source_family_id": "v2-itu-sg01-q07",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1719,14 +1784,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "e84a8848d5a9f65d4b25052f3e1da15913d3b033cfb21b5e23fe36792fdceee1",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 46,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 9,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q01-2021",
       "source_family_id": "v2-itu-sg02-q01",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1766,14 +1833,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "6e6c9f4bbfc8fb65f3fc35d77d98709ef85519c070b90ec74d19cb3e6421e08a",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 51,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 14,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q01-2025",
       "source_family_id": "v2-itu-sg02-q01",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1813,14 +1882,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "d98b1d1a188537b33a22cd3dc83937bdd517b54aa2a640ca12b348a96fe26b2b",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 52,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 15,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q02-2025",
       "source_family_id": "v2-itu-sg02-q02",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1860,14 +1931,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "5fa26dadde8ca6a8ec7e7cfaa4f4246fd35c7c3afe330a98e83b66bc337e4c84",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 57,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 20,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q03-2021",
       "source_family_id": "v2-itu-sg02-q03",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1907,14 +1980,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "dbc81afa6c9efe9a441eae34c099d54f11ddda4b3010f2a15b16c81e0fefb63e",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 58,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 21,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q03-2025",
       "source_family_id": "v2-itu-sg02-q03",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -1954,14 +2029,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "41378979b6b162a6442d8110e4dadff5e574acb16f9e4813d6c232378e6b3b20",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 57,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 20,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q04-2021",
       "source_family_id": "v2-itu-sg02-q04",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -2001,14 +2078,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "b4efa16005024f1e4f2d15adf5c1fcad3e5936b41556aa57e3c2c1884114799f",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 57,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 20,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q04-2025",
       "source_family_id": "v2-itu-sg02-q04",
       "preassigned_split": "TRAIN",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -2048,14 +2127,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "7c36f31a656be01c85257b3089ac2b9067f33d87b01df79aa833e6a541a38ed2",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 58,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 21,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q05-2021",
       "source_family_id": "v2-itu-sg02-q05",
       "preassigned_split": "TEST",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -2095,14 +2176,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "aa6347014c31020137b069f73886c6c37f3b4de9c098d59f8046b029359399fd",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 59,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 22,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q05-2025",
       "source_family_id": "v2-itu-sg02-q05",
       "preassigned_split": "TEST",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -2142,14 +2225,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "4fbb31a22748b53ada300a8bcecddccc30eb056968eaba1ad0158994d3691eff",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 59,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 22,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q06-2021",
       "source_family_id": "v2-itu-sg02-q06",
       "preassigned_split": "DEV",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -2189,14 +2274,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "7b67354d952d61ca095fa4c4a335205924d5cdbe076eb80e57722043fe0e6cae",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 57,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 20,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q06-2025",
       "source_family_id": "v2-itu-sg02-q06",
       "preassigned_split": "DEV",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -2236,14 +2323,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "9e95d5ad06ada658c072ebcbf9702ad334e1e92478407673fa0656edd451b5f0",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 57,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 20,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q07-2021",
       "source_family_id": "v2-itu-sg02-q07",
       "preassigned_split": "DEV",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -2283,14 +2372,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "97f7efa009141934d4d9276d66205e6d7b2eeb75d6d2033e3c3fd89bffd81908",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 60,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 23,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "ITU-SG02-Q07-2025",
       "source_family_id": "v2-itu-sg02-q07",
       "preassigned_split": "DEV",
-      "target_records": 37,
       "publication_institution": "International Telecommunication Union (ITU)",
       "publishing_institution_entities": [
         "ITU"
@@ -2330,8 +2421,11 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "19b17f6d458535335c086beff9d6cde7671b16dd91ed3cc6bc831f28ca737866",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 37,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 59,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 37,
+      "v2_1_added_record_count": 22,
+      "v2_0_planned_record_count": 37
     },
     {
       "source_id": "UNESCO-AI-EDU-POLICY-2021",
@@ -2372,7 +2466,9 @@
       "publishing_institution_entities": [
         "UNESCO"
       ],
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 24,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "UNESCO-GEM-TECH-2023-ZH-SUMMARY",
@@ -2413,7 +2509,9 @@
       "publishing_institution_entities": [
         "UNESCO"
       ],
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 24,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "UNESCO-GENAI-GUIDANCE-2023-ZH",
@@ -2454,7 +2552,9 @@
       "publishing_institution_entities": [
         "Taiwan Academic Research Ethics Education Center"
       ],
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_license_and_translation_notice"
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_license_and_translation_notice",
+      "v2_0_record_count": 9,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "UNESCO2023-DIGITAL-CITIZENSHIP",
@@ -2494,7 +2594,9 @@
       "publishing_institution_entities": [
         "UNESCO",
         "Shanghai Open University"
-      ]
+      ],
+      "v2_0_record_count": 3,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "WB2014-RURAL",
@@ -2532,7 +2634,9 @@
       "active_v2_record_count": 34,
       "publishing_institution_entities": [
         "World Bank"
-      ]
+      ],
+      "v2_0_record_count": 34,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "WB2016-DIGITAL",
@@ -2570,7 +2674,9 @@
       "active_v2_record_count": 34,
       "publishing_institution_entities": [
         "World Bank"
-      ]
+      ],
+      "v2_0_record_count": 34,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "WB2019-WORK",
@@ -2608,7 +2714,9 @@
       "active_v2_record_count": 50,
       "publishing_institution_entities": [
         "World Bank"
-      ]
+      ],
+      "v2_0_record_count": 50,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "WB2025-DIGITAL",
@@ -2646,13 +2754,14 @@
       "active_v2_record_count": 71,
       "publishing_institution_entities": [
         "World Bank"
-      ]
+      ],
+      "v2_0_record_count": 71,
+      "v2_1_added_record_count": 0
     },
     {
       "source_id": "WHO-AI-ETHICS-HEALTH-2021-ZH",
       "source_family_id": "v2-who-ai-ethics-health",
       "preassigned_split": "DEV",
-      "target_records": 15,
       "publication_institution": "World Health Organization (WHO)",
       "publishing_institution_entities": [
         "WHO"
@@ -2692,14 +2801,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "61b81a1691899366b5d6710c0c224bc4503a89dd4e8464d1fa972fcb1059a5cc",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 15,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 30,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 15,
+      "v2_1_added_record_count": 15,
+      "v2_0_planned_record_count": 15
     },
     {
       "source_id": "WHO-DIGITAL-HEALTH-STRATEGY-2021-ZH",
       "source_family_id": "v2-who-digital-health-strategy",
       "preassigned_split": "TRAIN",
-      "target_records": 30,
       "publication_institution": "World Health Organization (WHO)",
       "publishing_institution_entities": [
         "WHO"
@@ -2739,14 +2850,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "f747d7167588464f39b1656b9188d2a1c084f5f6efbb48da315fb65444a266cc",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 30,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 57,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 30,
+      "v2_1_added_record_count": 27,
+      "v2_0_planned_record_count": 30
     },
     {
       "source_id": "WHO-HEALTH-DATA-SHARING-2022-ZH",
       "source_family_id": "v2-who-health-data-sharing",
       "preassigned_split": "TRAIN",
-      "target_records": 30,
       "publication_institution": "World Health Organization (WHO)",
       "publishing_institution_entities": [
         "WHO"
@@ -2786,14 +2899,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "5bbe8dc914a00695b742e9357d77c784fb1e45fd47b2fccb217303ee020fd8a3",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 30,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 50,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 30,
+      "v2_1_added_record_count": 20,
+      "v2_0_planned_record_count": 30
     },
     {
       "source_id": "WHO-SCORE-HEALTH-DATA-2022-ZH",
       "source_family_id": "v2-who-score-health-data",
       "preassigned_split": "TRAIN",
-      "target_records": 30,
       "publication_institution": "World Health Organization (WHO)",
       "publishing_institution_entities": [
         "WHO"
@@ -2833,14 +2948,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "d346223df411b3db114cd6fc95b990eb5d8e7dd1f223754eb21105adb58ba5ff",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 30,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 50,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 30,
+      "v2_1_added_record_count": 20,
+      "v2_0_planned_record_count": 30
     },
     {
       "source_id": "WHO-TB-DIGITAL-ANNEX-F-2024-ZH",
       "source_family_id": "v2-who-tb-surveillance",
       "preassigned_split": "TEST",
-      "target_records": 10,
       "publication_institution": "World Health Organization (WHO)",
       "publishing_institution_entities": [
         "WHO"
@@ -2880,14 +2997,16 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "cebf5076fe6fee8a8ef7da24b3825744e1038207e06c5bfce94bfb08df8dcd0f",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 10,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 34,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 10,
+      "v2_1_added_record_count": 24,
+      "v2_0_planned_record_count": 10
     },
     {
       "source_id": "WHO-TB-SURVEILLANCE-GUIDE-2024-ZH",
       "source_family_id": "v2-who-tb-surveillance",
       "preassigned_split": "TEST",
-      "target_records": 30,
       "publication_institution": "World Health Organization (WHO)",
       "publishing_institution_entities": [
         "WHO"
@@ -2927,8 +3046,11 @@
       "source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "extracted_text_sha256": "95ab021372cbded8d9e32c9caec565ff6b91ebe34dcfebdf36502938ac59d073",
       "source_file_sha256_verified": true,
-      "active_v2_record_count": 30,
-      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page"
+      "active_v2_record_count": 53,
+      "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
+      "v2_0_record_count": 30,
+      "v2_1_added_record_count": 23,
+      "v2_0_planned_record_count": 30
     }
   ]
 }

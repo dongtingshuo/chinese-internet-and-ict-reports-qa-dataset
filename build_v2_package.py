@@ -9,6 +9,12 @@ ROOT = Path(__file__).resolve().parent
 HISTORY = ROOT / 'history' / 'v1.2.0'
 OUT = ROOT
 
+# This is the historical v2.0.0 builder. Once v2.1.0 is active it must not
+# overwrite the unified release with an older corpus; use build_v2_1_package.py.
+ACTIVE_RECORDS = OUT / 'records.jsonl'
+if ACTIVE_RECORDS.exists() and b'"query_id":"IICR-V21-' in ACTIVE_RECORDS.read_bytes():
+    raise SystemExit('Refusing to overwrite an active v2.1.0 package with the historical v2.0.0 builder. Use build_v2_1_package.py.')
+
 # The family-to-split assignments were fixed before drafting the new questions.
 FAMILIES = {
     'UNESCO-AI-EDU-POLICY-2021': ('v2-unesco-ai-education-policy-2021', 'TRAIN'),
