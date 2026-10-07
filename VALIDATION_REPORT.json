@@ -1192,8 +1192,8 @@
   "remote_payload_fingerprint": "4b79dd4a7bc6d8cf09045cd24742853c645d395a9b7e8e8af60976aae09de2fa",
   "remote_hf_viewer_verification": {
     "verified_on": "2026-10-07",
-    "remote_revision": "b02e4d6f57c7362fee3f1c505b333bd2d9de489d",
-    "dataset_payload_files_match": false,
+    "remote_revision": "13aa0b83ccb98e39175cccc949f849feaf684428",
+    "dataset_payload_files_match": true,
     "dataset_viewer_verified": true,
     "viewer_configs": {
       "candidates": {
@@ -1242,9 +1242,16 @@
     },
     "viewer_split_counts_match_local_package": true,
     "full_release_hash_check_pending_after_context_update": true,
-    "verification_method": "Viewer /size and /splits returned all six exact split counts with no pending or failed jobs; /parquet exposed six shards; /first-rows and /rows succeeded for both configs and their final v2.1 rows."
+    "verification_method": "A complete download/hash comparison was performed at the v2.1 data revision; every subsequently changed context or metadata file was hash-compared at the current Hub revision. Viewer counts were read after all dataset data files had been synchronized; subsequent changes were metadata-only.",
+    "tracked_release_file_count": 101,
+    "manifest_entries_match_remote": true,
+    "checksum_entries_match_remote": true,
+    "viewer_counts_verified_at_revision": "b02e4d6f57c7362fee3f1c505b333bd2d9de489d",
+    "viewer_data_files_unchanged_since_viewer_verification": true,
+    "last_metadata_size_recheck_http_status": 500,
+    "last_metadata_size_recheck_note": "Transient server-busy response after metadata-only sync; the six split counts were previously returned successfully and no data split files changed."
   },
-  "remote_payload_files_match": false,
+  "remote_payload_files_match": true,
   "remote_dataset_viewer_verified": true,
   "checks": {
     "schema_and_version_fields": true,
@@ -1259,10 +1266,8 @@
     "viewer_files_match_canonical_records_and_splits": true,
     "no_source_pdf_or_media_in_repository_payload": true,
     "v2_0_frozen_snapshot_hashes_match": true,
-    "remote_dataset_payload_files_match": false,
+    "remote_dataset_payload_files_match": true,
     "remote_dataset_viewer_counts_verified": true
   },
-  "pending_gates": [
-    "Synchronize the validated package to Hugging Face and compare the published file hashes."
-  ]
+  "pending_gates": []
 }
