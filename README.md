@@ -1,65 +1,53 @@
 ---
 license: other
+language:
+- zh
+task_categories:
+- question-answering
+tags:
+- chinese
+- question-answering
+- information-retrieval
+- ict
+- source-grounded
+- gold-subset
 configs:
-- config_name: candidates
+- config_name: gold
   data_files:
   - split: train
-    path: data/candidates_train.jsonl
+    path: data/gold/train.jsonl
   - split: validation
-    path: data/candidates_validation.jsonl
+    path: data/gold/validation.jsonl
   - split: test
-    path: data/candidates_test.jsonl
-- config_name: recommended
-  data_files:
-  - split: train
-    path: data/recommended/train.jsonl
-  - split: validation
-    path: data/recommended/validation.jsonl
-  - split: test
-    path: data/recommended/test.jsonl
+    path: data/gold/test.jsonl
 ---
 
 # Chinese Internet and ICT Reports QA Dataset
 
-**Version:** 2.1.0 · **Language:** Chinese · **Unified corpus:** 2,508 records · **Recommended subset:** 2,508 records
+**Release:** v2.2.0 · **Language:** Chinese · **Gold subset:** 2,355 records
 
-Version 2.1.0 preserves the complete v2.0.0 corpus and appends 508 non-cloze, source-reconstructed QA records in the same dataset. The exact v2.0.0 package is archived under `history/v2.0.0/`.
+This release combines passing records from the earlier corpus with 80 new-ID, human-adjudicated replacements. It is one unified dataset. Only records that pass the documented Gold-subset gates appear in the active data files.
 
 ## Contents
 
-- 833 historical records, 60 earlier source-reconstructed candidates, 1,107 rule-generated sentence-cloze candidates, and 508 v2.1 source-reconstructed questions.
-- 61 source documents across 50 report families and 10 consolidated publishing institutions. The 508 additions use already registered Chinese sources and do not add source documents.
-- TRAIN/DEV/TEST contain 1,681/397/430 records. The 508 additions inherit preassigned source-family splits (304/97/107); linked source families stay together.
-- Both Hugging Face Viewer configurations contain all 2,508 records. All rows remain in `recommended` per dataset-owner instruction; use each row's `review_status` when selecting data.
-- The package contains no source report PDFs, images, tables, figures, or long source passages. The 1,107 v2.0 cloze rows retain their short licensed sentence excerpts and their pending review status.
+- 2,355 source-grounded QA records: 1,573 train, 372 validation, and 410 test.
+- 61 registered report sources across 20 source families and 10 publishing organizations.
+- Questions, answers, required facts, evidence sets, physical PDF page locators, source hashes, task categories, split provenance, and record-level rights metadata.
+- The Dataset Viewer exposes one gold configuration. records.jsonl is the canonical active record file.
+- Source PDFs, images, charts, tables, and long passages are not redistributed.
 
-## Review status and limitations
+## Gold-subset criteria and review
 
-The 508 v2.1 questions received an AI-assisted second reconstruction from question-only packets and the cited official Chinese source PDFs. Answers, required facts, physical PDF page locators, and source hashes are recorded in `audit/v2_1_answer_blind_reconstruction.jsonl`. This was not an independent AI session or human review; every new row remains `human_reviewed: false` and is not labeled gold. Twenty draft questions without a completed reconstruction audit, six questions with invalid labels, and eight near duplicates were kept out of the v2.1 release; dispositions are recorded in `audit/v2_1_candidate_disposition_ledger.jsonl`.
+The gold label applies to these 2,355 released records, not to every historical or candidate item. The subset contains 2,275 eligible records retained from v2.1.0 and 80 passing v2.2.0 replacement records. Baseline item `IICR-V12-0030` was excluded because its question scope permits multiple plausible source-supported answers. Another 140 proposed replacements did not pass all release gates and are not included in this release.
 
-For table-supported questions, `locator_details` identifies the table and the relevant row/column labels or footnote marker; narrative evidence points to the physical PDF page and text region. These locator details identify source evidence without reproducing the source table.
+Two reviewers (D and T) independently reconstructed answers, required facts, and evidence for the 2,508-record v2.1.0 baseline. The dataset owner attests that this review was answer/annotation-blind and used no AI or other-person assistance. A third reviewer (S) independently reconstructed and adjudicated designated cases; the owner attests that the first phase was blind and unassisted. Reviewer method statements are not signed in the returned workbooks, so these disclosures are identified as owner-attested. The blind AI audit credited 2,506/2,508 baseline records; the two without credit are excluded. Three historical protocol-deviation attempts were excluded from credit and their queries were separately rerun from clean source-first packets.
 
-The 1,107 sentence-cloze candidates remain `pending_ai_content_verification`; their answer was available to the deterministic masking process, and third-party attribution screening remains pending. The 833 historical rows also retain their previous review statuses; v2.1 does not claim that they were answer-blind reconstructed. Recommendation is an owner decision and does not override review status.
+See audit/v2_2/RELEASE_AUDIT.md and GOLD_SELECTION_REPORT.json for the release criteria and counts. Gold is an operationally selected subset, not an external certification or a guarantee of zero annotation errors. Historical splits were assigned after annotation and are not blind holdouts. Prior system exposure has not been audited. This release includes no RAG baseline or model-performance claim.
 
-## Sources and licensing
+## Licensing and attribution
 
-The corpus uses mixed record-level licenses; no single license applies to the repository. Each row carries the applicable record license, source attribution, adaptation notice, and other terms. The v2.1 additions are concise paraphrases from sources already listed in `sources.json`; their source hashes, license notices, and translation status are recorded. No report PDFs or media are redistributed. See `LICENSES.md`, `LICENSE_STATUS.md`, `ATTRIBUTION.md`, and per-record `publication_rights`.
-
-Historical splits were assigned after annotation and are not blind holdouts; prior system exposure has not been audited. This package contains no RAG baselines or model-performance results and makes no corpus-wide gold-standard claim.
+The dataset has mixed, record-level terms; license: other intentionally avoids assigning one license to the corpus. Preserve each row's publication_rights and follow source-specific attribution and adaptation requirements. See sources.json, LICENSES.md, LICENSE_STATUS.md, and ATTRIBUTION.md. CAICT QA-record reuse authorization is dataset-owner-attested; this does not claim an open license for CAICT reports or permission to redistribute report PDFs.
 
 ## Viewer fields
 
-Use `answer_candidate`, `review_status`, and `recommended_for_evaluation` together. `record_json` contains the complete record, evidence locators, and licensing metadata.
-
-## Reproduce and validate
-
-The v2.1 package is rebuilt from the frozen v2.0.0 snapshot and the recorded question-only reconstruction audit:
-
-```bash
-python3 build_v2_1_package.py
-python3 build_hf_splits.py
-python3 validate_v2_package.py
-python3 build_release_metadata.py
-```
-
-`build_v2_package.py` is the historical v2.0 builder and refuses to overwrite an active v2.1 package. Source PDFs and full extracted text remain outside the repository.
+The Viewer exposes query_id, question, answer_candidate, answerability, split, task_family, task_subtype, review_status, recommended_for_evaluation, and record_json. Consult record_json for required facts, evidence, review provenance, and rights. Use records only for purposes compatible with the license attached to each record.

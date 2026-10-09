@@ -1,11 +1,32 @@
 {
   "schema_version": "iicr_source_registry_v2_1",
-  "dataset_version": "2.1.0",
+  "dataset_version": "2.2.0",
   "source_count": 61,
   "record_level_license_policy": "The package contains record-level mixed licenses. Source licenses and attribution/adaptation/translation duties are stated where established. For legacy CAICT rows, the dataset-owner authorization confirmation applies to the QA records; no license is asserted for the source reports. No single license applies to all records.",
   "long_source_passage_or_media_included": false,
   "source_sentence_cloze_excerpts_included": true,
   "review_provenance": "The 508 v2.1 records use answer-blind AI reconstruction against official Chinese source editions already registered and licensed in v2.0.0. Twenty additional drafts were deferred because no completed reconstruction audit was present; six invalid-label drafts and eight near duplicates were excluded. No independent human review is claimed. The 1,107 v2.0.0 sentence-cloze records remain pending content and third-party attribution review and remain in recommended per owner instruction.",
+  "v2_2_rights_review_summary": {
+    "original_reviewer_needs_evidence": 19,
+    "owner_attested_QA_record_authorization_recorded": 19,
+    "verified_publisher_open_license_for_reviewed_sources": 5,
+    "CAICT_sources_without_standardized_publisher_license": 14,
+    "CAICT_report_level_permission_instrument_independently_inspected": 0,
+    "raw_reviewer_verdicts_preserved": true,
+    "post_review_source_license_evidence_verified": 5,
+    "post_review_source_license_evidence_verified_source_ids": [
+      "ADB2018-CITIES",
+      "ADB2023-YOUTH",
+      "ILO2026-LIFELONG-SKILLS",
+      "UNESCO2023-DIGITAL-CITIZENSHIP",
+      "WB2014-RURAL"
+    ],
+    "post_review_rights_page_visual_hashes_verified": 5,
+    "CAICT_QA_reuse_authorization_owner_attested": 14,
+    "CAICT_QA_reuse_authorization_attestation_date": "2026-10-09",
+    "CAICT_source_report_open_license_claimed": false
+  },
+  "record_level_rights_statement": "All source-derived QA reuse statuses remain scoped to the individual records. CAICT authorization is dataset-owner-attested; no CAICT open report license or source-PDF redistribution right is asserted.",
   "sources": [
     {
       "source_id": "ADB2018-CITIES",
@@ -46,7 +67,70 @@
         "Asian Development Bank"
       ],
       "v2_0_record_count": 20,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "ADB2018-CITIES",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为CC BY 3.0 IGO（已登记出版方许可）；权利声明位置：Chinese report PDF，PDF物理页3；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_ADB2018-CITIES.pdf。\n第三方内容限制：The CC BY license does not cover non-ADB-owned content. Only narrative case descriptions are paraphrased; no photos, diagrams, tables, or other third-party elements are reproduced.\n登记说明指出英文原文为唯一正式授权文本，中文版本的授权/改编依据需结合来源声明核对。",
+        "registered_source_license": "CC BY 3.0 IGO",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+        "registered_source_sha256": "5dd5330e401e184ba2552f796e9837c8a70bce34052a76e38440219a386263d3",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_ADB2018-CITIES.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_source_derived_QA_record_authorization_logged; source-report license remains separate",
+        "source_rights_notice_pdf_page": 3,
+        "source_rights_notice": "CC BY 3.0 IGO; Chinese PDF says English original is the only official version.",
+        "source_license_status": "publisher_license_recorded_and_source_file_hash_verified",
+        "third_party_content_status": "The CC BY license does not cover non-ADB-owned content. Only narrative case descriptions are paraphrased; no photos, diagrams, tables, or other third-party elements are reproduced.",
+        "post_review_documentary_evidence": {
+          "added_on": "2026-10-09",
+          "official_publisher_page_url": "https://www.adb.org/zh/publications/50-climate-solutions-prc-cities",
+          "official_source_pdf_url": "https://www.adb.org/sites/default/files/publication/469536/50-climate-solutions-prc-cities-cn_0.pdf",
+          "official_license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+          "source_pdf_sha256": "5dd5330e401e184ba2552f796e9837c8a70bce34052a76e38440219a386263d3",
+          "source_pdf_local_path": "/private/tmp/chinese-ict-v2-sources/v2_2_verified_ADB2018-CITIES.pdf",
+          "source_pdf_rights_notice_physical_page": 3,
+          "source_pdf_rights_page_text_sha256": "d9fa28382dc8845bd755841cbd9291b05529e875a636cb469344399076e29a1d",
+          "rights_page_visual_capture": "/private/tmp/chinese-ict-v2-sources/v2_2-rights-check-2026-10-09/ADB2018-CITIES-page3.png",
+          "rights_page_visual_capture_sha256": "88cef03d4fd24a0804ad4bf800d89ceadc71c585f0acbe7c9f0d3108b4977003",
+          "visually_verified_terms": [
+            "CC BY 3.0 IGO applies to the publication; attribution and ADB terms-of-use provisions are referenced.",
+            "The license excludes material not copyrighted by ADB.",
+            "The translation statement says the English original is the only legal, official, and authorized text; citations must follow the English original."
+          ],
+          "assessment": "The official Chinese ADB publication page identifies the Chinese edition, provides its download, and displays CC BY 3.0 IGO. The hash-matched Chinese PDF repeats the license and the English-original citation caveat. Preserve the Chinese PDF as the question evidence locator, identify it as a translation, and cite the English original as canonical where formal publication citation is needed. Dataset rows use paraphrased narrative facts only and reproduce no third-party media, figures, tables, or long passages.",
+          "raw_reviewer_1_verdict_preserved": "needs_evidence",
+          "raw_reviewer_2_verdict_preserved": "needs_evidence",
+          "not_back_attributed_to_reviewers": true,
+          "owner_attested_QA_record_authorization_is_separate": true,
+          "source_pdf_rights_page_text_hash_method": "SHA-256 of pdfplumber Page.extract_text() UTF-8 output; pdfplumber 0.11.9",
+          "rights_page_capture_rendering": "Poppler pdftoppm 26.05.0, PNG, 110 DPI"
+        }
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized"
     },
     {
       "source_id": "ADB2023-YOUTH",
@@ -87,7 +171,70 @@
         "Asian Development Bank"
       ],
       "v2_0_record_count": 19,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "ADB2023-YOUTH",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为CC BY 3.0 IGO（已登记出版方许可）；权利声明位置：bilingual policy brief PDF，PDF物理页4；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_ADB2023-YOUTH.pdf。\n第三方内容限制：The CC BY license does not cover non-ADB-owned content. Only paraphrased narrative facts are used; no figures, tables, photos, or media are reproduced.\n登记说明指出英文原文为唯一正式授权文本，中文版本的授权/改编依据需结合来源声明核对。",
+        "registered_source_license": "CC BY 3.0 IGO",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+        "registered_source_sha256": "5f226262b2aac896d971abe07539b57b004330a046be1479fa95cb7ea806ddf4",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_ADB2023-YOUTH.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_source_derived_QA_record_authorization_logged; source-report license remains separate",
+        "source_rights_notice_pdf_page": 4,
+        "source_rights_notice": "CC BY 3.0 IGO; Chinese PDF says English original is the only official version.",
+        "source_license_status": "publisher_license_recorded_and_source_file_hash_verified",
+        "third_party_content_status": "The CC BY license does not cover non-ADB-owned content. Only paraphrased narrative facts are used; no figures, tables, photos, or media are reproduced.",
+        "post_review_documentary_evidence": {
+          "added_on": "2026-10-09",
+          "official_publisher_page_url": "https://www.adb.org/zh/publications/youth-employment-pandemic-recovery-peoples-republic-china",
+          "official_source_pdf_url": "https://www.adb.org/sites/default/files/publication/862466/os2023-01-youth-employment-pandemic-recovery-prc-zh.pdf",
+          "official_license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+          "source_pdf_sha256": "5f226262b2aac896d971abe07539b57b004330a046be1479fa95cb7ea806ddf4",
+          "source_pdf_local_path": "/private/tmp/chinese-ict-v2-sources/v2_2_verified_ADB2023-YOUTH.pdf",
+          "source_pdf_rights_notice_physical_page": 4,
+          "source_pdf_rights_page_text_sha256": "c906bafd4735fc8175cc0604db3586d7b51ec39a08e34605c46229d3335327da",
+          "rights_page_visual_capture": "/private/tmp/chinese-ict-v2-sources/v2_2-rights-check-2026-10-09/ADB2023-YOUTH-page4.png",
+          "rights_page_visual_capture_sha256": "17a9b0c23bfdab94b07bf278adfa35862085b6c40996debe0106947fe3f28f15",
+          "visually_verified_terms": [
+            "CC BY 3.0 IGO applies to the publication; attribution and ADB terms-of-use provisions are referenced.",
+            "The license excludes material not copyrighted by ADB.",
+            "The translation statement says the English original is the only legal, official, and authorized text; citations must follow the English original."
+          ],
+          "assessment": "The official Chinese ADB publication page identifies the Chinese edition, provides its download, and displays CC BY 3.0 IGO. The hash-matched bilingual PDF repeats the license and the English-original citation caveat. Preserve the Chinese PDF as the question evidence locator, identify it as a translation, and cite the English original as canonical where formal publication citation is needed. Dataset rows use paraphrased narrative facts only and reproduce no third-party media, figures, tables, or long passages.",
+          "raw_reviewer_1_verdict_preserved": "needs_evidence",
+          "raw_reviewer_2_verdict_preserved": "needs_evidence",
+          "not_back_attributed_to_reviewers": true,
+          "owner_attested_QA_record_authorization_is_separate": true,
+          "source_pdf_rights_page_text_hash_method": "SHA-256 of pdfplumber Page.extract_text() UTF-8 output; pdfplumber 0.11.9",
+          "rights_page_capture_rendering": "Poppler pdftoppm 26.05.0, PNG, 110 DPI"
+        }
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized"
     },
     {
       "copyright_notice": {
@@ -148,7 +295,55 @@
         "CAICT"
       ],
       "v2_0_record_count": 79,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-5G-2023",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：中国5G发展和经济社会影响白皮书（2023年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-5G-2023.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "e9b7bb7fbcd8e7322847de4ee87244833b058588ec2e6a635c953b4592b5fd15",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-5G-2023.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false,
+        "rights_notice_page_visually_checked_in_batch_60": true,
+        "rights_notice_visual_check_method": "Batch 60: full physical page 2 rendered from the SHA-256-matched official Chinese PDF; copyright and required attribution confirmed; no open license identified.",
+        "batch_60_source_pdf_sha256": "e9b7bb7fbcd8e7322847de4ee87244833b058588ec2e6a635c953b4592b5fd15"
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -209,7 +404,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 59,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-AI-GOV-2024",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：人工智能治理蓝皮书（2024年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-AI-GOV-2024.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "62142abc80cf35988959cf761c9aca0cf20e5bc088351dd407a4b1fe8f575da8",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-AI-GOV-2024.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -270,7 +510,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 44,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-AI-LAW-POLICY-2025",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：人工智能法律政策图景研究报告（2025年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-AI-LAW-POLICY-2025.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "816cce1179b1ac797619b81e1ece9e6da8072ad5953c1906d48a5b86797f7df7",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-AI-LAW-POLICY-2025.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -331,7 +616,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 34,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-COMPUTING-CENTER-PROVIDERS-2025",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：算力中心服务商分析报告（2025年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-COMPUTING-CENTER-PROVIDERS-2025.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "046e6559f07a15e7745678fb869b5c08b60841cc83e05dbf8383481010ba3fc1",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-COMPUTING-CENTER-PROVIDERS-2025.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -392,7 +722,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 24,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-DATA-ELEMENTS-2023",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：数据要素白皮书（2023年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-DATA-ELEMENTS-2023.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "76d7be1cb18418a2e76554023e4e9ad580bb7c5eea2cfc852406ed1c809dbbd9",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-DATA-ELEMENTS-2023.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -453,7 +828,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 33,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-DIGITAL-GOV-2023",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：全球数字治理白皮书（2023年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-DIGITAL-GOV-2023.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "45799c36b2fd89dbaca52829fd10e7054f73f17abc8d377f96233ea46736acf5",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-DIGITAL-GOV-2023.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -515,7 +935,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 36,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-DIGITAL-PASSPORT-2025",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：产品数字护照（DPP）技术发展报告（2025年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-DIGITAL-PASSPORT-2025.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "d741c79d2e811abec8163506b7f90436af7bbc639214ee4a934341ba2fdf7781",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-DIGITAL-PASSPORT-2025.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院和中国标准化研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -576,7 +1041,54 @@
         "CAICT"
       ],
       "v2_0_record_count": 32,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-DIGITAL-TRUST-2025",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：数字信任发展报告（2025年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-DIGITAL-TRUST-2025.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "360262a9c702a5e9dddb687e966a4ae7fd4fce57ac76726595c69e3e6e4e0e66",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-DIGITAL-TRUST-2025.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false,
+        "rights_notice_page_visually_checked_in_batch_59": true,
+        "rights_notice_visual_check_method": "Full physical page 2 rendered from the hash-matched official Chinese source PDF; copyright holder and attribution requirement confirmed; no open license identified."
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -637,7 +1149,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 31,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-GLOBAL-DIGITAL-ECONOMY-2024",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：全球数字经济白皮书（2023年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-GLOBAL-DIGITAL-ECONOMY-2024.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "c163120e41288e9f9395cdc6a672670267f4f0afd3740e4be168000249a9d0ac",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-GLOBAL-DIGITAL-ECONOMY-2024.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -698,7 +1255,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 34,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-ICT-ENV-2023",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：优化营商环境研究报告——信息通信行业管理的改革和实践（2023年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-ICT-ENV-2023.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "f638ff059e9815fa1769253406c79c29d81905c103eb6177db5567c513897a34",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-ICT-ENV-2023.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -761,7 +1363,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 25,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-INTERNET-DISCLOSURE-2023",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：互联网行业可持续信息披露发展报告（2023年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-INTERNET-DISCLOSURE-2023.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "746a24b536b03ccdbefbf061a23deaa2a6ea57fe7dc7f5d27eefd9e52581e699",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-INTERNET-DISCLOSURE-2023.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院、中国互联网协会和中国通信企业协会",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -822,7 +1469,54 @@
         "CAICT"
       ],
       "v2_0_record_count": 39,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-REAL-DIGITAL-INTEGRATION-2025",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：实数融合发展观察（2025年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-REAL-DIGITAL-INTEGRATION-2025.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "7feec3bd1ac3d63796ac59b4bc61dfdf16583b377a11f7fd8963f37d6e147c83",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-REAL-DIGITAL-INTEGRATION-2025.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false,
+        "rights_notice_page_visually_checked_in_batch_61": true,
+        "rights_notice_visual_check_method": "Full physical page 2 rendered from the SHA-256-matched official Chinese source PDF; CAICT copyright and attribution requirement confirmed; no open license identified."
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -883,7 +1577,52 @@
         "CAICT"
       ],
       "v2_0_record_count": 36,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-WEB3-2023",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：全球Web3技术产业生态发展报告（2023年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-WEB3-2023.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "7633073bf8474c225ca38ffa78472c4540ce65e189e13f42540aafb6566b7d7f",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-WEB3-2023.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "copyright_notice": {
@@ -944,7 +1683,55 @@
         "CAICT"
       ],
       "v2_0_record_count": 79,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "scope": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false,
+          "attribution_and_third_party_restrictions_still_apply": true
+        }
+      },
+      "v2_2_rights_review": {
+        "source_id": "CAICT-WIRELESS-ECONOMY-2023",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为未标准化登记（notice or owner authorization review required）；权利声明位置：中国无线经济发展研究报告（2023年），PDF物理页2；已登记要求署名。\n来源文件核验：登记哈希匹配，匹配文件 v2_2_verified_CAICT-WIRELESS-ECONOMY-2023.pdf。\n未登记第三方内容限制\n来源许可未标准化登记；既有QA记录再发布确认不等同于来源报告许可。",
+        "registered_source_license": null,
+        "license_url": null,
+        "registered_source_sha256": "a16f2dac51cb2da8abdcc17e3899fb919d66ec74095a69a23b56b570f1ce7b67",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "v2_2_verified_CAICT-WIRELESS-ECONOMY-2023.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-09",
+          "owner_statement_exact": "CAICT 已授权",
+          "evidence_reference": "CAICT_QA_REUSE_AUTHORIZATION_ATTESTATION_2026-10-09.json",
+          "applies_to": "Authorization for publication and reuse of QA records derived from the CAICT reports in this v2.2 review, including the 14 CAICT source IDs listed in the rights reconciliation.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_CAICT_authorization_for_source_derived_QA_record_reuse_logged; not a source-report license; permission instrument not independently inspected",
+        "source_rights_notice": "The source report identifies its copyright holder(s) and requests source attribution when report text or viewpoints are reused. Preserve the attribution shown for this source.",
+        "required_attribution": "来源：中国信息通信研究院",
+        "source_license_status": "no_standalone_open_license_marker_detected; do not label the report CC-licensed",
+        "third_party_content_status": "The source PDF has no standardized third-party-content allowance recorded. The owner attestation is not a report-wide license; third-party material and expressive excerpts remain subject to the specific permission scope.",
+        "independent_permission_instrument_inspected": false,
+        "rights_notice_page_visually_checked_in_batch_60": true,
+        "rights_notice_visual_check_method": "Batch 60: full physical page 2 rendered from the SHA-256-matched official Chinese PDF; copyright and required attribution confirmed; no open license identified.",
+        "batch_60_source_pdf_sha256": "a16f2dac51cb2da8abdcc17e3899fb919d66ec74095a69a23b56b570f1ce7b67"
+      },
+      "title_english": null,
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
+      "source_report_license_status": "no_standardized_publisher_license_registered; source-report license not inferred",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized",
+      "third_party_content_limitations": "No separate standardized third-party-content limitation was registered in the source inventory. This field does not assert that the report contains no third-party material; source-specific notices remain controlling, and the dataset package does not redistribute report PDFs, figures, media, or long passages."
     },
     {
       "source_id": "FAO-DIGITAL-AGRI-2019-ZH-BRIEF",
@@ -987,7 +1774,13 @@
       ],
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 9,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ILO2020-PLATFORM",
@@ -1028,7 +1821,13 @@
         "International Labour Organization"
       ],
       "v2_0_record_count": 57,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ILO2021-EMPLOYMENT-RELATIONSHIP",
@@ -1069,7 +1868,13 @@
         "International Labour Organization"
       ],
       "v2_0_record_count": 4,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ILO2021-PLATFORM",
@@ -1110,7 +1915,13 @@
         "International Labour Organization"
       ],
       "v2_0_record_count": 48,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ILO2026-LIFELONG-SKILLS",
@@ -1151,7 +1962,92 @@
         "International Labour Organization"
       ],
       "v2_0_record_count": 7,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "official_pdf_url": "https://researchrepository.ilo.org/view/pdfCoverPage?download=true&filePid=13155529860002676&instCode=41ILO_INST",
+        "original_report_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e",
+        "source_pdf_page_count": 12,
+        "rights_notice_location": {
+          "document": "official Chinese executive-summary PDF",
+          "pdf_page_1based": 12,
+          "url": "https://researchrepository.ilo.org/view/pdfCoverPage?download=true&filePid=13155529860002676&instCode=41ILO_INST",
+          "pdf_page_count": 12,
+          "pdf_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e"
+        },
+        "license": "CC BY 4.0",
+        "edition_note": "Complete 12-page official Chinese executive summary downloaded from the ILO repository; the final physical page states CC BY 4.0."
+      },
+      "v2_2_rights_review": {
+        "source_id": "ILO2026-LIFELONG-SKILLS",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为CC BY 4.0（已登记出版方许可）；权利声明位置：Chinese executive-summary PDF，PDF物理页12；已登记要求署名。\n来源文件核验：等待官方PDF文件核验。\n第三方内容限制：Only concise paraphrased facts and physical-page locators are used. No third-party table, figure, photograph, media, source passage, or PDF is included.\nOfficial Chinese publication page was opened and exposes a 4.57 MB PDF link; direct PDF/repository retrieval timed out. Do not count the HTML landing page as source-file verification.",
+        "registered_source_license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "registered_source_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "ILO2026-LIFELONG-SKILLS.complete.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_source_derived_QA_record_authorization_logged; source-report license remains separate",
+        "source_rights_notice_pdf_page": 12,
+        "source_rights_notice": "Physical page 12 says “依照 CC BY 4.0 许可授权”.",
+        "source_license_status": "publisher_license_recorded_and_source_file_hash_verified",
+        "third_party_content_status": "Only concise paraphrased facts and physical-page locators are used. No third-party table, figure, photograph, media, source passage, or PDF is included.",
+        "rights_notice_page_visually_checked_in_batch_62": true,
+        "rights_notice_visual_check_method": "Physical page 12 rendered from the SHA-256-matched complete official Chinese ILO executive-summary PDF; the page states that the report is licensed under CC BY 4.0.",
+        "source_license_documentary_resolution": {
+          "status": "source_license_documented_and_visually_verified",
+          "license": "CC BY 4.0",
+          "source_pdf_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e",
+          "rights_notice_physical_pdf_page": 12,
+          "required_attribution": "International Labour Organization. 2026. Lifelong learning and skills for the future (Chinese executive summary), World of Work report series. Geneva: ILO. © ILO 2026. CC BY 4.0. https://doi.org/10.54394/00033011",
+          "raw_reviewer_1_verdict_preserved": "needs_evidence",
+          "raw_reviewer_2_verdict_preserved": "needs_evidence",
+          "record_reuse_authorization_is_separate": true
+        },
+        "post_review_documentary_evidence": {
+          "added_on": "2026-10-09",
+          "official_publisher_page_url": "https://www.ilo.org/zh-hans/publications/flagship-reports/面向未来的终身学习与技能-执行摘要",
+          "official_source_pdf_url": "https://doi.org/10.54394/00033011",
+          "official_license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "source_pdf_sha256": "810eeaafd7acdfa2e30c36cde4f9b94be2d79d86ef8dc604f70614b601fff75e",
+          "source_pdf_local_path": "/private/tmp/chinese-ict-v2-sources/ILO2026-LIFELONG-SKILLS.complete.pdf",
+          "source_pdf_rights_notice_physical_page": 12,
+          "source_pdf_rights_page_text_sha256": "29232a1b430d250f9d54df1bd1c0dd1098494880cd9a8cc6fc531df945071362",
+          "rights_page_visual_capture": "/private/tmp/chinese-ict-v2-sources/v2_2-rights-check-2026-10-09/ILO2026-LIFELONG-SKILLS-page12.png",
+          "rights_page_visual_capture_sha256": "bfdc112550527f31746a8670d07637dfd720ce0720c192372a484834b84df6c8",
+          "visually_verified_terms": [
+            "CC BY 4.0 notice and ILO attribution are visible on physical page 12."
+          ],
+          "assessment": "The complete 12-page official Chinese executive-summary PDF is hash-matched; the physical final page displays CC BY 4.0 and the ILO citation. Only concise paraphrased facts and physical-page locators are included in the dataset.",
+          "raw_reviewer_1_verdict_preserved": "needs_evidence",
+          "raw_reviewer_2_verdict_preserved": "needs_evidence",
+          "not_back_attributed_to_reviewers": true,
+          "owner_attested_QA_record_authorization_is_separate": true,
+          "source_pdf_rights_page_text_hash_method": "SHA-256 of pdfplumber Page.extract_text() UTF-8 output; pdfplumber 0.11.9",
+          "rights_page_capture_rendering": "Poppler pdftoppm 26.05.0, PNG, 110 DPI"
+        }
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized"
     },
     {
       "source_id": "ITU-SG01-Q01-2021",
@@ -1165,7 +2061,7 @@
       "publication_year": 2021,
       "title_chinese": "发展中国家的宽带部署战略和政策：2018-2021年研究期ITU-D第1/1号课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1200,7 +2096,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 10,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q01-2025",
@@ -1214,7 +2115,7 @@
       "publication_year": 2025,
       "title_chinese": "发展中国家的宽带部署战略和政策：ITU-D第1/1号课题2022-2025年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1249,7 +2150,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 30,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q02-2025",
@@ -1263,7 +2169,7 @@
       "publication_year": 2025,
       "title_chinese": "数字广播技术的过渡和采用（包括针对各种环境提供新业务）的战略、政策、规则和方 法：ITU-D第2/1号课题2022-2025年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1298,7 +2204,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 10,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q03-2021",
@@ -1312,7 +2223,7 @@
       "publication_year": 2021,
       "title_chinese": "包括云计算、移动业务和过顶（OTT）业务在内的新兴技术：发展中国家面临的挑战和机遇 以及经济和政策影响：2018-2021年研究期ITU-D第3/1号课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1347,7 +2258,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 4,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q03-2025",
@@ -1361,7 +2277,7 @@
       "publication_year": 2025,
       "title_chinese": "利用电信/ICT减少和管理灾害风险：ITU-D第3/1号课题2022-2025年研究期的输出成果报告。",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1396,7 +2312,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 16,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q04-2025",
@@ -1410,7 +2331,7 @@
       "publication_year": 2025,
       "title_chinese": "各国电信/信息通信技术的经济问题：ITU-D第4/1号课题2022-2025年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1445,7 +2366,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 11,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q04-COST-MODEL-2021",
@@ -1459,7 +2385,7 @@
       "publication_year": 2021,
       "title_chinese": "成本建模导则：确定国家电信/信息通信技术网络相关服务成本的经济政策和方法（ITU-D 第4/1号课题）",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1494,7 +2420,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 1,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q05-2021",
@@ -1508,7 +2439,7 @@
       "publication_year": 2021,
       "title_chinese": "农村和边远地区的电信/ICT：2018-2021年研究期ITU-D第5/1号课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1543,7 +2474,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 10,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q05-2025",
@@ -1557,7 +2493,7 @@
       "publication_year": 2025,
       "title_chinese": "农村和偏远地区的电信/信息通信技术：2022-2025年研究期ITU-D第5/1号课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1592,7 +2528,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 21,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q06-2021",
@@ -1606,7 +2547,7 @@
       "publication_year": 2021,
       "title_chinese": "消费者信息、保护与权益：法律、规则、经济基础与消费者网络：2018-2021年研究期ITU-D 第6/1号课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1641,7 +2582,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 7,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q06-2025",
@@ -1655,7 +2601,7 @@
       "publication_year": 2025,
       "title_chinese": "消费者信息、保护和权利：ITU-D第6/1号课题2022-2025年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1690,7 +2636,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 12,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q07-2021",
@@ -1704,7 +2655,7 @@
       "publication_year": 2021,
       "title_chinese": "残疾人和有具体需求群体使用的电信/ICT服务：2018-2021年研究期ITU-D第 7/1号课题输出 成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1739,7 +2690,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 10,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG01-Q07-2025",
@@ -1753,7 +2709,7 @@
       "publication_year": 2025,
       "title_chinese": "无障碍获取电信/ICT，促成实现特别是残疾人的包容性通信：ITU-D第 7/1号课题2022-2025 年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1788,7 +2744,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 9,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q01-2021",
@@ -1802,7 +2763,7 @@
       "publication_year": 2021,
       "title_chinese": "创建智慧城市和社会：利用信息通信技术实现社会和经济的可持续发展：ITU-D第 1/2号课 题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1837,7 +2798,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 14,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q01-2025",
@@ -1851,7 +2817,7 @@
       "publication_year": 2025,
       "title_chinese": "可持续智慧城市及社区：ITU-D第1/2号课题2022-2025年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1886,7 +2852,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 15,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q02-2025",
@@ -1900,7 +2871,7 @@
       "publication_year": 2025,
       "title_chinese": "用于支持电子服务和应用（包括电子卫生和电子教育）的技术：2022-2025年研究期ITU-D第 2/2号课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1935,7 +2906,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 20,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q03-2021",
@@ -1949,7 +2925,7 @@
       "publication_year": 2021,
       "title_chinese": "保障信息和通信网络的安全：培育网络安全文化的最佳做法：ITU-D 2018-2021年研究期第 3/2号课题的输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -1984,7 +2960,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 21,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q03-2025",
@@ -1998,7 +2979,7 @@
       "publication_year": 2025,
       "title_chinese": "保障信息和通信网络的安全：培育网络安全文化的最佳做法：ITU-D第3/2号课题2022-2025 年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2033,7 +3014,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 20,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q04-2021",
@@ -2047,7 +3033,7 @@
       "publication_year": 2021,
       "title_chinese": "帮助发展中国家落实一致性和互操作性项目以及打击假冒信息通信技术设备和盗窃移动设 备的行为：2018-2021年研究期ITU-D第4/2号课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2082,7 +3068,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 20,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q04-2025",
@@ -2096,7 +3087,7 @@
       "publication_year": 2025,
       "title_chinese": "电信/信息通信技术设备：一致性和互操作性、打击假冒和盗窃移动设备的行为：ITU-D 第 4/2号课题2022-2025年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2131,7 +3122,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 21,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q05-2021",
@@ -2145,7 +3141,7 @@
       "publication_year": 2021,
       "title_chinese": "利用电信/信息通信技术降低和管理灾害风险：2018-2021年研究期ITU-D第5/2号课题输出成 果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2180,7 +3176,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 22,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q05-2025",
@@ -2194,7 +3195,7 @@
       "publication_year": 2025,
       "title_chinese": "采用电信/ICT和提高数字技能：ITU-D第5/2号课题2022-2025年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2229,7 +3230,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 22,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q06-2021",
@@ -2243,7 +3249,7 @@
       "publication_year": 2021,
       "title_chinese": "信息通信技术与环境：2018-2021年研究期ITU-D第6/2号课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2278,7 +3284,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 20,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q06-2025",
@@ -2292,7 +3303,7 @@
       "publication_year": 2025,
       "title_chinese": "利用ICT改善环境：ITU-D第6/2号课题2022-2025年研究期输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2327,7 +3338,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 20,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q07-2021",
@@ -2341,7 +3357,7 @@
       "publication_year": 2021,
       "title_chinese": "针对人体暴露于射频电磁场的政策、指南、法规和评估：2018-2021年研究期ITU-D第7/2号 课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2376,7 +3392,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 23,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "ITU-SG02-Q07-2025",
@@ -2390,7 +3411,7 @@
       "publication_year": 2025,
       "title_chinese": "近期与人体暴露于电磁场相关的战略和政策的进展情况：2022-2025年研究期ITU-D第7/2号 课题输出成果报告",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "ITU-D Study Group report; Chinese PDF edition",
       "translation_status": "ITU-published Chinese-language edition; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2425,7 +3446,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 37,
       "v2_1_added_record_count": 22,
-      "v2_0_planned_record_count": 37
+      "v2_0_planned_record_count": 37,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "UNESCO-AI-EDU-POLICY-2021",
@@ -2468,7 +3494,13 @@
       ],
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 24,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "UNESCO-GEM-TECH-2023-ZH-SUMMARY",
@@ -2511,7 +3543,13 @@
       ],
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 24,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "UNESCO-GENAI-GUIDANCE-2023-ZH",
@@ -2554,7 +3592,13 @@
       ],
       "v2_source_file_audit_status": "sha256_verified_local_pdf_license_and_translation_notice",
       "v2_0_record_count": 9,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "UNESCO2023-DIGITAL-CITIZENSHIP",
@@ -2596,7 +3640,79 @@
         "Shanghai Open University"
       ],
       "v2_0_record_count": 3,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "original_report_sha256": "06b67090ac204c60f5a5fa9857619e375d8c1f51b99c70756a63414e76025314",
+        "source_pdf_page_count": 25,
+        "rights_notice_location": {
+          "document": "official Chinese toolkit PDF",
+          "pdf_page_1based": 2,
+          "url": "https://iite.unesco.org/wp-content/uploads/2023/03/CHINESE_UNESCO-IITE-SOU.-2023.-Global-Practices-Evaluation-Assessment-Toolkit.-Advancing-Artificial-Intelligence-Supported-Global-Digital-Citizenship-Education.pdf",
+          "pdf_page_count": 25,
+          "pdf_sha256": "06b67090ac204c60f5a5fa9857619e375d8c1f51b99c70756a63414e76025314"
+        },
+        "edition_note": "The complete 25-page Chinese PDF linked from the UNESCO IITE publication page was retrieved and matches the registered hash; the CC BY-SA 3.0 IGO notice is on physical page 2."
+      },
+      "v2_2_rights_review": {
+        "source_id": "UNESCO2023-DIGITAL-CITIZENSHIP",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为CC BY-SA 3.0 IGO（已登记出版方许可）；权利声明位置：Chinese toolkit PDF，PDF物理页2；已登记要求署名。\n来源文件核验：等待官方PDF文件核验。\n第三方内容限制：The PDF contains third-party visual material, including an Unsplash image on physical page 11. This dataset uses only the toolkit-authored scoring tables on physical pages 19 and 22; it reproduces no image, table contents, source passage, or PDF.\nRemote inspection shows the official Chinese PDF and its CC BY-SA 3.0 IGO notice; registered file hash was not independently matched to a complete local binary.",
+        "registered_source_license": "CC BY-SA 3.0 IGO",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+        "registered_source_sha256": "06b67090ac204c60f5a5fa9857619e375d8c1f51b99c70756a63414e76025314",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "UNESCO2023-DIGITAL-CITIZENSHIP.complete.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_source_derived_QA_record_authorization_logged; source-report license remains separate",
+        "source_rights_notice_pdf_page": 2,
+        "source_rights_notice": "Physical page 2 states CC BY-SA 3.0 IGO and supplies the required citation.",
+        "source_license_status": "publisher_license_recorded_and_source_file_hash_verified",
+        "third_party_content_status": "The PDF contains third-party visual material, including an Unsplash image on physical page 11. This dataset uses only the toolkit-authored scoring tables on physical pages 19 and 22; it reproduces no image, table contents, source passage, or PDF.",
+        "post_review_documentary_evidence": {
+          "added_on": "2026-10-09",
+          "official_publisher_page_url": "https://iite.unesco.org/publications/global-practices-evaluation-assessment-toolkit-advancing-artificial-intelligence-supported-global-digital-citizenship-education/",
+          "official_source_pdf_url": "https://iite.unesco.org/wp-content/uploads/2023/03/CHINESE_UNESCO-IITE-SOU.-2023.-Global-Practices-Evaluation-Assessment-Toolkit.-Advancing-Artificial-Intelligence-Supported-Global-Digital-Citizenship-Education.pdf",
+          "official_license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+          "source_pdf_sha256": "06b67090ac204c60f5a5fa9857619e375d8c1f51b99c70756a63414e76025314",
+          "source_pdf_local_path": "/private/tmp/chinese-ict-v2-sources/UNESCO2023-DIGITAL-CITIZENSHIP.complete.pdf",
+          "source_pdf_rights_notice_physical_page": 2,
+          "source_pdf_rights_page_text_sha256": "ac097f59c46ae921fc4aaa5e784d1264129d575ba30b46b77fa7991038903f98",
+          "rights_page_visual_capture": "/private/tmp/chinese-ict-v2-sources/v2_2-rights-check-2026-10-09/UNESCO2023-DIGITAL-CITIZENSHIP-page2.png",
+          "rights_page_visual_capture_sha256": "134b6ac8ce6b218a41d798405167c35944319beb75f70a191b2e3fd9bc676d90",
+          "visually_verified_terms": [
+            "CC BY-SA 3.0 IGO applies; the page supplies attribution to UNESCO IITE and Shanghai Open University.",
+            "The dataset does not reproduce the third-party image on physical page 11 or reproduce source tables, text passages, or the PDF."
+          ],
+          "assessment": "The official UNESCO IITE page exposes separate English and Chinese downloads. The complete hash-matched Chinese PDF states CC BY-SA 3.0 IGO and identifies both publishers on physical page 2. The dataset cites only the toolkit-authored evidence locations and includes no source table content, image, or long passage; any record-level adaptation must preserve the applicable ShareAlike and attribution terms.",
+          "raw_reviewer_1_verdict_preserved": "needs_evidence",
+          "raw_reviewer_2_verdict_preserved": "needs_evidence",
+          "not_back_attributed_to_reviewers": true,
+          "owner_attested_QA_record_authorization_is_separate": true,
+          "source_pdf_rights_page_text_hash_method": "SHA-256 of pdfplumber Page.extract_text() UTF-8 output; pdfplumber 0.11.9",
+          "rights_page_capture_rendering": "Poppler pdftoppm 26.05.0, PNG, 110 DPI"
+        }
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized"
     },
     {
       "source_id": "WB2014-RURAL",
@@ -2636,7 +3752,92 @@
         "World Bank"
       ],
       "v2_0_record_count": 34,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "original_report_url": "https://www.shihang.org/content/dam/Worldbank/document/EAP/China/rural_china_ict_summary_cn.pdf",
+        "official_pdf_url": "https://www.shihang.org/content/dam/Worldbank/document/EAP/China/rural_china_ict_summary_cn.pdf",
+        "original_report_sha256": "bc26c01ee17bdee179d4b2099f2f574780dbf9ef552877c849458b16b983423f",
+        "source_pdf_page_count": 4,
+        "parent_report_url": "https://documents1.worldbank.org/curated/en/722121468018263439/pdf/Information-and-communications-in-the-Chinese-countryside-a-study-of-three-provinces.pdf",
+        "rights_notice_location": {
+          "document": "English parent report",
+          "pdf_page_1based": 6,
+          "url": "https://documents1.worldbank.org/curated/en/722121468018263439/pdf/Information-and-communications-in-the-Chinese-countryside-a-study-of-three-provinces.pdf",
+          "pdf_page_count": 99,
+          "pdf_sha256": "1bb19108a09d0be4638087a709a19811702c2143eb3bf381f80da944a0a462b7"
+        },
+        "edition_note": "The 4-page Chinese executive summary is the QA source and matches its registered hash. The prior 35-page Chinese PDF was a different slide-deck file. CC BY 3.0 IGO is documented in the 99-page English parent report, physical page 6."
+      },
+      "v2_2_rights_review": {
+        "source_id": "WB2014-RURAL",
+        "reviewer_1_verdict": "needs_evidence",
+        "reviewer_2_verdict": "needs_evidence",
+        "reviewers_agree": true,
+        "reviewer_notes": "依据现有来源登记：许可为CC BY 3.0 IGO（已登记出版方许可）；权利声明位置：English parent report，PDF物理页6；已登记要求署名。\n来源文件核验：登记哈希不匹配。\n第三方内容限制：No third-party figures, photographs, tables, or media are reproduced; only concise paraphrased facts and page locators are included.\nBoth official URLs returned valid PDFs, but neither observed SHA-256 matches the registered Chinese-source or English-parent hash. Reconcile exact source version before marking verified.",
+        "registered_source_license": "CC BY 3.0 IGO",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+        "registered_source_sha256": "bc26c01ee17bdee179d4b2099f2f574780dbf9ef552877c849458b16b983423f",
+        "source_pdf_hash_verified": true,
+        "source_pdf_local_filename": "WB2014-RURAL.official-zh-summary.pdf",
+        "record_reuse_authorization": {
+          "status": "dataset_owner_attested_authorized",
+          "attested_on": "2026-10-08",
+          "basis": "The dataset owner stated that the source-derived QA records marked as needing evidence are authorized for publication.",
+          "applies_to": "The dataset QA record rows associated with this source; this statement is recorded separately from the source report license.",
+          "does_not_assert_source_report_license": true,
+          "external_permission_instrument_independently_inspected": false
+        },
+        "resolution": "owner_attested_source_derived_QA_record_authorization_logged; source-report license remains separate",
+        "source_summary_pdf_pages": 4,
+        "source_summary_hash_verified": true,
+        "parent_report_rights_notice_pdf_page": 6,
+        "source_rights_notice": "The official 99-page English parent PDF states CC BY 3.0 IGO, attribution, translation/adaptation disclaimers, and third-party exclusions on physical page 6.",
+        "source_license_status": "publisher_license_and_related_parent_hash_verified_after_review",
+        "third_party_content_status": "No third-party figures, photographs, tables, or media are reproduced; only concise paraphrased facts and page locators are included.",
+        "parent_report_pdf_hash_rechecked_locally": true,
+        "post_review_documentary_evidence": {
+          "added_on": "2026-10-09",
+          "chinese_summary_sha256": "bc26c01ee17bdee179d4b2099f2f574780dbf9ef552877c849458b16b983423f",
+          "official_english_parent_sha256": "1bb19108a09d0be4638087a709a19811702c2143eb3bf381f80da944a0a462b7",
+          "official_parent_url": "https://documents1.worldbank.org/curated/en/722121468018263439/pdf/Information-and-communications-in-the-Chinese-countryside-a-study-of-three-provinces.pdf",
+          "parent_rights_notice_physical_page": 6,
+          "visually_verified_terms": [
+            "The English parent report states CC BY 3.0 IGO and gives full attribution.",
+            "The page requires disclaimers for translations and adaptations and excludes third-party content, including tables, figures, and images.",
+            "The official Chinese summary has a separate hash-matched file; the license evidence comes from its identified English parent report."
+          ],
+          "assessment": "The official Chinese summary and its official English parent have distinct, hash-matched binaries. Physical page 6 of the English parent displays CC BY 3.0 IGO, attribution, translation/adaptation disclaimers, and third-party exclusions. The dataset contains concise paraphrases and physical-page locators only, not third-party visual material or source passages.",
+          "official_publisher_page_url": "https://www.worldbank.org/en/country/china/publication/rural-ict-program-in-china",
+          "official_source_pdf_url": "https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014.pdf",
+          "official_license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+          "source_pdf_sha256": "1bb19108a09d0be4638087a709a19811702c2143eb3bf381f80da944a0a462b7",
+          "source_pdf_local_path": "/private/tmp/chinese-ict-v2-sources/WB2014-RURAL.en-parent.official.pdf",
+          "source_pdf_rights_notice_physical_page": 6,
+          "source_pdf_rights_page_text_sha256": "0f7605e31981bf48b10e9355bb54a5ba880c9e371c47dcd89760b07c7e52948b",
+          "rights_page_visual_capture": "/private/tmp/chinese-ict-v2-sources/v2_2-rights-check-2026-10-09/WB2014-RURAL-parent-page6.png",
+          "rights_page_visual_capture_sha256": "584e9b10ec4f0d480789ea39618e42ff5c0b3291246b19fb7275d943ed6fea89",
+          "raw_reviewer_1_verdict_preserved": "needs_evidence",
+          "raw_reviewer_2_verdict_preserved": "needs_evidence",
+          "not_back_attributed_to_reviewers": true,
+          "owner_attested_QA_record_authorization_is_separate": true,
+          "related_chinese_summary_pdf_url": "https://www.worldbank.org/content/dam/Worldbank/document/EAP/China/Rural-ICT2014_CN%20.pdf",
+          "related_chinese_summary_sha256": "bc26c01ee17bdee179d4b2099f2f574780dbf9ef552877c849458b16b983423f",
+          "source_pdf_rights_page_text_hash_method": "SHA-256 of pdfplumber Page.extract_text() UTF-8 output; pdfplumber 0.11.9",
+          "rights_page_capture_rendering": "Poppler pdftoppm 26.05.0, PNG, 110 DPI"
+        }
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "dataset_owner_attested_authorized"
     },
     {
       "source_id": "WB2016-DIGITAL",
@@ -2676,7 +3877,13 @@
         "World Bank"
       ],
       "v2_0_record_count": 34,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "WB2019-WORK",
@@ -2716,7 +3923,13 @@
         "World Bank"
       ],
       "v2_0_record_count": 50,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "WB2025-DIGITAL",
@@ -2756,7 +3969,13 @@
         "World Bank"
       ],
       "v2_0_record_count": 71,
-      "v2_1_added_record_count": 0
+      "v2_1_added_record_count": 0,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "title_english_status": "registered_official_english_title",
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "WHO-AI-ETHICS-HEALTH-2021-ZH",
@@ -2770,7 +3989,7 @@
       "publication_year": 2021,
       "title_chinese": "卫生领域人工智能的伦理和治理：世卫组织指导文件执行概要",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "WHO official Chinese executive summary",
       "translation_status": "WHO-published Chinese edition or summary; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2805,7 +4024,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 15,
       "v2_1_added_record_count": 15,
-      "v2_0_planned_record_count": 15
+      "v2_0_planned_record_count": 15,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "WHO-DIGITAL-HEALTH-STRATEGY-2021-ZH",
@@ -2819,7 +4043,7 @@
       "publication_year": 2021,
       "title_chinese": "2020–2025年数字卫生保健全球战略",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "WHO Chinese-language edition or annex",
       "translation_status": "WHO-published Chinese edition or summary; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2854,7 +4078,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 30,
       "v2_1_added_record_count": 27,
-      "v2_0_planned_record_count": 30
+      "v2_0_planned_record_count": 30,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "WHO-HEALTH-DATA-SHARING-2022-ZH",
@@ -2868,7 +4097,7 @@
       "publication_year": 2022,
       "title_chinese": "出于研究目的共享和再利用卫生相关数据：世卫组织政策和实施指导文件",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "WHO Chinese-language edition or annex",
       "translation_status": "WHO-published Chinese edition or summary; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2903,7 +4132,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 30,
       "v2_1_added_record_count": 20,
-      "v2_0_planned_record_count": 30
+      "v2_0_planned_record_count": 30,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "WHO-SCORE-HEALTH-DATA-2022-ZH",
@@ -2917,7 +4151,7 @@
       "publication_year": 2022,
       "title_chinese": "通过 SCORE 完善卫生数据的一揽子技术措施：工具和标准",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "WHO Chinese-language edition or annex",
       "translation_status": "WHO-published Chinese edition or summary; this dataset uses the Chinese PDF and does not translate the report.",
@@ -2952,7 +4186,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 30,
       "v2_1_added_record_count": 20,
-      "v2_0_planned_record_count": 30
+      "v2_0_planned_record_count": 30,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "WHO-TB-DIGITAL-ANNEX-F-2024-ZH",
@@ -2966,7 +4205,7 @@
       "publication_year": 2024,
       "title_chinese": "结核病数据生成和使用综合指南：模块1 结核病监测，网络附件F",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "WHO Chinese-language edition or annex",
       "translation_status": "WHO-published Chinese edition or summary; this dataset uses the Chinese PDF and does not translate the report.",
@@ -3001,7 +4240,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 10,
       "v2_1_added_record_count": 24,
-      "v2_0_planned_record_count": 10
+      "v2_0_planned_record_count": 10,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     },
     {
       "source_id": "WHO-TB-SURVEILLANCE-GUIDE-2024-ZH",
@@ -3015,7 +4259,7 @@
       "publication_year": 2024,
       "title_chinese": "结核病数据生成和使用综合指南：模块1 结核病监测",
       "title_english": null,
-      "title_english_status": "not_transcribed_from_publication",
+      "title_english_status": "no_official_english_title_registered; no translation inferred",
       "text_language": "Chinese (Simplified)",
       "document_type": "WHO Chinese-language edition or annex",
       "translation_status": "WHO-published Chinese edition or summary; this dataset uses the Chinese PDF and does not translate the report.",
@@ -3050,7 +4294,12 @@
       "v2_source_file_audit_status": "sha256_verified_local_pdf_and_license_page",
       "v2_0_record_count": 30,
       "v2_1_added_record_count": 23,
-      "v2_0_planned_record_count": 30
+      "v2_0_planned_record_count": 30,
+      "v2_2_review_overlay": {
+        "v2_2_source_file_audit_status": "verified_registered_hash"
+      },
+      "source_report_license_status": "publisher_license_recorded",
+      "record_reuse_authorization_status": "record_specific_basis_retained_from_v2_1_metadata"
     }
   ]
 }

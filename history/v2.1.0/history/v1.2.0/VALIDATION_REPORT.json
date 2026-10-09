@@ -1,0 +1,74 @@
+{
+  "validation_status": "passed",
+  "version": "1.2.0",
+  "validated_on": "2026-10-06",
+  "record_count": 833,
+  "source_count": 25,
+  "added_record_count": 60,
+  "v1_2_additions_by_type": {
+    "unanswerable_absence": 20,
+    "cross_document_synthesis": 20,
+    "table_chart_reasoning": 20
+  },
+  "split_counts": {
+    "TRAIN": 579,
+    "TEST": 126,
+    "DEV": 128
+  },
+  "v1_2_split_counts": {
+    "TRAIN": 42,
+    "DEV": 9,
+    "TEST": 9
+  },
+  "v1_2_question_type_split_counts": {
+    "cross_document_synthesis": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    },
+    "table_chart_reasoning": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    },
+    "unanswerable_absence": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    }
+  },
+  "answerability_counts": {
+    "answerable": 812,
+    "unanswerable": 21
+  },
+  "record_license_counts": {
+    "CC-BY-4.0": 513,
+    "CC-BY-3.0-IGO": 317,
+    "CC-BY-SA-3.0-IGO": 3
+  },
+  "v1_2_record_license_counts": {
+    "CC-BY-4.0": 7,
+    "CC-BY-3.0-IGO": 50,
+    "CC-BY-SA-3.0-IGO": 3
+  },
+  "source_rights": "Mixed record-level terms verified against the source registry; BY-SA adaptations retain BY-SA terms.",
+  "checks": {
+    "frozen_v1_0_prefixes": true,
+    "frozen_v1_1_prefixes": true,
+    "record_ids_unique_and_contiguous": true,
+    "schema_and_conditionals": true,
+    "license_attribution_and_adaptation_fields": true,
+    "absence_scope_and_near_miss_fields": true,
+    "cross_document_source_and_fact_coverage": true,
+    "table_figure_visual_locators": true,
+    "source_family_group_split_isolation": true,
+    "viewer_rows_match_canonical_records": true,
+    "no_source_pdfs_or_media": true,
+    "manifest_and_sha256sum_coverage": true
+  },
+  "human_reviewed": false,
+  "independent_human_review": "not_performed",
+  "source_pdfs_or_media_included": false,
+  "prospective_blind_holdout_claim": false,
+  "prior_system_exposure_audit": "not_performed"
+}

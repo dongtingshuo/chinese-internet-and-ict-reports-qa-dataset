@@ -1,65 +1,29 @@
----
-license: other
-configs:
-- config_name: candidates
-  data_files:
-  - split: train
-    path: data/candidates_train.jsonl
-  - split: validation
-    path: data/candidates_validation.jsonl
-  - split: test
-    path: data/candidates_test.jsonl
-- config_name: recommended
-  data_files:
-  - split: train
-    path: data/recommended/train.jsonl
-  - split: validation
-    path: data/recommended/validation.jsonl
-  - split: test
-    path: data/recommended/test.jsonl
----
-
 # 中文互联网与 ICT 报告问答数据集
 
-**版本：** 2.1.0 · **语言：** 中文 · **统一数据集：** 2,508 条 · **推荐评测子集：** 2,508 条
+**版本：** v2.2.0 · **语言：** 中文 · **Gold 子集：** 2,355 条
 
-v2.1.0 保留完整的 v2.0.0 数据集，并在同一个数据集中新增 508 条非填空、经来源重建的问答。v2.0.0 的原始发布包保存在 `history/v2.0.0/`。
+本版把旧数据中通过门槛的记录与 80 条通过复核的新 ID 替代题合并为一个数据集。正式数据文件只收录满足本版 Gold 子集门槛的记录；未通过的替代题不进入活动数据文件。
 
 ## 数据内容
 
-- 833 条历史记录、60 条既有来源重建候选题、1,107 条规则生成的句子填空题，以及 508 条 v2.1 来源重建题。
-- 共 61 份来源文档、50 个报告家族和 10 家归并后的出版机构。508 条新增题使用已登记的中文来源，没有增加新报告文件。
-- TRAIN/DEV/TEST 分别为 1,681/397/430 条。508 条新增记录继承了预先分配的报告家族切分，新增部分各切分为 304/97/107 条；跨报告来源保持在同一切分。
-- Hugging Face Viewer 的 `candidates` 和 `recommended` 两种配置都包含全部 2,508 条。按数据集所有者要求，所有记录均保留在推荐子集；选择评测数据时仍需查看每条记录的 `review_status`。
-- 数据包不含来源报告 PDF、图片、表格、图表或长段原文。v2.0.0 的 1,107 条填空记录仍保留各自的短句摘录及待核验状态。
+- 共 2,355 条来源可核验问答：TRAIN 1,573、DEV 372、TEST 410。
+- 使用 61 份登记报告来源，覆盖 20 个报告家族和 10 家发布机构。
+- 记录包含问题、答案、必要事实、证据组、物理 PDF 页码、来源哈希、任务分类、切分来源和逐条权利信息。
+- Hugging Face Viewer 只有一个 gold 配置；records.jsonl 是规范的活动记录文件。
+- 数据包不分发来源 PDF、图片、图表、表格或长段原文。
 
-## 复核状态与限制
+## Gold 子集与复核
 
-508 条 v2.1 题目使用不含候选答案的问题包和引用的官方中文来源 PDF，进行了 AI 辅助的第二轮答案、必要事实、物理页码和来源哈希重建。完整记录见 `audit/v2_1_answer_blind_reconstruction.jsonl`。这不是独立 AI 会话或人工复核；所有新增记录继续标记 `human_reviewed: false`，不称为金标准。20 条缺少完整重建审计的草案、6 条标签无效题和8条近重复题未纳入本版，处理结果见 `audit/v2_1_candidate_disposition_ledger.jsonl`。
+本版的 Gold 仅指通过筛选的 2,355 条，不代表历史档案或所有候选记录均为 Gold。其中 2,275 条来自 v2.1.0 中符合条件的记录，另有 80 条通过门槛的 v2.2.0 新 ID 替代题。旧题 `IICR-V12-0030` 的问题范围存在多个合理答案，故从本版移除；另有 140 条拟议替代题未通过发布门槛，不纳入本版。
 
-依赖表格的题目在 `locator_details` 中标明表号及相关行/列标签或脚注标记；叙述性证据则指向物理 PDF 页码和文本区域。这些定位信息用于找到来源证据，不会复现来源表格内容。
+两名审核者 D、T 对 v2.1.0 基线的 2,508 条记录分别独立重建答案、必要事实和证据。数据集所有者确认审核过程对旧答案和标注保持盲态，未使用 AI 或他人协助。第三名审核者 S 对指定案例先独立重建、再进行裁决；该独立阶段及无协助情况由所有者确认。审核者方法声明未在返回工作簿中签署，因此这些信息明确标为所有者确认。基线 2,508 条中有 2,506 条取得盲式 AI 复核信用；另两条不进入本版。三条历史流程偏差尝试不计信用，相关问题均使用干净的问题包和来源单独重跑。
 
-1,107 条填空题仍为 `pending_ai_content_verification`；确定性挖空时答案可见，第三方署名筛查仍待完成。833 条历史记录保留原有审核状态，本版不声称已对它们完成答案盲化重建。纳入推荐子集是所有者的决定，不代表审核状态已改变。
+完整发布门槛摘要见 audit/v2_2/RELEASE_AUDIT.md。Gold 是根据公开门槛筛选出的子集，不是外部认证，也不保证标注零错误。历史切分在标注后分配，不是盲测集；既有系统接触情况未审计。本项目不包含 RAG 基线或模型性能结论。
 
-## 来源和许可
+## 许可与署名
 
-数据集采用逐条混合许可，不存在适用于全仓库的单一许可。每条记录都保留适用的数据许可、来源署名、改编声明和其他义务。v2.1 新增题目是对 `sources.json` 已登记来源的简要改写；来源哈希、授权声明和译本信息均有记录。数据包不再分发报告 PDF 或媒体。详情见 `LICENSES.md`、`LICENSE_STATUS.md`、`ATTRIBUTION.md` 及记录中的 `publication_rights`。
-
-历史切分是在标注后分配的，不是盲测集；既有系统接触情况未审计。数据包不含 RAG 基线或模型性能结果，也不声称全库为金标准。
+记录采用混合的逐条许可；license: other 表示不存在覆盖全数据集的单一许可。再分发时应保留每条记录的 publication_rights，并遵守对应来源的署名和改编要求。详见 sources.json、LICENSES.md、LICENSE_STATUS.md 与 ATTRIBUTION.md。CAICT QA 记录的再利用授权由数据集所有者确认；这不代表 CAICT 报告采用开放许可，也不表示可以再分发报告 PDF。
 
 ## Viewer 字段
 
-请结合 `answer_candidate`、`review_status` 和 `recommended_for_evaluation` 使用。`record_json` 保存完整记录、证据定位和许可信息。
-
-## 重建与校验
-
-v2.1 从冻结的 v2.0.0 快照和记录的问题包/答案重建审计中生成：
-
-```bash
-python3 build_v2_1_package.py
-python3 build_hf_splits.py
-python3 validate_v2_package.py
-python3 build_release_metadata.py
-```
-
-`build_v2_package.py` 是历史 v2.0 构建器；检测到活动 v2.1 数据后会停止，防止覆盖新发布。来源 PDF 和完整提取文本保留在仓库之外。
+Viewer 提供 query_id、question、answer_candidate、answerability、split、task_family、task_subtype、review_status、recommended_for_evaluation 和 record_json。必要事实、证据、复核来源和权利信息位于 record_json。使用或再分发时请遵守逐条许可。

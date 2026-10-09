@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this dataset, cite the v2.0.0 release and preserve record-level source attributions."
+title: "Chinese Internet and ICT Reports QA Dataset / 中文互联网与 ICT 报告问答数据集"
+version: 2.0.0
+date-released: 2026-10-07
+authors:
+  - family-names: Dong
+    given-names: Tingshuo
+url: https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset
+repository-code: https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset
+license: other
+abstract: >-
+  A mixed record-level licensed Chinese source-grounded QA candidate dataset.
+  The v2.0.0 active package unifies all 833 v1.2.0 records with 60 new
+  candidates; all 893 records are included in the recommended subset. Review
+  status remains explicit, and no dataset-wide human review or gold status is claimed.

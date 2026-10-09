@@ -1,31 +1,28 @@
-# Data Card — v2.1.0
+# Data Card — v2.2.0
 
 ## Dataset description
 
-A unified Chinese-language QA candidate corpus about Internet, ICT, education technology, public health information systems, labor, and digital agriculture reports. It contains 2,508 records: the exact 2,000 rows from v2.0.0 plus 508 source-reconstructed, non-cloze questions. All rows remain in the recommended subset per dataset-owner instruction; recommendation does not change review status.
+A unified source-grounded Chinese QA dataset about Internet, ICT, digital development, public health, labor, education technology, and related reports. The active release is the selected 2,355-record Gold subset.
 
 ## Contents and composition
 
-- 61 source documents from 50 report families and 10 consolidated publishing institutions.
-- TRAIN/DEV/TEST: 1,681/397/430. The 508 v2.1 additions inherit registered source-family assignments and are split 304/97/107.
-- 506 legacy CAICT records; 1,107 v2.0 sentence-cloze records; 508 v2.1 source-reconstructed questions.
-- All v2.0.0 records, IDs, row content, splits, recommendation values, and review statuses are preserved byte-for-byte in the active record file's prefix and archived under `history/v2.0.0/`.
-- No source report PDFs, images, tables, figures, or long passages are included. The 1,107 historical cloze records continue to contain one short licensed sentence each.
+- 2,355 records: 2,275 eligible v2.1.0 records and 80 passing v2.2.0 replacement records. IICR-V12-0030 was excluded for ambiguous question scope.
+- Splits: TRAIN 1,573, DEV 372, TEST 410.
+- 61 registered source documents, 20 report families, and 10 publishing organizations.
+- Answerable/unanswerable: 2,336/19.
+- Every active record includes question, answerability, answer, required facts, source evidence, split, review status, and record-level rights information.
+- Source PDFs, media, and long passages are not included. The frozen v2.1.0 release remains in history/v2.1.0/.
 
-## Data creation and review
+## Creation and review
 
-The 508 v2.1 questions were checked against official Chinese source PDFs using answer-free question packets. The audit records reconstructed answers, atomic required facts, physical PDF page locators, source PDF hashes, the review prompt hash, and the conclusion. The authoring and checking occurred in the same active AI session; neither independent review nor human review is claimed. New rows are marked `human_reviewed: false` and `gold_candidate: false`.
+The v2.1.0 baseline contains 2,508 rows with two independent human reviews per row, as attested by the dataset owner. The AI answer-blind source audit credited 2,506 rows; two rows without credit were excluded. A third human reviewer adjudicated designated cases. Of 220 replacement proposals, 80 passed all release gates and 140 were not included.
 
-Table evidence locators carry the table identifier plus relevant row/column labels or footnote marker in `locator_details`; this metadata supports evidence lookup without including the source table itself.
-
-The 542-question draft pool produced 508 release records. Twenty items without a completed reconstruction audit were deferred; six invalid-label items and eight near duplicates were excluded. See the complete question and reconstruction archives under `audit/v2_1_all_candidate_*` and `audit/v2_1_candidate_disposition_ledger.jsonl`.
-
-The 1,107 v2.0 cloze rows remain `pending_ai_content_verification`; the answer was visible to the deterministic masking process, and third-party attribution screening is pending. The 833 historical records retain their prior pending review statuses. No corpus-wide human review or gold status is claimed.
+Human reviewer identities, blindness, and no-assistance statements are owner-attested and are not supported by reviewer-signed method declarations. The review ledgers and limitations are summarized in audit/v2_2/RELEASE_AUDIT.json. The released Gold label denotes this operationally selected subset, not external certification or guaranteed zero annotation error.
 
 ## Sources and licensing
 
-The corpus has mixed record-level licensing and no repository-wide license. The 508 v2.1 additions adapt/paraphrase official Chinese source content already registered in `sources.json`; each row carries its source license, attribution, adaptation/translation notices, and third-party limitations. Source PDFs and media are not redistributed. The v2.0 cloze records retain their short source excerpts and per-record CC BY-NC-SA 3.0 IGO terms. The dataset owner's authorization for the 506 legacy CAICT QA records is separate from the underlying report rights.
+The active records use mixed record-level terms. No repository-wide license applies. Preserve publication_rights and follow the matching source attribution and adaptation requirements in sources.json. CAICT QA-record reuse authorization is owner-attested; it is separate from source-report licensing. No source PDFs or media are redistributed.
 
 ## Intended use and limitations
 
-Use as a source-grounded Chinese QA candidate corpus. Filter on `review_status`, `task_family`, `task_subtype`, `split`, and `publication_rights`. Historical splits are post-annotation and not blind holdouts; prior system exposure has not been audited. The package contains no RAG baseline or model performance result.
+Use for Chinese source-grounded QA, retrieval, and evaluation research where the record's license permits. Prior system exposure has not been audited. Splits were assigned after annotation and are not blind holdouts. This release contains no retrieval baseline or model-performance results.

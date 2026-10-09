@@ -1,0 +1,33 @@
+{
+  "dataset_version": "2.2.0",
+  "gold_claimed": true,
+  "gold_claim_scope": "Only the 2,355 released records; no Gold claim is made for excluded historical or candidate rows.",
+  "released_rows": 2355,
+  "split_counts": {
+    "TRAIN": 1573,
+    "DEV": 372,
+    "TEST": 410
+  },
+  "baseline_rows_retained": 2275,
+  "baseline_records_excluded_for_unresolved_source_scope_findings": [
+    "IICR-V12-0030"
+  ],
+  "baseline_source_scope_findings": {
+    "IICR-V12-0030": [
+      "question_scope_ambiguous_multiple_algorithm_functions"
+    ]
+  },
+  "new_passing_replacements": 80,
+  "replacement_proposals_excluded": 140,
+  "uncredited_baseline_rows_excluded": [
+    "IICR-V12-0026",
+    "IICR-V12-0028"
+  ],
+  "selection_ledger_sha256": "8c610325c55e05bee1c4e8e41a6569ef0eec61fad5cc020182d04e418e40b975",
+  "limitations": [
+    "Gold is an operationally selected release subset, not an external certification or a guarantee of zero annotation errors.",
+    "Reviewer-method, blindness, and no-assistance disclosures are owner-attested, not reviewer-signed.",
+    "Historical splits are post-annotation, not blind holdouts; prior system exposure has not been audited.",
+    "Record licenses are mixed; no single license covers all records."
+  ]
+}

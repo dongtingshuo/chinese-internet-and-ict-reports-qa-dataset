@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "baseline_commit": "a399c6fa78e2e47b84d00582fb935210fdb10477",
+  "record_count": 2000,
+  "split_counts": {
+    "TRAIN": 1377,
+    "DEV": 300,
+    "TEST": 323
+  },
+  "query_ids_sha256": "5a6d59460307e8b75d38af2848dde7a7b58f3ab47fd7cbdc6b4f6aeb0dc50583",
+  "files": {
+    "ATTRIBUTION.md": "331ef0226f16e8c6e93de96c8d460ddd3bd01d4fa51d0b46f649d4f82618d35f",
+    "CITATION.cff": "1544a0f14237b782def3f32e53422aea8728b1be2c8ca1282795135b0971e69c",
+    "CITATION.md": "e905ee8573307e63df7580cdd076750a8895fdd9bdbdeeaf15e25f9f05cdd532",
+    "DATA_CARD.md": "a0cce58d4a20dc2d9e07a1f6e8be3d838b2a65c04caa0863e0e0de1ed87aed81",
+    "DATA_STATEMENT.md": "a068a3e0400ca8c9f7ac0c3723eb722d89c075fc2cd5353851ba1e6811b1bf6b",
+    "LICENSE": "4502fda0a16b67e853e36200f0e75c3b630d783d3fc0620d76f82a5ba0f97197",
+    "LICENSES.md": "b00e5375c5b78f8c3db42668b1d7e5fbbec18e7f0b4d78a809277f3c42795f12",
+    "LICENSE_STATUS.md": "f1974ad99269a89a334dcd147b3297a8e8821d69b9c530185538788f48dcb907",
+    "README.md": "2773ee212beb11ef3e29dcd60e24d6a6caf1c31d3f266d78d6130dbab67633ff",
+    "README.zh-CN.md": "9d46b292b5256e70c125f7c36dd5d0eca4f60d0f25917a37d7e910a9bac6cefe",
+    "SHA256SUMS": "85df2b15da30800e9bb1325127060247cbf6c20c7990154e03c925996e694c0b",
+    "SPLIT_POLICY.md": "c6b167094635ab64b592a25d147bb64ea34f7bd9483eb87b4e885d85fcfd040d",
+    "VALIDATION_REPORT.json": "2ae1f243c52854bf810157a973c69cde03d06ce1d8c94e5b42baa60d0af44471",
+    "manifest.json": "69d9559d7a6c3d53a99758e785fe8fe6bc5bebfc88f3a6c362bcca343c493250",
+    "records.jsonl": "820edd48ad06930bb432c84db3d16e391616acea843876201f782877cb0851ba",
+    "schema.json": "fd0ad50830c0e8862f58601f38bcbc3f500b576bf9f0bafe24fef573699830c1",
+    "sources.json": "d55af668d3c391e2050cd254407eceaa61a039b9a2d13412c9e9e3e3e789877a",
+    "split_assignments.jsonl": "294f6e608d98e7221209e1f0095f98ef5aa99beb6a96bfb38c3a6f83605366a7",
+    "data/candidates_test.jsonl": "8433c737aa0931437e2e6919b258cd3dbe65a60066953198f3ed166edd4d4174",
+    "data/candidates_train.jsonl": "4fa105159b631116c33335705e3219af568945f7fb271ad0beaadc3a38c02c77",
+    "data/candidates_validation.jsonl": "9db7cdc88cac61695632f985fb79ac8b46ba6e1e16ff7dec0b4d0e1280c1aaf2",
+    "data/recommended/test.jsonl": "8433c737aa0931437e2e6919b258cd3dbe65a60066953198f3ed166edd4d4174",
+    "data/recommended/train.jsonl": "4fa105159b631116c33335705e3219af568945f7fb271ad0beaadc3a38c02c77",
+    "data/recommended/validation.jsonl": "9db7cdc88cac61695632f985fb79ac8b46ba6e1e16ff7dec0b4d0e1280c1aaf2"
+  },
+  "source_artifacts_included": false
+}

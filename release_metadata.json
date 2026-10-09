@@ -1,0 +1,16 @@
+{
+  "dataset_id": "chinese-internet-ict-reports-qa",
+  "version": "2.2.0",
+  "release_status": "release_ready_pending_remote_verification",
+  "gold_claimed": true,
+  "gold_claim_scope": "active 2,355-record released subset only",
+  "record_count": 2355,
+  "split_counts": {
+    "TRAIN": 1573,
+    "DEV": 372,
+    "TEST": 410
+  },
+  "record_license_policy": "mixed, record-level; no repository-wide license",
+  "source_pdf_media_included": false,
+  "validation_status": "passed"
+}

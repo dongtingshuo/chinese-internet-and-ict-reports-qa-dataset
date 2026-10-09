@@ -1,19 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/dongtingshuo/chinese-internet-and-ict-reports-qa-dataset/blob/main/schema.json",
-  "title": "Chinese Internet and ICT Reports QA Dataset v2.1.0 record",
-  "description": "The active corpus contains the exact 2,000 v2.0.0 records plus source-reconstructed v2.1.0 questions. All rows remain in the recommended subset per dataset-owner instruction, while review status remains explicit. Records use mixed record-level licenses; no human-reviewed gold status is claimed.",
-  "oneOf": [
-    {
-      "$ref": "#/$defs/historical_candidate_v2"
-    },
-    {
-      "$ref": "#/$defs/new_candidate_v2"
-    },
-    {
-      "$ref": "#/$defs/new_candidate_v2_1"
-    }
-  ],
+  "title": "Chinese Internet and ICT Reports QA Dataset v2.2.0 active record schema",
+  "description": "The active v2.2.0 release contains only the selected Gold subset. Record licenses are mixed and review provenance is explicit.",
   "$defs": {
     "common_v2_fields": {
       "type": "object",
@@ -601,6 +590,359 @@
           }
         }
       ]
+    },
+    "gold_subset_v2_2": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://example.invalid/iicr/schema-v2.2.json",
+      "title": "IICR v2.2 candidate record",
+      "description": "v2.2 preserves v2.1 element locators and permits verified 1-based physical page descriptions with explicit source hashes. Source pages in one evidence set may support required facts jointly.",
+      "type": "object",
+      "required": [
+        "query_id",
+        "question",
+        "answerability",
+        "gold_answer",
+        "required_facts",
+        "gold_evidence_sets",
+        "source_ids",
+        "split",
+        "human_reviewed",
+        "review_status",
+        "recommended_for_evaluation",
+        "gold_subset_member"
+      ],
+      "properties": {
+        "query_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "answerability": {
+          "enum": [
+            "answerable",
+            "unanswerable"
+          ]
+        },
+        "gold_answer": {
+          "type": "string"
+        },
+        "required_facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "fact_id",
+              "statement"
+            ],
+            "properties": {
+              "fact_id": {
+                "type": "string"
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "gold_evidence_sets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "evidence_set_id",
+              "required_fact_ids",
+              "sources"
+            ],
+            "properties": {
+              "evidence_set_id": {
+                "type": "string"
+              },
+              "required_fact_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "support_mode": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "source_id"
+                  ],
+                  "properties": {
+                    "source_id": {
+                      "type": "string"
+                    },
+                    "element_id": {
+                      "type": "string"
+                    },
+                    "element_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "pdf_page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "pdf_pages": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    },
+                    "source_pdf_sha256": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "locator_description": {
+                      "type": "string"
+                    },
+                    "supports_fact_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "support_scope": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "split": {
+          "enum": [
+            "TRAIN",
+            "DEV",
+            "TEST"
+          ]
+        },
+        "human_reviewed": {
+          "type": "boolean"
+        },
+        "review_status": {
+          "type": "string"
+        },
+        "recommended_for_evaluation": {
+          "type": "boolean"
+        },
+        "supersedes_query_id": {
+          "type": "string"
+        },
+        "superseded_by_query_id": {
+          "type": "string"
+        },
+        "gold_subset_member": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
     }
-  }
+  },
+  "anyOf": [
+    {
+      "$ref": "#/$defs/historical_candidate_v2"
+    },
+    {
+      "$ref": "#/$defs/new_candidate_v2"
+    },
+    {
+      "$ref": "#/$defs/new_candidate_v2_1"
+    },
+    {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://example.invalid/iicr/schema-v2.2.json",
+      "title": "IICR v2.2 candidate record",
+      "description": "v2.2 preserves v2.1 element locators and permits verified 1-based physical page descriptions with explicit source hashes. Source pages in one evidence set may support required facts jointly.",
+      "type": "object",
+      "required": [
+        "query_id",
+        "question",
+        "answerability",
+        "gold_answer",
+        "required_facts",
+        "gold_evidence_sets",
+        "source_ids",
+        "split",
+        "human_reviewed",
+        "review_status",
+        "recommended_for_evaluation",
+        "gold_subset_member"
+      ],
+      "properties": {
+        "query_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "answerability": {
+          "enum": [
+            "answerable",
+            "unanswerable"
+          ]
+        },
+        "gold_answer": {
+          "type": "string"
+        },
+        "required_facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "fact_id",
+              "statement"
+            ],
+            "properties": {
+              "fact_id": {
+                "type": "string"
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "gold_evidence_sets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "evidence_set_id",
+              "required_fact_ids",
+              "sources"
+            ],
+            "properties": {
+              "evidence_set_id": {
+                "type": "string"
+              },
+              "required_fact_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "support_mode": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "source_id"
+                  ],
+                  "properties": {
+                    "source_id": {
+                      "type": "string"
+                    },
+                    "element_id": {
+                      "type": "string"
+                    },
+                    "element_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "pdf_page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "pdf_pages": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    },
+                    "source_pdf_sha256": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "locator_description": {
+                      "type": "string"
+                    },
+                    "supports_fact_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "support_scope": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "split": {
+          "enum": [
+            "TRAIN",
+            "DEV",
+            "TEST"
+          ]
+        },
+        "human_reviewed": {
+          "type": "boolean"
+        },
+        "review_status": {
+          "type": "string"
+        },
+        "recommended_for_evaluation": {
+          "type": "boolean"
+        },
+        "supersedes_query_id": {
+          "type": "string"
+        },
+        "superseded_by_query_id": {
+          "type": "string"
+        },
+        "gold_subset_member": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    }
+  ]
 }

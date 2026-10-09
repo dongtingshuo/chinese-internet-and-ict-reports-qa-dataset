@@ -1,0 +1,326 @@
+{
+  "dataset_id": "chinese_internet_ict_reports_qa",
+  "dataset_name": "Chinese Internet and ICT Reports QA Dataset / 中国互联网与信息通信报告问答数据集",
+  "version": "1.2.0",
+  "created_on": "2026-10-06",
+  "package_status": "complete_record_level_mixed_license_dataset_package",
+  "record_count": 833,
+  "legacy_record_count": 506,
+  "v1_1_record_count": 267,
+  "v1_2_record_count": 60,
+  "source_count": 25,
+  "v1_1_source_count": 8,
+  "v1_2_new_source_count": 3,
+  "split_counts": {
+    "TRAIN": 579,
+    "TEST": 126,
+    "DEV": 128
+  },
+  "v1_0_split_counts": {
+    "TRAIN": 354,
+    "TEST": 77,
+    "DEV": 75
+  },
+  "v1_1_split_counts": {
+    "TRAIN": 183,
+    "DEV": 44,
+    "TEST": 40
+  },
+  "v1_2_split_counts": {
+    "TRAIN": 42,
+    "DEV": 9,
+    "TEST": 9
+  },
+  "v1_2_question_type_counts": {
+    "unanswerable_absence": 20,
+    "cross_document_synthesis": 20,
+    "table_chart_reasoning": 20
+  },
+  "v1_2_question_type_split_counts": {
+    "cross_document_synthesis": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    },
+    "table_chart_reasoning": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    },
+    "unanswerable_absence": {
+      "TRAIN": 14,
+      "DEV": 3,
+      "TEST": 3
+    }
+  },
+  "connected_component_counts": {
+    "TRAIN": 22,
+    "TEST": 6,
+    "DEV": 8
+  },
+  "family_counts": {
+    "TRAIN": 20,
+    "TEST": 5,
+    "DEV": 6
+  },
+  "source_counts": {
+    "TRAIN": 16,
+    "TEST": 4,
+    "DEV": 5
+  },
+  "answerability_counts": {
+    "answerable": 812,
+    "unanswerable": 21
+  },
+  "source_support_status_counts": {
+    "source_supported_candidate": 401,
+    "source_verified_after_locator_repair": 55,
+    "source_checked_in_followup_resolution": 2,
+    "historical_source_verified_gold": 40,
+    "source_verified_after_content_correction": 8,
+    "source_verified_candidate": 307,
+    "source_checked_unanswerable_candidate": 20
+  },
+  "gold_candidate_count": 833,
+  "human_reviewed": false,
+  "v1_2_independent_human_review": "not_performed",
+  "v1_2_source_checking": "AI-assisted page-level evidence, absence-scope, cross-document, and visual locator verification",
+  "pre_annotation_split": false,
+  "prospective_blind_holdout_claim": false,
+  "prior_system_exposure_audit": "not_performed",
+  "m3_formal_train_query_count": 0,
+  "legacy_train_query_count": 354,
+  "included_in_m3_formal_experiments": false,
+  "included_in_m4_experiments": false,
+  "source_pdfs_or_media_included": false,
+  "source_passage_or_media_included": false,
+  "dataset_license": "mixed_record_level",
+  "open_license_asserted": true,
+  "source_attribution_required": true,
+  "record_license_counts": {
+    "CC-BY-4.0": 513,
+    "CC-BY-3.0-IGO": 317,
+    "CC-BY-SA-3.0-IGO": 3
+  },
+  "v1_2_record_license_counts": {
+    "CC-BY-4.0": 7,
+    "CC-BY-3.0-IGO": 50,
+    "CC-BY-SA-3.0-IGO": 3
+  },
+  "license_components": [
+    {
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "record_id_prefix": "M3-TR-CAND-",
+      "record_count": 506,
+      "scope": "unchanged v1.0.0 records"
+    },
+    {
+      "license": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+      "record_id_prefix": "IICR-V11-",
+      "record_count": 267,
+      "scope": "v1.1.0 report adaptations"
+    },
+    {
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "record_id_prefix": "IICR-V12-",
+      "record_count": 7,
+      "scope": "ILO Chinese executive-summary adaptations"
+    },
+    {
+      "license": "CC-BY-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/igo/",
+      "record_id_prefix": "IICR-V12-",
+      "record_count": 50,
+      "scope": "v1.2.0 adaptations of CC BY 3.0 IGO reports"
+    },
+    {
+      "license": "CC-BY-SA-3.0-IGO",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+      "record_id_prefix": "IICR-V12-",
+      "record_count": 3,
+      "scope": "v1.2.0 UNESCO toolkit adaptations; same ShareAlike terms apply"
+    }
+  ],
+  "v1_0_records_and_splits_unchanged": true,
+  "v1_1_records_and_splits_unchanged": true,
+  "v1_0_records_sha256": "7d4d3028b06c7926515607ecb9ad596984a74feccc91a0cea5fac2dc23fc6a6a",
+  "v1_0_split_assignments_sha256": "fe3ef765e94f142bcf4c40d4d1011b1c1cd42520b99ab7361421636b6add670e",
+  "v1_1_records_sha256": "f00ffbb66a5af9ac097c626717979ce055154d75b58d27aa4a4ea4267e2f21f4",
+  "v1_1_split_assignments_sha256": "72d91d55dc53f97edbbce9e8512cc6b2eae8a3ba7fe25dc630cee8c390e024f3",
+  "v1_1_source_record_counts": {
+    "WB2014-RURAL": 28,
+    "WB2016-DIGITAL": 30,
+    "WB2019-WORK": 42,
+    "WB2025-DIGITAL": 52,
+    "ILO2020-PLATFORM": 41,
+    "ILO2021-PLATFORM": 40,
+    "ADB2018-CITIES": 20,
+    "ADB2023-YOUTH": 14
+  },
+  "v1_1_source_publishers": [
+    "Asian Development Bank",
+    "International Labour Organization",
+    "World Bank"
+  ],
+  "v1_2_source_record_counts": {
+    "ILO2026-LIFELONG-SKILLS": 7,
+    "ILO2020-PLATFORM": 16,
+    "WB2014-RURAL": 6,
+    "WB2025-DIGITAL": 19,
+    "ADB2023-YOUTH": 5,
+    "WB2016-DIGITAL": 4,
+    "ILO2021-PLATFORM": 8,
+    "ILO2021-EMPLOYMENT-RELATIONSHIP": 4,
+    "WB2019-WORK": 8,
+    "UNESCO2023-DIGITAL-CITIZENSHIP": 3
+  },
+  "v1_2_source_ids": [
+    "ADB2023-YOUTH",
+    "ILO2020-PLATFORM",
+    "ILO2021-EMPLOYMENT-RELATIONSHIP",
+    "ILO2021-PLATFORM",
+    "ILO2026-LIFELONG-SKILLS",
+    "UNESCO2023-DIGITAL-CITIZENSHIP",
+    "WB2014-RURAL",
+    "WB2016-DIGITAL",
+    "WB2019-WORK",
+    "WB2025-DIGITAL"
+  ],
+  "v1_2_new_source_ids": [
+    "ILO2021-EMPLOYMENT-RELATIONSHIP",
+    "ILO2026-LIFELONG-SKILLS",
+    "UNESCO2023-DIGITAL-CITIZENSHIP"
+  ],
+  "v1_2_new_source_publishers": [
+    "International Labour Organization",
+    "UNESCO Institute for Information Technologies in Education and Shanghai Open University"
+  ],
+  "split_manifest_reference": "legacy_dataset_split_v1/legacy_dataset_split_manifest_v1.json",
+  "dataset_license_url": null,
+  "license_notice": "See LICENSE and LICENSES.md; no single license applies to all records.",
+  "package_files": [
+    {
+      "path": "ATTRIBUTION.md",
+      "bytes": 2741,
+      "sha256": "45e4a84cc2c5e6a9f7f0d6699130b89a85c6dfa47e9f094a428cd0434e0d68c4"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 1047,
+      "sha256": "8afe1723466babbd9ec58a1df549501d6591ab2cab9a04fccfe465d73470febe"
+    },
+    {
+      "path": "CITATION.md",
+      "bytes": 654,
+      "sha256": "6923bfffa47d0c0ca9951c905c8a01e91925191a9acd4f0a3f7cbded3b7a228e"
+    },
+    {
+      "path": "DATA_CARD.md",
+      "bytes": 3447,
+      "sha256": "68286f6878ba35c2c1f7cb8cda702da5f74f64f840af8eded8d28929d1e37245"
+    },
+    {
+      "path": "DATA_STATEMENT.md",
+      "bytes": 2615,
+      "sha256": "06118ab78db9ff7fea85be4b891c752debb59cc5ab421daaad708925d4d7b00e"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 928,
+      "sha256": "218323e57a0ed8666d5d840c392c1d1b29f37aecb23ff4a6c131823cfe77db81"
+    },
+    {
+      "path": "LICENSE-CC-BY-4.0.txt",
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "LICENSES.md",
+      "bytes": 2427,
+      "sha256": "1bcd6211806f2fa4f265ad9cabd2ffd8de1ad5cf64a7732adfe1fe6c1d180558"
+    },
+    {
+      "path": "LICENSE_STATUS.md",
+      "bytes": 1969,
+      "sha256": "8010aebed7081f615abde0bd0bf412c09d9ab7eaff33ef49c6c897e4d7ffaf38"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6277,
+      "sha256": "39ce0057bd086d59a3d39d09b83f16c7bfd8dcf57c82db3c5cd6cde99fb45cb0"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "bytes": 5491,
+      "sha256": "4801bd706c912c5534862cf263839aa32a5ebba15f184926b46d4a8e805e498e"
+    },
+    {
+      "path": "SPLIT_POLICY.md",
+      "bytes": 1230,
+      "sha256": "ae5554f987de3b6a526d7fe68cfc5930f83dd2296e9ce928b9f9114eb9a9a4f6"
+    },
+    {
+      "path": "VALIDATION_REPORT.json",
+      "bytes": 1937,
+      "sha256": "f5c68cce3a02635a756d641251694bad0749029740b86f547b6b18953e71a0d0"
+    },
+    {
+      "path": "build_hf_splits.py",
+      "bytes": 1709,
+      "sha256": "851575bd0e15c744288241e7dc7af6ab226b83bff92450f8936ad9821d77ec61"
+    },
+    {
+      "path": "build_release_metadata.py",
+      "bytes": 9160,
+      "sha256": "a92c6b9c82d0c6e16b6a07d7dfbb350cc2e999223a7dc3e331385164b51fa75c"
+    },
+    {
+      "path": "build_v1_2_records.py",
+      "bytes": 64650,
+      "sha256": "4b5b7c0919cc9c799f3326a689784f456e0fa7ad46f0e14a6d871d6a678ca5c3"
+    },
+    {
+      "path": "data/test.jsonl",
+      "bytes": 998814,
+      "sha256": "7979db40be24af4c2f2f3d26862c53493bf5ff651923e6efa2119dcb817581a3"
+    },
+    {
+      "path": "data/train.jsonl",
+      "bytes": 4442678,
+      "sha256": "7bf6f638da14664c70ab30fc19fc75a8d73d6250d9819ae54023a790090294c4"
+    },
+    {
+      "path": "data/validation.jsonl",
+      "bytes": 1001245,
+      "sha256": "cbda6182dbb11c3a41f6c59b64ea02dba47eec781d8f1fc2d2e13a4f8a5c5d8f"
+    },
+    {
+      "path": "records.jsonl",
+      "bytes": 5719998,
+      "sha256": "c1885bfb779928002171d6deb9bc02c2dccd6081364202d7fe69c9fa787a21ae"
+    },
+    {
+      "path": "schema.json",
+      "bytes": 33141,
+      "sha256": "3f3bfaab823b79571435c8d3d3f5bddc80abb26a5f280dc8977e15629c12fd37"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 58107,
+      "sha256": "0e0f4c8511ac7588264ae0e8ee36a4e0c85538cc9b6b6aa8837ff9e17024dcf2"
+    },
+    {
+      "path": "split_assignments.jsonl",
+      "bytes": 321814,
+      "sha256": "e6ea3fa7f1eb4bf656766ac90318ffd3a98a5fead2fbfa650e7f98d76a2a8b4d"
+    },
+    {
+      "path": "validate_package.py",
+      "bytes": 26232,
+      "sha256": "f3d4e2e10535306ac587a66c9be89d8be6bdb195882907e55946c7c78a8d0d9a"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 This repository contains a mixed-license dataset. No single license applies to every record or to the repository as a whole.
 
-For each record, follow its `publication_rights` and the corresponding entry in `sources.json`. See `LICENSES.md`, `LICENSE_STATUS.md`, and `ATTRIBUTION.md` for a summary. The 1,107 new cloze records carry CC BY-NC-SA 3.0 IGO terms with attribution, adaptation, noncommercial, and ShareAlike obligations. Historical CAICT QA records retain CC BY 4.0 under the dataset owner's republishing authorization; this does not assert a license for the underlying reports.
+For each record, follow its publication_rights and the corresponding entry in sources.json. See LICENSES.md, LICENSE_STATUS.md, and ATTRIBUTION.md for the release-wide summary. The CAICT QA-record reuse authorization is dataset-owner-attested and does not grant a license to underlying reports. No source report PDF or media is redistributed.
 
-The exact v1.2.0 package is retained under `history/v1.2.0/`; all 833 historical records are included in the unified v2.0.0 corpus.
+The active v2.2.0 release contains only the 2,355-record Gold subset. The frozen v2.1.0 package and earlier release snapshots are retained under history/ for reproducibility and may have different record counts, review status, and recommendation status.

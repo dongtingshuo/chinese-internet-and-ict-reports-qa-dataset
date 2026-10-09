@@ -1,0 +1,126 @@
+{
+  "release_version": "2.2.0",
+  "release_date": "2026-10-10",
+  "gold_claimed": true,
+  "gold_claim_scope": "Only the 2,355 released records; no Gold claim is made for excluded historical or candidate rows.",
+  "selection_rule": "Included records must pass source/evidence and rights checks. Replacement rows also require a passing answer-blind semantic disposition, no unresolved follow-up, matching answerability, and complete human review. Baseline rows with an unresolved source-scope finding are excluded even if they have blind-AI credit.",
+  "released_record_count": 2355,
+  "released_split_counts": {
+    "TRAIN": 1573,
+    "DEV": 372,
+    "TEST": 410
+  },
+  "answerability_counts": {
+    "answerable": 2336,
+    "unanswerable": 19
+  },
+  "baseline": {
+    "frozen_version": "2.1.0",
+    "record_count": 2508,
+    "records_sha256": "e7b35f1ef9068f92072598307aa00edd61882f8f8750632741429a66ffa0a014",
+    "split_assignments_sha256": "9636e14c406eff5379bdddceb98a9625a3d4ec20661229c47ea42580a8f1285d",
+    "retained_ids_with_question_answer_facts_evidence_rights_and_split_unchanged": 2275,
+    "baseline_ids_excluded_for_unresolved_source_scope_findings": [
+      "IICR-V12-0030"
+    ],
+    "source_scope_finding_ids_not_in_release": [
+      "IICR-V12-0020",
+      "IICR-V12-0026",
+      "IICR-V12-0030"
+    ],
+    "answer_blind_ai_credited_rows": 2506,
+    "rows_without_credit_excluded": [
+      "IICR-V12-0026",
+      "IICR-V12-0028"
+    ]
+  },
+  "v2_2_replacements": {
+    "reviewed_replacements": 220,
+    "included_passing_replacements": 80,
+    "excluded_after_release_gates": 140,
+    "passing_semantic_dispositions": {
+      "no_difference_in_compared_answerability_answer_and_page_fields": 36,
+      "retain_candidate_answer": 26,
+      "retain_unanswerable_with_nearest_evidence": 18
+    },
+    "selection_ledger_sha256": "8c610325c55e05bee1c4e8e41a6569ef0eec61fad5cc020182d04e418e40b975"
+  },
+  "human_review": {
+    "baseline_rows_independently_reviewed_by_each_of_two_humans": 2508,
+    "reviewers": [
+      "D",
+      "T"
+    ],
+    "third_human_followup": {
+      "reviewer": "S",
+      "answer_and_fact_alignment": 199,
+      "question_revisions": 115,
+      "source_dispositions": 15,
+      "overlap_pairs": 208,
+      "supplement_cases": 1,
+      "all_required_final_fields_nonblank": true,
+      "decision_counts": {
+        "alignment": {
+          "revise_answer": 80,
+          "revise_question": 108,
+          "yes": 4,
+          "unanswerable": 7
+        },
+        "question_revisions": {
+          "revise_question": 108,
+          "remove_from_recommended": 4,
+          "mark_unanswerable": 3
+        },
+        "source_dispositions": {
+          "repair_and_retain": 8,
+          "remove_from_recommended": 4,
+          "retain_as_unanswerable": 3
+        },
+        "overlap": {
+          "retain_both": 186,
+          "revise_one": 22
+        },
+        "supplement": {
+          "unanswerable": 1
+        }
+      }
+    },
+    "blindness_and_no_assistance_disclosure": "Dataset-owner-attested; returned workbooks do not contain reviewer-signed method declarations.",
+    "human_reviewed_true_for_all_released_records": true
+  },
+  "protocol_deviations": {
+    "historical_attempts_excluded_from_blind_credit": 3,
+    "separately_locked_clean_reruns_credited": 3,
+    "pending_clean_reruns": 0
+  },
+  "overlap_review": {
+    "reviewed_pairs": 208,
+    "retain_both": 186,
+    "revise_one": 22,
+    "revise_one_pairs_with_both_members_released": 0
+  },
+  "rights_and_sources": {
+    "registered_source_documents_hash_verified": 61,
+    "registered_source_documents_total": 61,
+    "sources_used_by_released_records": 61,
+    "source_families_used_by_released_records": 20,
+    "publishing_organizations_used_by_released_records": 10,
+    "owner_attested_qa_record_reuse_sources": 19,
+    "CAICT_QA_reuse_basis": "Dataset-owner-attested authorization; no CAICT report open license or report-PDF redistribution right is asserted.",
+    "license_policy": "Mixed source-specific and record-level terms; no repository-wide license.",
+    "source_pdfs_or_media_included": false,
+    "CAICT_permission_instruments_independently_inspected": false
+  },
+  "record_license_counts": {
+    "CC BY 3.0 IGO": 297,
+    "CC BY-SA 3.0 IGO": 53,
+    "CC BY-NC-SA 3.0 IGO": 1517,
+    "CC BY 4.0": 488
+  },
+  "limitations": [
+    "Gold is an operationally selected release subset, not an external certification or a guarantee of zero annotation errors.",
+    "Reviewer-method, blindness, and no-assistance disclosures are owner-attested, not reviewer-signed.",
+    "Historical splits are post-annotation, not blind holdouts; prior system exposure has not been audited.",
+    "Record licenses are mixed; no single license covers all records."
+  ]
+}
