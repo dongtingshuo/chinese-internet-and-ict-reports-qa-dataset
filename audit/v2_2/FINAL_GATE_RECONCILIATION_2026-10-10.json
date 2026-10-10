@@ -1,0 +1,192 @@
+{
+  "audit_id": "V22-FINAL-GATE-RECONCILIATION-2026-10-10",
+  "reconciled_on": "2026-10-10",
+  "release_version": "2.2.0",
+  "status": "passed",
+  "scope": "The 2,355-record active Gold subset only; excluded historical and candidate rows are not certified.",
+  "checks": {
+    "published_gold_subset_shape": {
+      "passed": true,
+      "evidence": {
+        "records": 2355,
+        "unique_ids": 2355,
+        "splits": {
+          "TRAIN": 1573,
+          "DEV": 372,
+          "TEST": 410
+        },
+        "retained_baseline_rows": 2275,
+        "passing_replacements": 80
+      }
+    },
+    "failed_or_uncredited_baseline_rows_excluded": {
+      "passed": true,
+      "evidence": {
+        "excluded_query_ids": [
+          "IICR-V12-0026",
+          "IICR-V12-0028",
+          "IICR-V12-0030"
+        ]
+      }
+    },
+    "nonpassing_replacements_excluded": {
+      "passed": true,
+      "evidence": {
+        "excluded_replacement_count": 140,
+        "excluded_ids_in_release": []
+      }
+    },
+    "full_corpus_source_grounded_ai_audit": {
+      "passed": true,
+      "evidence": {
+        "source_grounded_rows": 2508,
+        "answer_blind_reconstructions": 2483,
+        "nonblind_supplement_rows": 25,
+        "nonblind_credit": 0
+      }
+    },
+    "blind_ai_credit_and_exclusions": {
+      "passed": true,
+      "evidence": {
+        "credited_baseline_rows": 2506,
+        "excluded_without_credit": [
+          "IICR-V12-0026",
+          "IICR-V12-0028"
+        ],
+        "row_level_evidence": {
+          "primary_credit_rows": 2483,
+          "primary_rows_are_subset_of_full_question_only_packet": true,
+          "hashfirst_rows_cover_primary_packet_gap": true,
+          "hashfirst_reconstruction_rows": 25,
+          "hashfirst_comparison_rows": 25,
+          "hashfirst_credited_ids": 20,
+          "hashfirst_withheld_ids": [
+            "IICR-V12-0026",
+            "IICR-V12-0028",
+            "IICR-V12-0030",
+            "IICR-V12-0031",
+            "IICR-V20-0653"
+          ],
+          "hashfirst_rows_disjoint_from_primary": true,
+          "hashfirst_lock_packet_ids_match": true,
+          "hashfirst_lock_hash_matches_manifest": true,
+          "hashfirst_packet_hash_matches_comparison": true,
+          "hashfirst_source_audit_hash_matches_comparison": true,
+          "hashfirst_source_audit_hash_matches_manifest": true,
+          "hashfirst_sources_pass": true,
+          "hashfirst_lock_precedes_comparison_attested": true,
+          "clean5_rows": 5,
+          "clean5_credited_ids": [
+            "IICR-V12-0030",
+            "IICR-V12-0031",
+            "IICR-V20-0653"
+          ],
+          "clean5_lock_hash_matches_comparison": true,
+          "clean5_credits_disjoint_from_prior_credit": true,
+          "total_unique_credited_ids": 2506,
+          "no_credit_ids_in_total": [
+            "IICR-V12-0026",
+            "IICR-V12-0028"
+          ]
+        }
+      }
+    },
+    "two_reviewer_baseline_coverage": {
+      "passed": true,
+      "evidence": {
+        "reviewers": [
+          "D",
+          "T"
+        ],
+        "rows_each": [
+          2508,
+          2508
+        ],
+        "method_basis": "dataset-owner-attested"
+      }
+    },
+    "third_human_adjudication_and_followups": {
+      "passed": true,
+      "evidence": {
+        "completed_ledgers": {
+          "alignment": 199,
+          "question_revisions": 115,
+          "source_dispositions": 15,
+          "overlap": 208,
+          "locator_addenda": 19,
+          "locator_patches": 13,
+          "supplemental_cases": 10
+        },
+        "open_findings": [
+          [],
+          [],
+          []
+        ],
+        "method_basis": "dataset-owner-attested; not reviewer-signed"
+      }
+    },
+    "overlap_review_and_release_separation": {
+      "passed": true,
+      "evidence": {
+        "reviewed_pairs": 208,
+        "decisions": {
+          "retain_both": 186,
+          "revise_one": 22
+        },
+        "revise_one_pairs_with_both_released": []
+      }
+    },
+    "protocol_deviation_reruns": {
+      "passed": true,
+      "evidence": [
+        {
+          "query_id": "M3-TR-CAND-0016",
+          "rerun_batch": "V22-AI-MANUAL-59",
+          "lock_hash_verified": true,
+          "original_attempt_credit": false
+        },
+        {
+          "query_id": "M3-TR-CAND-0116",
+          "rerun_batch": "V22-AI-MANUAL-61",
+          "lock_hash_verified": true,
+          "original_attempt_credit": false
+        },
+        {
+          "query_id": "M3-TR-CAND-0270",
+          "rerun_batch": "V22-AI-MANUAL-61",
+          "lock_hash_verified": true,
+          "original_attempt_credit": false
+        }
+      ]
+    },
+    "source_rights_and_hash_coverage": {
+      "passed": true,
+      "evidence": {
+        "registered_sources": 61,
+        "verified_source_hashes": 61,
+        "owner_attested_record_reuse_sources": 19,
+        "CAICT_report_license_or_permission_instrument_claimed": false
+      }
+    },
+    "candidate_and_release_validators": {
+      "passed": true,
+      "evidence": {
+        "candidate_validation": "passed",
+        "release_record_count": 2355,
+        "candidate_issues": []
+      }
+    }
+  },
+  "historical_review_material_validator": {
+    "status": "failed",
+    "issue_count": 45,
+    "classification": "Historical batch-progress snapshots and pre-release status fields are internally stale; this report preserves that failure separately from the canonical candidate and release validators."
+  },
+  "limitations": [
+    "Human independence, answer blindness, and no-assistance disclosures are dataset-owner-attested rather than reviewer-signed.",
+    "Source-specific record reuse authorization for 19 sources is owner-attested; this is not a publisher open-license claim.",
+    "Two baseline rows without blind AI credit and all non-passing proposals are excluded from the active subset.",
+    "Historical splits are post-annotation and are not blind holdouts."
+  ],
+  "failures": []
+}
